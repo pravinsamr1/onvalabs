@@ -66,6 +66,11 @@
 ------------------------*/
 
 /** Variables **/
+:root {
+    --theme-primary-color: #2d4a8a;
+    --theme-primary-color-rgb: 45, 74, 138;
+}
+
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { 
     display: block;
 }
@@ -73,12 +78,12 @@ a:focus {
     text-decoration: none; 
 }
 a:focus, a:hover { 
-    color: #2d4a8a; 
+    color: var(--theme-primary-color); 
     text-decoration: none; 
 }
 a, button, input { 
     outline: medium none; 
-    color: #2d4a8a; 
+    color: var(--theme-primary-color); 
     text-decoration: none;
 }
 ol, ul{ 
@@ -99,17 +104,17 @@ p {
 }
 
 *::-moz-selection { 
-    background: #2d4a8a; 
+    background: var(--theme-primary-color); 
     color: #fff; 
     text-shadow: none; 
 }
 ::-moz-selection { 
-    background: #2d4a8a; 
+    background: var(--theme-primary-color); 
     color: #fff;
     text-shadow: none; 
 }
 ::selection { 
-    background: #2d4a8a; 
+    background: var(--theme-primary-color); 
     color: #fff; 
     text-shadow: none; 
 }
@@ -723,12 +728,12 @@ ul li .icon-box.icon-style-border i,
 .timing-box i,
 .widget_info .widget_icon,
 .ttm-bgcolor-grey.ttm-topbar-wrapper .social-icons li>a:hover i{
-  color: #2d4a8a ;
+  color: var(--theme-primary-color) ;
 }
 
 h1.ttm-textcolor-skincolor, h2.ttm-textcolor-skincolor, h3.ttm-textcolor-skincolor, 
 h4.ttm-textcolor-skincolor, h5.ttm-textcolor-skincolor, h6.ttm-textcolor-skincolor {
-  color: #2d4a8a ;
+  color: var(--theme-primary-color) ;
 }
 
 /** Skin-bg-color **/
@@ -808,7 +813,7 @@ div.product ul.tabs li a:before,
 .testimonial-slide.style4 .testimonial-avatar .testimonial-img:after,
 .ttm-play-icon-animation.ttm-skincolor:before,
 .ttm-play-icon-animation.ttm-skincolor:after {
-  background-color: #2d4a8a ;
+  background-color: var(--theme-primary-color) ;
 }
 
 /** Skin-border-color **/
@@ -850,7 +855,7 @@ input[type="color"]:focus,
 .ttm-blog-single-content .social-icons li>a:hover,
 .testimonial-slide.style2.owl-theme .owl-controls .owl-nav div:hover,
 textarea:focus { 
-    border-color: #2d4a8a !important;
+    border-color: var(--theme-primary-color) !important;
 }
 .ttm-search-overlay,
 .ttm-rounded-shadow-box, div.product ul.tabs li.active a:before,
@@ -859,15 +864,15 @@ textarea:focus {
 .tooltip-top:before, .tooltip:before, [data-tooltip]:before,
 .section-title.with-desc .title-header:before,
 #site-header-menu #site-navigation .menu > ul{
-    border-top-color: #2d4a8a !important; 
+    border-top-color: var(--theme-primary-color) !important; 
 }
 .ttm-search-overlay .w-search-form-row:before,
 .tooltip-bottom:before,
 .featured-imagebox-services.style1 .featured-content,
-.ttm-pf-single-detail-box { border-bottom-color: #2d4a8a !important; }
+.ttm-pf-single-detail-box { border-bottom-color: var(--theme-primary-color) !important; }
 
 .quicklink-box .featured-icon-box .ttm-icon:before,
-.ttm-blog-single .ttm-blog-single-content blockquote{ border-left-color: #2d4a8a !important; }
+.ttm-blog-single .ttm-blog-single-content blockquote{ border-left-color: var(--theme-primary-color) !important; }
 
 
 /** 2.DarkGrey-color **/
@@ -2946,4 +2951,68 @@ html, body {
     background: #0066cc;
     color: #ffffff;
     border-color: #0066cc;
+}
+/* ===============================================
+    Color Switcher
+------------------------*/
+.color-switcher {
+    position: fixed;
+    top: 50%;
+    left: -240px;
+    width: 240px;
+    background: #fff;
+    z-index: 99999;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    transform: translateY(-50%);
+}
+.color-switcher.active {
+    left: 0;
+}
+.color-switcher-toggle {
+    position: absolute;
+    right: -45px;
+    top: 0;
+    width: 45px;
+    height: 45px;
+    background: var(--theme-primary-color);
+    color: #fff;
+    text-align: center;
+    line-height: 45px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+.color-switcher-content {
+    padding: 20px;
+}
+.switcher-title {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+.color-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -5px;
+}
+.color-item {
+    width: calc(25% - 10px);
+    height: 35px;
+    margin: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+    list-style: none;
+}
+.color-item:hover {
+    transform: scale(1.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }

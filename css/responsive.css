@@ -75,7 +75,7 @@
 	    right: 0;
 	    bottom: 0;
 	    margin: auto;
-	    background-color: #2d4a8a;
+	    background-color: var(--theme-primary-color);
 	    height: 2px;
 	    transform-origin: right center;
 	    -webkit-transform-origin: right center;
@@ -132,7 +132,7 @@
 	    -moz-transition: .5s all;
 	    -ms-transition: .5s all;
 	    transition: .5s all;
-	    background-color: #2d4a8a;
+	    background-color: var(--theme-primary-color);
 	    top: 22px;
 	}
 	#site-header-menu #site-navigation .menu > ul > li ul a:hover:before{
@@ -317,7 +317,7 @@
 	    opacity: 0;
 	    position: absolute;
 	    content: "";
-	    background-color: #2d4a8a;
+	    background-color: var(--theme-primary-color);
 	    -webkit-transition: all 0.3s ease;
 	    -moz-transition: all 0.3s ease;
 	    -ms-transition: all 0.3s ease;
@@ -353,7 +353,7 @@
     content: "";
     width: 5000px;
     height: 100%;
-    background-color: rgba( 45,74,138,1);
+    background-color: rgba( var(--theme-primary-color-rgb),1);
     left: 100%;
     top: 0px;
     position: absolute;

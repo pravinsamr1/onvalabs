@@ -734,6 +734,21 @@ jQuery('#totop').on('click', function() {      // When arrow is clicked
 
 
  $(function() {
-    
+        
+        /*------------------------------------------------------------------------------*/
+        /* Color Switcher
+        /*------------------------------------------------------------------------------*/
+        $('.color-switcher-toggle').on('click', function() {
+            $('#theme-color-switcher').toggleClass('active');
+            $(this).find('i').toggleClass('fa-spin');
+        });
+
+        $('.color-list .color-item').on('click', function() {
+            var color = $(this).data('color');
+            var rgb = $(this).data('rgb');
+            document.documentElement.style.setProperty('--theme-primary-color', color);
+            document.documentElement.style.setProperty('--theme-primary-color-rgb', rgb);
+        });
+
     });
 })(jQuery);
