@@ -174,38 +174,41 @@ $(window).scroll(function(){
 /* Skillbar
 /*------------------------------------------------------------------------------*/
 
- $('.ttm-progress-bar').each(function() {
-    $(this).find('.progress-bar').width(0);
+    $('.ttm-progress-bar').each(function() {
+        $(this).find('.progress-bar').width(0);
     });
 
     $('.ttm-progress-bar').each(function() {
+        var self = $(this);
+        
+        self.waypoint(function() {
+            if (!self.hasClass('animated')) {
+                self.addClass('animated');
+                
+                // Animate the bar width
+                self.find('.progress-bar').animate({
+                    width: self.attr('data-percent')
+                }, 2000);
 
-        $(this).find('.progress-bar').animate({
-            width: $(this).attr('data-percent')
-        }, 2000);
-    });
-
-    // Part of the code responsible for loading percentages:
-
-    $('.progress-bar-percent[data-percentage]').each(function () {
-
-        var progress = $(this);
-        var percentage = Math.ceil($(this).attr('data-percentage'));
-
-            $({countNum: 0}).animate({countNum: percentage}, {
-                duration: 2000,
-                easing:'linear',
-                step: function() {
-                // What todo on every count
-                    var pct = '';
-                    if(percentage == 0){
-                        pct = Math.floor(this.countNum) + '%';
-                    }else{
-                        pct = Math.floor(this.countNum+1) + '%';
-                    }
-                    progress.text(pct);
+                // Animate the percentage number
+                var percentEl = self.find('.progress-bar-percent');
+                var percentageRaw = percentEl.attr('data-percentage') || percentEl.attr('data-percent');
+                
+                if (percentageRaw) {
+                    var percentage = Math.ceil(parseInt(percentageRaw));
+                    $({countNum: 0}).animate({countNum: percentage}, {
+                        duration: 2000,
+                        easing: 'linear',
+                        step: function() {
+                            percentEl.text(Math.floor(this.countNum) + '%');
+                        },
+                        complete: function() {
+                            percentEl.text(percentage + '%');
+                        }
+                    });
                 }
-            });
+            }
+        }, { offset: '90%' });
     });
 
 

@@ -23,8 +23,8 @@
 /* Base image container for the shape */
 .custom-process-wrapper .ttm-box-image {
     position: relative !important;
-    width: 170px !important;
-    height: 170px !important;
+    width: 210px !important;
+    height: 210px !important;
     margin: 0 auto 30px auto !important;
     border-radius: 50% !important;
     z-index: 1 !important;
@@ -35,13 +35,13 @@
 
 /* The actual image inside the shape */
 .custom-process-wrapper .ttm-box-image img {
-    width: 140px !important;
-    height: 140px !important;
+    width: 170px !important;
+    height: 170px !important;
     border-radius: 50% !important;
     object-fit: cover !important;
     z-index: 2 !important;
     position: relative !important;
-    border: 4px solid #ffffff !important;
+    border: 2px solid #ffffff !important;
 }
 
 /* Background circle shape (Default light blue) */
@@ -64,13 +64,13 @@
     position: absolute !important;
     top: 50% !important;
     left: 50% !important;
-    width: 32px !important;
-    height: 32px !important;
+    width: 40px !important;
+    height: 40px !important;
     background-color: #e4e9f2 !important;
     z-index: 0 !important;
     border-radius: 0 !important; /* Sharp tip */
     /* Center -> Rotate 0deg (right) -> Move to edge -> Rotate 45deg (diamond) */
-    transform: translate(-50%, -50%) rotate(0deg) translateX(80px) rotate(45deg) !important;
+    transform: translate(-50%, -50%) rotate(0deg) translateX(100px) rotate(45deg) !important;
     transition: all 0.4s ease !important;
 }
 
@@ -116,7 +116,7 @@
 .custom-process-wrapper .ttm-processbox:hover .ttm-box-image::after {
     background-color: var(--theme-primary-color, #1e73be) !important;
     /* Center -> Rotate 90deg (down) -> Move to edge -> Rotate 45deg (diamond) */
-    transform: translate(-50%, -50%) rotate(90deg) translateX(80px) rotate(45deg) !important;
+    transform: translate(-50%, -50%) rotate(90deg) translateX(100px) rotate(45deg) !important;
 }
 .custom-process-wrapper .ttm-processbox:hover .process-num {
     background-color: var(--theme-primary-color, #1e73be) !important;

@@ -1797,7 +1797,7 @@ body{ counter-reset: section; }
     text-align: center;
 }
 .ttm-processbox-wrapper .ttm-processbox .ttm-box-image {
-    border: 3px solid #f0f0f0;
+    /* border: 3px solid #f0f0f0; */
     border-radius: 50%;
     margin-bottom: 35px;
     position: relative;
@@ -1827,7 +1827,7 @@ body{ counter-reset: section; }
     top: 45%;
     height: 22px;
     width: 72px;
-    background-image: url(../images/process-arrow.png);
+    /* background-image: url(../images/process-arrow.png); */
     background-repeat: no-repeat;
 }
 .ttm-processbox-wrapper .ttm-processbox .process-num {
@@ -3310,14 +3310,7 @@ body.font-size-130 p, body.font-size-130 h1, body.font-size-130 h2, body.font-si
     cursor: pointer;
 }
 .font-size-item::before {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: -10px;
-    width: 220px;
-    height: 65px;
-    z-index: 999998;
-    pointer-events: auto;
+    display: none !important;
 }
 .font-size-controls-popover {
     display: flex !important;
