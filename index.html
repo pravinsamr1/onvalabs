@@ -1627,12 +1627,26 @@
                                 </ul>
                                 
                                 <div class="footer-signup mt-30">
-                                    <h5 class="footer-heading">Newsletter Sign Up</h5>
-                                    <form class="footer-newsletter">
-                                        <input type="email" placeholder="Email Address">
-                                        <button type="submit"><i class="ti ti-arrow-right"></i></button>
+                                    <h5 class="footer-heading" style="margin-bottom: 25px;">Sign Up</h5>
+                                    <form class="footer-signup-form" style="display: flex; flex-direction: column; gap: 15px;">
+                                        <div style="position: relative;">
+                                            <i class="ti ti-email" style="position: absolute; left: 15px; top: 14px; color: rgba(255,255,255,0.5);"></i>
+                                            <input type="email" placeholder="Email Address" style="width: 100%; padding: 12px 15px 12px 40px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 8px; outline: none; transition: all 0.3s ease;" onfocus="this.style.border='1px solid var(--theme-primary-color)'; this.style.background='rgba(255,255,255,0.07)';" onblur="this.style.border='1px solid rgba(255,255,255,0.1)'; this.style.background='rgba(255,255,255,0.03)';">
+                                        </div>
+                                        <div style="position: relative;">
+                                            <i class="ti ti-briefcase" style="position: absolute; left: 15px; top: 14px; color: rgba(255,255,255,0.5); z-index: 1;"></i>
+                                            <select style="width: 100%; padding: 12px 30px 12px 40px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); border-radius: 8px; outline: none; transition: all 0.3s ease; appearance: none; -webkit-appearance: none; cursor: pointer;" onfocus="this.style.border='1px solid var(--theme-primary-color)'; this.style.background='rgba(255,255,255,0.07)';" onblur="this.style.border='1px solid rgba(255,255,255,0.1)'; this.style.background='rgba(255,255,255,0.03)';">
+                                                <option value="" style="color: #333;">Select Service...</option>
+                                                <option value="web" style="color: #333;">Web Development</option>
+                                                <option value="mobile" style="color: #333;">Mobile App Development</option>
+                                                <option value="erp" style="color: #333;">ERP & Software</option>
+                                                <option value="digital" style="color: #333;">Digital Marketing</option>
+                                                <option value="domain" style="color: #333;">Domain & Hosting</option>
+                                            </select>
+                                            <i class="ti ti-angle-down" style="position: absolute; right: 15px; top: 16px; color: rgba(255,255,255,0.5); pointer-events: none;"></i>
+                                        </div>
+                                        <button type="submit" class="ttm-btn" style="width: 100%; border-radius: 8px; text-align: center; margin-top: 5px; font-weight: 600; letter-spacing: 0.5px; background-color: var(--theme-primary-color); color: #fff; border: none; padding: 12px 20px; display: block; cursor: pointer; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#1a2f5e'" onmouseout="this.style.backgroundColor='var(--theme-primary-color)'">Sign Up Now</button>
                                     </form>
-                                    <a href="#" class="ttm-btn ttm-btn-size-md ttm-btn-shape-round ttm-btn-style-fill ttm-btn-color-skincolor mt-20 text-center" style="width:100%; display:inline-block;"><i class="ti ti-arrow-right"></i> Start a Project</a>
                                 </div>
                             </div>
                         </div>

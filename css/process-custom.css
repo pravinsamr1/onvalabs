@@ -308,4 +308,29 @@ img.img-fluid,
 .featured-imagebox,
 .ttm-box-col-wrapper .featured-imagebox-portfolio {
     overflow: hidden !important;
+    background-color: transparent !important;
+    margin-bottom: 20px !important;
+}
+
+/* Add border to featured content cards and remove shadow */
+.featured-imagebox .featured-content,
+.featured-imagebox-services.style1 .featured-content,
+.featured-imagebox.style1 .featured-content {
+    border: 1px solid #dbdbdb !important;
+    box-shadow: none !important;
+    background-color: #fff !important;
+}
+
+/* Prevent hover from turning card blue */
+.featured-imagebox-services.style1:hover .featured-content {
+    background-color: #fff !important;
+}
+.featured-imagebox-services.style1:hover .featured-title h5 a {
+    color: #182333 !important;
+}
+.featured-imagebox-services.style1:hover .featured-desc p {
+    color: #636b77 !important;
+}
+.featured-imagebox-services.style1:hover .ttm-btn {
+    color: var(--theme-primary-color) !important;
 }
