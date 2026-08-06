@@ -1889,11 +1889,11 @@ ul.footer-nav-menu li:not(:last-child):after {
 }
 div.ttm-page-title-row > .ttm-bg-layer { background-color: rgba(24,35,51,0.85); }
 .ttm-page-title-row { 
-    display: flex;
+    /* display: flex; */
     align-items: center;
     justify-content: center;
     min-height: 90vh;
-    padding-top: 100px;
+    padding-top: 200px;
     padding-bottom: 50px;
     z-index: 11;
 }
@@ -3054,7 +3054,6 @@ html, body {
     }
     #site-header-menu #site-navigation .menu ul.dropdown > li.megamenu-fw > .megamenu-content {
         position: absolute !important;
-        top: 90px !important;
         left: 15px !important; /* Align with container padding */
         width: calc(100% - 30px) !important; /* Full width of container */
         max-width: 100% !important;
