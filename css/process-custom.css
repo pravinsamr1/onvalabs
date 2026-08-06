@@ -321,16 +321,80 @@ img.img-fluid,
     background-color: #fff !important;
 }
 
-/* Prevent hover from turning card blue */
+/* Force template blue hover effect */
 .featured-imagebox-services.style1:hover .featured-content {
-    background-color: #fff !important;
+    background-color: var(--theme-primary-color, #1e73be) !important;
 }
-.featured-imagebox-services.style1:hover .featured-title h5 a {
-    color: #182333 !important;
-}
-.featured-imagebox-services.style1:hover .featured-desc p {
-    color: #636b77 !important;
-}
+.featured-imagebox-services.style1:hover .featured-title h5 a,
+.featured-imagebox-services.style1:hover .featured-desc p,
 .featured-imagebox-services.style1:hover .ttm-btn {
-    color: var(--theme-primary-color) !important;
+    color: #ffffff !important;
+}
+
+/* Floating Talk to Us Widget */
+.floating-talk-btn {
+    position: fixed;
+    left: 30px;
+    bottom: 30px;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    cursor: pointer;
+    text-decoration: none !important;
+}
+
+.floating-talk-btn .talk-icon {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: var(--theme-primary-color, #1e73be);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 20px;
+    z-index: 2;
+    transition: transform 0.3s ease, background 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.floating-talk-btn svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    animation: rotateText 15s linear infinite;
+}
+
+.floating-talk-btn svg text,
+.floating-talk-btn svg textPath {
+    fill: #007bff !important;
+}
+
+@keyframes rotateText {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.floating-talk-btn:hover .talk-icon {
+    transform: scale(1.1);
+    background: #0b1a30;
+}
+.floating-talk-btn:hover svg {
+    animation-play-state: paused;
+}
+
+/* Portfolio Style 2 Hover State (Everything You Get) */
+.featured-imagebox-portfolio.style2:hover .featured-content {
+    background-color: var(--theme-primary-color, #1e73be) !important;
+}
+.featured-imagebox-portfolio.style2:hover .featured-title h5 a,
+.featured-imagebox-portfolio.style2:hover .category p {
+    color: #ffffff !important;
 }
