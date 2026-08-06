@@ -295,3 +295,17 @@ html, body {
     width: 100% !important;
     max-width: 100vw !important;
 }
+
+/* Global border radius for cards and images */
+.featured-imagebox,
+.featured-imagebox .featured-thumbnail img,
+.featured-imagebox .featured-content,
+.featured-icon-box,
+img.img-fluid,
+.ttm-box-col-wrapper .featured-imagebox-portfolio {
+    border-radius: 20px !important;
+}
+.featured-imagebox,
+.ttm-box-col-wrapper .featured-imagebox-portfolio {
+    overflow: hidden !important;
+}
