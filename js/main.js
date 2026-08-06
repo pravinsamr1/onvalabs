@@ -327,7 +327,6 @@ $(document).ready(function() {
     var e = '<div class="prt_floting_customsett">'+
                 '<a href="contact-01.html" class="tmtheme_fbar_icons" title="Support"><i class="fa fa-headphones"></i><span>Support</span></a>'+
                 '<div class="tmtheme_fbar_icons font-size-item" id="font-size-toggler" title="Font Size"><i class="themifyicon ti-pencil"></i><div class="font-size-controls-popover"><button id="btn-font-decrease" type="button" class="f-control-btn" title="Decrease Font Size">A-</button><button id="btn-font-reset" type="button" class="f-control-btn" title="Reset Font Size">A</button><button id="btn-font-increase" type="button" class="f-control-btn" title="Increase Font Size">A+</button></div></div>'+
-                '<a href="cart.html" class="tmtheme_fbar_icons" title="Cart"><i class="themifyicon ti-shopping-cart"></i><span class="buy_link">Cart</span></a>'+
                 '<div class="clearfix"></div>'+
             '</div>';
 

@@ -138,7 +138,7 @@
 
 /* Custom Footer Styles */
 .custom-footer {
-    padding: 60px 0 20px;
+    padding: 30px 0 10px;
 }
 .custom-footer-container {
     padding: 0 40px;
@@ -336,8 +336,8 @@ img.img-fluid,
     position: fixed;
     left: 30px;
     bottom: 30px;
-    width: 90px;
-    height: 90px;
+    width: 70px;
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -397,4 +397,70 @@ img.img-fluid,
 .featured-imagebox-portfolio.style2:hover .featured-title h5 a,
 .featured-imagebox-portfolio.style2:hover .category p {
     color: #ffffff !important;
+}
+
+/* Reduce Navbar Height */
+.site-branding {
+    display: flex !important;
+    align-items: center !important;
+    height: 70px !important;
+    padding: 0 !important;
+}
+.site-branding img {
+    max-height: 45px !important;
+}
+#site-header-menu #site-navigation .menu > ul > li > a {
+    line-height: 70px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+.ttm-stickable-header {
+    min-height: 70px !important;
+    padding: 0 !important;
+}
+
+/* Fix Megamenu items height getting hijacked by generic responsive rules */
+.megamenu-content .mega-list li a {
+    height: auto !important;
+    line-height: normal !important;
+    padding: 8px 15px !important;
+}
+
+
+/* Reduce topbar height */
+.ttm-topbar-content .topbar-right .list-inline,
+.ttm-topbar-content .top-contact {
+    line-height: 36px !important; 
+}
+.ttm-topbar-wrapper {
+    padding: 0 !important;
+}
+
+.ttm-topbar-wrapper .header-btn .ttm-btn {
+    padding: 8px 30px !important; 
+    line-height: 20px !important;
+}
+
+/* Hide the back-to-top button globally */
+#totop {
+    display: none !important;
+}
+
+/* Compress footer inner margins */
+.custom-footer .mb-40, .custom-footer .mb-30 {
+    margin-bottom: 20px !important;
+}
+.custom-footer .footer-desc {
+    margin-bottom: 15px !important;
+}
+.custom-footer .footer-contact-list {
+    margin-bottom: 15px !important;
+}
+.custom-footer .footer-heading {
+    margin-bottom: 10px !important;
+}
+
+/* Improve text visibility on slider */
+rs-module .rs-layer[data-type="text"]:not(.ttm-btn) {
+    text-shadow: 0px 4px 20px rgba(0, 0, 0, 0.8) !important;
 }

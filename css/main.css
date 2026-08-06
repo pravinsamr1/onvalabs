@@ -1285,13 +1285,13 @@ div.product ul.tabs li a{
     TopBar
 ------------------------*/
 .ttm-topbar-wrapper{
-    line-height: 51px;
-    height: 52px;
+    line-height: 4px;
+    height: 37px;
 }
 .ttm-topbar-wrapper .top-contact.text-left {
     position: relative;
     float: left;
-    line-height: 52px;
+    line-height: 37px;
 }
 .ttm-topbar-wrapper .top-contact.text-left li:not(:last-child):before {
     content: "";
@@ -1354,7 +1354,7 @@ div.product ul.tabs li a{
 .ttm-topbar-wrapper .social-icons li>a:hover{ color: rgba(255,255,255,.80) !important;}
 .ttm-topbar-content .topbar-right .list-inline {
     display: inline-block;
-    line-height: 52px;
+    line-height: 37px;
 }
 .top-contact.ttm-highlight-left {
     margin-right: 15px;
@@ -1533,9 +1533,9 @@ div.product ul.tabs li a{
 }
 .header-btn .ttm-btn.ttm-btn-size-md{
     font-size: 14px;
-    padding: 13px 25px 13px 25px;
-    height: 52px;
-    line-height: 25px;
+    padding: 0 25px;
+    height: 37px;
+    line-height: 37px;
 }
 .ttm-header-style-01 .header-btn .ttm-btn.ttm-btn-bgcolor-skincolor:hover{background-color: #fff !important;}
 .ttm-header-icons, .ttm-header-icon{
@@ -3058,7 +3058,7 @@ html, body {
         width: calc(100% - 30px) !important; /* Full width of container */
         max-width: 100% !important;
         transform: translateY(20px) !important;
-        background: #f8faff; /* Subtle colour difference */
+        background: #ffffff; /* Subtle colour difference */
         padding: 40px !important;
         box-shadow: 0 10px 40px rgba(0,0,0,0.15);
         opacity: 0 !important;

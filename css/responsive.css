@@ -57,7 +57,10 @@
 	/*topbar*/
 	.ttm-header-style-01 .ttm-topbar-wrapper,
 	.ttm-header-style-02 .ttm-topbar-wrapper{background-color: #1e2637;}
-	.site-header-menu{background-color: rgba(255,255,255,0.8);height: 93px;}
+	.site-header-menu{
+		background-color: rgba(255,255,255,0.8);
+		height: 75px;
+	}
 	#site-header-menu #site-navigation .menu ul > li > a {
 	   display: block;
 	    margin: 0px;
@@ -181,7 +184,7 @@
 	.ttm-header-style-01 .site-branding,
 	.ttm-header-style-01 #site-header-menu #site-navigation .menu > ul > li > a,
 	.ttm-header-style-01 .ttm-header-icons, .ttm-header-style-01 .ttm-header-icon	 { 
-		height: 93px; 
+		height: 75px; 
 		line-height: 93px;
 	}
 	.ttm-header-style-01 .ttm-stickable-header-w,
