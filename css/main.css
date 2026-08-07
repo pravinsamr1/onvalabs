@@ -1892,9 +1892,9 @@ div.ttm-page-title-row > .ttm-bg-layer { background-color: rgba(24,35,51,0.85); 
     /* display: flex; */
     align-items: center;
     justify-content: center;
-    min-height: 90vh;
-    padding-top: 200px;
-    padding-bottom: 50px;
+    min-height: 220px !important;
+    padding-top: 150px !important;
+    padding-bottom: 60px !important;
     z-index: 11;
 }
 .title-box .page-title-heading h1 {
