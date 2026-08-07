@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="Pricing, Web Development, Software Development, SEO, AIO, Onva Labs, Sydney Australia">
+    <meta name="description" content="Transparent pricing for web development, software development, and SEO & AIO services from Onva Labs Sydney Australia. Fixed-scope quotes and predictable plans.">
+    <meta name="author" content="Onva Labs" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Pricing | Onva Labs</title>
+
+    <!-- favicon icon -->
+    <link rel="shortcut icon" href="images/favicon.png" />
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+
+    <!-- animate -->
+    <link rel="stylesheet" type="text/css" href="css/animate.css" />
+
+    <!-- owl-carousel -->
+    <link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+
+    <!-- themify -->
+    <link rel="stylesheet" type="text/css" href="css/themify-icons.css" />
+
+    <!-- flaticon -->
+    <link rel="stylesheet" type="text/css" href="css/flaticon.css" />
+
+    <!-- REVOLUTION LAYERS STYLES -->
+    <link rel="stylesheet" type="text/css" href="css/rs6.css">
+
+    <!-- prettyphoto -->
+    <link rel="stylesheet" type="text/css" href="css/prettyPhoto.css">
+
+    <!-- shortcodes -->
+    <link rel="stylesheet" type="text/css" href="css/shortcodes.css" />
+
+    <!-- main -->
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+
+    <!-- custom process section styles -->
+    <link rel="stylesheet" type="text/css" href="css/process-custom.css" />
+
+    <!-- responsive -->
+    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+
+    <style id="custom-pricing-styles">
+        body { overflow-x: hidden; }
+
+        /* Pricing Section Custom Styles */
+        .pricing-section-container {
+            padding: 60px 0 90px;
+            background-color: #f8fafc;
+        }
+
+        .pricing-tabs-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 45px;
+        }
+
+        .pricing-nav-tabs {
+            display: inline-flex;
+            background: #ffffff;
+            padding: 6px;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        .pricing-tab-btn {
+            border: none;
+            background: transparent;
+            padding: 12px 28px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #64748b;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pricing-tab-btn:hover {
+            color: #0f172a;
+        }
+
+        .pricing-tab-btn.active {
+            background: #2d4a8a;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(45, 74, 138, 0.25);
+        }
+
+        /* 4-Card Grid */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            align-items: stretch;
+        }
+
+        @media (max-width: 1199px) {
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Card Styling */
+        .price-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 32px 24px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .price-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .price-card.popular-card {
+            border: 2px solid #2d4a8a;
+            box-shadow: 0 12px 32px rgba(45, 74, 138, 0.15);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: #2d4a8a;
+            color: #ffffff;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 100px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-header-block {
+            margin-bottom: 20px;
+        }
+
+        .price-card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .price-card-desc {
+            font-size: 0.88rem;
+            color: #64748b;
+            min-height: 42px;
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+
+        .price-amount-block {
+            margin: 16px 0 24px;
+        }
+
+        .billing-type {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 2px;
+            text-transform: lowercase;
+        }
+
+        .price-val {
+            font-size: 2.3rem;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+        }
+
+        .price-features-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 28px 0;
+            flex-grow: 1;
+        }
+
+        .price-features-list li {
+            font-size: 0.88rem;
+            color: #334155;
+            padding: 7px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            line-height: 1.4;
+        }
+
+        .price-features-list li i {
+            color: #2d4a8a;
+            font-size: 0.95rem;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .card-action-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none !important;
+            transition: all 0.2s ease;
+            gap: 8px;
+        }
+
+        .btn-ghost-card {
+            border: 1px solid #cbd5e1;
+            background: #ffffff;
+            color: #0f172a !important;
+        }
+
+        .btn-ghost-card:hover {
+            background: #f1f5f9;
+            border-color: #94a3b8;
+            color: #0f172a !important;
+        }
+
+        .btn-primary-card {
+            background: #2d4a8a;
+            border: 1px solid #2d4a8a;
+            color: #ffffff !important;
+            box-shadow: 0 4px 12px rgba(45, 74, 138, 0.2);
+        }
+
+        .btn-primary-card:hover {
+            background: #1e3466;
+            border-color: #1e3466;
+            color: #ffffff !important;
+        }
+
+        .pricing-tab-pane {
+            display: none;
+        }
+
+        .pricing-tab-pane.active {
+            display: block;
+        }
+
+        /* FAQ Section */
+        .pricing-faq-section {
+            padding: 80px 0;
+            background: #ffffff;
+        }
+
+        .faq-card-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .faq-card-box h5 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .faq-card-box p {
+            color: #64748b;
+            font-size: 0.92rem;
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .pricing-cta-banner {
+            background: linear-gradient(135deg, #182333 0%, #2d4a8a 100%);
+            border-radius: 20px;
+            padding: 50px 40px;
+            color: #ffffff;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .pricing-cta-banner h2 {
+            color: #ffffff;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .pricing-cta-banner p {
+            color: #cbd5e1;
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto 28px;
+        }
+
+        .cta-btn-white {
+            background: #ffffff;
+            color: #0f172a !important;
+            font-weight: 700;
+            padding: 14px 32px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn-white:hover {
+            background: #f1f5f9;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--page start-->
+    <div class="page">
+
+        <!-- preloader start -->
+        <div id="preloader">
+            <div id="status">&nbsp;</div>
+        </div>
+        <!-- preloader end -->
+
+        <!--header start-->
+        <div id="header-placeholder"></div>
+
+        <!-- page-title -->
+        <div class="ttm-page-title-row ttm-textcolor-white" style="min-height: 380px !important;">
+            <div class="ttm-bg-layer"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12"> 
+                        <div class="title-box text-center">
+                            <div class="page-title-heading">
+                                <h1 class="title">Clear pricing, no surprises</h1>
+                            </div>
+                            <p class="text-white mt-2" style="max-width: 720px; margin: 12px auto 0; font-size: 1.1rem; opacity: 0.9;">
+                                Every project is scoped to a fixed quote before we start. Here's a guide to where most engagements land — your exact quote depends on scope.
+                            </p>
+                            <div class="breadcrumb-wrapper mt-3">
+                                <span>
+                                    <a title="Homepage" href="index.html" class="ttm-textcolor-white"><i class="ti ti-home"></i>&nbsp;&nbsp;Home</a>
+                                </span>
+                                <span class="ttm-bread-sep">&nbsp; : : &nbsp;</span>
+                                <span>Pricing</span>
+                            </div>  
+                        </div>
+                    </div>
+                </div>  
+            </div>                      
+        </div><!-- page-title end-->
+
+        <!--site-main start-->
+        <div class="site-main">
+
+            <!-- Pricing Main Section -->
+            <section class="pricing-section-container">
+                <div class="container">
+
+                    <!-- Pricing Category Nav Tabs -->
+                    <div class="pricing-tabs-wrapper">
+                        <div class="pricing-nav-tabs">
+                            <button class="pricing-tab-btn active" onclick="switchPricingTab('web-dev', this)">
+                                <i class="fa fa-code"></i> Web Development
+                            </button>
+                            <button class="pricing-tab-btn" onclick="switchPricingTab('software-dev', this)">
+                                <i class="fa fa-cogs"></i> Software Development
+                            </button>
+                            <button class="pricing-tab-btn" onclick="switchPricingTab('seo-aio', this)">
+                                <i class="fa fa-line-chart"></i> SEO & AIO Services
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- TAB 1: WEB DEVELOPMENT PRICING -->
+                    <div id="web-dev" class="pricing-tab-pane active">
+                        <div class="pricing-grid">
+                            
+                            <!-- Launch Card -->
+                            <div class="price-card">
+                                <div class="card-header-block">
+                                    <h3 class="price-card-title">Launch</h3>
+                                    <p class="price-card-desc">For new businesses that need a professional presence, fast.</p>
+                                </div>
+                                <div class="price-amount-block">
+                                    <span class="billing-type">one-off</span>
+                                    <div class="price-val">$1,900</div>
+                                </div>
+                                <ul class="price-features-list">
+                                    <li><i class="fa fa-check"></i> Up to 8-page responsive website</li>
+                                    <li><i class="fa fa-check"></i> Mobile-first design</li>
+                                    <li><i class="fa fa-check"></i> On-page SEO setup</li>
+                                    <li><i class="fa fa-check"></i> Contact forms & maps</li>
+                                    <li><i class="fa fa-check"></i> 2 weeks to launch</li>
+                                    <li><i class="fa fa-check"></i> 30 days post-launch support</li>
+                                </ul>
+                                <a href="contact-us.html" class="card-action-btn btn-ghost-card">
+                                    Get started <i class="fa fa-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+
+                            <!-- Growth Card (Popular) -->
+                            <div class="price-card popular-card">
+                                <div class="popular-badge">Most popular</div>
+                                <div class="card-header-block">
+                                    <h3 class="price-card-title">Growth</h3>
+                                    <p class="price-card-desc">For established businesses ready to scale online.</p>
+                                </div>
+                                <div class="price-amount-block">
+                                    <span class="billing-type">from</span>
+                                    <div class="price-val">$4,500</div>
+                                </div>
+                                <ul class="price-features-list">
+                                    <li><i class="fa fa-check"></i> Everything in Launch</li>
+                                    <li><i class="fa fa-check"></i> CMS you control</li>
+                                    <li><i class="fa fa-check"></i> Blog / listings / portal</li>
+                                    <li><i class="fa fa-check"></i> Custom integrations</li>
+                                    <li><i class="fa fa-check"></i> Advanced SEO & analytics</li>
+                                    <li><i class="fa fa-check"></i> 3 months priority support</li>
+                                </ul>
+                                <a href="contact-us.html" class="card-action-btn btn-primary-card">
+                                    Get started <i class="fa fa-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+
+                            <!-- Scale Card -->
+                            <div class="price-card">
+                                <div class="card-header-block">
+                                    <h3 class="price-card-title">Scale</h3>
+                                    <p class="price-card-desc">For complex web platforms, apps and custom web software.</p>
+                                </div>
+                                <div class="price-amount-block">
+                                    <span class="billing-type">from</span>
+                                    <div class="price-val">$8,900</div>
+                                </div>
+                                <ul class="price-features-list">
+                                    <li><i class="fa fa-check"></i> Everything in Growth</li>
+                                    <li><i class="fa fa-check"></i> Custom web or mobile app</li>
+                                    <li><i class="fa fa-check"></i> High-performance architecture</li>
+                                    <li><i class="fa fa-check"></i> Custom API & database design</li>
+                                    <li><i class="fa fa-check"></i> Dedicated project team</li>
+                                    <li><i class="fa fa-check"></i> 6 months SLA & roadmap</li>
+                                </ul>
+                                <a href="contact-us.html" class="card-action-btn btn-ghost-card">
+                                    Get started <i class="fa fa-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+
+                            <!-- Custom Card -->
+                            <div class="price-card">
+                                <div class="card-header-block">
+                                    <h3 class="price-card-title">Custom</h3>
+                                    <p class="price-card-desc">For enterprise web platforms, complex SaaS & bespoke software builds.</p>
+                                </div>
+                                <div class="price-amount-block">
+                                    <span class="billing-type">quoted</span>
+                                    <div class="price-val">Custom</div>
+                                </div>
+                                <ul class="price-features-list">
+                                    <li><i class="fa fa-check"></i> Everything in Scale</li>
+                                    <li><i class="fa fa-check"></i> Multi-tenant SaaS architecture</li>
+                                    <li><i class="fa fa-check"></i> Cloud infrastructure & DevOps</li>
+                                    <li><i class="fa fa-check"></i> Enterprise security compliance</li>
+                                    <li><i class="fa fa-check"></i> Dedicated tech lead</li>
+                                    <li><i class="fa fa-check"></i> Ongoing SLA & quarterly roadmap</li>
+                                </ul>
+                                <a href="contact-us.html" class="card-action-btn btn-ghost-card">
+                                    Get started <i class="fa fa-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- TAB 2: SOFTWARE DEVELOPMENT PRICING -->
+                    <div id="software-dev" class="pricing-tab-pane">
+                        <div class="pricing-grid">
+                            
+                            <!-- Launch Card -->
+                            <div class="price-card">
+                                <div class="card-header-block">
+                                    <h3 class="price-card-title">Launch</h3>
+                                    <p class="price-card-desc">For small businesses starting with internal workflow automation.</p>
+                                </div>
+                                <div class="price-amount-block">
+                                    <span class="billing-type">one-off</span>
+                                    <div class="price-val">$3,500</div>
+                                </div>
+                                <ul class="price-features-list">
+                                    <li><i class="fa fa-check"></i> Custom workflow MVP</li>
+                                    <li><i class="fa fa-check"></i> Database schema & clean UI</li>
+                                    <li><i class="fa fa-check"></i> User auth & basic roles</li>
+                                    <li><i class="fa fa-check"></i> Data export (CSV, PDF)</li>
+                                    <li><i class="fa fa-check"></i> 3 weeks delivery</li>
+                                    <li><i class="fa fa-check"></i> 30 days post-launch support</li>
+                                </ul>
+                                <a href="contact-us.html" class="card-action-btn btn-ghost-card">
+                                    Get started <i class="fa fa-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+
+                            <!-- Growth Card (Popular) -->
+                            <div class="price-card popular-card">
+                                <div class="popular-badge">Most popular</div>
+                                <div class="card-header-block">
+                                    <h3 class="price-card-title">Growth</h3>
+                                    <p class="price-card-desc">For growing teams needing small business ERP & LMS platforms.</p>
+                                </div>
+                                <div class="price-amount-block">
+                                    <span class="billing-type">from</span>
+                                    <div class="price-val">$7,900</div>
+                                </div>
+                                <ul class="price-features-list">
+                                    <li><i class="fa fa-check"></i> Everything in Launch</li>
+                                    <li><i class="fa fa-check"></i> Modular ERP / LMS web platform</li>
+                                    <li><i class="fa fa-check"></i> Role-based access control (RBAC)</li>
+                                    <li><i class="fa fa-check"></i> Automated reporting & analytics</li>
+                                    <li><i class="fa fa-check"></i> Third-party API integrations</li>
+                                    <li><i class="fa fa-check"></i> 3 months priority support</li>
+                                </ul>
+                                <a href="contact-us.html" class="card-action-btn btn-primary-card">
+                                    Get started <i class="fa fa-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+
+                            <!-- Scale Card -->
+                            <div class="price-card">
+                                <div class="card-header-block">
+                                    <h3 class="price-card-title">Scale</h3>
+                                    <p class="price-card-desc">For businesses building scalable SaaS products & portals.</p>
+                                </div>
+                                <div class="price-amount-block">
+                                    <span class="billing-type">from</span>
+                                    <div class="price-val">$14,500</div>
+                                </div>
+                                <ul class="price-features-list">
+                                    <li><i class="fa fa-check"></i> Everything in Growth</li>
+                                    <li><i class="fa fa-check"></i> Full-featured custom SaaS / ERP</li>
+                                    <li><i class="fa fa-check"></i> High-concurrency database setup</li>
+                                    <li><i class="fa fa-check"></i> Automated testing & CI/CD</li>
+                                    <li><i class="fa fa-check"></i> Dedicated engineering team</li>
+                                    <li><i class="fa fa-check"></i> 6 months SLA & roadmap</li>
+                                </ul>
+                                <a href="contact-us.html" class="card-action-btn btn-ghost-card">
+                                    Get started <i class="fa fa-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+
+                            <!-- Custom Card -->
+                            <div class="price-card">
+                                <div class="card-header-block">
+                                    <h3 class="price-card-title">Custom</h3>
+                                    <p class="price-card-desc">For legacy software modernization & large-scale ERP systems.</p>
+                                </div>
+                                <div class="price-amount-block">
+                                    <span class="billing-type">quoted</span>
+                                    <div class="price-val">Custom</div>
+                                </div>
+                                <ul class="price-features-list">
+                                    <li><i class="fa fa-check"></i> Everything in Scale</li>
+                                    <li><i class="fa fa-check"></i> Custom microservices & cloud</li>
+                                    <li><i class="fa fa-check"></i> Legacy data migration & audit</li>
+                                    <li><i class="fa fa-check"></i> Enterprise compliance & SSO</li>
+                                    <li><i class="fa fa-check"></i> Dedicated tech lead & DevOps</li>
+                                    <li><i class="fa fa-check"></i> Ongoing enterprise SLA contract</li>
+                                </ul>
+                                <a href="contact-us.html" class="card-action-btn btn-ghost-card">
+                                    Get started <i class="fa fa-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- TAB 3: SEO & AIO SERVICES PRICING -->
+                    <div id="seo-aio" class="pricing-tab-pane">
+                        <div class="pricing-grid">
+                            
+                            <!-- Launch Card -->
+                            <div class="price-card">
+                                <div class="card-header-block">
+                                    <h3 class="price-card-title">Launch</h3>
+                                    <p class="price-card-desc">For local businesses wanting to rank on Google & AI tools.</p>
+                                </div>
+                                <div class="price-amount-block">
+                                    <span class="billing-type">per month</span>
+                                    <div class="price-val">$990</div>
+                                </div>
+                                <ul class="price-features-list">
+                                    <li><i class="fa fa-check"></i> Technical SEO Audit & Strategy</li>
+                                    <li><i class="fa fa-check"></i> On-page SEO (up to 10 pages)</li>
+                                    <li><i class="fa fa-check"></i> Google Business Profile & Local SEO</li>
+                                    <li><i class="fa fa-check"></i> AI Search Optimization (ChatGPT)</li>
+                                    <li><i class="fa fa-check"></i> Monthly ranking & traffic report</li>
+                                    <li><i class="fa fa-check"></i> Schema & metadata setup</li>
+                                </ul>
+                                <a href="contact-us.html" class="card-action-btn btn-ghost-card">
+                                    Get started <i class="fa fa-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+
+                            <!-- Growth Card (Popular) -->
+                            <div class="price-card popular-card">
+                                <div class="popular-badge">Most popular</div>
+                                <div class="card-header-block">
+                                    <h3 class="price-card-title">Growth</h3>
+                                    <p class="price-card-desc">For active brands seeking aggressive search & AI growth.</p>
+                                </div>
+                                <div class="price-amount-block">
+                                    <span class="billing-type">per month</span>
+                                    <div class="price-val">$2,200</div>
+                                </div>
+                                <ul class="price-features-list">
+                                    <li><i class="fa fa-check"></i> Everything in Launch</li>
+                                    <li><i class="fa fa-check"></i> On-page SEO (up to 25 pages)</li>
+                                    <li><i class="fa fa-check"></i> 4x SEO & AI optimized articles</li>
+                                    <li><i class="fa fa-check"></i> Generative Engine Optimization (GEO)</li>
+                                    <li><i class="fa fa-check"></i> High-DA Link building outreach</li>
+                                    <li><i class="fa fa-check"></i> Bi-weekly performance reports</li>
+                                </ul>
+                                <a href="contact-us.html" class="card-action-btn btn-primary-card">
+                                    Get started <i class="fa fa-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+
+                            <!-- Scale Card -->
+                            <div class="price-card">
+                                <div class="card-header-block">
+                                    <h3 class="price-card-title">Scale</h3>
+                                    <p class="price-card-desc">For national & e-commerce brands dominating search.</p>
+                                </div>
+                                <div class="price-amount-block">
+                                    <span class="billing-type">per month</span>
+                                    <div class="price-val">$4,500</div>
+                                </div>
+                                <ul class="price-features-list">
+                                    <li><i class="fa fa-check"></i> Everything in Growth</li>
+                                    <li><i class="fa fa-check"></i> Unlimited pages technical SEO</li>
+                                    <li><i class="fa fa-check"></i> 8x Expert articles & AI content</li>
+                                    <li><i class="fa fa-check"></i> Advanced entity & schema markup</li>
+                                    <li><i class="fa fa-check"></i> Enterprise programmatic SEO</li>
+                                    <li><i class="fa fa-check"></i> Dedicated SEO & AIO Strategist</li>
+                                </ul>
+                                <a href="contact-us.html" class="card-action-btn btn-ghost-card">
+                                    Get started <i class="fa fa-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+
+                            <!-- Custom Card -->
+                            <div class="price-card">
+                                <div class="card-header-block">
+                                    <h3 class="price-card-title">Custom</h3>
+                                    <p class="price-card-desc">For enterprise brands needing multi-market SEO & custom AI strategy.</p>
+                                </div>
+                                <div class="price-amount-block">
+                                    <span class="billing-type">quoted</span>
+                                    <div class="price-val">Custom</div>
+                                </div>
+                                <ul class="price-features-list">
+                                    <li><i class="fa fa-check"></i> Everything in Scale</li>
+                                    <li><i class="fa fa-check"></i> Multi-lingual & multi-region SEO</li>
+                                    <li><i class="fa fa-check"></i> Custom AI model fine-tuning</li>
+                                    <li><i class="fa fa-check"></i> Competitor takeover strategy</li>
+                                    <li><i class="fa fa-check"></i> Real-time custom dashboard</li>
+                                    <li><i class="fa fa-check"></i> Custom SLA & executive reporting</li>
+                                </ul>
+                                <a href="contact-us.html" class="card-action-btn btn-ghost-card">
+                                    Get started <i class="fa fa-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <p class="text-center text-muted mt-4" style="font-size: 0.88rem;">
+                        All prices in AUD and exclude GST. Marketing, hosting and support available as monthly plans.
+                    </p>
+
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="pricing-faq-section">
+                <div class="container">
+                    <div class="text-center mb-5">
+                        <h2 class="font-weight-bold">Pricing <span style="color: #2d4a8a;">Questions</span></h2>
+                        <p class="text-muted">Frequently asked questions about our scope, billing, and support options.</p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="faq-card-box">
+                                <h5>Are these prices fixed?</h5>
+                                <p>Launch and Growth start from the prices shown and are scoped to a fixed quote before we begin. Scale & Custom projects are quoted per requirements after a discovery session — no surprises mid-project.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="faq-card-box">
+                                <h5>Do you offer monthly retainers?</h5>
+                                <p>Yes. Marketing, hosting, SEO/AIO and ongoing support are available as predictable monthly plans. We'll recommend the right mix for your goals.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="faq-card-box">
+                                <h5>What's included in support?</h5>
+                                <p>Updates, backups, security monitoring and content changes. Higher tiers include faster response times and a dedicated point of contact.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="faq-card-box">
+                                <h5>Can I upgrade later?</h5>
+                                <p>Absolutely. Many clients start with Launch or Growth and scale up as they grow. Everything we build is designed to extend cleanly.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CTA Banner -->
+                    <div class="pricing-cta-banner">
+                        <h2>Let's scope your project.</h2>
+                        <p>Share your goals and we'll come back with a clear, fixed quote within one business day.</p>
+                        <a href="contact-us.html" class="cta-btn-white">
+                            Get a Quote <i class="fa fa-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+        </div><!--site-main end-->
+
+        <!--footer start-->
+        <div id="footer-placeholder"></div>
+        <!--footer end-->
+
+        <!-- Floating Talk To Us -->
+        <a href="contact-us.html" class="floating-talk-btn">
+            <div class="talk-icon">
+                <i class="ti ti-headphone"></i>
+            </div>
+            <svg viewBox="0 0 100 100" width="120" height="120">
+                <defs>
+                    <path id="circlePath" d="M 50, 50 m -40, 0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0" />
+                </defs>
+                <text>
+                    <textPath href="#circlePath" fill="#182333" font-size="10.5" font-weight="700" letter-spacing="1.5" textLength="251" lengthAdjust="spacing">
+                        TALK TO US • TALK TO US • TALK TO US • 
+                    </textPath>
+                </text>
+            </svg>
+        </a>
+
+    </div><!-- page end -->
+
+    <!-- Javascript -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/jquery-migrate-3.4.1.min.js"></script>
+    <script src="js/tether.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.js"></script>
+    <script src="js/jquery-waypoints.js"></script>
+    <script src="js/jquery-validate.js"></script>
+    <script src="js/owl.carousel.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/numinate.min6959.js?ver=4.9.3"></script>
+    <script src="js/lazysizes.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/components.js"></script>
+
+    <script>
+        function switchPricingTab(tabId, btnElement) {
+            // Hide all tab panes
+            const panes = document.querySelectorAll('.pricing-tab-pane');
+            panes.forEach(pane => pane.classList.remove('active'));
+
+            // Remove active class from buttons
+            const btns = document.querySelectorAll('.pricing-tab-btn');
+            btns.forEach(btn => btn.classList.remove('active'));
+
+            // Show target tab pane
+            const targetPane = document.getElementById(tabId);
+            if (targetPane) {
+                targetPane.classList.add('active');
+            }
+
+            // Set active button
+            if (btnElement) {
+                btnElement.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
