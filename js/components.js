@@ -34,3 +34,46 @@ document.addEventListener("DOMContentLoaded", function() {
         window.dispatchEvent(new Event('componentsLoaded'));
     }).catch(err => console.error("Error loading components:", err));
 });
+
+// Automatic About Us image slideshow (changes every 10 seconds)
+(function initAboutUsImageSlideshow() {
+    const aboutImages = [
+        'images/single-img-one.png',
+        'images/single-img-seven.png',
+        'images/single-img-two.png',
+        'images/single-img-four.png'
+    ];
+    let currentIndex = 0;
+
+    function startSlideshow() {
+        const imgElements = document.querySelectorAll('#about-us-img-slideshow');
+        if (!imgElements || imgElements.length === 0) return;
+
+        // Set transition style on target images
+        imgElements.forEach(img => {
+            img.style.transition = 'opacity 0.6s ease-in-out';
+        });
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % aboutImages.length;
+            const nextSrc = aboutImages[currentIndex];
+
+            imgElements.forEach(img => {
+                img.style.opacity = '0';
+                setTimeout(() => {
+                    img.src = nextSrc;
+                    if (img.hasAttribute('data-src')) {
+                        img.setAttribute('data-src', nextSrc);
+                    }
+                    img.style.opacity = '1';
+                }, 600);
+            });
+        }, 10000); // 10 seconds
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', startSlideshow);
+    } else {
+        startSlideshow();
+    }
+})();

@@ -321,14 +321,9 @@ img.img-fluid,
     background-color: #fff !important;
 }
 
-/* Force template blue hover effect */
+/* Prevent forced blue hover background effect on text cards */
 .featured-imagebox-services.style1:hover .featured-content {
-    background-color: var(--theme-primary-color, #1e73be) !important;
-}
-.featured-imagebox-services.style1:hover .featured-title h5 a,
-.featured-imagebox-services.style1:hover .featured-desc p,
-.featured-imagebox-services.style1:hover .ttm-btn {
-    color: #ffffff !important;
+    background-color: #ffffff !important;
 }
 
 /* Floating Talk to Us Widget */
@@ -463,4 +458,89 @@ img.img-fluid,
 /* Improve text visibility on slider */
 rs-module .rs-layer[data-type="text"]:not(.ttm-btn) {
     text-shadow: 0px 4px 20px rgba(0, 0, 0, 0.8) !important;
+}
+
+
+.ddfdf{
+    padding-top: 300px !important;
+}
+
+/* Process Section Card Spacing & Shadow Elevation Design */
+.service-section-style2 .featured-icon-box.style6 {
+    margin-right: 0 !important;
+    border-radius: 16px !important;
+    margin-bottom: 24px !important;
+    border: 1px solid #e2e8f0 !important;
+    background-color: #ffffff !important;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08) !important;
+    transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+.service-section-style2 .featured-icon-box.style6:hover {
+    transform: translateY(-8px) !important;
+    border-color: #2d4a8a !important;
+    box-shadow: 0 20px 40px rgba(45, 74, 138, 0.16) !important;
+    background-color: #ffffff !important;
+}
+
+.service-section-style2 .featured-icon-box.style6:hover .featured-title h5,
+.featured-icon-box.style6:hover .featured-title h5,
+.service-section-style2 .featured-icon-box.style6:hover .featured-title h5 a,
+.featured-icon-box.style6:hover .featured-title h5 a {
+    color: #0f172a !important;
+}
+
+.service-section-style2 .featured-icon-box.style6:hover .featured-desc p,
+.featured-icon-box.style6:hover .featured-desc p {
+    color: #64748b !important;
+}
+
+.service-section-style2 .featured-icon-box.style6:hover .ttm-icon_element-color-skincolor,
+.featured-icon-box.style6:hover .ttm-icon_element-color-skincolor,
+.service-section-style2 .featured-icon-box.style6:hover .ttm-icon i,
+.featured-icon-box.style6:hover .ttm-icon i {
+    color: #2d4a8a !important;
+}
+
+.service-section-style2 .featured-icon-box.style6 .ttm-icon i {
+    transition: transform 0.35s ease !important;
+}
+
+.service-section-style2 .featured-icon-box.style6:hover .ttm-icon i {
+    transform: scale(1.12) !important;
+}
+
+/* Global Color Retention on Hover for all Service & Explore Cards */
+.featured-imagebox-services:hover .featured-content,
+.featured-imagebox-services.style1:hover .featured-content,
+.featured-imagebox-services.style2:hover .featured-content {
+    background-color: #ffffff !important;
+}
+
+.featured-imagebox-services:hover .featured-title h5 a,
+.featured-imagebox-services:hover .featured-title h6 a,
+.featured-imagebox-services:hover .featured-title h5,
+.featured-imagebox-services:hover .featured-title h6,
+.featured-imagebox-services.style1:hover .featured-title h5 a,
+.featured-imagebox-services.style1:hover .featured-title h6 a,
+.featured-imagebox-services.style1:hover .featured-title h5,
+.featured-imagebox-services.style1:hover .featured-title h6,
+.featured-imagebox-services.style2:hover .featured-title h5 a,
+.featured-imagebox-services.style2:hover .featured-title h6 a {
+    color: #0f172a !important;
+}
+
+.featured-imagebox-services:hover .featured-desc p,
+.featured-imagebox-services.style1:hover .featured-desc p,
+.featured-imagebox-services.style2:hover .featured-desc p {
+    color: #64748b !important;
+}
+
+.featured-imagebox-services:hover .ttm-btn,
+.featured-imagebox-services.style1:hover .ttm-btn,
+.featured-imagebox-services.style2:hover .ttm-btn,
+.featured-imagebox-services:hover .ttm-btn i,
+.featured-imagebox-services.style1:hover .ttm-btn i,
+.featured-imagebox-services.style2:hover .ttm-btn i {
+    color: #0066cc !important;
 }
