@@ -1,8 +1,10 @@
 // Load header and footer dynamically
 document.addEventListener("DOMContentLoaded", function() {
+    const assetPrefix = window.location.pathname.includes('/services/') ? '../' : '';
+
     Promise.all([
-        fetch('header.html').then(res => res.text()),
-        fetch('footer.html').then(res => res.text())
+        fetch(`${assetPrefix}header.html`).then(res => res.text()),
+        fetch(`${assetPrefix}footer.html`).then(res => res.text())
     ]).then(([headerHtml, footerHtml]) => {
         const headerPlaceholder = document.getElementById('header-placeholder');
         const footerPlaceholder = document.getElementById('footer-placeholder');
