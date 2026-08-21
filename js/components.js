@@ -2,42 +2,92 @@
 document.addEventListener("DOMContentLoaded", function() {
     const assetPrefix = window.location.pathname.includes('/services/') ? '../' : '';
 
+    /**
+     * Fix all relative image paths and hrefs inside fetched HTML
+     * so that pages in sub-directories (e.g. /services/) still resolve
+     * images and links correctly.
+     */
+    function fixRelativePaths(html, prefix) {
+        if (!prefix) return html;
+
+        // Fix lazy-load data-src image paths
+        html = html.replace(/data-src="images\//g, `data-src="${prefix}images/`);
+        // Fix regular src image paths
+        html = html.replace(/ src="images\//g, ` src="${prefix}images/`);
+
+        // Fix href paths — skip absolute URLs, mailto:, tel:, bare # anchors,
+        // already-prefixed paths (../), and javascript: pseudo-links
+        html = html.replace(
+            /href="(?!https?:\/\/|mailto:|tel:|#|\.\.\/|javascript:)([^"]+)"/g,
+            function(match, path) {
+                return `href="${prefix}${path}"`;
+            }
+        );
+
+        return html;
+    }
+
     Promise.all([
         fetch(`${assetPrefix}header.html`).then(res => res.text()),
         fetch(`${assetPrefix}footer.html`).then(res => res.text())
     ]).then(([headerHtml, footerHtml]) => {
+        // Apply path fixes for pages inside sub-directories
+        headerHtml = fixRelativePaths(headerHtml, assetPrefix);
+        footerHtml = fixRelativePaths(footerHtml, assetPrefix);
+
         const headerPlaceholder = document.getElementById('header-placeholder');
         const footerPlaceholder = document.getElementById('footer-placeholder');
-        
-        if(headerPlaceholder) headerPlaceholder.innerHTML = headerHtml;
-        if(footerPlaceholder) footerPlaceholder.innerHTML = footerHtml;
-        
-        // Active menu logic
+
+        if (headerPlaceholder) headerPlaceholder.innerHTML = headerHtml;
+        if (footerPlaceholder) footerPlaceholder.innerHTML = footerHtml;
+
+        // Active menu highlight: mark the current page's nav link as active
         let currentUrl = window.location.pathname.split('/').pop();
         if (currentUrl === '' || currentUrl === '/') currentUrl = 'index.html';
-        
+
+        // Add dropdown classes to parent list items with sub-menus/megamenus
+        const dropdownParentItems = document.querySelectorAll('#header-placeholder ul.dropdown > li');
+        dropdownParentItems.forEach(li => {
+            const hasSubMenu = li.querySelector('ul, .megamenu-content');
+            if (hasSubMenu) {
+                li.classList.add('has-dropdown-mobile');
+                const mainLink = li.querySelector('> a');
+                if (mainLink) mainLink.classList.add('has-dropdown-mobile');
+                
+                // Inject separate toggle button for down-arrow clicks
+                const toggleBtn = document.createElement('div');
+                toggleBtn.className = 'mobile-submenu-toggle';
+                li.appendChild(toggleBtn);
+            }
+        });
+
         const links = document.querySelectorAll('#header-placeholder a');
         links.forEach(link => {
-            const href = link.getAttribute('href');
-            if (href === currentUrl) {
+            const href = link.getAttribute('href') || '';
+            // Match on the filename portion only
+            const hrefFile = href.split('/').pop();
+            if (hrefFile === currentUrl && currentUrl !== '') {
                 const li = link.closest('li');
                 if (li) li.classList.add('active');
-                
-                // Add active to parent dropdown if nested
-                const parentUl = link.closest('ul.dropdown');
-                if (parentUl) {
-                    const parentLi = parentUl.closest('li');
+
+                // Also activate parent megamenu li if this is a nested link
+                const parentMegaMenu = link.closest('.megamenu-content');
+                if (parentMegaMenu) {
+                    const parentLi = parentMegaMenu.closest('li.megamenu-fw');
                     if (parentLi) parentLi.classList.add('active');
                 }
             }
         });
-        
-        // Dispatch event for main.js to initialize
+
+        // Dispatch event so main.js can initialise plugins that depend on the
+        // header/footer being present in the DOM (prettyPhoto, colour switcher, etc.)
         window.dispatchEvent(new Event('componentsLoaded'));
     }).catch(err => console.error("Error loading components:", err));
 });
 
-// Automatic About Us image slideshow (changes every 10 seconds)
+// ---------------------------------------------------------------------------
+// Automatic About Us image slideshow (rotates every 10 seconds)
+// ---------------------------------------------------------------------------
 (function initAboutUsImageSlideshow() {
     const aboutImages = [
         'images/single-img-one.png',
@@ -51,7 +101,6 @@ document.addEventListener("DOMContentLoaded", function() {
         const imgElements = document.querySelectorAll('#about-us-img-slideshow');
         if (!imgElements || imgElements.length === 0) return;
 
-        // Set transition style on target images
         imgElements.forEach(img => {
             img.style.transition = 'opacity 0.6s ease-in-out';
         });

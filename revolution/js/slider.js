@@ -9,11 +9,12 @@ jQuery(function() {
   if(tpj("#rev_slider_1_1").revolution == undefined){
     revslider_showDoubleJqueryError("#rev_slider_1_1");
   }else{
+    var isMobileLayout = jQuery(window).width() < 1200;
     revapi1 = tpj("#rev_slider_1_1").show().revolution({
-      sliderLayout:"fullscreen",
+      sliderLayout: isMobileLayout ? "fullwidth" : "fullscreen",
       visibilityLevels:"1240,1024,778,480",
       gridwidth:"1240,1100,880,480",
-      gridheight:"550,500,400,300",
+      gridheight: isMobileLayout ? "550,500,450,380" : "550,500,400,300",
       minHeight:"",
       spinner:"spinner0",
       editorheight:"705,768,450,350",

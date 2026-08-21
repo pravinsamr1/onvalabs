@@ -118,17 +118,31 @@ $(window).scroll(function(){
 
     });
     
-    var $menu = $('#menu'), $menulink = $('#menu-toggle-form'), $menuTrigger = $('.has-submenu > a');
-    $menulink.on('click',function (e) {
-
-        $menulink.toggleClass('active');
-        $menu.toggleClass('active');
+    // Slide-out Mobile Sidebar Drawer toggle logic
+    $(document).on('click', '#menu-toggle-btn', function (e) {
+        e.stopPropagation();
+        $('#menu').addClass('active');
+        $('#mobile-menu-overlay').addClass('active');
+        $('body').addClass('menu-open');
     });
 
-    $menuTrigger.on('click',function (e) {
-        e.preventDefault();
-        var t = $(this);
-        t.toggleClass('active').next('ul').toggleClass('active');
+    $(document).on('click', '#menu-close-btn, #mobile-menu-overlay, #menu a:not(.has-dropdown-mobile)', function (e) {
+        // Prevent click closes for menu items that just trigger nested sub-menus
+        if ($(this).hasClass('has-dropdown-mobile')) return;
+        $('#menu').removeClass('active');
+        $('#mobile-menu-overlay').removeClass('active');
+        $('body').removeClass('menu-open');
+    });
+
+    // Mobile accordion-style dropdown logic
+    $(document).on('click', '.mobile-submenu-toggle', function (e) {
+        if ($(window).width() < 1200) {
+            e.preventDefault();
+            e.stopPropagation();
+            var $parentLi = $(this).parent('li');
+            $parentLi.toggleClass('open-submenu');
+            $parentLi.find('> ul, > .megamenu-content').slideToggle(300);
+        }
     });
 
     $('ul li:has(ul)');

@@ -508,7 +508,9 @@
 	    position: relative;
 	    height: 31px;
 	    width: 31px;
-	    float: left;
+	    float: right;
+	    margin-top: 25px;
+	    z-index: 1010;
 	}
 	.ttm-menu-toggle label {
 	    cursor: pointer;
@@ -516,7 +518,7 @@
 	    z-index: 99;
 	    height: 100%;
 	    width: 100%;
-	    top: 33px;
+	    top: 0;
 	    left: 0;
 	    margin : 0;
 	}
@@ -561,10 +563,8 @@
 	    padding: 0px;
 	    border: none;
 	}
-	#site-header-menu #site-navigation .menu, #site-header-menu #site-navigation .menu > ul ul , 
+	#site-header-menu #site-navigation .menu > ul ul , 
 	#site-header-menu #site-navigation .menu ul li > ul li a:before{ display: none;}
-	#site-header-menu #site-navigation .menu.active,
-	#site-header-menu #site-navigation .menu > ul ul.active { max-height: 55em; display: block;}
 	#site-header-menu #site-navigation .menu > ul > li:last-of-type a { border: none; }
 	#site-header-menu #site-navigation .menu li a {
 	    color: #fff;
@@ -604,14 +604,14 @@
 	.header-btn{ display: none;}
 	#site-header-menu #site-navigation .menu ul > li ul li > a { padding : 15px 15px 15px 0; font-size: 13px;}
 	#site-header-menu #site-navigation .menu > ul {
-		position: absolute;
-	    padding: 10px 20px;
-	    box-shadow: rgba(0,0,0,0.12) 3px 3px 15px;
+		position: static !important;
+	    padding: 10px 0 !important;
+	    box-shadow: none !important;
 	    z-index: 100;
 	    width: 100%;
 	    top: auto;
-	    background-color: #fff;
-	    border-top: 3px solid;
+	    background-color: transparent !important;
+	    border-top: none !important;
 	}
 	.ttm-header-style-03 #site-header-menu #site-navigation .menu > ul{top: 80px;}
 	.ttm-header-style-03 .ttm-rt-contact{display: none;}
@@ -646,7 +646,7 @@
 	#site-header-menu #site-navigation .menu li, #site-header-menu #site-navigation .menu > ul > li {
     	display: block;
 	}
-	#site-header-menu #site-navigation .menu,#site-header-menu #site-navigation .menu > ul ul{ 
+	#site-header-menu #site-navigation .menu > ul ul{ 
 		overflow: hidden;
 	    max-height: 0;
 	    background-color: #fff;
