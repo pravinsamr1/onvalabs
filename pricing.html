@@ -54,7 +54,7 @@
 
         /* Pricing Section Custom Styles */
         .pricing-section-container {
-            padding: 60px 0 90px;
+            padding: 60px 0 60px;
             background-color: #f8fafc;
         }
 
@@ -71,6 +71,32 @@
             border-radius: 50px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
             border: 1px solid #e2e8f0;
+        }
+
+        @media (max-width: 991px) {
+            .pricing-nav-tabs {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+                padding: 10px;
+                border-radius: 20px;
+            }
+            .pricing-tabs-wrapper {
+                margin-bottom: 35px;
+            }
+            .pricing-tab-btn {
+                flex: 1 1 calc(50% - 10px);
+                white-space: nowrap !important;
+                flex-wrap: nowrap !important;
+                justify-content: center;
+                padding: 10px 5px;
+                font-size: 0.85rem;
+            }
+            .pricing-tab-btn span {
+                white-space: nowrap !important;
+            }
         }
 
         .pricing-tab-btn {
@@ -385,13 +411,13 @@
                     <div class="pricing-tabs-wrapper">
                         <div class="pricing-nav-tabs">
                             <button class="pricing-tab-btn active" onclick="switchPricingTab('web-dev', this)">
-                                <i class="fa fa-code"></i> Web Development
+                                <i class="fa fa-code"></i> <span>Web Development</span>
                             </button>
                             <button class="pricing-tab-btn" onclick="switchPricingTab('software-dev', this)">
-                                <i class="fa fa-cogs"></i> Software Development
+                                <i class="fa fa-cogs"></i> <span>Software Development</span>
                             </button>
                             <button class="pricing-tab-btn" onclick="switchPricingTab('seo-aio', this)">
-                                <i class="fa fa-line-chart"></i> SEO & AIO Services
+                                <i class="fa fa-line-chart"></i> <span>SEO & AIO Services</span>
                             </button>
                         </div>
                     </div>
@@ -408,7 +434,7 @@
                                 </div>
                                 <div class="price-amount-block">
                                     <span class="billing-type">one-off</span>
-                                    <div class="price-val">$1,900</div>
+                                    <div class="price-val">A$1300</div>
                                 </div>
                                 <ul class="price-features-list">
                                     <li><i class="fa fa-check"></i> Up to 8-page responsive website</li>
@@ -432,7 +458,7 @@
                                 </div>
                                 <div class="price-amount-block">
                                     <span class="billing-type">from</span>
-                                    <div class="price-val">$4,500</div>
+                                    <div class="price-val">A$3900</div>
                                 </div>
                                 <ul class="price-features-list">
                                     <li><i class="fa fa-check"></i> Everything in Launch</li>
@@ -455,7 +481,7 @@
                                 </div>
                                 <div class="price-amount-block">
                                     <span class="billing-type">from</span>
-                                    <div class="price-val">$8,900</div>
+                                    <div class="price-val">A$7900</div>
                                 </div>
                                 <ul class="price-features-list">
                                     <li><i class="fa fa-check"></i> Everything in Growth</li>
@@ -508,7 +534,7 @@
                                 </div>
                                 <div class="price-amount-block">
                                     <span class="billing-type">one-off</span>
-                                    <div class="price-val">$3,500</div>
+                                    <div class="price-val">A$3500</div>
                                 </div>
                                 <ul class="price-features-list">
                                     <li><i class="fa fa-check"></i> Custom workflow MVP</li>
@@ -532,7 +558,7 @@
                                 </div>
                                 <div class="price-amount-block">
                                     <span class="billing-type">from</span>
-                                    <div class="price-val">$7,900</div>
+                                    <div class="price-val">A$7900</div>
                                 </div>
                                 <ul class="price-features-list">
                                     <li><i class="fa fa-check"></i> Everything in Launch</li>
@@ -555,7 +581,7 @@
                                 </div>
                                 <div class="price-amount-block">
                                     <span class="billing-type">from</span>
-                                    <div class="price-val">$14,500</div>
+                                    <div class="price-val">A$14500</div>
                                 </div>
                                 <ul class="price-features-list">
                                     <li><i class="fa fa-check"></i> Everything in Growth</li>
@@ -607,8 +633,8 @@
                                     <p class="price-card-desc">For local businesses wanting to rank on Google & AI tools.</p>
                                 </div>
                                 <div class="price-amount-block">
-                                    <span class="billing-type">per month</span>
-                                    <div class="price-val">$990</div>
+                                    <span class="billing-type">per month – 6 months commit</span>
+                                    <div class="price-val">A$350</div>
                                 </div>
                                 <ul class="price-features-list">
                                     <li><i class="fa fa-check"></i> Technical SEO Audit & Strategy</li>
@@ -631,8 +657,8 @@
                                     <p class="price-card-desc">For active brands seeking aggressive search & AI growth.</p>
                                 </div>
                                 <div class="price-amount-block">
-                                    <span class="billing-type">per month</span>
-                                    <div class="price-val">$2,200</div>
+                                    <span class="billing-type">per month – 6 months commit</span>
+                                    <div class="price-val">A$850</div>
                                 </div>
                                 <ul class="price-features-list">
                                     <li><i class="fa fa-check"></i> Everything in Launch</li>
@@ -654,8 +680,8 @@
                                     <p class="price-card-desc">For national & e-commerce brands dominating search.</p>
                                 </div>
                                 <div class="price-amount-block">
-                                    <span class="billing-type">per month</span>
-                                    <div class="price-val">$4,500</div>
+                                    <span class="billing-type">per month – 6 months commit</span>
+                                    <div class="price-val">A$1900</div>
                                 </div>
                                 <ul class="price-features-list">
                                     <li><i class="fa fa-check"></i> Everything in Growth</li>

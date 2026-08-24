@@ -998,3 +998,41 @@ rs-module .rs-layer[data-type="text"]:not(.ttm-btn) {
     margin-bottom: 0;
 }
 
+/* Adjust portfolio text section padding to reduce gap above images */
+.bottomzero-padding-section {
+    padding-top: 60px !important;
+    padding-bottom: 0px !important;
+}
+
+/* Portfolio carousel section spacing on top and below (with high specificity) */
+.ttm-row.zero-padding-section.portfolio-slide-section {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+}
+
+/* Portfolio hover overlay content white styling */
+.featured-imagebox-portfolio .featured-content {
+    background-color: #ffffff !important;
+    border: 1px solid #dbdbdb !important;
+}
+
+.featured-imagebox-portfolio .featured-content h5 a {
+    color: var(--theme-primary-color) !important;
+}
+
+.featured-imagebox-portfolio .featured-content h5 a:hover {
+    color: var(--theme-primary-color) !important;
+    text-decoration: underline !important;
+}
+
+/* Mobile: index page spacing adjustments (≤991px) */
+@media only screen and (max-width: 991px) {
+    /* Reduce CTA banner bottom padding */
+    .first-row-title-section {
+        padding-bottom: 40px !important;
+    }
+    /* Match theme's standard .ttm-row padding for the About Us section */
+    .ttm-row.aboutus-section {
+        padding: 60px 0 !important;
+    }
+}
