@@ -1,5 +1,5 @@
 // Load header and footer dynamically
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const assetPrefix = window.location.pathname.includes('/services/') ? '../' : '';
 
     /**
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // already-prefixed paths (../), and javascript: pseudo-links
         html = html.replace(
             /href="(?!https?:\/\/|mailto:|tel:|#|\.\.\/|javascript:)([^"]+)"/g,
-            function(match, path) {
+            function (match, path) {
                 return `href="${prefix}${path}"`;
             }
         );
@@ -51,9 +51,9 @@ document.addEventListener("DOMContentLoaded", function() {
             const hasSubMenu = li.querySelector('ul, .megamenu-content');
             if (hasSubMenu) {
                 li.classList.add('has-dropdown-mobile');
-                const mainLink = li.querySelector('> a');
+                const mainLink = li.querySelector(':scope > a');
                 if (mainLink) mainLink.classList.add('has-dropdown-mobile');
-                
+
                 // Inject separate toggle button for down-arrow clicks
                 const toggleBtn = document.createElement('div');
                 toggleBtn.className = 'mobile-submenu-toggle';
@@ -90,10 +90,7 @@ document.addEventListener("DOMContentLoaded", function() {
 // ---------------------------------------------------------------------------
 (function initAboutUsImageSlideshow() {
     const aboutImages = [
-        'images/single-img-one.png',
-        'images/single-img-seven.png',
-        'images/single-img-two.png',
-        'images/single-img-four.png'
+        'images/single-img-seven.png'
     ];
     let currentIndex = 0;
 

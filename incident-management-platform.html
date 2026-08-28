@@ -1,0 +1,2351 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Onva Incident Management Platform | Onva Labs</title>
+    <meta name="description"
+        content="Declare, investigate, contain and close every cyber incident in one auditable workspace. Role-based approvals, lessons learned, residual risk reduction and an append-only audit trail.">
+    <meta name="author" content="Onva Labs" />
+
+    <!-- favicon icon -->
+    <link rel="shortcut icon" href="images/favicon.png" />
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+
+    <!-- animate -->
+    <link rel="stylesheet" type="text/css" href="css/animate.css" />
+
+    <!-- owl-carousel -->
+    <link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+
+    <!-- themify -->
+    <link rel="stylesheet" type="text/css" href="css/themify-icons.css" />
+
+    <!-- flaticon -->
+    <link rel="stylesheet" type="text/css" href="css/flaticon.css" />
+
+    <!-- shortcodes & main -->
+    <link rel="stylesheet" type="text/css" href="css/shortcodes.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/process-custom.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --ink: #050b18;
+            --ink-2: #0b1526;
+            --ink-3: #12203a;
+            --paper: #ffffff;
+            --paper-2: #f5f8fd;
+            --paper-3: #eef3fb;
+            --line: #dbe4f2;
+            --line-d: rgba(255, 255, 255, .12);
+            --tx: #111c30;
+            --tx-2: #4a5a75;
+            --tx-3: #7488a5;
+            --tx-i: #ffffff;
+            --tx-i2: #b9c8e0;
+            --tx-i3: #8296b5;
+            --brand: #1e45da;
+            --brand-d: #0b47cc;
+            --acc: #1e45da;
+            --acc-2: #2563eb;
+            --acc-soft: rgba(30, 69, 218, .14);
+            --r: 18px;
+            --r-l: 26px;
+            --shadow: 0 24px 60px -18px rgba(9, 24, 54, .24), 0 4px 14px -6px rgba(9, 24, 54, .12);
+            --shadow-l: 0 50px 110px -30px rgba(6, 18, 44, .45), 0 12px 30px -12px rgba(6, 18, 44, .25);
+            --max: 1220px;
+            --ease: cubic-bezier(.22, .68, .28, 1);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box
+        }
+
+        /* override main.css body .page { overflow:hidden } — breaks position:sticky */
+        body .page {
+            overflow: visible !important;
+            overflow-x: hidden !important;
+        }
+
+        /* also ensure #main and any wrapper don't break sticky */
+        #main, .ttm-page-title-row {
+            overflow: visible !important;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%
+        }
+
+        body {
+            margin: 0;
+            background: var(--paper);
+            color: var(--tx);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-size: 17px;
+            line-height: 1.62;
+            letter-spacing: -.005em;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+            font-weight: 800;
+            letter-spacing: -.032em;
+            line-height: 1.06;
+            margin: 0
+        }
+
+        h1 {
+            font-size: clamp(2.6rem, 6.2vw, 4.7rem)
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4.2vw, 3.25rem);
+            line-height: 1.08
+        }
+
+        h3 {
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            letter-spacing: -.022em;
+            line-height: 1.25
+        }
+
+        p {
+            margin: 0 0 1.05em
+        }
+
+        .wrap {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 0 26px
+        }
+
+        .narrow {
+            max-width: 820px
+        }
+
+        section {
+            position: relative;
+            scroll-margin-top: 92px
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            padding: 14px 26px;
+            border-radius: 99px;
+            font-weight: 700;
+            font-size: .95rem;
+            letter-spacing: -.012em;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: transform .3s var(--ease), box-shadow .3s var(--ease), background .25s, color .25s;
+            white-space: nowrap
+        }
+
+        .btn:hover {
+            transform: translateY(-2px)
+        }
+
+        .btn-p {
+            background: linear-gradient(135deg, var(--acc), var(--acc-2));
+            color: #fff;
+            box-shadow: 0 14px 34px -12px var(--acc-soft)
+        }
+
+        .btn-p:hover {
+            box-shadow: 0 20px 44px -12px var(--acc-soft)
+        }
+
+        .btn-g {
+            background: rgba(255, 255, 255, .09);
+            color: #fff;
+            border-color: rgba(255, 255, 255, .24);
+            backdrop-filter: blur(8px)
+        }
+
+        .btn-g:hover {
+            background: rgba(255, 255, 255, .18)
+        }
+
+        .btn-o {
+            background: #fff;
+            color: var(--tx);
+            border-color: var(--line);
+            box-shadow: var(--shadow)
+        }
+
+        .btn-sm {
+            padding: 10px 20px;
+            font-size: .885rem
+        }
+
+        /* ---------- hero ---------- */
+        .hero {
+            background:
+                radial-gradient(1100px 620px at 78% -8%, var(--acc-soft), transparent 62%),
+                radial-gradient(900px 560px at 6% 12%, rgba(30, 69, 218, .30), transparent 60%),
+                linear-gradient(168deg, #040a16 0%, #07122a 30%, #08152b 62%, #0a1a35 100%);
+            background-color: #050b18;
+            color: var(--tx-i);
+            padding: 80px 0 0;
+            overflow: hidden;
+            isolation: isolate
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            opacity: .5;
+            background-image: linear-gradient(rgba(255, 255, 255, .045) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .045) 1px, transparent 1px);
+            background-size: 64px 64px;
+            -webkit-mask-image: radial-gradient(ellipse 90% 65% at 50% 25%, #000, transparent 78%);
+            mask-image: radial-gradient(ellipse 90% 65% at 50% 25%, #000, transparent 78%)
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            z-index: -1;
+            pointer-events: none;
+            will-change: transform
+        }
+
+        .orb-1 {
+            width: 520px;
+            height: 520px;
+            background: var(--acc);
+            opacity: .30;
+            top: -140px;
+            right: -90px
+        }
+
+        .orb-2 {
+            width: 440px;
+            height: 440px;
+            background: #1f6bff;
+            opacity: .26;
+            top: 230px;
+            left: -160px
+        }
+
+        .orb-3 {
+            width: 360px;
+            height: 360px;
+            background: var(--acc-2);
+            opacity: .18;
+            bottom: -40px;
+            left: 44%
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 7px 16px 7px 8px;
+            border-radius: 99px;
+            background: rgba(255, 255, 255, .07);
+            border: 1px solid rgba(255, 255, 255, .15);
+            backdrop-filter: blur(10px);
+            font-size: .775rem;
+            font-weight: 700;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+            color: #dbe7ff;
+            margin-bottom: 26px
+        }
+
+        .eyebrow b {
+            background: linear-gradient(135deg, var(--acc), var(--acc-2));
+            color: #fff;
+            padding: 4px 11px;
+            border-radius: 99px;
+            font-size: .68rem;
+            letter-spacing: .1em
+        }
+
+        .hero h1 {
+            max-width: 16ch;
+            margin-bottom: 24px
+        }
+
+        .hero h1 .g {
+            background: linear-gradient(112deg, var(--acc) 4%, var(--acc-2) 58%, #e8f1ff 108%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent
+        }
+
+        .hero-sub {
+            font-size: clamp(1.06rem, 1.55vw, 1.28rem);
+            color: var(--tx-i2);
+            max-width: 60ch;
+            line-height: 1.62;
+            margin-bottom: 34px
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            align-items: center;
+            margin-bottom: 40px
+        }
+
+        .hero-note {
+            font-size: .87rem;
+            color: var(--tx-i3);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 22px;
+            margin-bottom: 56px
+        }
+
+        .hero-note span {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px
+        }
+
+        .hero-note i {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--acc);
+            box-shadow: 0 0 12px var(--acc);
+            flex: none
+        }
+
+        /* browser frame */
+        .frame {
+            position: relative;
+            border-radius: var(--r-l);
+            overflow: hidden;
+            background: #0e1a30;
+            border: 1px solid rgba(255, 255, 255, .14);
+            box-shadow: var(--shadow-l);
+            transform-style: preserve-3d
+        }
+
+        .frame-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            background: linear-gradient(180deg, #182b4c, #12203a);
+            border-bottom: 1px solid rgba(255, 255, 255, .09)
+        }
+
+        .dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            flex: none
+        }
+
+        .dot:nth-child(1) {
+            background: #ff5f57
+        }
+
+        .dot:nth-child(2) {
+            background: #febc2e
+        }
+
+        .dot:nth-child(3) {
+            background: #28c840
+        }
+
+        .frame-url {
+            margin-left: 14px;
+            flex: 1;
+            max-width: 340px;
+            height: 24px;
+            border-radius: 7px;
+            background: rgba(255, 255, 255, .09);
+            display: flex;
+            align-items: center;
+            padding: 0 11px;
+            font-size: .7rem;
+            color: #9fb4d4;
+            font-family: ui-monospace, Menlo, monospace;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis
+        }
+
+        .frame-body {
+            position: relative;
+            background: #fff;
+            line-height: 0;
+            min-height: 300px
+        }
+
+        /* screenshot surfaces CSS */
+        .shot {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: top center;
+            background-size: cover;
+        }
+
+        .hero-img {
+            width: 100%;
+            min-height: 400px
+        }
+
+        .frame.light {
+            background: #fff;
+            border-color: var(--line)
+        }
+
+        .hero-shot {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding-bottom: 0;
+            perspective: 1600px
+        }
+
+        .hero-shot .frame {
+            transform: rotateX(7deg) translateY(0);
+            transition: transform .9s var(--ease)
+        }
+
+        .hero-shot .frame::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(180deg, transparent 55%, rgba(5, 11, 24, .55) 100%)
+        }
+
+        .hero-glow {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -30px;
+            width: 70%;
+            height: 120px;
+            background: var(--acc);
+            filter: blur(70px);
+            opacity: .5;
+            border-radius: 50%;
+            z-index: -1
+        }
+
+        .float-chip {
+            position: absolute;
+            z-index: 3;
+            background: rgba(12, 22, 42, .78);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, .16);
+            border-radius: 15px;
+            padding: 13px 17px;
+            box-shadow: 0 20px 44px -18px rgba(0, 0, 0, .7);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            animation: bob 7s ease-in-out infinite
+        }
+
+        .float-chip .fc-i {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--acc), var(--acc-2));
+            display: grid;
+            place-items: center;
+            font-size: 1rem;
+            flex: none
+        }
+
+        .float-chip b {
+            display: block;
+            font-size: 1.06rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            letter-spacing: -.02em;
+            color: #fff;
+            line-height: 1.1
+        }
+
+        .float-chip s {
+            display: block;
+            text-decoration: none;
+            font-size: .72rem;
+            color: var(--tx-i3);
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-top: 2px
+        }
+
+        .fc-a {
+            top: 14%;
+            left: -46px;
+            animation-delay: -1s
+        }
+
+        .fc-b {
+            bottom: 22%;
+            right: -40px;
+            animation-delay: -3.5s
+        }
+
+        @keyframes bob {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(-13px)
+            }
+        }
+
+        /* marquee */
+        .marquee {
+            margin-top: 64px;
+            padding: 22px 0;
+            border-top: 1px solid rgba(255, 255, 255, .09);
+            border-bottom: 1px solid rgba(255, 255, 255, .09);
+            background: rgba(255, 255, 255, .025);
+            overflow: hidden;
+            -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)
+        }
+
+        .mq-track {
+            display: flex;
+            gap: 0;
+            width: max-content;
+            animation: mq 42s linear infinite
+        }
+
+        .marquee:hover .mq-track {
+            animation-play-state: paused
+        }
+
+        .mq-track span {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            padding: 0 26px;
+            font-size: .83rem;
+            font-weight: 700;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .5);
+            white-space: nowrap
+        }
+
+        .mq-track span::after {
+            content: '';
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--acc);
+            opacity: .8
+        }
+
+        @keyframes mq {
+            to {
+                transform: translateX(-50%)
+            }
+        }
+
+        /* ---------- generic section ---------- */
+        .sec {
+            padding: 120px 0
+        }
+
+        .sec-sm {
+            padding: 88px 0
+        }
+
+        .tint {
+            background: linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 40%, var(--paper-2) 60%, var(--paper) 100%)
+        }
+
+        .dark {
+            background: radial-gradient(900px 520px at 12% -10%, rgba(30, 69, 218, .22), transparent 60%),
+                radial-gradient(800px 480px at 88% 110%, var(--acc-soft), transparent 62%), linear-gradient(170deg, #050b18, #0a1729);
+            color: var(--tx-i)
+        }
+
+        .dark h2,
+        .dark h3 {
+            color: #fff
+        }
+
+        .dark p {
+            color: var(--tx-i2)
+        }
+
+        .kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            font-size: .775rem;
+            font-weight: 800;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--acc);
+            margin-bottom: 18px
+        }
+
+        .kicker::before {
+            content: '';
+            width: 26px;
+            height: 2px;
+            border-radius: 2px;
+            background: linear-gradient(90deg, var(--acc), transparent)
+        }
+
+        .dark .kicker {
+            color: var(--acc-2)
+        }
+
+        .lede {
+            font-size: 1.14rem;
+            color: var(--tx-2);
+            max-width: 66ch;
+            line-height: 1.68
+        }
+
+        .dark .lede {
+            color: var(--tx-i2)
+        }
+
+        .sec-head {
+            max-width: 780px;
+            margin-bottom: 58px
+        }
+
+        /* metric band */
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--line);
+            border: 1px solid var(--line);
+            border-radius: var(--r-l);
+            overflow: hidden;
+            box-shadow: var(--shadow)
+        }
+
+        .metric {
+            background: #fff;
+            padding: 38px 28px;
+            text-align: center;
+            transition: background .35s
+        }
+
+        .metric:hover {
+            background: var(--paper-2)
+        }
+
+        .metric b {
+            display: block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            letter-spacing: -.04em;
+            font-size: clamp(2.3rem, 4vw, 3.1rem);
+            line-height: 1;
+            background: linear-gradient(140deg, var(--acc), var(--acc-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            margin-bottom: 10px
+        }
+
+        .metric span {
+            font-size: .83rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--tx-3)
+        }
+
+        .metric em {
+            display: block;
+            font-style: normal;
+            font-size: .9rem;
+            color: var(--tx-2);
+            margin-top: 7px;
+            letter-spacing: -.005em;
+            text-transform: none;
+            font-weight: 400
+        }
+
+        /* pain / gain */
+        .pg {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 26px
+        }
+
+        .pg-card {
+            border-radius: var(--r-l);
+            padding: 38px 34px;
+            border: 1px solid var(--line);
+            background: #fff;
+            box-shadow: var(--shadow)
+        }
+
+        .pg-card.bad {
+            background: linear-gradient(180deg, #fff, #fff8f8);
+            border-color: #f6dede
+        }
+
+        .pg-card.good {
+            background: linear-gradient(180deg, #fff, var(--paper-2));
+            border-color: var(--line)
+        }
+
+        .pg-card h3 {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.15rem
+        }
+
+        .pg-card h3 i {
+            width: 30px;
+            height: 30px;
+            border-radius: 99px;
+            display: grid;
+            place-items: center;
+            font-size: .85rem;
+            font-style: normal;
+            flex: none
+        }
+
+        .pg-card.bad h3 i {
+            background: #ffe8e8;
+            color: #c8383f
+        }
+
+        .pg-card.good h3 i {
+            background: var(--acc-soft);
+            color: var(--acc)
+        }
+
+        .pg-card ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 13px
+        }
+
+        .pg-card li {
+            display: flex;
+            gap: 12px;
+            font-size: .98rem;
+            color: var(--tx-2);
+            line-height: 1.55
+        }
+
+        .pg-card li::before {
+            content: '';
+            flex: none;
+            width: 19px;
+            height: 19px;
+            border-radius: 50%;
+            margin-top: 3px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 11px
+        }
+
+        .pg-card.bad li::before {
+            background-color: #ffe8e8;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c8383f' stroke-width='3.5' stroke-linecap='round'%3E%3Cpath d='M6 6l12 12M18 6L6 18'/%3E%3C/svg%3E")
+        }
+
+        .pg-card.good li::before {
+            background-color: var(--acc);
+            background-size: 12px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12.5l5.5 5.5L20 6'/%3E%3C/svg%3E")
+        }
+
+        /* ---------- sticky showcase ---------- */
+        .show {
+            display: grid;
+            grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+            gap: 58px;
+            align-items: start
+        }
+
+        .show-copy {
+            padding: 20px 0 160px
+        }
+
+        .show-item {
+            min-height: 55vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 50px 0;
+            border-top: 1px solid var(--line);
+            opacity: .32;
+            transition: opacity .4s var(--ease)
+        }
+
+        .show-item:first-child {
+            border-top: none
+        }
+
+        .show-item.on {
+            opacity: 1
+        }
+
+        .show-item .num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 11px;
+            font-size: .8rem;
+            font-weight: 800;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--paper-3);
+            color: var(--tx-3);
+            margin-bottom: 16px;
+            transition: .45s var(--ease)
+        }
+
+        .show-item.on .num {
+            background: linear-gradient(135deg, var(--acc), var(--acc-2));
+            color: #fff;
+            box-shadow: 0 10px 24px -10px var(--acc-soft)
+        }
+
+        .show-item h3 {
+            margin-bottom: 12px
+        }
+
+        .show-item p {
+            color: var(--tx-2);
+            font-size: 1rem;
+            margin-bottom: 16px
+        }
+
+        .show-item .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px
+        }
+
+        .tag {
+            font-size: .755rem;
+            font-weight: 700;
+            letter-spacing: .045em;
+            padding: 5px 11px;
+            border-radius: 99px;
+            background: var(--paper-3);
+            color: var(--tx-2);
+            border: 1px solid var(--line)
+        }
+
+        .show-item.on .tag {
+            background: var(--acc-soft);
+            color: var(--acc);
+            border-color: transparent
+        }
+
+        .show-media {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 140px;
+            align-self: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 20px 0 40px;
+            z-index: 5
+        }
+
+        .show-stack {
+            position: relative;
+            border-radius: var(--r-l);
+            overflow: hidden;
+            box-shadow: var(--shadow-l);
+            border: 1px solid var(--line);
+            background: #fff
+        }
+
+        .show-stack .frame-bar {
+            background: linear-gradient(180deg, #f3f6fc, #e9eff9);
+            border-bottom: 1px solid var(--line)
+        }
+
+        .show-stack .frame-url {
+            background: #fff;
+            color: var(--tx-3);
+            border: 1px solid var(--line)
+        }
+
+        .show-canvas {
+            position: relative;
+            aspect-ratio: 1600/930;
+            background: #fff;
+            overflow: hidden;
+            min-height: 360px
+        }
+
+        .show-canvas .shot {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transform: scale(1.035) translateY(10px);
+            transition: opacity .7s var(--ease), transform .9s var(--ease)
+        }
+
+        .show-canvas .shot.on {
+            opacity: 1;
+            transform: none;
+            z-index: 2
+        }
+
+        .show-prog {
+            display: flex;
+            gap: 5px;
+            padding: 0 0 0
+        }
+
+        .show-prog i {
+            flex: 1;
+            height: 3px;
+            border-radius: 3px;
+            background: var(--line);
+            transition: .4s
+        }
+
+        .show-prog i.on {
+            background: linear-gradient(90deg, var(--acc), var(--acc-2))
+        }
+
+        .show-label {
+            margin-top: 16px;
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            min-height: 30px
+        }
+
+        .show-label i {
+            font-style: normal;
+            font-size: .76rem;
+            font-weight: 800;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--acc)
+        }
+
+        .show-label b {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: -.02em;
+            color: var(--tx-2);
+            transition: opacity .4s var(--ease)
+        }
+
+        /* ---------- carousel ---------- */
+        .car {
+            position: relative;
+            max-width: 1140px;
+            margin: 0 auto
+        }
+
+        .car-stage {
+            position: relative;
+            border-radius: var(--r-l);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, .14);
+            box-shadow: var(--shadow-l);
+            background: #0d1a30
+        }
+
+        .car-canvas {
+            position: relative;
+            aspect-ratio: 1600/930;
+            background: #f2f6fc;
+            overflow: hidden;
+            min-height: 360px
+        }
+
+        .car-canvas .shot {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transform: scale(1.028);
+            transition: opacity .85s var(--ease), transform 7s linear
+        }
+
+        .car-canvas .shot.on {
+            opacity: 1;
+            transform: scale(1);
+            z-index: 2
+        }
+
+        .car-cap {
+            text-align: center;
+            padding: 26px 20px 0;
+            min-height: 96px
+        }
+
+        .car-cap b {
+            display: block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.32rem;
+            font-weight: 800;
+            letter-spacing: -.025em;
+            color: #fff
+        }
+
+        .car-cap span {
+            display: block;
+            font-size: .97rem;
+            color: #b9c8e0;
+            margin: 7px auto 0;
+            max-width: 72ch;
+            line-height: 1.6
+        }
+
+        .car-bar {
+            height: 3px;
+            background: rgba(255, 255, 255, .14);
+            position: relative;
+            overflow: hidden
+        }
+
+        .car-bar i {
+            position: absolute;
+            inset: 0 auto 0 0;
+            width: 0;
+            background: linear-gradient(90deg, var(--acc), var(--acc-2))
+        }
+
+        .car-bar i.run {
+            animation: fill var(--dur, 6s) linear forwards
+        }
+
+        @keyframes fill {
+            to {
+                width: 100%
+            }
+        }
+
+        .car-nav {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+            justify-content: center
+        }
+
+        .car-btn {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, .2);
+            background: rgba(255, 255, 255, .06);
+            color: #fff;
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            transition: .28s;
+            font-size: 1.05rem;
+            flex: none
+        }
+
+        .car-btn:hover {
+            background: var(--acc);
+            border-color: var(--acc);
+            transform: scale(1.08)
+        }
+
+        .car-thumbs {
+            display: flex;
+            gap: 9px;
+            overflow-x: auto;
+            padding: 4px;
+            scrollbar-width: none
+        }
+
+        .car-thumbs::-webkit-scrollbar {
+            display: none
+        }
+
+        .car-thumbs button {
+            width: 104px;
+            height: 60px;
+            border-radius: 9px;
+            overflow: hidden;
+            border: 2px solid transparent;
+            background: none;
+            padding: 0;
+            cursor: pointer;
+            opacity: .45;
+            transition: .3s;
+            flex: none
+        }
+
+        .car-thumbs button .shot {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .car-thumbs button:hover {
+            opacity: .8
+        }
+
+        .car-thumbs button.on {
+            opacity: 1;
+            border-color: var(--acc);
+            box-shadow: 0 8px 22px -8px var(--acc-soft)
+        }
+
+        /* ---------- capability grid ---------- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--r);
+            padding: 32px 28px;
+            position: relative;
+            overflow: hidden;
+            transition: transform .45s var(--ease), box-shadow .45s var(--ease), border-color .35s
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            inset: 0 0 auto 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--acc), var(--acc-2));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .5s var(--ease)
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow);
+            border-color: transparent
+        }
+
+        .card:hover::before {
+            transform: scaleX(1)
+        }
+
+        .card .ci {
+            width: 46px;
+            height: 46px;
+            border-radius: 13px;
+            background: var(--acc-soft);
+            color: var(--acc);
+            display: grid;
+            place-items: center;
+            margin-bottom: 20px;
+            font-size: 1.25rem
+        }
+
+        .card h3 {
+            font-size: 1.08rem;
+            margin-bottom: 10px
+        }
+
+        .card p {
+            font-size: .95rem;
+            color: var(--tx-2);
+            margin: 0
+        }
+
+        .dark .card {
+            background: rgba(255, 255, 255, .045);
+            border-color: rgba(255, 255, 255, .1)
+        }
+
+        .dark .card:hover {
+            background: rgba(255, 255, 255, .075)
+        }
+
+        .dark .card .ci {
+            background: rgba(255, 255, 255, .09);
+            color: var(--acc-2)
+        }
+
+        /* split feature w/ image */
+        .split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 62px;
+            align-items: center
+        }
+
+        .split.rev .split-media {
+            order: -1
+        }
+
+        .split-media .frame {
+            transition: transform .7s var(--ease)
+        }
+
+        .split-media:hover .frame {
+            transform: translateY(-6px)
+        }
+
+        .ticks {
+            list-style: none;
+            margin: 24px 0 0;
+            padding: 0;
+            display: grid;
+            gap: 12px
+        }
+
+        .ticks li {
+            display: flex;
+            gap: 13px;
+            font-size: 1rem;
+            color: var(--tx-2);
+            line-height: 1.55
+        }
+
+        .dark .ticks li {
+            color: var(--tx-i2)
+        }
+
+        .ticks li::before {
+            content: '';
+            flex: none;
+            width: 21px;
+            height: 21px;
+            border-radius: 7px;
+            margin-top: 2px;
+            background: var(--acc);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12.5l5.5 5.5L20 6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 12px
+        }
+
+        .ticks li b {
+            color: var(--tx);
+            font-weight: 700
+        }
+
+        .dark .ticks li b {
+            color: #fff
+        }
+
+        /* security band */
+        .sec-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px
+        }
+
+        .sec-tile {
+            background: rgba(255, 255, 255, .05);
+            border: 1px solid rgba(255, 255, 255, .1);
+            border-radius: var(--r);
+            padding: 26px 22px;
+            transition: .4s var(--ease)
+        }
+
+        .sec-tile:hover {
+            background: rgba(255, 255, 255, .09);
+            transform: translateY(-4px)
+        }
+
+        .sec-tile b {
+            display: block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: -.03em;
+            color: #fff;
+            margin-bottom: 6px
+        }
+
+        .sec-tile span {
+            font-size: .9rem;
+            color: var(--tx-i3);
+            line-height: 1.5;
+            display: block
+        }
+
+        /* timeline */
+        .tl {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            position: relative;
+            margin-top: 20px
+        }
+
+        .tl::before {
+            content: '';
+            position: absolute;
+            top: 22px;
+            left: 6%;
+            right: 6%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--acc), var(--acc-2), var(--line))
+        }
+
+        .tl-step {
+            position: relative;
+            padding: 0 20px;
+            text-align: center
+        }
+
+        .tl-dot {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            margin: 0 auto 22px;
+            display: grid;
+            place-items: center;
+            background: #fff;
+            border: 2px solid var(--line);
+            font-weight: 800;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--tx-3);
+            position: relative;
+            z-index: 2;
+            transition: .5s var(--ease)
+        }
+
+        .tl-step.on .tl-dot {
+            background: linear-gradient(135deg, var(--acc), var(--acc-2));
+            color: #fff;
+            border-color: transparent;
+            box-shadow: 0 12px 28px -10px var(--acc-soft);
+            transform: scale(1.08)
+        }
+
+        .tl-step h3 {
+            font-size: 1.05rem;
+            margin-bottom: 9px
+        }
+
+        .tl-step p {
+            font-size: .93rem;
+            color: var(--tx-2);
+            margin: 0
+        }
+
+        /* faq */
+        .faq {
+            max-width: 880px;
+            margin: 0 auto;
+            border-top: 1px solid var(--line)
+        }
+
+        .q {
+            border-bottom: 1px solid var(--line);
+            transition: background-color .3s ease
+        }
+
+        .q button {
+            width: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            box-shadow: none;
+            text-align: left;
+            padding: 24px 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.08rem;
+            font-weight: 700;
+            letter-spacing: -.02em;
+            color: var(--tx);
+            line-height: 1.4;
+            transition: color .3s ease;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+
+        .q button:focus,
+        .q button:focus-visible,
+        .q button:active {
+            outline: none !important;
+            box-shadow: none !important;
+            border: none !important;
+        }
+
+        .q button:hover,
+        .q.open button {
+            color: #1e45da
+        }
+
+        .q button::after {
+            content: '+';
+            flex: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(30, 69, 218, .08);
+            color: #1e45da;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 500;
+            line-height: 1;
+            transition: transform .35s var(--ease), background-color .3s ease, color .3s ease;
+        }
+
+        .q button:hover::after,
+        .q.open button::after {
+            background: #1e45da;
+            color: #fff;
+        }
+
+        .q.open button::after {
+            content: '×';
+            transform: rotate(0deg);
+        }
+
+        .q .a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .45s var(--ease);
+        }
+
+        .q .a p {
+            color: var(--tx-2);
+            font-size: 0.98rem;
+            line-height: 1.65;
+            padding-bottom: 24px;
+            margin: 0;
+            max-width: 76ch;
+        }
+
+        /* CTA + footer */
+        .cta {
+            background: linear-gradient(140deg, #050b18, #0b1a33 55%, #0d2145);
+            color: #fff;
+            text-align: center;
+            padding: 110px 0;
+            overflow: hidden
+        }
+
+        .cta h2 {
+            margin-bottom: 20px;
+            max-width: 20ch;
+            margin-inline: auto
+        }
+
+        .cta p {
+            color: var(--tx-i2);
+            max-width: 60ch;
+            margin: 0 auto 34px;
+            font-size: 1.1rem
+        }
+
+        .cta-btns {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap
+        }
+
+        /* reveal */
+        .rv {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity .85s var(--ease), transform .85s var(--ease)
+        }
+
+        .rv.in {
+            opacity: 1;
+            transform: none
+        }
+
+        .rv-2 {
+            transition-delay: .1s
+        }
+
+        .rv-3 {
+            transition-delay: .2s
+        }
+
+        .rv-4 {
+            transition-delay: .3s
+        }
+
+        .rv-5 {
+            transition-delay: .4s
+        }
+
+        .rv-6 {
+            transition-delay: .5s
+        }
+
+        @media(max-width:1040px) {
+            .show {
+                grid-template-columns: 1fr;
+                gap: 34px
+            }
+
+            .show-media {
+                position: relative;
+                top: 0;
+                order: -1
+            }
+
+            .grid,
+            .sec-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .metrics {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .tl {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 44px 0
+            }
+
+            .tl::before {
+                display: none
+            }
+
+            .split {
+                grid-template-columns: 1fr;
+                gap: 36px
+            }
+
+            .split.rev .split-media {
+                order: 0
+            }
+
+            .fc-a,
+            .fc-b {
+                display: none
+            }
+        }
+
+        @media(max-width:680px) {
+            body {
+                font-size: 16px
+            }
+
+            .sec {
+                padding: 78px 0
+            }
+
+            .hero {
+                padding-top: 110px
+            }
+
+            .grid,
+            .sec-grid,
+            .pg,
+            .metrics {
+                grid-template-columns: 1fr
+            }
+
+            .tl {
+                grid-template-columns: 1fr
+            }
+
+            .wrap {
+                padding: 0 20px
+            }
+
+            .car-cap {
+                padding: 44px 20px 20px
+            }
+
+            .car-cap b {
+                font-size: 1.05rem
+            }
+
+            .frame-url {
+                display: none
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .001ms !important
+            }
+
+            html {
+                scroll-behavior: auto
+            }
+
+            .rv {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        .k-incident-1 {
+            background-image: url('images/product/incident-1.webp');
+            background-size: cover;
+            background-position: top left
+        }
+
+        .k-incident-2 {
+            background-image: url('images/product/incident-2.webp');
+            background-size: cover;
+            background-position: top left
+        }
+
+        .k-incident-3 {
+            background-image: url('images/product/incident-3.webp');
+            background-size: cover;
+            background-position: top left
+        }
+
+        .k-incident-4 {
+            background-image: url('images/product/incident-4.webp');
+            background-size: cover;
+            background-position: top left
+        }
+
+        .k-incident-5 {
+            background-image: url('images/product/incident-5.webp');
+            background-size: cover;
+            background-position: top left
+        }
+
+        .k-incident-6 {
+            background-image: url('images/product/incident-6.webp');
+            background-size: cover;
+            background-position: top left
+        }
+
+        .k-incident-7 {
+            background-image: url('images/product/incident-7.webp');
+            background-size: cover;
+            background-position: top left
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="#main"
+        style="position:absolute;left:-9999px;top:0;background:#fff;color:#111;padding:12px 18px;z-index:999"
+        onfocus="this.style.left='12px';this.style.top='12px'" onblur="this.style.left='-9999px'">Skip to content</a>
+
+    <div class="#">
+        <!-- Common Header Placeholder -->
+        <div id="header-placeholder"></div>
+
+        <!-- page-title-row -->
+        <div class="ttm-page-title-row ttm-textcolor-white">
+            <div class="ttm-bg-layer"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="title-box text-center">
+                            <div class="page-title-heading">
+                                <h1 class="title">Incident Management Platform</h1>
+                            </div>
+                            <div class="breadcrumb-wrapper">
+                                <span>
+                                    <a title="Homepage" href="index.html" class="ttm-textcolor-white"><i
+                                            class="ti ti-home"></i>&nbsp;&nbsp;Home</a>
+                                </span>
+                                <span class="ttm-bread-sep">&nbsp; : : &nbsp;</span>
+                                <span class="ttm-textcolor-white">Incident Management Platform</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- page-title-row end -->
+
+        <main id="main">
+
+            <!-- ================= HERO ================= -->
+            <!-- <section class="hero">
+    <span class="orb orb-1"></span><span class="orb orb-2"></span><span class="orb orb-3"></span>
+    <div class="wrap">
+      <span class="eyebrow rv"><b>Platform 01</b> Cyber incident management</span>
+      <h1 class="rv rv-2">From first alert to <span class="g">lessons learned</span> — on one unbroken line.</h1>
+      <p class="hero-sub rv rv-3">A cyber incident platform built for regulated Australian organisations. Declare, investigate, contain and close every incident inside a single workspace — with the evidence, the approvals, the residual risk movement and the audit trail assembled as you go, not reconstructed the week before an audit.</p>
+      <div class="hero-cta rv rv-4">
+        <a class="btn btn-p" href="contact-us.html">Book a walkthrough <span aria-hidden="true">&rarr;</span></a>
+        <a class="btn btn-g" href="#tour">See the screens</a>
+      </div>
+      <div class="hero-note rv rv-5"><span><i></i>Microsoft Entra ID single sign-on</span><span><i></i>Append-only audit trail</span><span><i></i>Built for OAIC reporting timelines</span></div>
+    </div>
+    <div class="wrap">
+      <div class="hero-shot rv rv-6">
+        <span class="hero-glow"></span>
+        <div class="float-chip fc-a"><div class="fc-i">&#9888;</div><div><b>13</b><s>Live incidents</s></div></div><div class="float-chip fc-b"><div class="fc-i">&#8595;</div><div><b>49%</b><s>Risk reduced</s></div></div>
+        <div class="frame">
+          <div class="frame-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="frame-url">portal.onva.com.au / incidents / all</span></div>
+          <div class="frame-body"><div class="shot hero-img k-incident-2" role="img" aria-label="Incident Management Platform — main screen" style="aspect-ratio:1600/930"></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="marquee"><div class="mq-track"><span>Declare</span><span>Triage</span><span>Investigate</span><span>Contain</span><span>Recover</span><span>Lessons learned</span><span>Control uplift</span><span>Residual risk</span><span>Sign-off</span><span>Audit trail</span><span>OAIC reporting</span><span>Evidence packs</span><span>Declare</span><span>Triage</span><span>Investigate</span><span>Contain</span><span>Recover</span><span>Lessons learned</span><span>Control uplift</span><span>Residual risk</span><span>Sign-off</span><span>Audit trail</span><span>OAIC reporting</span><span>Evidence packs</span></div></div>
+  </section> -->
+
+            <!-- ================= METRICS ================= -->
+            <section class="sec-sm">
+                <div class="wrap">
+                    <div class="metrics">
+                        <div class="metric rv rv-1"><b data-to="13" data-pre="" data-suf="">0</b><span>Lifecycle
+                                states</span><em>Draft through to Closed, each one enforced by workflow rather than by
+                                memory.</em></div>
+                        <div class="metric rv rv-2"><b data-to="49" data-dec="0" data-pre=""
+                                data-suf="%">0</b><span>Average risk reduction</span><em>Measured movement from inherent
+                                to residual risk across assessed incidents.</em></div>
+                        <div class="metric rv rv-3"><b data-to="6" data-pre="" data-suf="">0</b><span>Role
+                                profiles</span><em>Cyber &amp; InfoSec, IT Team Lead, CIO, IT Support, Auditor and
+                                Administrator.</em></div>
+                        <div class="metric rv rv-4"><b data-to="100" data-dec="0" data-pre=""
+                                data-suf="%">0</b><span>Append-only logging</span><em>Nothing in the activity or data
+                                audit trail can be edited or deleted from the portal.</em></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= PROBLEM / OUTCOME ================= -->
+            <section class="sec tint">
+                <div class="wrap">
+                    <div class="sec-head rv">
+                        <span class="kicker">Why it exists</span>
+                        <h2>Incident response fails in the paperwork, not the panic</h2>
+                        <p class="lede" style="margin-top:20px">Most teams handle the technical response well. What
+                            breaks is everything that has to be true afterwards — who approved containment, what
+                            evidence was collected, which control was actually improved, and whether the residual risk
+                            was ever accepted by someone senior enough to accept it.</p>
+                    </div>
+                    <div class="pg">
+                        <div class="pg-card bad rv rv-2">
+                            <h3><i>&#10007;</i>Life on spreadsheets and inboxes</h3>
+                            <ul>
+                                <li>The incident log lives in one workbook, the evidence in a shared drive, and the
+                                    approvals in an email thread nobody can find.</li>
+                                <li>Lessons learned get written once, filed, and never turn into a control change.</li>
+                                <li>Nobody can answer &ldquo;how much risk did we actually retire?&rdquo; with a number.
+                                </li>
+                                <li>The audit trail is whatever people remember, reconstructed under time pressure.</li>
+                                <li>Reporting clocks start ticking while the team is still deciding who owns the record.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="pg-card good rv rv-3">
+                            <h3><i>&#10003;</i>Life on Onva Incident Command</h3>
+                            <ul>
+                                <li>One record per incident carrying timeline, evidence, root cause, actions, approvals
+                                    and sign-off together.</li>
+                                <li>Lessons learned are structured fields that open control improvements and risk
+                                    register updates automatically.</li>
+                                <li>Inherent versus residual risk is calculated, aggregated and shown as a percentage
+                                    the board understands.</li>
+                                <li>Every view, search, export and field change is written to an append-only log with
+                                    its session.</li>
+                                <li>Ownership and the approval chain are set the moment the incident is declared.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= STICKY SHOWCASE ================= -->
+            <section class="sec" id="features">
+                <div class="wrap">
+                    <div class="sec-head rv">
+                        <span class="kicker">Inside the platform</span>
+                        <h2>Every stage of the response, already in the product</h2>
+                        <p class="lede" style="margin-top:20px">Nine screens, one continuous thread. Scroll through the
+                            workflow the way your team lives it.</p>
+                    </div>
+                    <div class="show" data-show>
+                        <div class="show-copy">
+                            <div class="show-item" data-i="0"><span class="num">01</span>
+                                <h3>The register that never loses an incident</h3>
+                                <p>Every recorded cyber incident in one filterable table — ID, name, severity, status,
+                                    residual risk, type, declared date, review date and business unit. Saved views for
+                                    Open, Under Investigation, Contained, Recovery, Closed, Critical &amp; High Severity
+                                    and My Incidents mean each role opens straight into their own queue.</p>
+                                <div class="tags"><span class="tag">Saved role views</span><span class="tag">Full-text
+                                        search</span><span class="tag">Column filters</span><span class="tag">CSV
+                                        export</span></div>
+                            </div>
+                            <div class="show-item" data-i="1"><span class="num">02</span>
+                                <h3>Open work, isolated on one screen</h3>
+                                <p>The Open Incidents view strips the register back to everything that has not reached
+                                    Closed, with overdue actions flagged in red on the row itself. Stand-ups run off
+                                    this screen instead of a status email, because the count in the sidebar is the same
+                                    number the CIO sees.</p>
+                                <div class="tags"><span class="tag">Overdue action flags</span><span class="tag">Live
+                                        counts</span><span class="tag">One-click drill-in</span></div>
+                            </div>
+                            <div class="show-item" data-i="2"><span class="num">03</span>
+                                <h3>Lessons learned that actually close the loop</h3>
+                                <p>Each incident carries a structured post-incident record: what worked well, what
+                                    didn&rsquo;t, the gaps found, the actions raised and the controls changed — with a
+                                    sign-off position of Pending, Partial or Complete. The report exports as a formatted
+                                    pack for your audit committee in a single click.</p>
+                                <div class="tags"><span class="tag">Gap tracking</span><span class="tag">Action
+                                        plans</span><span class="tag">Sign-off states</span><span class="tag">Export
+                                        centre</span></div>
+                            </div>
+                            <div class="show-item" data-i="3"><span class="num">04</span>
+                                <h3>Risk reduction you can prove, not assert</h3>
+                                <p>Movement from inherent to residual risk, incident by incident, with the reduction
+                                    only counted where the control improvements behind it have been verified. Aggregate
+                                    reduction, inherent score, residual score and the count of residual High or Critical
+                                    items sit across the top as live figures.</p>
+                                <div class="tags"><span class="tag">Inherent &rarr; residual</span><span
+                                        class="tag">Controls verified</span><span class="tag">Risk owner</span><span
+                                        class="tag">Next review date</span></div>
+                            </div>
+                            <div class="show-item" data-i="4"><span class="num">05</span>
+                                <h3>Roles and approvals modelled on your real sign-off chain</h3>
+                                <p>Six role profiles with explicit permission sets — the Senior Cyber and InfoSec
+                                    Specialist owns response end to end, the IT Team Lead approves technical
+                                    remediation, the CIO accepts residual risk and closes, IT Support records timeline
+                                    and evidence, and the Auditor gets read-only across everything including the trail.
+                                </p>
+                                <div class="tags"><span class="tag">Entra ID SSO</span><span class="tag">Group-mapped
+                                        roles</span><span class="tag">Read-only auditor</span><span
+                                        class="tag">Per-field permissions</span></div>
+                            </div>
+                            <div class="show-item" data-i="5"><span class="num">06</span>
+                                <h3>An audit trail that cannot be quietly edited</h3>
+                                <p>Two append-only stores: an activity log of every sign-in, page view, search, record
+                                    change, approval, export and upload; and a field-level data audit trail of every
+                                    value that changed. A refused access attempt is itself recorded as a security event.
+                                    Filter by user, date range, activity type or free text, then export to CSV.</p>
+                                <div class="tags"><span class="tag">Append-only</span><span class="tag">Session
+                                        tracking</span><span class="tag">Field-level history</span><span
+                                        class="tag">Security events</span></div>
+                            </div>
+                        </div>
+                        <div class="show-media">
+                            <div class="show-stack">
+                                <div class="frame-bar"><span class="dot"></span><span class="dot"></span><span
+                                        class="dot"></span>
+                                    <span class="frame-url">portal.onva.com.au / incidents / all</span>
+                                </div>
+                                <div class="show-canvas">
+                                    <div class="shot k-incident-2" role="img"
+                                        aria-label="The register that never loses an incident — Incident Management Platform screen">
+                                    </div>
+                                    <div class="shot k-incident-3" role="img"
+                                        aria-label="Open work, isolated on one screen — Incident Management Platform screen">
+                                    </div>
+                                    <div class="shot k-incident-4" role="img"
+                                        aria-label="Lessons learned that actually close the loop — Incident Management Platform screen">
+                                    </div>
+                                    <div class="shot k-incident-5" role="img"
+                                        aria-label="Risk reduction you can prove, not assert — Incident Management Platform screen">
+                                    </div>
+                                    <div class="shot k-incident-6" role="img"
+                                        aria-label="Roles and approvals modelled on your real sign-off chain — Incident Management Platform screen">
+                                    </div>
+                                    <div class="shot k-incident-7" role="img"
+                                        aria-label="An audit trail that cannot be quietly edited — Incident Management Platform screen">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="show-prog" style="margin-top:14px"><i></i><i></i><i></i><i></i><i></i><i></i>
+                            </div>
+                            <div class="show-label"><i></i><b></b></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= CAROUSEL TOUR ================= -->
+            <section class="sec dark" id="tour">
+                <div class="wrap">
+                    <div class="sec-head rv" style="text-align:center;margin-inline:auto">
+                        <span class="kicker">Platform 01 &middot; guided tour</span>
+                        <h2>Take the full tour</h2>
+                        <p class="lede" style="margin:20px auto 0">Six screens from the working platform. Sensitive
+                            record content has been masked for the web.</p>
+                    </div>
+                    <div class="car rv rv-2" data-car
+                        data-caps="[[&quot;Role-aware sign-in&quot;, &quot;Operate as the right person from the first click \u2014 ownership, \u201cMy incidents\u201d, approvals and the audit trail all follow the identity. In production this is Microsoft Entra ID single sign-on.&quot;], [&quot;All incidents&quot;, &quot;The complete register, searchable across ID, name, type, unit, system, root cause, owner and status.&quot;], [&quot;Open incidents&quot;, &quot;Everything not yet closed, with overdue actions surfaced on the row.&quot;], [&quot;Lessons learned reports&quot;, &quot;Every incident with a post-incident record, its gaps, actions, controls and sign-off position.&quot;], [&quot;Risk reduction&quot;, &quot;Inherent to residual movement with verified control counts and the next review date.&quot;], [&quot;Users and roles&quot;, &quot;Six role profiles with explicit permission sets, mapped to identity-provider groups.&quot;], [&quot;Log &amp; audit&quot;, &quot;Append-only activity and field-level data history, filterable and exportable.&quot;]]"
+                        role="group" aria-label="Incident Management Platform screen tour">
+                        <div class="car-stage">
+                            <div class="car-canvas">
+                                <div class="shot k-incident-1" role="img" aria-label="Role-aware sign-in"></div>
+                                <div class="shot k-incident-2" role="img" aria-label="All incidents"></div>
+                                <div class="shot k-incident-3" role="img" aria-label="Open incidents"></div>
+                                <div class="shot k-incident-4" role="img" aria-label="Lessons learned reports"></div>
+                                <div class="shot k-incident-5" role="img" aria-label="Risk reduction"></div>
+                                <div class="shot k-incident-6" role="img" aria-label="Users and roles"></div>
+                                <div class="shot k-incident-7" role="img" aria-label="Log &amp; audit"></div>
+                            </div>
+                            <div class="car-cap"><b></b><span></span></div>
+                            <div class="car-bar"><i></i></div>
+                        </div>
+                        <div class="car-nav">
+                            <button class="car-btn car-prev" type="button" aria-label="Previous screen">&#8592;</button>
+                            <div class="car-thumbs">
+                                <button type="button" aria-label="Show: Role-aware sign-in"><span
+                                        class="shot k-incident-1"></span></button>
+                                <button type="button" aria-label="Show: All incidents"><span
+                                        class="shot k-incident-2"></span></button>
+                                <button type="button" aria-label="Show: Open incidents"><span
+                                        class="shot k-incident-3"></span></button>
+                                <button type="button" aria-label="Show: Lessons learned reports"><span
+                                        class="shot k-incident-4"></span></button>
+                                <button type="button" aria-label="Show: Risk reduction"><span
+                                        class="shot k-incident-5"></span></button>
+                                <button type="button" aria-label="Show: Users and roles"><span
+                                        class="shot k-incident-6"></span></button>
+                                <button type="button" aria-label="Show: Log &amp; audit"><span
+                                        class="shot k-incident-7"></span></button>
+                            </div>
+                            <button class="car-btn car-next" type="button" aria-label="Next screen">&#8594;</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= CAPABILITY GRID ================= -->
+            <section class="sec">
+                <div class="wrap">
+                    <div class="sec-head rv">
+                        <span class="kicker">Capabilities</span>
+                        <h2>Everything a regulated incident function needs</h2>
+                    </div>
+                    <div class="grid">
+                        <div class="card rv rv-1">
+                            <div class="ci">&#9873;</div>
+                            <h3>Guided declaration</h3>
+                            <p>A new incident captures type, severity, affected system, business unit and owner up
+                                front, so the record is complete before triage starts.</p>
+                        </div>
+                        <div class="card rv rv-2">
+                            <div class="ci">&#9202;</div>
+                            <h3>Reporting clocks</h3>
+                            <p>Declared date, review date and status transitions are timestamped, giving you defensible
+                                evidence against notification timeframes.</p>
+                        </div>
+                        <div class="card rv rv-3">
+                            <div class="ci">&#9782;</div>
+                            <h3>Investigation workspace</h3>
+                            <p>Timeline entries, evidence attachments and root-cause analysis live on the incident, not
+                                in a separate folder.</p>
+                        </div>
+                        <div class="card rv rv-1">
+                            <div class="ci">&#10003;</div>
+                            <h3>Approval gates</h3>
+                            <p>Pending Approval is a real state. Containment and closure require the right role to sign,
+                                and the signature is part of the record.</p>
+                        </div>
+                        <div class="card rv rv-2">
+                            <div class="ci">&#9878;</div>
+                            <h3>Risk matrix &amp; workflow config</h3>
+                            <p>Administrators tune the severity model, the risk matrix and the reference data without a
+                                code change.</p>
+                        </div>
+                        <div class="card rv rv-3">
+                            <div class="ci">&#9781;</div>
+                            <h3>Reference data</h3>
+                            <p>Incident types, business units, systems and root-cause categories are managed centrally
+                                so reporting stays comparable year on year.</p>
+                        </div>
+                        <div class="card rv rv-1">
+                            <div class="ci">&#8595;</div>
+                            <h3>Export centre</h3>
+                            <p>Board packs, lessons-learned reports, register extracts and audit logs export as CSV or
+                                formatted documents.</p>
+                        </div>
+                        <div class="card rv rv-2">
+                            <div class="ci">&#9636;</div>
+                            <h3>Light and dark</h3>
+                            <p>A full dark mode for the security operations team who live in the product at 2am.</p>
+                        </div>
+                        <div class="card rv rv-3">
+                            <div class="ci">&#9871;</div>
+                            <h3>Register integration</h3>
+                            <p>Risk register updates raised during lessons learned flow straight into the Onva Risk
+                                Management platform.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= SECURITY BAND ================= -->
+            <section class="sec dark">
+                <div class="wrap">
+                    <div class="sec-head rv">
+                        <span class="kicker">Assurance</span>
+                        <h2>Assurance is the product, not a feature of it</h2>
+                        <p class="lede" style="margin-top:20px">Everything below is enforced by the platform. None of it
+                            depends on a person remembering to do it.</p>
+                    </div>
+                    <div class="sec-grid">
+                        <div class="sec-tile rv rv-1"><b>SSO</b><span>Microsoft Entra ID single sign-on with roles
+                                mapped to group membership.</span></div>
+                        <div class="sec-tile rv rv-2"><b>RBAC</b><span>Six role profiles with explicit, per-action
+                                permission sets and a read-only auditor.</span></div>
+                        <div class="sec-tile rv rv-3"><b>Append-only</b><span>Activity and data audit stores cannot be
+                                edited or deleted from the portal.</span></div>
+                        <div class="sec-tile rv rv-4"><b>Sessions</b><span>Sign-in, sign-out, session duration and
+                                time-on-page recorded per user.</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= TIMELINE ================= -->
+            <section class="sec tint">
+                <div class="wrap">
+                    <div class="sec-head rv" style="text-align:center;margin-inline:auto">
+                        <span class="kicker">Implementation</span>
+                        <h2>From kick-off to live in weeks, not quarters</h2>
+                    </div>
+                    <div class="tl">
+                        <div class="tl-step rv rv-1">
+                            <div class="tl-dot">1</div>
+                            <h3>Model</h3>
+                            <p>We map your severity scale, risk matrix, business units, systems and approval chain onto
+                                the platform&rsquo;s reference data.</p>
+                        </div>
+                        <div class="tl-step rv rv-2">
+                            <div class="tl-dot">2</div>
+                            <h3>Configure</h3>
+                            <p>Roles are mapped to your identity provider groups. Workflow states and review periods are
+                                set to your policy.</p>
+                        </div>
+                        <div class="tl-step rv rv-3">
+                            <div class="tl-dot">3</div>
+                            <h3>Migrate</h3>
+                            <p>Historic incidents and open actions are imported so the register starts complete, with
+                                the audit trail intact from day one.</p>
+                        </div>
+                        <div class="tl-step rv rv-4">
+                            <div class="tl-dot">4</div>
+                            <h3>Operate</h3>
+                            <p>Your team runs live incidents in the product, with Onva alongside for the first cycle of
+                                lessons learned and board reporting.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= FAQ ================= -->
+            <section class="sec">
+                <div class="wrap">
+                    <div class="sec-head rv" style="text-align:center;margin-inline:auto">
+                        <span class="kicker">Questions</span>
+                        <h2>Straight answers</h2>
+                    </div>
+                    <div class="faq rv rv-2">
+                        <div class="q">
+                            <button type="button" aria-expanded="false">Can it handle notifiable data breach reporting?</button>
+                            <div class="a"><p>Yes. The lifecycle includes reporting states and timestamped transitions, and the register carries the declared date, review date and business unit needed to evidence a notification decision. Reference data and workflow are configurable, so the states can be named to match your internal breach-response procedure and reporting obligations.</p></div>
+                        </div>
+                        <div class="q">
+                            <button type="button" aria-expanded="false">How does it integrate with our identity provider?</button>
+                            <div class="a"><p>The hosted deployment uses Microsoft Entra ID single sign-on. Portal roles map to group membership, so joiners, movers and leavers are handled by your existing identity lifecycle rather than a separate user list inside the product.</p></div>
+                        </div>
+                        <div class="q">
+                            <button type="button" aria-expanded="false">Is the audit trail defensible?</button>
+                            <div class="a"><p>Both stores are append-only &mdash; entries cannot be edited or deleted from the portal, a refused access attempt is itself recorded as a security event, and the data audit trail records field-level before and after values. Everything exports to CSV for an external reviewer.</p></div>
+                        </div>
+                        <div class="q">
+                            <button type="button" aria-expanded="false">Can we host it in our own environment?</button>
+                            <div class="a"><p>Yes. Onva deploys the platform into your Azure or AWS tenancy with Australian data residency, or runs it as a managed service on your behalf. In both cases the data stays inside the region you nominate.</p></div>
+                        </div>
+                        <div class="q">
+                            <button type="button" aria-expanded="false">Does it connect to our risk register?</button>
+                            <div class="a"><p>Risk register updates raised during a lessons-learned review flow into the Onva Risk Management platform, so an incident that exposes a control deficiency lands in the register with its evidence rather than as a note in a report.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= RELATED PRODUCTS ================= -->
+            <section class="sec tint">
+                <div class="wrap">
+                    <div class="sec-head rv">
+                        <span class="kicker">More from Onva</span>
+                        <h2>Explore our other products</h2>
+                    </div>
+                    <div class="grid">
+                        <a class="card rv rv-1" href="small-business-erp.html" style="text-decoration:none">
+                            <div class="ci" style="background:rgba(30,69,218,.14);color:#1e45da">&#9650;</div>
+                            <h3>Small Business ERP</h3>
+                            <p>Inventory, orders, invoicing and customer management for growing teams.</p>
+                            <p style="margin-top:14px;color:#1e45da;font-weight:700;font-size:.9rem">View Product &rarr;
+                            </p>
+                        </a>
+                        <a class="card rv rv-2" href="learning-management-platforms.html" style="text-decoration:none">
+                            <div class="ci" style="background:rgba(30,69,218,.14);color:#1e45da">&#9678;</div>
+                            <h3>Learning Platforms (LMS)</h3>
+                            <p>Structured course delivery, student tracking and corporate training portals.</p>
+                            <p style="margin-top:14px;color:#1e45da;font-weight:700;font-size:.9rem">View Product &rarr;
+                            </p>
+                        </a>
+                        <a class="card rv rv-3" href="custom-erp-solutions.html" style="text-decoration:none">
+                            <div class="ci" style="background:rgba(30,69,218,.14);color:#1e45da">&#9776;</div>
+                            <h3>Custom ERP Solutions</h3>
+                            <p>Tailored modules and workflows integrating finance, operations, HR and reporting.</p>
+                            <p style="margin-top:14px;color:#1e45da;font-weight:700;font-size:.9rem">View Product &rarr;
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= CTA BANNER ================= -->
+            <section class="cta" id="demo">
+                <span class="orb orb-1" style="opacity:.22"></span>
+                <div class="wrap">
+                    <h2 class="rv">See it running against your own incident history</h2>
+                    <p class="rv rv-2">We will load a sample of your past incidents into a private instance and walk
+                        your team through the register, the lessons-learned workflow and the audit trail in forty-five
+                        minutes.</p>
+                    <div class="cta-btns rv rv-3">
+                        <a class="btn btn-p" href="contact-us.html">Book a walkthrough <span
+                                aria-hidden="true">&rarr;</span></a>
+                        <a class="btn btn-g" href="contact-us.html">Start A Project</a>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Common Footer Placeholder -->
+        <div id="footer-placeholder"></div>
+    </div>
+
+    <!-- Javascript -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/jquery-migrate-3.4.1.min.js"></script>
+    <script src="js/tether.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.js"></script>
+    <script src="js/jquery-waypoints.js"></script>
+    <script src="js/jquery-validate.js"></script>
+    <script src="js/owl.carousel.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/numinate.min6959.js"></script>
+    <script src="js/lazysizes.min.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        (function () {
+            var RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            /* reveal */
+            var io = new IntersectionObserver(function (es) {
+                es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+            }, { threshold: .12, rootMargin: '0px 0px -8% 0px' });
+            document.querySelectorAll('.rv').forEach(function (el) { io.observe(el); });
+
+            /* count up */
+            function fmt(n, dec) { return dec ? n.toFixed(dec) : Math.round(n).toLocaleString('en-AU'); }
+            var cio = new IntersectionObserver(function (es) {
+                es.forEach(function (e) {
+                    if (!e.isIntersecting) return; cio.unobserve(e.target);
+                    var el = e.target, to = parseFloat(el.dataset.to), dec = (el.dataset.dec | 0),
+                        pre = el.dataset.pre || '', suf = el.dataset.suf || '';
+                    if (RM) { el.textContent = pre + fmt(to, dec) + suf; return; }
+                    var t0 = null, dur = 1500;
+                    function step(t) {
+                        if (!t0) t0 = t; var p = Math.min((t - t0) / dur, 1);
+                        var e2 = 1 - Math.pow(1 - p, 3);
+                        el.textContent = pre + fmt(to * e2, dec) + suf;
+                        if (p < 1) requestAnimationFrame(step);
+                    }
+                    requestAnimationFrame(step);
+                });
+            }, { threshold: .5 });
+            document.querySelectorAll('[data-to]').forEach(function (el) { cio.observe(el); });
+
+            /* sticky showcase */
+            document.querySelectorAll('[data-show]').forEach(function (root) {
+                var items = root.querySelectorAll('.show-item'),
+                    imgs = root.querySelectorAll('.show-canvas .shot'),
+                    bars = root.querySelectorAll('.show-prog i'),
+                    lbN = root.querySelector('.show-label i'),
+                    lbT = root.querySelector('.show-label b');
+                function set(i) {
+                    if (i < 0 || i >= items.length) return;
+                    items.forEach(function (x, j) { x.classList.toggle('on', j === i); });
+                    imgs.forEach(function (x, j) { x.classList.toggle('on', j === i); });
+                    bars.forEach(function (x, j) { x.classList.toggle('on', j <= i); });
+                    if (lbT) {
+                        var h = items[i].querySelector('h3');
+                        if (lbN) lbN.textContent = ('0' + (i + 1)).slice(-2) + ' / ' + ('0' + items.length).slice(-2);
+                        lbT.textContent = h ? h.textContent : '';
+                    }
+                }
+                set(0);
+
+                items.forEach(function (x, idx) {
+                    x.style.cursor = 'pointer';
+                    x.addEventListener('click', function () {
+                        set(idx);
+                    });
+                });
+
+                var sio = new IntersectionObserver(function (es) {
+                    es.forEach(function (e) {
+                        if (e.isIntersecting) {
+                            var idx = +e.target.dataset.i;
+                            if (!isNaN(idx)) set(idx);
+                        }
+                    });
+                }, { threshold: 0.25, rootMargin: '-15% 0px -25% 0px' });
+                items.forEach(function (x) { sio.observe(x); });
+            });
+
+            /* carousel */
+            document.querySelectorAll('[data-car]').forEach(function (root) {
+                var imgs = root.querySelectorAll('.car-canvas .shot'),
+                    thumbs = root.querySelectorAll('.car-thumbs button'),
+                    capB = root.querySelector('.car-cap b'),
+                    capS = root.querySelector('.car-cap span'),
+                    bar = root.querySelector('.car-bar i'),
+                    caps = JSON.parse(root.dataset.caps),
+                    n = imgs.length, i = 0, timer = null, DUR = 6000, paused = false;
+                function paint() {
+                    imgs.forEach(function (x, j) { x.classList.toggle('on', j === i); });
+                    thumbs.forEach(function (x, j) { x.classList.toggle('on', j === i); });
+                    capB.textContent = caps[i][0]; capS.textContent = caps[i][1];
+                    if (bar) { bar.classList.remove('run'); void bar.offsetWidth; if (!RM && !paused) bar.classList.add('run'); }
+                }
+                function go(d) { i = (i + d + n) % n; paint(); restart(); }
+                function jump(k) { i = k; paint(); restart(); }
+                function restart() { clearInterval(timer); if (RM || paused) return; timer = setInterval(function () { i = (i + 1) % n; paint(); }, DUR); }
+                root.style.setProperty('--dur', (DUR / 1000) + 's');
+                root.querySelector('.car-prev').addEventListener('click', function () { go(-1); });
+                root.querySelector('.car-next').addEventListener('click', function () { go(1); });
+                thumbs.forEach(function (b, j) { b.addEventListener('click', function () { jump(j); }); });
+                root.addEventListener('mouseenter', function () {
+                    paused = true; clearInterval(timer);
+                    if (bar) { var w = getComputedStyle(bar).width; bar.classList.remove('run'); bar.style.width = w; }
+                });
+                root.addEventListener('mouseleave', function () { paused = false; if (bar) bar.style.width = ''; restart(); paint(); });
+                root.setAttribute('tabindex', '0');
+                root.addEventListener('keydown', function (e) {
+                    if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); } if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
+                });
+                paint(); restart();
+            });
+
+            /* timeline activate */
+            var tio = new IntersectionObserver(function (es) {
+                es.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('on'); });
+            }, { threshold: .4 });
+            document.querySelectorAll('.tl-step').forEach(function (x) { tio.observe(x); });
+
+            /* faq */
+            document.querySelectorAll('.q button').forEach(function(b){
+                b.addEventListener('click', function(){
+                    var q = b.parentElement, a = q.querySelector('.a'), open = q.classList.contains('open');
+                    q.parentElement.querySelectorAll('.q.open').forEach(function(o){
+                        o.classList.remove('open'); o.querySelector('.a').style.maxHeight = null;
+                        o.querySelector('button').setAttribute('aria-expanded','false');
+                    });
+                    if(!open){ q.classList.add('open'); a.style.maxHeight = a.scrollHeight+'px'; b.setAttribute('aria-expanded','true'); }
+                });
+            });
+
+            /* hero parallax + tilt */
+            if (!RM) {
+                var hero = document.querySelector('.hero'), shot = document.querySelector('.hero-shot .frame'),
+                    orbs = document.querySelectorAll('.orb');
+                if (hero) {
+                    hero.addEventListener('mousemove', function (e) {
+                        var r = hero.getBoundingClientRect(),
+                            x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+                        if (shot) shot.style.transform = 'rotateX(' + (7 - y * 4.5) + 'deg) rotateY(' + (x * 4.5) + 'deg) translateY(' + (y * -7) + 'px)';
+                        orbs.forEach(function (o, k) { var f = (k + 1) * 13; o.style.transform = 'translate(' + (x * f) + 'px,' + (y * f) + 'px)'; });
+                    });
+                    hero.addEventListener('mouseleave', function () {
+                        if (shot) shot.style.transform = 'rotateX(7deg)';
+                        orbs.forEach(function (o) { o.style.transform = ''; });
+                    });
+                }
+                window.addEventListener('scroll', function () {
+                    var y = window.scrollY;
+                    if (y < 1400 && shot) { shot.style.marginTop = Math.min(y * .06, 40) + 'px'; }
+                }, { passive: true });
+            }
+        })();
+    </script>
+</body>
+
+</html>

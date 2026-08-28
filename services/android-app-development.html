@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -56,6 +56,81 @@
     <style id="custom-overflow">
         body {
             overflow-x: hidden;
+        }
+    </style>
+
+    <!-- Custom Mobile App Animative Image Styles (Exclusive to Mobile App pages) -->
+    <style id="mobile-app-animative-styles">
+        /* Mobile App Hero & Main Section Image Animations */
+        .about-services-section img.img-fluid,
+        .ttm_single_image-wrapper img,
+        .featured-thumbnail img {
+            transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+            border-radius: 20px;
+            animation: mobileAppFloat 5s ease-in-out infinite;
+        }
+
+        .about-services-section img.img-fluid:hover,
+        .ttm_single_image-wrapper img:hover {
+            transform: perspective(1000px) rotateX(5deg) rotateY(-6deg) scale(1.05) translateY(-8px) !important;
+            box-shadow: 0 25px 55px rgba(0, 122, 255, 0.35), 0 0 30px rgba(112, 0, 255, 0.2) !important;
+        }
+
+        @keyframes mobileAppFloat {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(1.2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        /* Mobile Card Image Wrapper & Glass Sheen Sweep */
+        .featured-thumbnail {
+            overflow: hidden;
+            position: relative;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .featured-imagebox:hover .featured-thumbnail img {
+            transform: scale(1.09) rotate(-1deg) !important;
+            filter: brightness(1.08) contrast(1.02);
+        }
+
+        .featured-thumbnail::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -100%;
+            width: 60%;
+            height: 200%;
+            background: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.55) 50%, rgba(255,255,255,0) 100%);
+            transform: rotate(30deg);
+            transition: all 0.85s cubic-bezier(0.2, 0.8, 0.2, 1);
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        .featured-imagebox:hover .featured-thumbnail::after {
+            left: 150%;
+            opacity: 1;
+        }
+
+        /* Interactive Mobile App Icons & Badges */
+        .featured-icon-box .ttm-icon {
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+        }
+
+        .featured-icon-box:hover .ttm-icon {
+            transform: translateY(-6px) rotate(6deg) scale(1.15) !important;
+        }
+
+        .featured-icon-box.style6 .featured-icon {
+            animation: mobileIconPulse 3.5s ease-in-out infinite;
+        }
+
+        @keyframes mobileIconPulse {
+            0% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(3deg); }
+            100% { transform: scale(1) rotate(0deg); }
         }
     </style>
 </head>
@@ -468,25 +543,24 @@
 
 
 
-            <!-- services-slide-section -->
+                        <!-- services-slide-section -->
             <section class="ttm-row services-slide-section ttm-bgcolor-grey ttm-bg ttm-bgimage-yes clearfix">
                 <div class="ttm-row-wrapper-bg-layer ttm-bg-layer"></div>
                 <div class="container">
-                    <div class="row align-items-center"><!-- row -->
+                    <div class="row align-items-center">
                         <div class="col-lg-9 col-xl-9 col-md-9">
                             <!-- section-title -->
                             <div class="section-title style2 clearfix">
                                 <div class="title-header">
                                     <h5>Explore More</h5>
-                                    <h2 class="title">Explore more under <span>Mobile &amp; Software Development</span>
-                                    </h2>
+                                    <h2 class="title">Explore more under <span>Mobile App Development</span></h2>
                                 </div>
                             </div><!-- section-title end -->
                         </div>
                         <div class="col-lg-3 col-xl-3 col-md-3">
                             <div class="text-md-right">
                                 <a class="ttm-btn ttm-btn-size-md ttm-btn-style-border ttm-btn-color-darkgrey mb-40"
-                                    href="../mobile-development.html" title="View All Mobile Services"> View All </a>
+                                    href="#" title=""> Read More </a>
                             </div>
                         </div>
                     </div>
@@ -498,57 +572,52 @@
                             <!-- featured-imagebox-services -->
                             <div class="featured-imagebox featured-imagebox-services style1">
                                 <div class="featured-thumbnail"><!-- featured-thumbnail -->
-                                    <img class="img-fluid" src="../images/services/04.jpg" alt="iOS App Development"
+                                    <img class="img-fluid" src="../images/services/05.jpg" alt="image"
                                         style="border-radius: 20px;">
                                 </div>
                                 <div class="featured-content box-shadow">
                                     <div class="featured-title"><!-- featured-title -->
-                                        <h5><a href="ios-app-development.html">iOS Development</a></h5>
+                                        <h5><a href="ios-app-development.html">iOS App Development</a></h5>
                                     </div>
                                     <div class="featured-desc"><!-- featured-title -->
-                                        <p>Native Swift and SwiftUI app development built to HIG design standards.</p>
+                                        <p>High-performance, beautifully designed apps tailored specifically for Apple devices.</p>
                                     </div>
                                     <a class="ttm-btn ttm-btn-size-sm ttm-btn-color-skincolor btn-inline ttm-icon-btn-right mt-10"
-                                        href="ios-app-development.html">View Service <i
-                                            class="ti ti-angle-double-right"></i></a>
+                                        href="ios-app-development.html">View Service <i class="ti ti-angle-double-right"></i></a>
                                 </div>
                             </div>
                             <!-- featured-imagebox-services -->
                             <div class="featured-imagebox featured-imagebox-services style1">
                                 <div class="featured-thumbnail"><!-- featured-thumbnail -->
-                                    <img class="img-fluid" src="../images/services/02.jpg" alt="Custom Web Development"
+                                    <img class="img-fluid" src="../images/services/04.jpg" alt="image"
                                         style="border-radius: 20px;">
                                 </div>
                                 <div class="featured-content box-shadow">
                                     <div class="featured-title"><!-- featured-title -->
-                                        <h5><a href="custom-web-development.html">Custom Web Development</a>
-                                        </h5>
+                                        <h5><a href="basic-web-development.html">Basic Web Development</a></h5>
                                     </div>
                                     <div class="featured-desc"><!-- featured-title -->
-                                        <p>Bespoke web software built from scratch around your workflows and
-                                            integrations.</p>
+                                        <p>Establish a professional online presence with a responsive, fast-loading website.</p>
                                     </div>
                                     <a class="ttm-btn ttm-btn-size-sm ttm-btn-color-skincolor btn-inline ttm-icon-btn-right mt-10"
-                                        href="custom-web-development.html">View Service <i
-                                            class="ti ti-angle-double-right"></i></a>
+                                        href="basic-web-development.html">View Service <i class="ti ti-angle-double-right"></i></a>
                                 </div>
                             </div>
                             <!-- featured-imagebox-services -->
                             <div class="featured-imagebox featured-imagebox-services style1">
                                 <div class="featured-thumbnail"><!-- featured-thumbnail -->
-                                    <img class="img-fluid" src="../images/services/05.jpg" alt="SEO &amp; AIO Services"
+                                    <img class="img-fluid" src="../images/services/02.jpg" alt="image"
                                         style="border-radius: 20px;">
                                 </div>
                                 <div class="featured-content box-shadow">
                                     <div class="featured-title"><!-- featured-title -->
-                                        <h5><a href="seo-ai-services.html">SEO &amp; AIO Services</a></h5>
+                                        <h5><a href="custom-web-development.html">Custom Web Development</a></h5>
                                     </div>
                                     <div class="featured-desc"><!-- featured-title -->
-                                        <p>Technical SEO audits and AI search optimization to rank and get cited.</p>
+                                        <p>Bespoke web solutions, portals and web apps tailored to your specific workflows.</p>
                                     </div>
                                     <a class="ttm-btn ttm-btn-size-sm ttm-btn-color-skincolor btn-inline ttm-icon-btn-right mt-10"
-                                        href="seo-ai-services.html">View Service <i
-                                            class="ti ti-angle-double-right"></i></a>
+                                        href="custom-web-development.html">View Service <i class="ti ti-angle-double-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -694,38 +763,6 @@
     <script src="../revolution/js/rs6.min.js"></script>
     <script src="../revolution/js/slider.js"></script>
 
-    <!-- Font Resizer Logic -->
-    <script>
-        jQuery(document).ready(function ($) {
-            var currentZoom = 100;
-
-            $('#btn-font-increase').on('click', function (e) {
-                e.preventDefault();
-                e.stopPropagation();
-                if (currentZoom < 140) {
-                    currentZoom += 10;
-                    $('body').css('zoom', currentZoom + '%');
-                }
-            });
-
-            $('#btn-font-decrease').on('click', function (e) {
-                e.preventDefault();
-                e.stopPropagation();
-                if (currentZoom > 80) {
-                    currentZoom -= 10;
-                    $('body').css('zoom', currentZoom + '%');
-                }
-            });
-
-            $('#btn-font-reset').on('click', function (e) {
-                e.preventDefault();
-                e.stopPropagation();
-                currentZoom = 100;
-                $('body').css('zoom', '100%');
-            });
-        });
-    </script>
-
     <!-- Color Switcher -->
     <div id="theme-color-switcher" class="color-switcher">
         <div class="color-switcher-toggle">
@@ -756,6 +793,75 @@
 
     <!-- Javascript end-->
 
+    <!-- Custom Android App Development Exclusive Animative Image Styles -->
+    <style id="android-app-animative-styles">
+        /* ALL Images Animated with Android Holographic Pulse */
+        img,
+        .img-fluid,
+        .ttm_single_image-wrapper img,
+        .featured-thumbnail img {
+            border-radius: 22px !important;
+            transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+            animation: androidHoloPulse 4.6s ease-in-out infinite;
+            opacity: 1 !important;
+        }
+
+        .ttm_single_image-wrapper img:hover,
+        .featured-thumbnail img:hover {
+            transform: scale(1.09) translateY(-10px) rotate(-1.5deg) !important;
+            box-shadow: 0 28px 65px rgba(32, 201, 151, 0.4), 0 0 40px rgba(0, 168, 255, 0.25) !important;
+            filter: contrast(1.06) brightness(1.08) !important;
+        }
+
+        @keyframes androidHoloPulse {
+            0% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-11px) scale(1.025); }
+            100% { transform: translateY(0px) scale(1); }
+        }
+
+        .featured-thumbnail {
+            overflow: hidden;
+            position: relative;
+            border-radius: 22px !important;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Electric Lime Teal Holographic Sheen Pass */
+        .featured-thumbnail::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 70%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(32, 201, 151, 0) 0%, rgba(50, 230, 175, 0.65) 50%, rgba(0, 168, 255, 0) 100%);
+            transform: skewX(-28deg);
+            transition: all 0.85s ease;
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        .featured-imagebox:hover .featured-thumbnail::after {
+            left: 160%;
+            opacity: 1;
+        }
+
+        .featured-icon-box .ttm-icon {
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            animation: androidIconPulse 3.3s ease-in-out infinite;
+        }
+
+        .featured-icon-box:hover .ttm-icon {
+            transform: translateY(-8px) scale(1.22) rotate(-5deg) !important;
+        }
+
+        @keyframes androidIconPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1) translateY(-4px); }
+            100% { transform: scale(1); }
+        }
+    </style>
 </body>
 
 </html>
+
