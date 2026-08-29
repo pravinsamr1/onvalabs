@@ -39,9 +39,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@1,600;1,700&display=swap"
         rel="stylesheet">
     <style>
+/* Playfair Display serif italic font style for span inside headers */
+h1 span,
+h2 span,
+h3 span {
+    font-style: italic !important;
+    font-weight: 600 !important;
+    font-family: 'Playfair Display', serif !important;
+    color: var(--brand) !important;
+    -webkit-text-fill-color: var(--brand) !important;
+    background: none !important;
+    letter-spacing: 1.2px !important;
+    text-transform: none !important;
+}
         :root {
             --ink: #050b18;
             --ink-2: #0b1526;
@@ -57,10 +70,10 @@
             --tx-i: #ffffff;
             --tx-i2: #b9c8e0;
             --tx-i3: #8296b5;
-            --brand: #1e45da;
-            --brand-d: #0b47cc;
-            --acc: #1e45da;
-            --acc-2: #2563eb;
+            --brand: #2d4a8a;
+            --brand-d: #2d4a8a;
+            --acc: #2d4a8a;
+            --acc-2: #2d4a8a;
             --acc-soft: rgba(30, 69, 218, .14);
             --r: 18px;
             --r-l: 26px;
@@ -126,9 +139,9 @@
         h3,
         h4 {
             font-family: 'Poppins', sans-serif;
-            font-weight: 800;
-            letter-spacing: -.032em;
-            line-height: 1.06;
+            font-weight: 600;
+            letter-spacing: normal;
+            line-height: 1.2;
             margin: 0
         }
 
@@ -138,12 +151,12 @@
 
         h2 {
             font-size: clamp(2rem, 4.2vw, 3.25rem);
-            line-height: 1.08
+            line-height: 1.2
         }
 
         h3 {
             font-size: clamp(1.2rem, 2vw, 1.5rem);
-            letter-spacing: -.022em;
+            letter-spacing: normal;
             line-height: 1.25
         }
 
@@ -1786,8 +1799,7 @@
             <section class="sec tint">
                 <div class="wrap">
                     <div class="sec-head rv">
-                        <span class="kicker">Why it exists</span>
-                        <h2>Incident response fails in the paperwork, not the panic</h2>
+                        <h2>Incident response fails <span>in the paperwork, not the panic</span></h2>
                         <p class="lede" style="margin-top:20px">Most teams handle the technical response well. What
                             breaks is everything that has to be true afterwards — who approved containment, what
                             evidence was collected, which control was actually improved, and whether the residual risk
@@ -1829,8 +1841,7 @@
             <section class="sec" id="features">
                 <div class="wrap">
                     <div class="sec-head rv">
-                        <span class="kicker">Inside the platform</span>
-                        <h2>Every stage of the response, already in the product</h2>
+                        <h2>Every stage of the response, <span>already in the product</span></h2>
                         <p class="lede" style="margin-top:20px">Nine screens, one continuous thread. Scroll through the
                             workflow the way your team lives it.</p>
                     </div>
@@ -1936,8 +1947,7 @@
             <section class="sec dark" id="tour">
                 <div class="wrap">
                     <div class="sec-head rv" style="text-align:center;margin-inline:auto">
-                        <span class="kicker">Platform 01 &middot; guided tour</span>
-                        <h2>Take the full tour</h2>
+                        <h2>Take the <span>full tour</span></h2>
                         <p class="lede" style="margin:20px auto 0">Six screens from the working platform. Sensitive
                             record content has been masked for the web.</p>
                     </div>
@@ -1985,8 +1995,7 @@
             <section class="sec">
                 <div class="wrap">
                     <div class="sec-head rv">
-                        <span class="kicker">Capabilities</span>
-                        <h2>Everything a regulated incident function needs</h2>
+                        <h2>Everything a regulated <span>incident function needs</span></h2>
                     </div>
                     <div class="grid">
                         <div class="card rv rv-1">
@@ -2050,8 +2059,7 @@
             <section class="sec dark">
                 <div class="wrap">
                     <div class="sec-head rv">
-                        <span class="kicker">Assurance</span>
-                        <h2>Assurance is the product, not a feature of it</h2>
+                        <h2>Assurance is the product, <span>not a feature of it</span></h2>
                         <p class="lede" style="margin-top:20px">Everything below is enforced by the platform. None of it
                             depends on a person remembering to do it.</p>
                     </div>
@@ -2072,8 +2080,7 @@
             <section class="sec tint">
                 <div class="wrap">
                     <div class="sec-head rv" style="text-align:center;margin-inline:auto">
-                        <span class="kicker">Implementation</span>
-                        <h2>From kick-off to live in weeks, not quarters</h2>
+                        <h2>From kick-off <span>to live in weeks, not quarters</span></h2>
                     </div>
                     <div class="tl">
                         <div class="tl-step rv rv-1">
@@ -2108,8 +2115,7 @@
             <section class="sec">
                 <div class="wrap">
                     <div class="sec-head rv" style="text-align:center;margin-inline:auto">
-                        <span class="kicker">Questions</span>
-                        <h2>Straight answers</h2>
+                        <h2>Straight <span>answers</span></h2>
                     </div>
                     <div class="faq rv rv-2">
                         <div class="q">
