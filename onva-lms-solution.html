@@ -11,16 +11,78 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
+<!-- favicon icon -->
+    <link rel="shortcut icon" href="images/favicon.png" />
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+
+    <!-- animate -->
+    <link rel="stylesheet" type="text/css" href="css/animate.css" />
+
+    <!-- owl-carousel -->
+    <link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+
+    <!-- themify -->
+    <link rel="stylesheet" type="text/css" href="css/themify-icons.css" />
+
+    <!-- flaticon -->
+    <link rel="stylesheet" type="text/css" href="css/flaticon.css" />
+
+    <!-- shortcodes & main -->
+    <link rel="stylesheet" type="text/css" href="css/shortcodes.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/process-custom.css" />
+
+    <style>
+/* Playfair Display serif italic font style for span inside headers */
+h1 span,
+h2 span,
+h3 span {
+    font-style: italic !important;
+    font-weight: 600 !important;
+    font-family: 'Playfair Display', serif !important;
+    color: var(--brand) !important;
+    -webkit-text-fill-color: var(--brand) !important;
+    background: none !important;
+    letter-spacing: 1.2px !important;
+}
+/* Ensure sticky showcase works properly without breaking position:sticky */
+html,
+body {
+    overflow-x: clip !important;
+}
+
+body,
+body .page,
+.page,
+div[class="#"],
+#main,
+.ttm-page-title-row,
+section,
+#features,
+.wrap,
+.show {
+    overflow: visible !important;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%
+}
 :root{
   --ink:#050b18; --ink-2:#0b1526; --ink-3:#12203a;
   --paper:#ffffff; --paper-2:#f5f8fd; --paper-3:#eef3fb;
   --line:#dbe4f2; --line-d:rgba(255,255,255,.12);
   --tx:#111c30; --tx-2:#4a5a75; --tx-3:#7488a5;
   --tx-i:#ffffff; --tx-i2:#b9c8e0; --tx-i3:#8296b5;
-  --brand:#1f6bff; --brand-d:#0b47cc;
-  --acc:#2f7bff; --acc-2:#00c2ff; --acc-soft:rgba(47,123,255,.20);
+  --brand: #2d4a8a; --brand-d: #2d4a8a;
+  --acc: #2d4a8a; --acc-2: #2d4a8a; --acc-soft: rgba(30, 69, 218, .14);
   --r:18px; --r-l:26px;
   --shadow:0 24px 60px -18px rgba(9,24,54,.24), 0 4px 14px -6px rgba(9,24,54,.12);
   --shadow-l:0 50px 110px -30px rgba(6,18,44,.45), 0 12px 30px -12px rgba(6,18,44,.25);
@@ -31,16 +93,16 @@
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{
   margin:0;background:var(--paper);color:var(--tx);
-  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size:17px;line-height:1.62;letter-spacing:-.005em;
   -webkit-font-smoothing:antialiased;overflow-x:hidden;
 }
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
-h1,h2,h3,h4{font-family:'Plus Jakarta Sans','Inter',sans-serif;font-weight:800;letter-spacing:-.032em;line-height:1.06;margin:0}
+h1,h2,h3,h4{font-family: 'Poppins', sans-serif;font-weight:600;letter-spacing:normal;line-height:1.2;margin:0}
 h1{font-size:clamp(2.6rem,6.2vw,4.7rem)}
-h2{font-size:clamp(2rem,4.2vw,3.25rem);line-height:1.08}
-h3{font-size:clamp(1.2rem,2vw,1.5rem);letter-spacing:-.022em;line-height:1.25}
+h2{font-size:clamp(2rem,4.2vw,3.25rem);line-height:1.2}
+h3{font-size:clamp(1.2rem,2vw,1.5rem);letter-spacing:normal;line-height:1.25}
 p{margin:0 0 1.05em}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 26px}
 .narrow{max-width:820px}
@@ -374,47 +436,40 @@ section{position:relative;scroll-margin-top:92px}
 </head>
 <body>
 
-<a href="#main" style="position:absolute;left:-9999px;top:0;background:#fff;color:#111;padding:12px 18px;z-index:999" onfocus="this.style.left='12px';this.style.top='12px'" onblur="this.style.left='-9999px'">Skip to content</a>
+    <a href="#main"
+        style="position:absolute;left:-9999px;top:0;background:#fff;color:#111;padding:12px 18px;z-index:999"
+        onfocus="this.style.left='12px';this.style.top='12px'" onblur="this.style.left='-9999px'">Skip to content</a>
 
-<header class="nav">
-  <div class="nav-in">
-    <a class="logo" href="index.html">
-      <span class="logo-mark">O</span>
-      <span>Onva Labs<small>Products</small></span>
-    </a>
-    <nav class="nav-links" aria-label="Products"><a href="incident-management-platform.html">Incident Management</a><a href="risk-management-platform.html">Risk Management</a><a href="psychometric-analysis-platform.html">Psychometric Analysis</a><a href="it-site-tracking-platform.html">IT Site Tracking</a><a href="onva-lms-solution.html" aria-current="page">Onva LMS</a></nav>
-    <a class="btn-nav" href="#demo">Book a walkthrough</a>
-  </div>
-</header>
+    <div class="#">
+        <!-- Common Header Placeholder -->
+        <div id="header-placeholder"></div>
 
-<main id="main">
+        <!-- page-title-row -->
+        <div class="ttm-page-title-row ttm-textcolor-white">
+            <div class="ttm-bg-layer"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="title-box text-center">
+                            <div class="page-title-heading">
+                                <h1 class="title">Onva LMS Solution</h1>
+                            </div>
+                            <div class="breadcrumb-wrapper">
+                                <span>
+                                    <a title="Homepage" href="index.html" class="ttm-textcolor-white"><i
+                                            class="ti ti-home"></i>&nbsp;&nbsp;Home</a>
+                                </span>
+                                <span class="ttm-bread-sep">&nbsp; : : &nbsp;</span>
+                                <span class="ttm-textcolor-white">Onva LMS Solution</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- page-title-row end -->
 
-<!-- ================= HERO ================= -->
-<section class="hero">
-  <span class="orb orb-1"></span><span class="orb orb-2"></span><span class="orb orb-3"></span>
-  <div class="wrap">
-    <span class="eyebrow rv"><b>Platform 05</b> Learning management &amp; education ERP</span>
-    <h1 class="rv rv-2">Every learner&rsquo;s route, <span class="g">mapped</span>.</h1>
-    <p class="hero-sub rv rv-3">A role-based learning platform and education ERP with thirteen distinct role profiles — from system administrator to grader, parent and observer. From first enrolment to final report, each person sees exactly their path and nothing more.</p>
-    <div class="hero-cta rv rv-4">
-      <a class="btn btn-p" href="#demo">Book a walkthrough <span aria-hidden="true">&rarr;</span></a>
-      <a class="btn btn-g" href="#tour">See the screens</a>
-    </div>
-    <div class="hero-note rv rv-5"><span><i></i>13 role profiles out of the box</span><span><i></i>Hash-chained audit log</span><span><i></i>Standards &amp; interoperability built in</span></div>
-  </div>
-  <div class="wrap">
-    <div class="hero-shot rv rv-6">
-      <span class="hero-glow"></span>
-      <div class="float-chip fc-a"><div class="fc-i">&#9782;</div><div><b>13</b><s>Role profiles</s></div></div><div class="float-chip fc-b"><div class="fc-i">&#9635;</div><div><b>4</b><s>Hierarchy levels</s></div></div>
-      <div class="frame">
-        <div class="frame-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
-          <span class="frame-url">academy.onva.com.au / analytics</span></div>
-        <div class="frame-body"><div class="shot hero-img k-lms-4" role="img" aria-label="Onva LMS &amp; Education ERP — main screen" style="aspect-ratio:1600/930"></div></div>
-      </div>
-    </div>
-  </div>
-  <div class="marquee"><div class="mq-track"><span>Courses</span><span>Enrolments</span><span>Terms</span><span>Gradebook</span><span>Rubrics</span><span>Attendance</span><span>Competencies</span><span>Question banks</span><span>Discussions</span><span>Analytics</span><span>AI Studio</span><span>API &amp; OAuth</span><span>Accessibility</span><span>Courses</span><span>Enrolments</span><span>Terms</span><span>Gradebook</span><span>Rubrics</span><span>Attendance</span><span>Competencies</span><span>Question banks</span><span>Discussions</span><span>Analytics</span><span>AI Studio</span><span>API &amp; OAuth</span><span>Accessibility</span></div></div>
-</section>
+        <main id="main">
 
 <!-- ================= METRICS ================= -->
 <section class="sec-sm">
@@ -426,7 +481,7 @@ section{position:relative;scroll-margin-top:92px}
   <div class="wrap">
     <div class="sec-head rv">
       <span class="kicker">Why it exists</span>
-      <h2>Most LMS platforms have two roles and a lot of workarounds</h2>
+      <h2>Most LMS platforms have two roles and <span>a lot of workarounds</span></h2>
       <p class="lede" style="margin-top:20px">Teacher and student covers about a third of the people who need access. The rest — teaching assistants, graders, course builders, department heads, parents, observers, support staff, external moderators — end up sharing logins or getting far more access than anyone intended.</p>
     </div>
     <div class="pg">
@@ -441,7 +496,7 @@ section{position:relative;scroll-margin-top:92px}
   <div class="wrap">
     <div class="sec-head rv">
       <span class="kicker">Inside the platform</span>
-      <h2>One platform, thirteen different products</h2>
+      <h2>One platform, <span>thirteen different products</span></h2>
       <p class="lede" style="margin-top:20px">The same system looks completely different depending on who signs in — which is the point.</p>
     </div>
     <div class="show" data-show>
@@ -464,7 +519,7 @@ section{position:relative;scroll-margin-top:92px}
   <div class="wrap">
     <div class="sec-head rv" style="text-align:center;margin-inline:auto">
       <span class="kicker">Platform 05 &middot; guided tour</span>
-      <h2>Take the full tour</h2>
+      <h2>Take the <span>full tour</span></h2>
       <p class="lede" style="margin:20px auto 0">Five screens across four different roles.</p>
     </div>
     <div class="car rv rv-2" data-car data-caps="[[&quot;Role-based sign-in&quot;, &quot;Thirteen role profiles, each landing on a different dashboard with a different navigation set.&quot;], [&quot;System administrator&quot;, &quot;Platform-wide metrics, authentication activity and a live security posture panel.&quot;], [&quot;Institution administrator&quot;, &quot;Hierarchy, terms, enrolments, branding, competencies, accessibility, standards and AI Studio.&quot;], [&quot;Instructor course analytics&quot;, &quot;Performance, engagement and where students are struggling, with at-risk flagging.&quot;], [&quot;Teaching assistant&quot;, &quot;A bounded delegated view \u2014 their courses, students, tasks and marking queue.&quot;]]" role="group" aria-label="Onva LMS &amp; Education ERP screen tour">
@@ -487,7 +542,7 @@ section{position:relative;scroll-margin-top:92px}
   <div class="wrap">
     <div class="sec-head rv">
       <span class="kicker">Capabilities</span>
-      <h2>An LMS with the ERP already attached</h2>
+      <h2>An LMS with <span>the ERP already attached</span></h2>
     </div>
     <div class="grid"><div class="card rv rv-1"><div class="ci">&#9776;</div><h3>Courses and learning modules</h3><p>Structured modules, a content collection, course tools and a builder role that can publish without administrator rights.</p></div><div class="card rv rv-2"><div class="ci">&#9635;</div><h3>Gradebook and rubrics</h3><p>Weighted grading, rubric-based marking, delegated grading and an explicit awaiting-grading queue.</p></div><div class="card rv rv-3"><div class="ci">&#9873;</div><h3>Assignments, tests and banks</h3><p>Question banks per course, reusable across assessments, with attempt controls and release rules.</p></div><div class="card rv rv-1"><div class="ci">&#9993;</div><h3>Attendance and groups</h3><p>Attendance capture, group management, discussions, announcements, messaging and a shared calendar.</p></div><div class="card rv rv-2"><div class="ci">&#9878;</div><h3>Competencies</h3><p>Competency frameworks mapped to activities, so completion means demonstrated capability rather than time served.</p></div><div class="card rv rv-3"><div class="ci">&#9679;</div><h3>Standards and interoperability</h3><p>Built to interoperate with the standards your other systems already speak, so the LMS is not an island.</p></div><div class="card rv rv-1"><div class="ci">&#9782;</div><h3>Parents and observers</h3><p>A read-only view of one learner&rsquo;s progress, attendance and results — entitled, scoped and audited.</p></div><div class="card rv rv-2"><div class="ci">&#9636;</div><h3>AI Studio</h3><p>An institution-controlled space for AI-assisted content and feedback, with the governance settings held by the administrator.</p></div><div class="card rv rv-3"><div class="ci">&#8635;</div><h3>Integrations, API and OAuth</h3><p>A documented API with OAuth so enrolments, results and rosters move between the LMS and your student system automatically.</p></div></div>
   </div>
@@ -498,7 +553,7 @@ section{position:relative;scroll-margin-top:92px}
   <div class="wrap">
     <div class="sec-head rv">
       <span class="kicker">Assurance</span>
-      <h2>Security you can read off the dashboard</h2>
+      <h2>Security you can <span>read off the dashboard</span></h2>
       <p class="lede" style="margin-top:20px">Every setting below is displayed as a posture panel on the administrator dashboard, because a control nobody can see is a control nobody maintains.</p>
     </div>
     <div class="sec-grid"><div class="sec-tile rv rv-1"><b>PBKDF2</b><span>SHA-256 password hashing with a per-user salt, and configurable minimum length.</span></div><div class="sec-tile rv rv-2"><b>Lockout</b><span>Account lockout after five failed attempts, with a twenty-minute session idle timeout.</span></div><div class="sec-tile rv rv-3"><b>Hash-chained</b><span>An audit log where each entry is linked to its predecessor and self-registration is closed by default.</span></div><div class="sec-tile rv rv-4"><b>Accessible</b><span>Accessibility managed as a first-class administration area, not an afterthought.</span></div></div>
@@ -510,7 +565,7 @@ section{position:relative;scroll-margin-top:92px}
   <div class="wrap">
     <div class="sec-head rv" style="text-align:center;margin-inline:auto">
       <span class="kicker">Implementation</span>
-      <h2>From procurement to first term</h2>
+      <h2>From procurement <span>to first term</span></h2>
     </div>
     <div class="tl"><div class="tl-step rv rv-1"><div class="tl-dot">1</div><h3>Structure</h3><p>Your institution, departments, terms and categories are configured, and the four-level hierarchy is set to match your organisation chart.</p></div><div class="tl-step rv rv-2"><div class="tl-dot">2</div><h3>Roles</h3><p>The thirteen role profiles are mapped to your real job titles, and permissions are tuned where your governance differs from the default.</p></div><div class="tl-step rv rv-3"><div class="tl-dot">3</div><h3>Migrate</h3><p>Courses, enrolments, historic results and content are imported, and integrations to your student system are connected over the API.</p></div><div class="tl-step rv rv-4"><div class="tl-dot">4</div><h3>Launch</h3><p>Instructors and teaching assistants are onboarded into their own scoped views, with analytics live from the first assessment.</p></div></div>
   </div>
@@ -521,7 +576,7 @@ section{position:relative;scroll-margin-top:92px}
   <div class="wrap">
     <div class="sec-head rv" style="text-align:center;margin-inline:auto">
       <span class="kicker">Questions</span>
-      <h2>Straight answers</h2>
+      <h2>Straight <span>answers</span></h2>
     </div>
     <div class="faq rv rv-2"><div class="q"><button type="button" aria-expanded="false">Why thirteen roles rather than the usual two or three?</button><div class="a"><p>Because that is how many distinct relationships people actually have with a course. Teaching assistant, grader and course builder do genuinely different jobs from an instructor, and parents and observers need a bounded read view. Collapsing them forces over-permissioning, which is the most common security finding in an LMS review.</p></div></div><div class="q"><button type="button" aria-expanded="false">Can it act as our student information system?</button><div class="a"><p>It carries the ERP layer — organisations, hierarchy, terms, enrolments, categories, competencies and reporting — so many institutions run it as the system of record. Where a dedicated SIS already exists, the documented API and OAuth integration keeps rosters, enrolments and results synchronised in both directions.</p></div></div><div class="q"><button type="button" aria-expanded="false">What does AI Studio do?</button><div class="a"><p>It is an institution-controlled space for AI-assisted content authoring and feedback, with the governance settings — what is enabled, for whom, and on what content — held by the institution administrator rather than by individual instructors.</p></div></div><div class="q"><button type="button" aria-expanded="false">How do parents get access?</button><div class="a"><p>As a distinct role profile, entitled to one learner and scoped to a read view of that learner&rsquo;s progress, attendance and results. Access is granted deliberately, bounded by the entitlement, and recorded in the audit log like any other access.</p></div></div><div class="q"><button type="button" aria-expanded="false">Is it accessible?</button><div class="a"><p>Accessibility is a first-class administration area within the platform rather than a compliance checkbox, covering the learner, instructor and administrator experiences. We will walk your team through the current conformance position against your specific obligations during evaluation.</p></div></div></div>
   </div>
@@ -532,7 +587,7 @@ section{position:relative;scroll-margin-top:92px}
   <div class="wrap">
     <div class="sec-head rv">
       <span class="kicker">More from Onva</span>
-      <h2>The rest of the product range</h2>
+      <h2>The rest of <span>the product range</span></h2>
     </div>
     <div class="grid"><a class="card rv rv-1" href="incident-management-platform.html" style="text-decoration:none"><div class="ci" style="background:rgba(255,77,106,.18);color:#ff4d6a">&#9679;</div><h3>Incident Management Platform</h3><p>Cyber incident management</p><p style="margin-top:14px;color:#ff4d6a;font-weight:700;font-size:.9rem">Explore &rarr;</p></a><a class="card rv rv-2" href="risk-management-platform.html" style="text-decoration:none"><div class="ci" style="background:rgba(245,165,36,.20);color:#f5a524">&#9650;</div><h3>Risk Management Platform</h3><p>Enterprise risk &amp; compliance</p><p style="margin-top:14px;color:#f5a524;font-weight:700;font-size:.9rem">Explore &rarr;</p></a><a class="card rv rv-3" href="psychometric-analysis-platform.html" style="text-decoration:none"><div class="ci" style="background:rgba(124,92,255,.20);color:#7c5cff">&#9678;</div><h3>Psychometric Analysis Platform</h3><p>Assessment infrastructure</p><p style="margin-top:14px;color:#7c5cff;font-weight:700;font-size:.9rem">Explore &rarr;</p></a><a class="card rv rv-4" href="it-site-tracking-platform.html" style="text-decoration:none"><div class="ci" style="background:rgba(0,184,148,.20);color:#00b894">&#9635;</div><h3>IT Site Tracking Platform</h3><p>Field &amp; multi-site operations</p><p style="margin-top:14px;color:#00b894;font-weight:700;font-size:.9rem">Explore &rarr;</p></a></div>
   </div>
@@ -553,27 +608,30 @@ section{position:relative;scroll-margin-top:92px}
 
 </main>
 
-<footer class="foot">
-  <div class="wrap foot-in">
-    <div>
-      <a class="logo" href="index.html" style="color:#fff;margin-bottom:10px">
-        <span class="logo-mark">O</span><span>Onva Labs<small>Sydney, Australia</small></span>
-      </a>
-      <div style="margin-top:12px">&copy; 2026 Onva Labs. We build digital products that move your business forward.</div>
+        <!-- Common Footer Placeholder -->
+        <div id="footer-placeholder"></div>
     </div>
-    <nav class="foot-links" aria-label="Products footer"><a href="incident-management-platform.html">Incident Management</a><a href="risk-management-platform.html">Risk Management</a><a href="psychometric-analysis-platform.html">Psychometric Analysis</a><a href="it-site-tracking-platform.html">IT Site Tracking</a><a href="onva-lms-solution.html" aria-current="page">Onva LMS</a>
-      <a href="https://www.onva.com.au">onva.com.au</a></nav>
-  </div>
-</footer>
+
+    <!-- Javascript -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/jquery-migrate-3.4.1.min.js"></script>
+    <script src="js/tether.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.js"></script>
+    <script src="js/jquery-waypoints.js"></script>
+    <script src="js/jquery-validate.js"></script>
+    <script src="js/owl.carousel.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/numinate.min6959.js"></script>
+    <script src="js/lazysizes.min.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
 
 <script>
 (function(){
   var RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* nav */
-  var nav = document.querySelector('.nav');
-  function onScroll(){ nav.classList.toggle('stuck', window.scrollY > 40); }
-  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+  
 
   /* reveal */
   var io = new IntersectionObserver(function(es){

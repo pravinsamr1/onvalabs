@@ -39,7 +39,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <style>
         :root {
@@ -76,14 +76,22 @@
             box-sizing: border-box
         }
 
-        /* override main.css body .page { overflow:hidden } — breaks position:sticky */
-        body .page {
-            overflow: visible !important;
-            overflow-x: hidden !important;
+        /* Ensure sticky showcase works properly without breaking position:sticky */
+        html,
+        body {
+            overflow-x: clip !important;
         }
 
-        /* also ensure #main and any wrapper don't break sticky */
-        #main, .ttm-page-title-row {
+        body,
+        body .page,
+        .page,
+        div[class="#"],
+        #main,
+        .ttm-page-title-row,
+        section,
+        #features,
+        .wrap,
+        .show {
             overflow: visible !important;
         }
 
@@ -96,12 +104,11 @@
             margin: 0;
             background: var(--paper);
             color: var(--tx);
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 17px;
             line-height: 1.62;
             letter-spacing: -.005em;
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
         }
 
         img {
@@ -118,7 +125,7 @@
         h2,
         h3,
         h4 {
-            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-weight: 800;
             letter-spacing: -.032em;
             line-height: 1.06;
@@ -813,24 +820,20 @@
         /* ---------- sticky showcase ---------- */
         .show {
             display: grid;
-            grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+            grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
             gap: 58px;
             align-items: start
         }
 
         .show-copy {
-            padding: 20px 0 160px
+            padding: 14vh 0
         }
 
         .show-item {
-            min-height: 55vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 50px 0;
+            padding: 36px 0 42px;
             border-top: 1px solid var(--line);
-            opacity: .32;
-            transition: opacity .4s var(--ease)
+            opacity: .42;
+            transition: opacity .5s var(--ease)
         }
 
         .show-item:first-child {
@@ -899,12 +902,12 @@
         .show-media {
             position: -webkit-sticky;
             position: sticky;
-            top: 140px;
-            align-self: start;
+            top: 0;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 20px 0 40px;
+            padding: 120px 0 40px;
             z-index: 5
         }
 
@@ -2110,58 +2113,50 @@
                     </div>
                     <div class="faq rv rv-2">
                         <div class="q">
-                            <button type="button" aria-expanded="false">Can it handle notifiable data breach reporting?</button>
-                            <div class="a"><p>Yes. The lifecycle includes reporting states and timestamped transitions, and the register carries the declared date, review date and business unit needed to evidence a notification decision. Reference data and workflow are configurable, so the states can be named to match your internal breach-response procedure and reporting obligations.</p></div>
+                            <button type="button" aria-expanded="false">Can it handle notifiable data breach
+                                reporting?</button>
+                            <div class="a">
+                                <p>Yes. The lifecycle includes reporting states and timestamped transitions, and the
+                                    register carries the declared date, review date and business unit needed to evidence
+                                    a notification decision. Reference data and workflow are configurable, so the states
+                                    can be named to match your internal breach-response procedure and reporting
+                                    obligations.</p>
+                            </div>
                         </div>
                         <div class="q">
-                            <button type="button" aria-expanded="false">How does it integrate with our identity provider?</button>
-                            <div class="a"><p>The hosted deployment uses Microsoft Entra ID single sign-on. Portal roles map to group membership, so joiners, movers and leavers are handled by your existing identity lifecycle rather than a separate user list inside the product.</p></div>
+                            <button type="button" aria-expanded="false">How does it integrate with our identity
+                                provider?</button>
+                            <div class="a">
+                                <p>The hosted deployment uses Microsoft Entra ID single sign-on. Portal roles map to
+                                    group membership, so joiners, movers and leavers are handled by your existing
+                                    identity lifecycle rather than a separate user list inside the product.</p>
+                            </div>
                         </div>
                         <div class="q">
                             <button type="button" aria-expanded="false">Is the audit trail defensible?</button>
-                            <div class="a"><p>Both stores are append-only &mdash; entries cannot be edited or deleted from the portal, a refused access attempt is itself recorded as a security event, and the data audit trail records field-level before and after values. Everything exports to CSV for an external reviewer.</p></div>
+                            <div class="a">
+                                <p>Both stores are append-only &mdash; entries cannot be edited or deleted from the
+                                    portal, a refused access attempt is itself recorded as a security event, and the
+                                    data audit trail records field-level before and after values. Everything exports to
+                                    CSV for an external reviewer.</p>
+                            </div>
                         </div>
                         <div class="q">
                             <button type="button" aria-expanded="false">Can we host it in our own environment?</button>
-                            <div class="a"><p>Yes. Onva deploys the platform into your Azure or AWS tenancy with Australian data residency, or runs it as a managed service on your behalf. In both cases the data stays inside the region you nominate.</p></div>
+                            <div class="a">
+                                <p>Yes. Onva deploys the platform into your Azure or AWS tenancy with Australian data
+                                    residency, or runs it as a managed service on your behalf. In both cases the data
+                                    stays inside the region you nominate.</p>
+                            </div>
                         </div>
                         <div class="q">
                             <button type="button" aria-expanded="false">Does it connect to our risk register?</button>
-                            <div class="a"><p>Risk register updates raised during a lessons-learned review flow into the Onva Risk Management platform, so an incident that exposes a control deficiency lands in the register with its evidence rather than as a note in a report.</p></div>
+                            <div class="a">
+                                <p>Risk register updates raised during a lessons-learned review flow into the Onva Risk
+                                    Management platform, so an incident that exposes a control deficiency lands in the
+                                    register with its evidence rather than as a note in a report.</p>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ================= RELATED PRODUCTS ================= -->
-            <section class="sec tint">
-                <div class="wrap">
-                    <div class="sec-head rv">
-                        <span class="kicker">More from Onva</span>
-                        <h2>Explore our other products</h2>
-                    </div>
-                    <div class="grid">
-                        <a class="card rv rv-1" href="small-business-erp.html" style="text-decoration:none">
-                            <div class="ci" style="background:rgba(30,69,218,.14);color:#1e45da">&#9650;</div>
-                            <h3>Small Business ERP</h3>
-                            <p>Inventory, orders, invoicing and customer management for growing teams.</p>
-                            <p style="margin-top:14px;color:#1e45da;font-weight:700;font-size:.9rem">View Product &rarr;
-                            </p>
-                        </a>
-                        <a class="card rv rv-2" href="learning-management-platforms.html" style="text-decoration:none">
-                            <div class="ci" style="background:rgba(30,69,218,.14);color:#1e45da">&#9678;</div>
-                            <h3>Learning Platforms (LMS)</h3>
-                            <p>Structured course delivery, student tracking and corporate training portals.</p>
-                            <p style="margin-top:14px;color:#1e45da;font-weight:700;font-size:.9rem">View Product &rarr;
-                            </p>
-                        </a>
-                        <a class="card rv rv-3" href="custom-erp-solutions.html" style="text-decoration:none">
-                            <div class="ci" style="background:rgba(30,69,218,.14);color:#1e45da">&#9776;</div>
-                            <h3>Custom ERP Solutions</h3>
-                            <p>Tailored modules and workflows integrating finance, operations, HR and reporting.</p>
-                            <p style="margin-top:14px;color:#1e45da;font-weight:700;font-size:.9rem">View Product &rarr;
-                            </p>
-                        </a>
                     </div>
                 </div>
             </section>
@@ -2267,7 +2262,7 @@
                             if (!isNaN(idx)) set(idx);
                         }
                     });
-                }, { threshold: 0.25, rootMargin: '-15% 0px -25% 0px' });
+                }, { threshold: .01, rootMargin: '-45% 0px -45% 0px' });
                 items.forEach(function (x) { sio.observe(x); });
             });
 
@@ -2312,14 +2307,14 @@
             document.querySelectorAll('.tl-step').forEach(function (x) { tio.observe(x); });
 
             /* faq */
-            document.querySelectorAll('.q button').forEach(function(b){
-                b.addEventListener('click', function(){
+            document.querySelectorAll('.q button').forEach(function (b) {
+                b.addEventListener('click', function () {
                     var q = b.parentElement, a = q.querySelector('.a'), open = q.classList.contains('open');
-                    q.parentElement.querySelectorAll('.q.open').forEach(function(o){
+                    q.parentElement.querySelectorAll('.q.open').forEach(function (o) {
                         o.classList.remove('open'); o.querySelector('.a').style.maxHeight = null;
-                        o.querySelector('button').setAttribute('aria-expanded','false');
+                        o.querySelector('button').setAttribute('aria-expanded', 'false');
                     });
-                    if(!open){ q.classList.add('open'); a.style.maxHeight = a.scrollHeight+'px'; b.setAttribute('aria-expanded','true'); }
+                    if (!open) { q.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; b.setAttribute('aria-expanded', 'true'); }
                 });
             });
 
