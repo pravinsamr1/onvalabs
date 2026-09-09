@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Services | Onva Labs - Sydney Web, Software & Growth Studio</title>
+<meta name="description" content="Web and app development, software and SaaS ERP, SEO and AIO, marketing, domains, email and hosting for Australian businesses. All 17 Onva Labs services.">
+<meta name="keywords" content="web development Sydney, custom software Sydney, ERP software Australia, SEO services Sydney, mobile app development Australia, domain hosting Sydney">
+<meta name="author" content="Onva Labs">
+<link rel="canonical" href="https://onvalabs.vercel.app/services.html">
+
+<!-- favicon icon -->
+<link rel="shortcut icon" href="images/favicon.png" />
+
+<!-- bootstrap -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+<!-- animate -->
+<link rel="stylesheet" type="text/css" href="css/animate.css" />
+<!-- owl-carousel -->
+<link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+<!-- fontawesome -->
+<link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+<!-- themify -->
+<link rel="stylesheet" type="text/css" href="css/themify-icons.css" />
+<!-- flaticon -->
+<link rel="stylesheet" type="text/css" href="css/flaticon.css" />
+<!-- prettyphoto -->
+<link rel="stylesheet" type="text/css" href="css/prettyPhoto.css" />
+<!-- shortcodes -->
+<link rel="stylesheet" type="text/css" href="css/shortcodes.css" />
+<!-- main -->
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<!-- rs6 - revolution slider styles needed by page-title-row -->
+<link rel="stylesheet" type="text/css" href="css/rs6.css">
+<!-- process-custom -->
+<link rel="stylesheet" type="text/css" href="css/process-custom.css" />
+<!-- responsive -->
+<link rel="stylesheet" type="text/css" href="css/responsive.css" />
+
+<style>
+  body { overflow-x: hidden; }
+  :root {
+    --navy:#0b2545;
+    --navy-2:#123a63;
+    --accent:#1e45da;
+    --accent-soft:#e8f1fb;
+    --ink:#1c2430;
+    --muted:#5b6675;
+    --line:#e2e7ee;
+    --bg:#ffffff;
+    --bg-alt:#f6f8fb;
+    --radius:14px;
+    --maxw:1140px;
+  }
+
+  .services-wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+  
+  /* Filter Bar */
+  .services-filters { border-bottom: 1px solid var(--line); background: #ffffff; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+  .services-filters .wrap { display: flex; gap: 10px; padding-top: 16px; padding-bottom: 16px; flex-wrap: wrap; align-items: center; }
+  .services-filters .label { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-right: 6px; }
+  .chip {
+    border: 1px solid var(--line); background: #fff; color: var(--ink); font: inherit; font-size: 14.5px;
+    padding: 8px 18px; border-radius: 100px; cursor: pointer; transition: all .2s ease; font-weight: 500;
+  }
+  .chip:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+  .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; box-shadow: 0 4px 12px rgba(30, 69, 218, 0.25); }
+
+  .services-section { padding: 66px 0; }
+  .group + .group { padding-top: 40px; border-top: 1px solid var(--line); margin-top: 40px; }
+  .group-head { display: flex; align-items: baseline; gap: 14px; margin: 0 0 8px; flex-wrap: wrap; }
+  .group-head h2 { font-size: clamp(21px, 2.6vw, 27px); margin: 0; color: var(--navy); letter-spacing: -.3px; font-weight: 700; }
+  .group-head .count { font-size: 13px; font-weight: 700; color: var(--accent); background: var(--accent-soft); padding: 4px 12px; border-radius: 100px; }
+  .group-intro { margin: 0 0 32px; color: var(--muted); font-size: 16.5px; max-width: 70ch; line-height: 1.6; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-bottom: 20px; }
+  .card {
+    border: 1px solid var(--line); border-radius: var(--radius); background: #fff; padding: 28px 24px 24px;
+    display: flex; flex-direction: column; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .card:hover { transform: translateY(-5px); box-shadow: 0 16px 35px rgba(11, 37, 69, 0.10); border-color: #bcd2ee; }
+  .card .icon { width: 46px; height: 46px; border-radius: 12px; background: var(--accent-soft); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; color: var(--accent); flex: none; font-size: 20px; }
+  .card h3 { margin: 0 0 10px; font-size: 19px; color: var(--navy); letter-spacing: -.2px; font-weight: 700; }
+  .card p { margin: 0 0 20px; color: var(--muted); font-size: 15px; line-height: 1.6; }
+  .card .more { margin-top: auto; font-weight: 600; font-size: 14.5px; color: var(--accent); display: inline-flex; align-items: center; gap: 7px; transition: color 0.2s ease; }
+  .card .more svg { transition: transform .2s ease; }
+  .card:hover .more svg { transform: translateX(4px); }
+  .card[hidden] { display: none !important; }
+  .group[hidden] { display: none !important; }
+
+  /* Process Steps Band */
+  .band { background: var(--bg-alt); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 70px 0; }
+  .band .section-head { max-width: 66ch; margin: 0 0 40px; }
+  .band .section-head h2 { font-size: clamp(23px, 2.8vw, 30px); margin: 0 0 12px; color: var(--navy); font-weight: 700; }
+  .band .section-head p { margin: 0; color: var(--muted); font-size: 17px; }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; counter-reset: step; }
+  .step { position: relative; padding-top: 48px; background: #fff; padding: 24px; border-radius: 12px; border: 1px solid var(--line); }
+  .step::before {
+    counter-increment: step; content: counter(step);
+    position: absolute; top: 16px; left: 24px; width: 34px; height: 34px; border-radius: 50%;
+    background: var(--navy); color: #fff; font-weight: 700; font-size: 14px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .step h3 { margin: 18px 0 8px; font-size: 18px; color: var(--navy); font-weight: 700; }
+  .step p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.55; }
+
+  /* CTA Section */
+  .services-cta { background: var(--navy); color: #fff; text-align: center; padding: 70px 0; }
+  .services-cta h2 { font-size: clamp(24px, 3vw, 32px); margin: 0 0 14px; letter-spacing: -.3px; color: #fff !important; font-weight: 700; }
+  .services-cta p { color: #c7d6e6 !important; max-width: 60ch; margin: 0 auto 28px; font-size: 17px; }
+  .btn-theme { display: inline-block; background: var(--accent); color: #fff !important; font-weight: 600; font-size: 16px; padding: 14px 32px; border-radius: 8px; transition: background .2s ease; text-decoration: none !important; }
+  .btn-theme:hover { background: #1535a8; color: #fff !important; text-decoration: none !important; }
+  .btn-theme-ghost { background: transparent; border: 1px solid #4b6c93; margin-left: 12px; color: #fff !important; }
+  .btn-theme-ghost:hover { background: #14375c; border-color: #7fb6f2; }
+
+  @media (max-width: 767px) {
+    .services-filters { position: static; }
+    .services-filters .wrap { padding-top: 12px; padding-bottom: 12px; }
+    .chip { padding: 6px 14px; font-size: 13.5px; }
+    .services-section { padding: 40px 0; }
+    .grid { grid-template-columns: 1fr; }
+    .btn-theme-ghost { margin-left: 0; margin-top: 12px; display: inline-block; }
+    .band { padding: 46px 0; }
+    .steps { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+
+<body>
+
+<!--page start-->
+<div class="page" id="top">
+
+    <!-- preloader start -->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+    <!-- preloader end -->
+
+    <!--header start-->
+    <div id="header-placeholder"></div>
+    <!--header end-->
+
+    <!-- page-title -->
+    <div class="ttm-page-title-row ttm-textcolor-white">
+        <div class="ttm-bg-layer"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title-box text-center">
+                        <div class="page-title-heading">
+                            <h1 class="title">Our Services</h1>
+                        </div>
+                        <div class="breadcrumb-wrapper">
+                            <span>
+                                <a title="Homepage" href="index.html" class="ttm-textcolor-white"><i class="ti ti-home"></i>&nbsp;&nbsp;Home</a>
+                            </span>
+                            <span class="ttm-bread-sep">&nbsp; : : &nbsp;</span>
+                            <span class="ttm-textcolor-skincolor">Services</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- page-title end -->
+
+    <!-- Main Services Content -->
+    <div class="services-section">
+      <div class="services-wrap">
+
+        <!-- ============ GROUP 1: WEB DEVELOPMENT ============ -->
+        <div class="group" data-group="build">
+          <div class="group-head">
+            <h2>Web &amp; Application Development</h2>
+            <span class="count">4 Services</span>
+          </div>
+          <p class="group-intro">From a tidy brochure site through to bespoke software built around your workflow. If you're not sure which tier you need, the pages below each explain who they suit.</p>
+
+          <div class="grid">
+            <article class="card" data-cat="build">
+              <div class="icon" aria-hidden="true"><i class="fa fa-desktop"></i></div>
+              <h3>Basic Web Development</h3>
+              <p>Clean, responsive, fast-loading foundational websites tailored for small businesses.</p>
+              <a class="more" href="services/basic-web-development.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="card" data-cat="build">
+              <div class="icon" aria-hidden="true"><i class="fa fa-database"></i></div>
+              <h3>Dynamic Web Development</h3>
+              <p>Data-driven web applications that provide real-time updates and interactive user experiences.</p>
+              <a class="more" href="services/dynamic-web-development.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="card" data-cat="build">
+              <div class="icon" aria-hidden="true"><i class="fa fa-code"></i></div>
+              <h3>Custom Web Development</h3>
+              <p>Bespoke web solutions built from scratch to meet your highly specific business requirements.</p>
+              <a class="more" href="services/custom-web-development.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="card" data-cat="build">
+              <div class="icon" aria-hidden="true"><i class="fa fa-shopping-cart"></i></div>
+              <h3>E-commerce Development</h3>
+              <p>Secure, scalable online stores optimised for sales, seamless checkouts and inventory management.</p>
+              <a class="more" href="services/ecommerce-development.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+          </div>
+        </div>
+
+        <!-- ============ GROUP 2: SOFTWARE DEVELOPMENT ============ -->
+        <div class="group" data-group="software">
+          <div class="group-head">
+            <h2>Software &amp; ERP Development</h2>
+            <span class="count">3 Services</span>
+          </div>
+          <p class="group-intro">Three tiers, from a single tool that removes one piece of manual work through to a full SaaS-based ERP running the business. Start where the pain is — you can move up a tier later without throwing the first build away.</p>
+
+          <div class="grid">
+            <article class="card" data-cat="software">
+              <div class="icon" aria-hidden="true"><i class="fa fa-file-text-o"></i></div>
+              <h3><a href="basic-software-development.html" style="color:inherit;text-decoration:none;">Basic Software Development</a></h3>
+              <p>Single-purpose tools and internal applications that replace a spreadsheet, a paper form or a manual routine.</p>
+              <a class="more" href="basic-software-development.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="card" data-cat="software">
+              <div class="icon" aria-hidden="true"><i class="fa fa-cogs"></i></div>
+              <h3><a href="custom-business-software.html" style="color:inherit;text-decoration:none;">Custom Business Software</a></h3>
+              <p>Multi-user line-of-business systems with roles, workflow and reporting, integrated with the tools you already run.</p>
+              <a class="more" href="custom-business-software.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="card" data-cat="software">
+              <div class="icon" aria-hidden="true"><i class="fa fa-cloud"></i></div>
+              <h3><a href="erp-systems-saas.html" style="color:inherit;text-decoration:none;">ERP Systems &mdash; SaaS</a></h3>
+              <p>Cloud-delivered ERP tying finance, operations, inventory and people into one system, licensed per user and hosted in Australia.</p>
+              <a class="more" href="erp-systems-saas.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+          </div>
+        </div>
+
+        <!-- ============ GROUP 3: MOBILE & SEARCH ============ -->
+        <div class="group" data-group="mobile">
+          <div class="group-head">
+            <h2>Mobile Apps &amp; Search Visibility</h2>
+            <span class="count">3 Services</span>
+          </div>
+          <p class="group-intro">Native and cross-platform apps, plus the search and AI optimisation work that gets you found on Google and quoted in AI answers.</p>
+
+          <div class="grid">
+            <article class="card" data-cat="mobile">
+              <div class="icon" aria-hidden="true"><i class="fa fa-android"></i></div>
+              <h3>Android Development</h3>
+              <p>Native and cross-platform Android applications designed for millions of Play Store users.</p>
+              <a class="more" href="services/android-app-development.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="card" data-cat="mobile">
+              <div class="icon" aria-hidden="true"><i class="fa fa-apple"></i></div>
+              <h3>iOS Development</h3>
+              <p>High-performance, elegant iOS applications developed natively for Apple iPhones and iPads.</p>
+              <a class="more" href="services/ios-app-development.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="card" data-cat="mobile">
+              <div class="icon" aria-hidden="true"><i class="fa fa-search"></i></div>
+              <h3>SEO &amp; AIO Services</h3>
+              <p>Search engine and AI optimisation strategies to build your organic traffic and visibility.</p>
+              <a class="more" href="services/seo-ai-services.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+          </div>
+        </div>
+
+        <!-- ============ GROUP 4: MARKETING & GROWTH ============ -->
+        <div class="group" data-group="growth">
+          <div class="group-head">
+            <h2>Marketing &amp; Growth</h2>
+            <span class="count">3 Services</span>
+          </div>
+          <p class="group-intro">Building an audience, talking to customers on the channel they actually answer, and making paid media pay for itself.</p>
+
+          <div class="grid">
+            <article class="card" data-cat="growth">
+              <div class="icon" aria-hidden="true"><i class="fa fa-whatsapp"></i></div>
+              <h3>WhatsApp &amp; SMS Marketing</h3>
+              <p>Targeted messaging campaigns and automated chatbots to connect with customers instantly.</p>
+              <a class="more" href="services/whatsapp-sms-marketing.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="card" data-cat="growth">
+              <div class="icon" aria-hidden="true"><i class="fa fa-share-alt"></i></div>
+              <h3>Social Media Marketing</h3>
+              <p>Data-driven social campaigns designed to build brand awareness, engagement and direct leads.</p>
+              <a class="more" href="services/social-media-marketing.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="card" data-cat="growth">
+              <div class="icon" aria-hidden="true"><i class="fa fa-line-chart"></i></div>
+              <h3>Performance Marketing</h3>
+              <p>Accountable advertising and conversion rate optimisation to make your digital ad spend work harder.</p>
+              <a class="more" href="services/performance-marketing.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+          </div>
+        </div>
+
+        <!-- ============ GROUP 5: HOSTING & DOMAINS ============ -->
+        <div class="group" data-group="infra">
+          <div class="group-head">
+            <h2>Domains, Email &amp; Hosting</h2>
+            <span class="count">4 Services</span>
+          </div>
+          <p class="group-intro">The infrastructure your website and email sit on, managed in one place so nobody has to work out whose problem it is.</p>
+
+          <div class="grid">
+            <article class="card" data-cat="infra">
+              <div class="icon" aria-hidden="true"><i class="fa fa-globe"></i></div>
+              <h3>Domain Registration</h3>
+              <p>Secure your digital identity with fast, reliable .com.au, .net.au and .au domain registration.</p>
+              <a class="more" href="services/domain-registration.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="card" data-cat="infra">
+              <div class="icon" aria-hidden="true"><i class="fa fa-envelope"></i></div>
+              <h3>Email Services</h3>
+              <p>Professional, secure, branded business email hosting with strong anti-spam protection.</p>
+              <a class="more" href="services/email-service.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="card" data-cat="infra">
+              <div class="icon" aria-hidden="true"><i class="fa fa-server"></i></div>
+              <h3>Web Hosting</h3>
+              <p>Fast, reliable managed hosting from Sydney data centres, tuned for uptime and performance.</p>
+              <a class="more" href="services/web-hosting.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="card" data-cat="infra">
+              <div class="icon" aria-hidden="true"><i class="fa fa-hdd-o"></i></div>
+              <h3>VPS &amp; Cloud Hosting</h3>
+              <p>Dedicated virtual servers with scalable resources, hardened security and full root access.</p>
+              <a class="more" href="services/vps-cloud-hosting.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Process Band -->
+    <div class="band">
+      <div class="services-wrap">
+        <div class="section-head">
+          <h2>How We Work</h2>
+          <p>Every engagement runs the same four stages, so you always know what happens next and what you're approving.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <h3>Discover</h3>
+            <p>We map how the work happens today, what systems are involved and what success looks like, in plain language.</p>
+          </div>
+          <div class="step">
+            <h3>Scope</h3>
+            <p>You get a written scope with defined deliverables and stages, so you approve one phase at a time.</p>
+          </div>
+          <div class="step">
+            <h3>Build</h3>
+            <p>Development with testing on staging, regular check-ins and nothing going live until you've seen it.</p>
+          </div>
+          <div class="step">
+            <h3>Support</h3>
+            <p>Handover with full ownership of code and accounts, then ongoing support from the team who built it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="services-cta">
+      <div class="services-wrap">
+        <h2>Not sure which service you need?</h2>
+        <p>Tell us what's costing you time or losing you customers and we'll tell you honestly what would fix it, including when the answer is "not much".</p>
+        <a class="btn-theme" href="contact-us.html">Start A Project</a>
+        <a class="btn-theme btn-theme-ghost" href="products.html">See Our Products</a>
+      </div>
+    </div>
+
+    <!--footer start-->
+    <div id="footer-placeholder"></div>
+    <!--footer end-->
+
+    <!-- Back to top -->
+    <a id="totop" href="#top"><i class="fa fa-angle-up"></i></a>
+
+    <!-- Floating Talk To Us -->
+    <a href="contact-us.html" class="floating-talk-btn">
+        <div class="talk-icon"><i class="ti ti-headphone"></i></div>
+        <svg viewBox="0 0 100 100" width="120" height="120">
+            <defs>
+                <path id="circlePath" d="M 50, 50 m -40, 0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0" />
+            </defs>
+            <text>
+                <textPath href="#circlePath" fill="#182333" font-size="10.5" font-weight="700" letter-spacing="1.5" textLength="251" lengthAdjust="spacing">
+                    TALK TO US • TALK TO US • TALK TO US •
+                </textPath>
+            </text>
+        </svg>
+    </a>
+
+</div>
+<!--page end-->
+
+<!-- Javascript -->
+<script src="js/jquery-3.7.1.min.js"></script>
+<script src="js/jquery-migrate-3.4.1.min.js"></script>
+<script src="js/tether.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/jquery-waypoints.js"></script>
+<script src="js/jquery-validate.js"></script>
+<script src="js/owl.carousel.js"></script>
+<script src="js/jquery.prettyPhoto.js"></script>
+<script src="js/numinate.min6959.js?ver=4.9.3"></script>
+<script src="js/lazysizes.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/components.js"></script>
+
+<script>
+  // Filter chips functionality
+  document.addEventListener("DOMContentLoaded", function () {
+    var chips = document.querySelectorAll('.chip');
+    var cards = document.querySelectorAll('.card[data-cat]');
+    var groups = document.querySelectorAll('.group[data-group]');
+
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        var filter = chip.getAttribute('data-filter');
+        chips.forEach(function (c) { c.setAttribute('aria-pressed', String(c === chip)); });
+
+        cards.forEach(function (card) {
+          if (filter === 'all' || card.getAttribute('data-cat') === filter) {
+            card.removeAttribute('hidden');
+          } else {
+            card.setAttribute('hidden', 'true');
+          }
+        });
+
+        groups.forEach(function (group) {
+          if (filter === 'all' || group.getAttribute('data-group') === filter) {
+            group.removeAttribute('hidden');
+          } else {
+            group.setAttribute('hidden', 'true');
+          }
+        });
+      });
+    });
+  });
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ItemList",
+  "name":"Onva Labs Services",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Basic Web Development","url":"https://onvalabs.vercel.app/services/basic-web-development.html"},
+    {"@type":"ListItem","position":2,"name":"Dynamic Web Development","url":"https://onvalabs.vercel.app/services/dynamic-web-development.html"},
+    {"@type":"ListItem","position":3,"name":"Custom Web Development","url":"https://onvalabs.vercel.app/services/custom-web-development.html"},
+    {"@type":"ListItem","position":4,"name":"E-commerce Development","url":"https://onvalabs.vercel.app/services/ecommerce-development.html"},
+    {"@type":"ListItem","position":5,"name":"Basic Software Development","url":"https://onvalabs.vercel.app/basic-software-development.html"},
+    {"@type":"ListItem","position":6,"name":"Custom Business Software","url":"https://onvalabs.vercel.app/custom-business-software.html"},
+    {"@type":"ListItem","position":7,"name":"ERP Systems — SaaS","url":"https://onvalabs.vercel.app/erp-systems-saas.html"},
+    {"@type":"ListItem","position":8,"name":"Android Development","url":"https://onvalabs.vercel.app/services/android-app-development.html"},
+    {"@type":"ListItem","position":9,"name":"iOS Development","url":"https://onvalabs.vercel.app/services/ios-app-development.html"},
+    {"@type":"ListItem","position":10,"name":"SEO & AIO Services","url":"https://onvalabs.vercel.app/services/seo-ai-services.html"},
+    {"@type":"ListItem","position":11,"name":"WhatsApp Marketing","url":"https://onvalabs.vercel.app/services/whatsapp-sms-marketing.html"},
+    {"@type":"ListItem","position":12,"name":"Social Media Marketing","url":"https://onvalabs.vercel.app/services/social-media-marketing.html"},
+    {"@type":"ListItem","position":13,"name":"Performance Marketing","url":"https://onvalabs.vercel.app/services/performance-marketing.html"},
+    {"@type":"ListItem","position":14,"name":"Domain Registration","url":"https://onvalabs.vercel.app/services/domain-registration.html"},
+    {"@type":"ListItem","position":15,"name":"Email Services","url":"https://onvalabs.vercel.app/services/email-service.html"},
+    {"@type":"ListItem","position":16,"name":"Web Hosting","url":"https://onvalabs.vercel.app/services/web-hosting.html"},
+    {"@type":"ListItem","position":17,"name":"VPS Cloud Hosting","url":"https://onvalabs.vercel.app/services/vps-cloud-hosting.html"}
+  ]
+}
+</script>
+
+</body>
+</html>

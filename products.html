@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Products | Onva Labs - Sydney Software Platforms & Solutions</title>
+<meta name="description" content="Onva Labs products: incident management, risk management, learning management, psychometric assessment and IT site tracking, built and supported in Sydney.">
+<meta name="keywords" content="Incident Management Platform, Risk Management Platform, Onva LMS, Psychometric Analysis Platform, IT Site Tracking Platform, Sydney Software Studio">
+<meta name="author" content="Onva Labs">
+<link rel="canonical" href="https://onvalabs.vercel.app/products.html">
+
+<!-- favicon icon -->
+<link rel="shortcut icon" href="images/favicon.png" />
+
+<!-- bootstrap -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+<!-- animate -->
+<link rel="stylesheet" type="text/css" href="css/animate.css" />
+<!-- owl-carousel -->
+<link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+<!-- fontawesome -->
+<link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+<!-- themify -->
+<link rel="stylesheet" type="text/css" href="css/themify-icons.css" />
+<!-- flaticon -->
+<link rel="stylesheet" type="text/css" href="css/flaticon.css" />
+<!-- prettyphoto -->
+<link rel="stylesheet" type="text/css" href="css/prettyPhoto.css" />
+<!-- shortcodes -->
+<link rel="stylesheet" type="text/css" href="css/shortcodes.css" />
+<!-- main -->
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<!-- rs6 - revolution slider styles needed by page-title-row -->
+<link rel="stylesheet" type="text/css" href="css/rs6.css">
+<!-- process-custom -->
+<link rel="stylesheet" type="text/css" href="css/process-custom.css" />
+<!-- responsive -->
+<link rel="stylesheet" type="text/css" href="css/responsive.css" />
+
+<style>
+  body { overflow-x: hidden; }
+  :root {
+    --navy:#0b2545;
+    --navy-2:#123a63;
+    --accent:#1e45da;
+    --accent-soft:#e8f1fb;
+    --ink:#1c2430;
+    --muted:#5b6675;
+    --line:#e2e7ee;
+    --bg:#ffffff;
+    --bg-alt:#f6f8fb;
+    --radius:14px;
+    --maxw:1140px;
+  }
+
+  .products-wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+  
+  .products-section { padding: 70px 0; }
+  .section-head { max-width: 68ch; margin: 0 0 46px; }
+  .section-head h2 { font-size: clamp(24px, 3vw, 32px); margin: 0 0 12px; color: var(--navy); letter-spacing: -.3px; font-weight: 700; }
+  .section-head p { margin: 0; color: var(--muted); font-size: 17px; line-height: 1.6; }
+
+  .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; }
+  .product-card {
+    border: 1px solid var(--line); border-radius: var(--radius); background: #fff;
+    padding: 34px 28px 28px; display: flex; flex-direction: column;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .product-card:hover { transform: translateY(-6px); box-shadow: 0 16px 35px rgba(11, 37, 69, 0.12); border-color: #bcd2ee; }
+  .product-card .icon {
+    width: 50px; height: 50px; border-radius: 12px; background: var(--accent-soft);
+    display: flex; align-items: center; justify-content: center; margin-bottom: 20px; color: var(--accent); flex: none; font-size: 22px;
+  }
+  .product-card h3 { margin: 0 0 6px; font-size: 21px; color: var(--navy); letter-spacing: -.2px; font-weight: 700; }
+  .product-card .kicker { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin: 0 0 12px; }
+  .product-card p { margin: 0 0 18px; color: var(--muted); font-size: 15.5px; line-height: 1.6; }
+  .product-card ul { margin: 0 0 24px; padding-left: 20px; color: var(--muted); font-size: 14.5px; line-height: 1.6; }
+  .product-card ul li { margin-bottom: 8px; }
+  .product-card .more {
+    margin-top: auto; font-weight: 600; font-size: 15px; color: var(--accent);
+    display: inline-flex; align-items: center; gap: 8px; text-decoration: none !important;
+  }
+  .product-card .more svg { transition: transform .2s ease; }
+  .product-card:hover .more svg { transform: translateX(4px); }
+
+  /* Feature Band */
+  .band { background: var(--bg-alt); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 70px 0; }
+  .points { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; }
+  .point-card { background: #fff; border: 1px solid var(--line); padding: 26px; border-radius: 12px; }
+  .point-card .icon-box { width: 40px; height: 40px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 14px; }
+  .points h3 { margin: 0 0 8px; font-size: 18px; color: var(--navy); font-weight: 700; }
+  .points p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.55; }
+
+  /* CTA Section */
+  .products-cta { background: var(--navy); color: #fff; text-align: center; padding: 70px 0; }
+  .products-cta h2 { font-size: clamp(24px, 3vw, 32px); margin: 0 0 14px; letter-spacing: -.3px; color: #fff !important; font-weight: 700; }
+  .products-cta p { color: #c7d6e6 !important; max-width: 60ch; margin: 0 auto 28px; font-size: 17px; }
+  .btn-theme { display: inline-block; background: var(--accent); color: #fff !important; font-weight: 600; font-size: 16px; padding: 14px 32px; border-radius: 8px; transition: background .2s ease; text-decoration: none !important; }
+  .btn-theme:hover { background: #1535a8; color: #fff !important; text-decoration: none !important; }
+
+  @media (max-width: 767px) {
+    .products-section { padding: 44px 0; }
+    .products-grid { grid-template-columns: 1fr; }
+    .band { padding: 46px 0; }
+    .points { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+
+<body>
+
+<!--page start-->
+<div class="page" id="top">
+
+    <!-- preloader start -->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+    <!-- preloader end -->
+
+    <!--header start-->
+    <div id="header-placeholder"></div>
+    <!--header end-->
+
+    <!-- page-title -->
+    <div class="ttm-page-title-row ttm-textcolor-white">
+        <div class="ttm-bg-layer"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title-box text-center">
+                        <div class="page-title-heading">
+                            <h1 class="title">Our Products</h1>
+                        </div>
+                        <div class="breadcrumb-wrapper">
+                            <span>
+                                <a title="Homepage" href="index.html" class="ttm-textcolor-white"><i class="ti ti-home"></i>&nbsp;&nbsp;Home</a>
+                            </span>
+                            <span class="ttm-bread-sep">&nbsp; : : &nbsp;</span>
+                            <span class="ttm-textcolor-skincolor">Products</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- page-title end -->
+
+    <!-- Main Products Content -->
+    <div class="products-section">
+      <div class="products-wrap">
+        <div class="section-head">
+          <h2>Software Onva Labs Builds, Hosts &amp; Supports</h2>
+          <p>Five enterprise platforms developed in-house for Australian organisations, covering incidents, risk, training, assessment and site oversight. Each one is hosted locally in Australia and supported directly by our Sydney engineering team.</p>
+        </div>
+
+        <div class="products-grid">
+
+          <!-- 1. Incident Management -->
+          <article class="product-card">
+            <div class="icon" aria-hidden="true"><i class="fa fa-exclamation-triangle"></i></div>
+            <p class="kicker">Enterprise Platform</p>
+            <h3>Incident Management Platform</h3>
+            <p>Capture, triage and close out incidents in one place, with a clear record of who did what and when.</p>
+            <ul>
+              <li>Structured reporting from web or mobile devices</li>
+              <li>Severity triage, assignment and automated escalation</li>
+              <li>Investigation, corrective actions and sign-off tracking</li>
+              <li>Audit trail and reporting for board review meetings</li>
+            </ul>
+            <a class="more" href="incident-management-platform.html">
+              Explore the platform
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </article>
+
+          <!-- 2. Risk Management -->
+          <article class="product-card">
+            <div class="icon" aria-hidden="true"><i class="fa fa-shield"></i></div>
+            <p class="kicker">Enterprise Platform</p>
+            <h3>Risk Management Platform</h3>
+            <p>Keep a live risk register rather than a spreadsheet nobody has opened since the last compliance audit.</p>
+            <ul>
+              <li>Central register with assigned risk owners &amp; review dates</li>
+              <li>Likelihood and consequence scoring with interactive heat maps</li>
+              <li>Controls, treatments and residual risk tracking</li>
+              <li>Board and audit committee reporting on demand</li>
+            </ul>
+            <a class="more" href="risk-management-platform.html">
+              Explore the platform
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </article>
+
+          <!-- 3. LMS -->
+          <article class="product-card">
+            <div class="icon" aria-hidden="true"><i class="fa fa-graduation-cap"></i></div>
+            <p class="kicker">LMS Solution</p>
+            <h3>Onva LMS Solution</h3>
+            <p>Deliver training, track completion and prove your people are current when auditors or regulators ask.</p>
+            <ul>
+              <li>Course delivery with your custom content or ours</li>
+              <li>Role-based learning paths and mandatory compliance modules</li>
+              <li>Automated assessment, certificates and expiry reminders</li>
+              <li>Compliance dashboards by team, site or organizational role</li>
+            </ul>
+            <a class="more" href="onva-lms-solution.html">
+              Explore Onva LMS
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </article>
+
+          <!-- 4. Psychometric -->
+          <article class="product-card">
+            <div class="icon" aria-hidden="true"><i class="fa fa-user-md"></i></div>
+            <p class="kicker">Analysis Platform</p>
+            <h3>Psychometric Analysis Platform</h3>
+            <p>Run structured assessments as part of hiring or talent development, with consistent scoring and clear reporting.</p>
+            <ul>
+              <li>Candidate invitations and secure timed online sittings</li>
+              <li>Consistent scoring and comparison against benchmarks</li>
+              <li>Shareable executive reports for hiring panels</li>
+              <li>Data handling under Australian Privacy Principles</li>
+            </ul>
+            <a class="more" href="psychometric-analysis-platform.html">
+              Explore the platform
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </article>
+
+          <!-- 5. IT Site Tracking -->
+          <article class="product-card">
+            <div class="icon" aria-hidden="true"><i class="fa fa-map-marker"></i></div>
+            <p class="kicker">Tracking Platform</p>
+            <h3>IT Site Tracking Platform</h3>
+            <p>See what hardware and infrastructure sits at each site, who owns it and when it is next due for attention.</p>
+            <ul>
+              <li>Asset register organised by site, department and location</li>
+              <li>Assignment, movement and complete lifecycle history</li>
+              <li>Warranty, licence and maintenance-due alerts</li>
+              <li>Site-level reporting for infrastructure planning &amp; budgets</li>
+            </ul>
+            <a class="more" href="it-site-tracking-platform.html">
+              Explore the platform
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature Band -->
+    <div class="band">
+      <div class="products-wrap">
+        <div class="section-head">
+          <h2>What Comes With Every Onva Labs Product</h2>
+          <p>The same standards apply whether you licence one platform or all five.</p>
+        </div>
+        <div class="points">
+          <div class="point-card">
+            <div class="icon-box"><i class="fa fa-server"></i></div>
+            <h3>Australian Hosting</h3>
+            <p>Run from Sydney data centres, keeping the application fast for local teams while keeping data onshore.</p>
+          </div>
+          <div class="point-card">
+            <div class="icon-box"><i class="fa fa-lock"></i></div>
+            <h3>Privacy By Design</h3>
+            <p>Data handling, role access control and retention built strictly around the Australian Privacy Principles.</p>
+          </div>
+          <div class="point-card">
+            <div class="icon-box"><i class="fa fa-sliders"></i></div>
+            <h3>Configured To Your Process</h3>
+            <p>Fields, workflows, roles and reporting adjusted to how your organisation actually operates.</p>
+          </div>
+          <div class="point-card">
+            <div class="icon-box"><i class="fa fa-headphones"></i></div>
+            <h3>Supported By The Builders</h3>
+            <p>Implementation, training and ongoing support come directly from our Sydney engineering team.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="products-cta">
+      <div class="products-wrap">
+        <h2>Want to see one of these platforms in action?</h2>
+        <p>Tell us which product you're interested in and a little about your organisation. We'll arrange a live walkthrough with the team who builds and supports it.</p>
+        <a class="btn-theme" href="contact-us.html">Book A Walkthrough</a>
+      </div>
+    </div>
+
+    <!--footer start-->
+    <div id="footer-placeholder"></div>
+    <!--footer end-->
+
+    <!-- Back to top -->
+    <a id="totop" href="#top"><i class="fa fa-angle-up"></i></a>
+
+    <!-- Floating Talk To Us -->
+    <a href="contact-us.html" class="floating-talk-btn">
+        <div class="talk-icon"><i class="ti ti-headphone"></i></div>
+        <svg viewBox="0 0 100 100" width="120" height="120">
+            <defs>
+                <path id="circlePath" d="M 50, 50 m -40, 0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0" />
+            </defs>
+            <text>
+                <textPath href="#circlePath" fill="#182333" font-size="10.5" font-weight="700" letter-spacing="1.5" textLength="251" lengthAdjust="spacing">
+                    TALK TO US • TALK TO US • TALK TO US •
+                </textPath>
+            </text>
+        </svg>
+    </a>
+
+</div>
+<!--page end-->
+
+<!-- Javascript -->
+<script src="js/jquery-3.7.1.min.js"></script>
+<script src="js/jquery-migrate-3.4.1.min.js"></script>
+<script src="js/tether.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/jquery-waypoints.js"></script>
+<script src="js/jquery-validate.js"></script>
+<script src="js/owl.carousel.js"></script>
+<script src="js/jquery.prettyPhoto.js"></script>
+<script src="js/numinate.min6959.js?ver=4.9.3"></script>
+<script src="js/lazysizes.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/components.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ItemList",
+  "name":"Onva Labs Products",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Incident Management Platform","url":"https://onvalabs.vercel.app/incident-management-platform.html"},
+    {"@type":"ListItem","position":2,"name":"Risk Management Platform","url":"https://onvalabs.vercel.app/risk-management-platform.html"},
+    {"@type":"ListItem","position":3,"name":"Onva LMS Solution","url":"https://onvalabs.vercel.app/onva-lms-solution.html"},
+    {"@type":"ListItem","position":4,"name":"Psychometric Analysis Platform","url":"https://onvalabs.vercel.app/psychometric-analysis-platform.html"},
+    {"@type":"ListItem","position":5,"name":"IT Site Tracking Platform","url":"https://onvalabs.vercel.app/it-site-tracking-platform.html"}
+  ]
+}
+</script>
+
+</body>
+</html>

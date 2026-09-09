@@ -55,20 +55,35 @@ h3 span {
 /* Ensure sticky showcase works properly without breaking position:sticky */
 html,
 body {
-    overflow-x: clip !important;
+    overflow-x: hidden !important;
 }
 
-body,
-body .page,
-.page,
-div[class="#"],
-#main,
-.ttm-page-title-row,
-section,
-#features,
-.wrap,
-.show {
-    overflow: visible !important;
+/* Only allow overflow: visible on desktop to make sticky showcase work, and keep overflow: hidden on mobile to prevent horizontal scrolling */
+@media (min-width: 1041px) {
+    body,
+    body .page,
+    .page,
+    div[class="#"],
+    #main,
+    .ttm-page-title-row,
+    section,
+    #features,
+    .wrap,
+    .show {
+        overflow: visible !important;
+    }
+}
+@media (max-width: 1040px) {
+    html,
+    body,
+    .page,
+    div[class="#"],
+    #main,
+    .ttm-page-title-row,
+    section,
+    .wrap {
+        overflow-x: hidden !important;
+    }
 }
 
 html {
@@ -210,8 +225,8 @@ section{position:relative;scroll-margin-top:92px}
 @keyframes mq{to{transform:translateX(-50%)}}
 
 /* ---------- generic section ---------- */
-.sec{padding:120px 0}
-.sec-sm{padding:88px 0}
+.sec{padding:60px 0}
+.sec-sm{padding:60px 0}
 .tint{background:linear-gradient(180deg,var(--paper) 0%,var(--paper-2) 40%,var(--paper-2) 60%,var(--paper) 100%)}
 .dark{background:radial-gradient(900px 520px at 12% -10%,rgba(31,107,255,.22),transparent 60%),
   radial-gradient(800px 480px at 88% 110%,var(--acc-soft),transparent 62%),linear-gradient(170deg,#050b18,#0a1729);
@@ -258,7 +273,7 @@ section{position:relative;scroll-margin-top:92px}
 
 /* ---------- sticky showcase ---------- */
 .show{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:58px;align-items:start}
-.show-copy{padding:14vh 0}
+.show-copy{padding:1vh 0}
 .show-item{padding:36px 0 42px;border-top:1px solid var(--line);opacity:.42;transition:opacity .5s var(--ease)}
 .show-item:first-child{border-top:none}
 .show-item.on{opacity:1}
@@ -272,7 +287,7 @@ section{position:relative;scroll-margin-top:92px}
 .tag{font-size:.755rem;font-weight:700;letter-spacing:.045em;padding:5px 11px;border-radius:99px;
   background:var(--paper-3);color:var(--tx-2);border:1px solid var(--line)}
 .show-item.on .tag{background:var(--acc-soft);color:var(--acc);border-color:transparent}
-.show-media{position:sticky;top:0;min-height:100vh;display:flex;flex-direction:column;
+.show-media{position:sticky;top:0;min-height:43vh;display:flex;flex-direction:column;
   justify-content:center;padding:104px 0 40px}
 .show-stack{position:relative;border-radius:var(--r-l);overflow:hidden;box-shadow:var(--shadow-l);
   border:1px solid var(--line);background:#fff}
@@ -319,7 +334,7 @@ section{position:relative;scroll-margin-top:92px}
 .car-thumbs button.on{opacity:1;border-color:var(--acc);box-shadow:0 8px 22px -8px var(--acc-soft)}
 
 /* ---------- capability grid ---------- */
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
 .card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:32px 28px;position:relative;
   overflow:hidden;transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .35s}
 .card::before{content:'';position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,var(--acc),var(--acc-2));
@@ -382,7 +397,7 @@ section{position:relative;scroll-margin-top:92px}
 .q .a p{color:var(--tx-2);font-size:1rem;padding-bottom:26px;margin:0;max-width:72ch}
 
 /* CTA + footer */
-.cta{background:linear-gradient(140deg,#050b18,#0b1a33 55%,#0d2145);color:#fff;text-align:center;padding:110px 0;overflow:hidden}
+.cta{background:linear-gradient(140deg,#050b18,#0b1a33 55%,#0d2145);color:#fff;text-align:center;padding:60px 0;overflow:hidden}
 .cta h2{margin-bottom:20px;max-width:20ch;margin-inline:auto}
 .cta p{color:var(--tx-i2);max-width:60ch;margin:0 auto 34px;font-size:1.1rem}
 .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
@@ -477,7 +492,7 @@ section{position:relative;scroll-margin-top:92px}
 </section>
 
 <!-- ================= PROBLEM / OUTCOME ================= -->
-<section class="sec tint">
+<section class="sec" style="background-color: #f7f7f7 !important;">
   <div class="wrap">
     <div class="sec-head rv">
       <h2>Most LMS platforms have two roles and <span>a lot of workarounds</span></h2>
@@ -589,7 +604,7 @@ section{position:relative;scroll-margin-top:92px}
 <section class="cta" id="demo">
   <span class="orb orb-1" style="opacity:.22"></span>
   <div class="wrap">
-    <h2 class="rv">See it from every role in one sitting</h2>
+    <h2 class="rv" style="color: #ffffff;">See it from every role in one sitting</h2>
     <p class="rv rv-2">The fastest way to evaluate this platform is to sign in as four different people in twenty minutes. We will run that session with your own course structure loaded.</p>
     <div class="cta-btns rv rv-3">
       <a class="btn btn-p" href="https://www.onva.com.au/contact">Book a walkthrough <span aria-hidden="true">&rarr;</span></a>

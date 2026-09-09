@@ -3102,6 +3102,45 @@ ul.ttm-list {
     transform: scale(1.15)
 }
 
+/* Equal height for history-slide carousel boxes */
+.history-slide.owl-carousel .owl-stage {
+    display: flex !important;
+}
+.history-slide.owl-carousel .owl-item {
+    display: flex !important;
+    flex-direction: column;
+}
+.history-slide .ttm-history-box-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+.history-slide .ttm-history-box-details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+    align-items: center;
+}
+.history-slide .ttm-historybox-title {
+    min-height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.history-slide .ttm-historybox-description {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+.history-slide .ttm-history-box-details .ttm-btn {
+    margin-top: auto !important;
+}
+
 /* ===   project single ==
 ------------------------*/
 

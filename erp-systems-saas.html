@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>ERP Systems — SaaS Australia | Onva Labs Sydney</title>
+<meta name="description" content="Cloud ERP delivered as SaaS for Australian organisations: finance, operations, inventory and people on one platform. Hosted in Sydney, configured to your business.">
+<meta name="keywords" content="SaaS ERP Australia, cloud ERP Sydney, small business ERP software Australia, integrated ERP software Sydney, operational software Australia">
+<meta name="author" content="Onva Labs">
+<link rel="canonical" href="https://onvalabs.vercel.app/erp-systems-saas.html">
+
+<!-- favicon icon -->
+<link rel="shortcut icon" href="images/favicon.png" />
+
+<!-- bootstrap -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+<!-- animate -->
+<link rel="stylesheet" type="text/css" href="css/animate.css" />
+<!-- owl-carousel -->
+<link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+<!-- fontawesome -->
+<link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+<!-- themify -->
+<link rel="stylesheet" type="text/css" href="css/themify-icons.css" />
+<!-- flaticon -->
+<link rel="stylesheet" type="text/css" href="css/flaticon.css" />
+<!-- prettyphoto -->
+<link rel="stylesheet" type="text/css" href="css/prettyPhoto.css" />
+<!-- shortcodes -->
+<link rel="stylesheet" type="text/css" href="css/shortcodes.css" />
+<!-- main -->
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<!-- rs6 - revolution slider styles needed by page-title-row -->
+<link rel="stylesheet" type="text/css" href="css/rs6.css">
+<!-- process-custom -->
+<link rel="stylesheet" type="text/css" href="css/process-custom.css" />
+<!-- responsive -->
+<link rel="stylesheet" type="text/css" href="css/responsive.css" />
+
+<style>
+  body { overflow-x: hidden; }
+  :root {
+    --navy:#0b2545; --navy-2:#123a63; --accent:#1e45da; --accent-soft:#e8f1fb;
+    --ink:#1c2430; --muted:#5b6675; --line:#e2e7ee; --bg:#ffffff; --bg-alt:#f6f8fb;
+    --radius:14px; --maxw:1140px;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .wrap.narrow>*{max-width:820px}
+  
+  /* tier ladder */
+  .ladder{border-bottom:1px solid var(--line);background:#fff;padding:20px 0}
+  .ladder ol{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:0;padding:0;counter-reset:t}
+  .ladder li{position:relative}
+  .ladder a,.ladder .cur{
+    display:block;border:1px solid var(--line);border-radius:10px;padding:14px 16px 14px 46px;
+    font-size:15px;font-weight:600;color:var(--ink);transition:all .15s ease;text-decoration:none !important;
+  }
+  .ladder a:hover{border-color:var(--accent);color:var(--accent);text-decoration:none !important}
+  .ladder .cur{background:var(--navy);border-color:var(--navy);color:#fff}
+  .ladder a::before,.ladder .cur::before{
+    counter-increment:t;content:counter(t);position:absolute;left:14px;top:50%;transform:translateY(-50%);
+    width:22px;height:22px;border-radius:50%;background:var(--accent-soft);color:var(--accent);
+    font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center
+  }
+  .ladder .cur::before{background:var(--accent);color:#fff}
+  .ladder .caption{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
+
+  section{padding:60px 0}
+  h2{font-size:clamp(22px,2.7vw,29px);color:var(--navy);letter-spacing:-.3px;margin:0 0 18px;font-weight:700}
+  .lead p{font-size:17.5px;margin:0 0 18px;color:#2b3541;line-height:1.65}
+
+  .incl{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+  .incl li{border:1px solid var(--line);border-radius:12px;padding:22px 20px 20px;background:#fff}
+  .incl strong{display:block;color:var(--navy);font-size:16.5px;margin-bottom:6px;font-weight:700}
+  .incl span{color:var(--muted);font-size:15px;line-height:1.55}
+
+  .band{background:var(--bg-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .fit{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+  .fit li{display:flex;gap:12px;align-items:flex-start;color:var(--muted);font-size:15.5px;line-height:1.5}
+  .fit i{flex:none;margin-top:4px;color:var(--accent);font-size:16px}
+
+  details{border:1px solid var(--line);border-radius:12px;background:#fff;margin-bottom:12px}
+  details[open]{border-color:#c9d8ea}
+  summary{cursor:pointer;padding:17px 46px 17px 20px;font-weight:600;color:var(--navy);font-size:16.5px;list-style:none;position:relative}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"";position:absolute;right:20px;top:50%;width:9px;height:9px;
+    border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);
+    transform:translateY(-70%) rotate(45deg);transition:transform .18s ease}
+  details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+  details p{margin:0;padding:0 20px 19px;color:var(--muted);font-size:15.5px;line-height:1.6}
+
+  .related{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+  .rel{border:1px solid var(--line);border-radius:12px;padding:22px;background:#fff;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+  .rel:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(11,37,69,.09);border-color:#c9d8ea}
+  .rel h3{margin:0 0 6px;font-size:17px;font-weight:700}
+  .rel h3 a{color:var(--navy);text-decoration:none !important}
+  .rel p{margin:0;color:var(--muted);font-size:14.5px}
+
+  .cta-section{background:var(--navy);color:#fff;text-align:center;padding:70px 0}
+  .cta-section h2{color:#fff !important;margin-bottom:14px;font-weight:700}
+  .cta-section p{color:#c7d6e6 !important;max-width:60ch;margin:0 auto 28px;font-size:17px}
+  .btn-theme{display:inline-block;background:var(--accent);color:#fff !important;font-weight:600;font-size:16px;padding:14px 32px;border-radius:8px;transition:background .2s ease;text-decoration:none !important}
+  .btn-theme:hover{background:#1535a8;color:#fff !important;text-decoration:none !important}
+  .btn-theme-ghost{background:transparent;border:1px solid #4b6c93;margin-left:12px;color:#fff !important}
+  .btn-theme-ghost:hover{background:#14375c;border-color:#7fb6f2}
+
+  @media (max-width:767px){
+    section{padding:40px 0}
+    .btn-theme-ghost{margin-left:0;margin-top:12px;display:inline-block}
+  }
+</style>
+</head>
+
+<body>
+
+<!--page start-->
+<div class="page" id="top">
+
+    <!-- preloader start -->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+    <!-- preloader end -->
+
+    <!--header start-->
+    <div id="header-placeholder"></div>
+    <!--header end-->
+
+    <!-- page-title -->
+    <div class="ttm-page-title-row ttm-textcolor-white">
+        <div class="ttm-bg-layer"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title-box text-center">
+                        <div class="page-title-heading">
+                            <h1 class="title">ERP Systems &mdash; SaaS</h1>
+                        </div>
+                        <div class="breadcrumb-wrapper">
+                            <span>
+                                <a title="Homepage" href="index.html" class="ttm-textcolor-white"><i class="ti ti-home"></i>&nbsp;&nbsp;Home</a>
+                            </span>
+                            <span class="ttm-bread-sep">&nbsp; : : &nbsp;</span>
+                            <span><a href="services.html" class="ttm-textcolor-white">Services</a></span>
+                            <span class="ttm-bread-sep">&nbsp; : : &nbsp;</span>
+                            <span class="ttm-textcolor-skincolor">ERP Systems SaaS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- page-title end -->
+
+    <!-- Tier Ladder -->
+    <div class="ladder">
+      <div class="wrap">
+        <p class="caption">Three tiers of software development</p>
+        <ol>
+          <li><a href="basic-software-development.html">Basic Software Development</a></li>
+          <li><a href="custom-business-software.html">Custom Business Software</a></li>
+          <li><span class="cur" aria-current="page">ERP Systems — SaaS</span></li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <section>
+      <div class="wrap narrow lead">
+          <p>At a certain size the question stops being which tool to add and becomes how many systems you can keep reconciling. Finance closes the month from exports, operations tracks stock in its own spreadsheet, HR holds the only accurate list of who works where, and the numbers in a board pack depend on which system they came from. Integrations help, but they do not fix the fact that there is no single record.</p>
+          <p>An ERP puts those functions on one platform with one data model, so a purchase order, the stock it creates and the invoice it generates are the same record seen from three angles. We deliver ours as SaaS: subscribed per user, hosted in Sydney, updated centrally, and configured to your structure rather than rebuilt from scratch for each client.</p>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap">
+        <h2>What's included</h2>
+        <ul class="incl">
+            <li><strong>Modular scope</strong><span>Finance, purchasing, inventory, operations, projects and people — take the modules you need and add others later.</span></li>
+            <li><strong>One data model</strong><span>Customers, suppliers, items and staff exist once, so reporting reconciles without a spreadsheet in the middle.</span></li>
+            <li><strong>Configuration, not reinvention</strong><span>Your chart of accounts, approval limits, sites, cost centres and workflows set up to match how you are structured.</span></li>
+            <li><strong>Migration and cutover planning</strong><span>Opening balances, master data and historical records moved across, with a parallel period before you rely on it.</span></li>
+            <li><strong>Training and adoption support</strong><span>Role-based training and floor support during go-live, because an ERP nobody uses properly is the expensive kind.</span></li>
+            <li><strong>Australian hosting and privacy</strong><span>Run from Sydney data centres, with access control and retention designed around the Privacy Act 1988 and the Australian Privacy Principles.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap narrow">
+        <h2>This tier suits you if</h2>
+        <ul class="fit">
+            <li><i class="fa fa-check-circle"></i><span>Finance, operations and people data live in separate systems that disagree.</span></li>
+            <li><i class="fa fa-check-circle"></i><span>Month-end depends on exports and manual reconciliation.</span></li>
+            <li><i class="fa fa-check-circle"></i><span>You operate across multiple sites, entities or cost centres.</span></li>
+            <li><i class="fa fa-check-circle"></i><span>You would rather subscribe per user than fund a capital build.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap narrow">
+        <h2>Frequently asked questions</h2>
+          <details>
+            <summary>How is SaaS ERP different from a custom-built system?</summary>
+            <p>A custom system is written for you and you own the code. SaaS ERP is a platform you subscribe to, configured to your organisation and updated centrally for everyone. SaaS gets you live faster and spreads the cost; custom gives you total control. We will walk you through which trade-off fits.</p>
+          </details>
+          <details>
+            <summary>How long does an ERP implementation take?</summary>
+            <p>Longer than software people expect, because most of the work is data, decisions and adoption rather than code. Timeframes depend on how many modules you take, how clean your existing data is and how quickly decisions get made. We stage it by module so value arrives before the whole thing is finished.</p>
+          </details>
+          <details>
+            <summary>Where does our data live?</summary>
+            <p>In Australian data centres. That keeps the platform quick for local users and your data onshore, which matters for organisations with data sovereignty obligations. Access control, retention and breach response are designed around the Privacy Act 1988 and the Notifiable Data Breaches scheme.</p>
+          </details>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>Related services</h2>
+        <div class="related">
+            <div class="rel"><h3><a href="custom-business-software.html">Custom Business Software</a></h3><p>When you need one system built entirely around your process.</p></div>
+            <div class="rel"><h3><a href="basic-software-development.html">Basic Software Development</a></h3><p>When a single tool would close the gap for now.</p></div>
+            <div class="rel"><h3><a href="services/vps-cloud-hosting.html">VPS Cloud Hosting</a></h3><p>Dedicated, hardened infrastructure in Sydney.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="wrap">
+        <h2>Considering an ERP?</h2>
+        <p>Tell us how many people, sites and systems you are running today, and where month-end hurts most. We will scope the modules worth starting with.</p>
+        <a class="btn-theme" href="contact-us.html">Start a conversation</a>
+        <a class="btn-theme btn-theme-ghost" href="services.html">All services</a>
+      </div>
+    </section>
+
+    <!--footer start-->
+    <div id="footer-placeholder"></div>
+    <!--footer end-->
+
+    <!-- Back to top -->
+    <a id="totop" href="#top"><i class="fa fa-angle-up"></i></a>
+
+    <!-- Floating Talk To Us -->
+    <a href="contact-us.html" class="floating-talk-btn">
+        <div class="talk-icon"><i class="ti ti-headphone"></i></div>
+        <svg viewBox="0 0 100 100" width="120" height="120">
+            <defs>
+                <path id="circlePath" d="M 50, 50 m -40, 0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0" />
+            </defs>
+            <text>
+                <textPath href="#circlePath" fill="#182333" font-size="10.5" font-weight="700" letter-spacing="1.5" textLength="251" lengthAdjust="spacing">
+                    TALK TO US • TALK TO US • TALK TO US •
+                </textPath>
+            </text>
+        </svg>
+    </a>
+
+</div>
+<!--page end-->
+
+<!-- Javascript -->
+<script src="js/jquery-3.7.1.min.js"></script>
+<script src="js/jquery-migrate-3.4.1.min.js"></script>
+<script src="js/tether.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/jquery-waypoints.js"></script>
+<script src="js/jquery-validate.js"></script>
+<script src="js/owl.carousel.js"></script>
+<script src="js/jquery.prettyPhoto.js"></script>
+<script src="js/numinate.min6959.js?ver=4.9.3"></script>
+<script src="js/lazysizes.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/components.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "ERP Systems — SaaS",
+  "serviceType": "ERP Systems — SaaS",
+  "url": "https://onvalabs.vercel.app/erp-systems-saas.html",
+  "provider": {
+    "@type": "Organization",
+    "name": "Onva Labs",
+    "url": "https://onvalabs.vercel.app",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sydney",
+      "addressRegion": "NSW",
+      "addressCountry": "AU"
+    }
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Australia"
+  },
+  "description": "Cloud ERP delivered as SaaS for Australian organisations: finance, operations, inventory and people on one platform. Hosted in Sydney, configured to your business."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is SaaS ERP different from a custom-built system?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A custom system is written for you and you own the code. SaaS ERP is a platform you subscribe to, configured to your organisation and updated centrally for everyone. SaaS gets you live faster and spreads the cost; custom gives you total control. We will walk you through which trade-off fits."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does an ERP implementation take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Longer than software people expect, because most of the work is data, decisions and adoption rather than code. Timeframes depend on how many modules you take, how clean your existing data is and how quickly decisions get made. We stage it by module so value arrives before the whole thing is finished."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where does our data live?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In Australian data centres. That keeps the platform quick for local users and your data onshore, which matters for organisations with data sovereignty obligations. Access control, retention and breach response are designed around the Privacy Act 1988 and the Notifiable Data Breaches scheme."
+      }
+    }
+  ]
+}
+</script>
+
+</body>
+</html>

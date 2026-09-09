@@ -91,22 +91,37 @@ h3 span {
 
         /* Ensure sticky showcase works properly without breaking position:sticky */
         html,
-        body {
-            overflow-x: clip !important;
-        }
+body {
+    overflow-x: hidden !important;
+}
 
-        body,
-        body .page,
-        .page,
-        div[class="#"],
-        #main,
-        .ttm-page-title-row,
-        section,
-        #features,
-        .wrap,
-        .show {
-            overflow: visible !important;
-        }
+        /* Only allow overflow: visible on desktop to make sticky showcase work, and keep overflow: hidden on mobile to prevent horizontal scrolling */
+@media (min-width: 1041px) {
+    body,
+    body .page,
+    .page,
+    div[class="#"],
+    #main,
+    .ttm-page-title-row,
+    section,
+    #features,
+    .wrap,
+    .show {
+        overflow: visible !important;
+    }
+}
+@media (max-width: 1040px) {
+    html,
+    body,
+    .page,
+    div[class="#"],
+    #main,
+    .ttm-page-title-row,
+    section,
+    .wrap {
+        overflow-x: hidden !important;
+    }
+}
 
         html {
             scroll-behavior: smooth;
@@ -614,11 +629,11 @@ h3 span {
 
         /* ---------- generic section ---------- */
         .sec {
-            padding: 120px 0
+            padding: 60px 0
         }
 
         .sec-sm {
-            padding: 88px 0
+            padding: 60px 0
         }
 
         .tint {
@@ -839,7 +854,7 @@ h3 span {
         }
 
         .show-copy {
-            padding: 14vh 0
+            padding: 1vh 0
         }
 
         .show-item {
@@ -916,11 +931,11 @@ h3 span {
             position: -webkit-sticky;
             position: sticky;
             top: 0;
-            min-height: 100vh;
+            min-height: 43vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 120px 0 40px;
+            padding: 20px 0 40px;
             z-index: 5
         }
 
@@ -1175,7 +1190,7 @@ h3 span {
         /* ---------- capability grid ---------- */
         .grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 22px
         }
 
@@ -1505,7 +1520,7 @@ h3 span {
             background: linear-gradient(140deg, #050b18, #0b1a33 55%, #0d2145);
             color: #fff;
             text-align: center;
-            padding: 110px 0;
+            padding: 60px 0;
             overflow: hidden
         }
 
@@ -1796,7 +1811,7 @@ h3 span {
             </section>
 
             <!-- ================= PROBLEM / OUTCOME ================= -->
-            <section class="sec tint">
+            <section class="sec" style="background-color: #f7f7f7 !important;">
                 <div class="wrap">
                     <div class="sec-head rv">
                         <h2>Incident response fails <span>in the paperwork, not the panic</span></h2>
@@ -2171,7 +2186,7 @@ h3 span {
             <section class="cta" id="demo">
                 <span class="orb orb-1" style="opacity:.22"></span>
                 <div class="wrap">
-                    <h2 class="rv">See it running against your own incident history</h2>
+                    <h2 class="rv" style="color: #ffffff;">See it running against your own incident history</h2>
                     <p class="rv rv-2">We will load a sample of your past incidents into a private instance and walk
                         your team through the register, the lessons-learned workflow and the audit trail in forty-five
                         minutes.</p>

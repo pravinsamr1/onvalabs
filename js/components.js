@@ -1,6 +1,6 @@
 // Load header and footer dynamically
 document.addEventListener("DOMContentLoaded", function () {
-    const assetPrefix = window.location.pathname.includes('/services/') ? '../' : '';
+    const assetPrefix = (window.location.pathname.includes('/services/') || window.location.pathname.includes('/blogs/')) ? '../' : '';
 
     /**
      * Fix all relative image paths and hrefs inside fetched HTML
@@ -78,6 +78,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
         });
+
+        // Re-check lazy loaded images in header/footer
+        if (window.lazySizes && window.lazySizes.loader && typeof window.lazySizes.loader.checkElems === 'function') {
+            window.lazySizes.loader.checkElems();
+        }
 
         // Dispatch event so main.js can initialise plugins that depend on the
         // header/footer being present in the DOM (prettyPhoto, colour switcher, etc.)

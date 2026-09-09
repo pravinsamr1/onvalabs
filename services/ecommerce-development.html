@@ -92,6 +92,15 @@
             transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.5s ease;
         }
 
+        /* Fix uneven card heights — enforce consistent image dimensions */
+        .portfolio-section .featured-thumbnail img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
         .featured-imagebox:hover .featured-thumbnail img {
             transform: scale(1.08) rotate(0.8deg);
             filter: brightness(1.05);
@@ -188,7 +197,7 @@
                             <div class="position-relative">
                                 <!-- ttm_single_image-wrapper -->
                                 <div class="ttm_single_image-wrapper text-sm-center">
-                                    <img class="img-fluid" src="../images/webdevelopment.jpg" style=""
+                                    <img class="img-fluid" src="../images/ed1.jpg" style=""
                                         alt="Basic Web Development">
                                 </div><!-- ttm_single_image-wrapper end -->
                             </div>
@@ -317,7 +326,7 @@
                         <div class="ttm-box-col-wrapper col-lg-4 col-md-6 col-sm-6 mb-30">
                             <div class="featured-imagebox featured-imagebox-portfolio style2">
                                 <div class="featured-thumbnail">
-                                    <img class="img-fluid" src="../images/portfolio/01.jpg" alt="Store build and catalogue setup">
+                                    <img class="img-fluid" src="../images/portfolio/ecd-card1.jpg" alt="Store build and catalogue setup">
                                 </div>
                                 <div class="featured-content">
                                     <div class="category">
@@ -334,7 +343,7 @@
                         <div class="ttm-box-col-wrapper col-lg-4 col-md-6 col-sm-6 mb-30">
                             <div class="featured-imagebox featured-imagebox-portfolio style2">
                                 <div class="featured-thumbnail">
-                                    <img class="img-fluid" src="../images/portfolio/02.jpg" alt="Australian payments">
+                                    <img class="img-fluid" src="../images/portfolio/06.jpg" alt="Australian payments">
                                 </div>
                                 <div class="featured-content">
                                     <div class="category">
@@ -351,7 +360,7 @@
                         <div class="ttm-box-col-wrapper col-lg-4 col-md-6 col-sm-6 mb-30">
                             <div class="featured-imagebox featured-imagebox-portfolio style2">
                                 <div class="featured-thumbnail">
-                                    <img class="img-fluid" src="../images/portfolio/03.jpg" alt="Shipping and fulfilment">
+                                    <img class="img-fluid" src="../images/portfolio/05.jpg" alt="Shipping and fulfilment">
                                 </div>
                                 <div class="featured-content">
                                     <div class="category">
@@ -385,7 +394,7 @@
                         <div class="ttm-box-col-wrapper col-lg-4 col-md-6 col-sm-6 mb-30">
                             <div class="featured-imagebox featured-imagebox-portfolio style2">
                                 <div class="featured-thumbnail">
-                                    <img class="img-fluid" src="../images/portfolio/05.jpg" alt="Checkout optimisation">
+                                    <img class="img-fluid" src="../images/portfolio/03.jpg" alt="Checkout optimisation">
                                 </div>
                                 <div class="featured-content">
                                     <div class="category">
@@ -402,7 +411,7 @@
                         <div class="ttm-box-col-wrapper col-lg-4 col-md-6 col-sm-6 mb-30">
                             <div class="featured-imagebox featured-imagebox-portfolio style2">
                                 <div class="featured-thumbnail">
-                                    <img class="img-fluid" src="../images/portfolio/06.jpg" alt="Compliance and trust pages">
+                                    <img class="img-fluid" src="../images/portfolio/02.jpg" alt="Compliance and trust pages">
                                 </div>
                                 <div class="featured-content">
                                     <div class="category">

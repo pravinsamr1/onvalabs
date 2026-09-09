@@ -1,0 +1,346 @@
+﻿<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Why Your Website Feels Slow on a Phone | Onva Labs</title>
+<meta name="description" content="A plain-English guide to website speed in Australia — what makes a site feel slow on mobile, and the four fixes that genuinely make a difference.">
+<meta name="keywords" content="website speed Australia, Core Web Vitals, mobile site speed, Sydney web hosting, PageSpeed Insights, image optimisation, .com.au website performance">
+<meta name="author" content="Onva Labs">
+<link rel="canonical" href="https://onvalabs.vercel.app/blogs/why-your-website-is-slow-on-mobile.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Onva Labs">
+<meta property="og:locale" content="en_AU">
+<meta property="og:title" content="Why Your Website Feels Slow on a Phone">
+<meta property="og:description" content="A plain-English guide to website speed in Australia — what makes a site feel slow on mobile, and the four fixes that genuinely make a difference.">
+<meta property="og:url" content="https://onvalabs.vercel.app/blogs/why-your-website-is-slow-on-mobile.html">
+<meta property="article:published_time" content="2026-08-26">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- favicon icon -->
+<link rel="shortcut icon" href="images/favicon.png" />
+<!-- bootstrap -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+<!-- animate -->
+<link rel="stylesheet" type="text/css" href="css/animate.css" />
+<!-- owl-carousel -->
+<link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+<!-- fontawesome -->
+<link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+<!-- themify -->
+<link rel="stylesheet" type="text/css" href="css/themify-icons.css" />
+<!-- flaticon -->
+<link rel="stylesheet" type="text/css" href="css/flaticon.css" />
+<!-- prettyphoto -->
+<link rel="stylesheet" type="text/css" href="css/prettyPhoto.css" />
+<!-- shortcodes -->
+<link rel="stylesheet" type="text/css" href="css/shortcodes.css" />
+<!-- main -->
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<!-- rs6 - revolution slider styles needed by page-title-row -->
+<link rel="stylesheet" type="text/css" href="css/rs6.css">
+<!-- process-custom -->
+<link rel="stylesheet" type="text/css" href="css/process-custom.css" />
+<!-- responsive -->
+<link rel="stylesheet" type="text/css" href="css/responsive.css" />
+
+<style>
+  body { overflow-x: hidden; }
+  :root{
+    --navy:#0b2545; --navy-2:#123a63; --accent:#1f7ae0; --accent-soft:#e8f1fb;
+    --ink:#1c2430; --muted:#5b6675; --line:#e2e7ee; --bg:#ffffff; --bg-alt:#f6f8fb;
+    --radius:14px; --maxw:1140px;
+  }
+  .blog-wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 11px;border-radius:100px;background:var(--accent-soft);color:#1a5fb0}
+  .t-web{background:#e6f4ee;color:#166b4a}
+  .t-auto{background:#f3ecfb;color:#5b3b96}
+  .post-head{background:linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 100%);color:#fff;padding:58px 0 62px}
+  .post-head *{color:inherit}
+  .post-head h1,.post-head h2,.post-head h3{color:#fff!important;font-family:inherit}
+  .post-head .inner{max-width:760px}
+  .post-head .tag{background:rgba(255,255,255,.14);color:#bcd9f7}
+  .post-head h1{font-size:clamp(28px,4vw,42px);line-height:1.18;margin:16px 0 16px;font-weight:700;letter-spacing:-.5px;color:#fff!important}
+  .post-head .dek{font-size:clamp(16px,1.9vw,18.5px);color:#c7d6e6!important;margin:0 0 22px}
+  .byline{font-size:14.5px;color:#9db6d1!important;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .byline em{font-style:normal;color:#5b7ea6}
+  article{padding:56px 0 20px}
+  .prose{max-width:760px;font-size:17.5px}
+  .prose h2{font-size:clamp(21px,2.6vw,27px);color:var(--navy);letter-spacing:-.3px;margin:44px 0 14px;line-height:1.3}
+  .prose h3{font-size:19px;color:var(--navy);margin:30px 0 10px}
+  .prose p{margin:0 0 18px}
+  .prose ul,.prose ol{margin:0 0 20px;padding-left:24px}
+  .prose li{margin-bottom:9px}
+  .prose strong{color:#131b25}
+  .prose blockquote{margin:32px 0;padding:22px 26px;background:var(--accent-soft);border-left:4px solid var(--accent);border-radius:0 10px 10px 0}
+  .prose blockquote p{margin:0;font-size:19px;font-weight:600;color:#154a8a;line-height:1.55}
+  .prose a{font-weight:500;border-bottom:1px solid rgba(31,122,224,.35)}
+  .prose a:hover{text-decoration:none;border-bottom-color:var(--accent)}
+  .faqs{max-width:760px;margin-top:52px;padding-top:44px;border-top:1px solid var(--line)}
+  .faqs h2{font-size:clamp(21px,2.6vw,27px);color:var(--navy);margin:0 0 18px}
+  details{border:1px solid var(--line);border-radius:12px;background:#fff;margin-bottom:12px}
+  details[open]{border-color:#c9d8ea}
+  summary{cursor:pointer;padding:16px 46px 16px 20px;font-weight:600;color:var(--navy);font-size:16.5px;list-style:none;position:relative}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"";position:absolute;right:20px;top:50%;width:9px;height:9px;border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:translateY(-70%) rotate(45deg);transition:transform .18s ease}
+  details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+  details p{margin:0;padding:0 20px 18px;color:var(--muted);font-size:16px}
+  .more-posts{background:var(--bg-alt);border-top:1px solid var(--line);padding:60px 0}
+  .more-posts h2{font-size:clamp(21px,2.6vw,27px);color:var(--navy)!important;margin:0 0 26px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+  .pcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+  .pcard:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(11,37,69,.10);border-color:#c9d8ea}
+  .pcard .tag{align-self:flex-start}
+  .pcard h3{margin:14px 0 8px;font-size:18px;line-height:1.35}
+  .pcard h3 a{color:var(--navy)}
+  .pcard p{margin:0 0 16px;color:var(--muted);font-size:15px}
+  .pcard .foot{margin-top:auto;font-size:13.5px;color:#8b96a4;display:flex;gap:8px;align-items:center}
+  .pcard .foot em{font-style:normal;color:#c3ccd6}
+  .blog-cta{background:var(--navy);color:#fff;text-align:center;padding:66px 0}
+  .blog-cta h2,.blog-cta h3,.blog-cta p{color:#fff!important}
+  .blog-cta h2{font-size:clamp(23px,2.9vw,31px);margin:0 0 14px;letter-spacing:-.3px;color:#fff!important}
+  .blog-cta p{color:#c7d6e6;max-width:60ch;margin:0 auto 28px;font-size:17px}
+  .btn{display:inline-block;background:var(--accent);color:#fff;font-weight:600;font-size:16px;padding:14px 30px;border-radius:8px;transition:background .18s ease}
+  .btn:hover{background:#1765c0;text-decoration:none;color:#fff}
+  .btn-ghost{background:transparent;border:1px solid #4b6c93;margin-left:10px}
+  .btn-ghost:hover{background:#14375c}
+  @media (max-width:600px){.post-head{padding:44px 0 48px}article{padding:40px 0 10px}.prose{font-size:17px}.btn-ghost{margin-left:0;margin-top:12px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<!--page start-->
+<div class="page" id="top">
+
+    <!-- preloader start -->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+    <!-- preloader end -->
+
+    <!--header start-->
+    <div id="header-placeholder"></div>
+    <!--header end-->
+
+    <!-- page-title -->
+    <div class="ttm-page-title-row ttm-textcolor-white">
+        <div class="ttm-bg-layer"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title-box text-center">
+                        <div class="page-title-heading">
+                            <h1 class="title">Why Your Website Feels Slow on a Phone</h1>
+                        </div>
+                        <div class="breadcrumb-wrapper">
+                            <span>
+                                <a title="Homepage" href="index.html" class="ttm-textcolor-white"><i class="ti ti-home"></i>&nbsp;&nbsp;Home</a>
+                            </span>
+                            <span class="ttm-bread-sep">&nbsp; : : &nbsp;</span>
+                            <span><a href="index.html#blog-section" class="ttm-textcolor-white">Blog</a></span><span class="ttm-bread-sep">&nbsp; : : &nbsp;</span><span class="ttm-textcolor-skincolor">Mobile Performance</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- page-title end -->
+
+    <div class="post-head">
+      <div class="blog-wrap">
+        <div class="inner">
+          <span class="tag t-web">Web technologies</span>
+          <h1>Why Your Website Feels Slow on a Phone (And What Actually Fixes It)</h1>
+          <p class="dek">Why your site feels sluggish on a phone, what is really causing it, and the four fixes that actually work.</p>
+          <div class="byline">
+            <span>Onva Labs</span><em>&middot;</em>
+            <time datetime="2026-08-26">26 August 2026</time><em>&middot;</em>
+            <span>5 min read</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <article>
+      <div class="blog-wrap">
+        <div class="prose">
+<p>Someone is standing on a footpath in Marrickville with a coffee in one hand and a phone in the other. They have heard about your business, they type your name into Google, and they tap the first result. The screen stays white. A logo appears, then jumps sideways as a banner loads above it. Four seconds in, they go back and tap your competitor instead.</p>
+<p>Nothing was broken. Your website works perfectly on the desktop in your office, with everything already loaded once before. On a phone, on mobile data, it behaves like a different website. That gap is where many Australian small businesses quietly lose enquiries.</p>
+<h2>What &ldquo;slow&rdquo; actually means to Google</h2>
+<p>Google measures page experience with three numbers called Core Web Vitals. Each one describes a normal human frustration.</p>
+<ul>
+<li><strong>Largest Contentful Paint (LCP)</strong> — how long until the biggest thing on the screen, usually your main image or headline, appears. Good is under 2.5 seconds. The &ldquo;am I looking at a blank page?&rdquo; measure.</li>
+<li><strong>Interaction to Next Paint (INP)</strong> — how long the page takes to respond after someone taps something. Good is under 200 milliseconds. The &ldquo;I tapped the menu and nothing happened&rdquo; measure. It replaced First Input Delay in March 2024.</li>
+<li><strong>Cumulative Layout Shift (CLS)</strong> — how much the page jumps around while loading. Good is under 0.1. The &ldquo;I went to tap Book Now and a banner slid into the spot&rdquo; measure.</li>
+</ul>
+<p>Google judges these on field data — real visitors on real phones, collected in the Chrome User Experience Report — not a test in perfect conditions. To pass, at least 75% of visits to a page must be good. A site that is fine on your office wi-fi can still be failing most customers on a train.</p>
+<p>Check any page yourself, free, with Google PageSpeed Insights. Use the mobile tab, and test more than the homepage.</p>
+<h2>Cause one: images that are far too big</h2>
+<p>The most common culprit, and the easiest to fix. A photo straight off a phone can be several thousand pixels wide. On a phone screen it might display at 400. The visitor still downloads the whole file, then their phone shrinks it. You have made them pay for detail they will never see.</p>
+<p>Three habits solve almost all of it:</p>
+<ul>
+<li><strong>Resize before uploading.</strong> If an image never displays wider than 1200 pixels, do not upload one that is 5000 pixels wide.</li>
+<li><strong>Use modern formats.</strong> WebP and AVIF are image formats that look the same as a JPEG at a fraction of the file size. Most tools now export them.</li>
+<li><strong>Load offscreen images later.</strong> Called lazy loading — images further down the page only download when the visitor scrolls towards them.</li>
+<li><strong>Skip video backgrounds.</strong> A looping hero video is one of the fastest ways to punish a customer on mobile data.</li>
+</ul>
+<h2>Cause two: plugins and scripts you forgot about</h2>
+<p>Every plugin, chat widget, booking embed, review carousel and tracking pixel adds code the visitor must download and run before the page settles. Each seemed reasonable at the time. Twenty together are not. The usual suspects: a lapsed booking tool, two analytics tags added by two different marketers, a social feed nobody looks at, a pop-up plugin, and a homepage slider — often the heaviest thing on the site.</p>
+<p>Tracking scripts are worse than they look, because they load from someone else&rsquo;s server. The phone makes a fresh connection there, waits, then runs whatever comes back. Ten of those and your page is stuck waiting on other people&rsquo;s infrastructure.</p>
+<p>Go through your plugin list and ask of each: what would break if this were gone? If the answer is &ldquo;nothing I can name&rdquo;, remove it.</p>
+<blockquote>
+<p>Speed is rarely a mysterious technical problem. It is usually a slow accumulation of small decisions nobody ever reversed.</p>
+</blockquote>
+<h2>Cause three: where your website physically lives</h2>
+<p>This one surprises people. It is not really about your website; it is geography.</p>
+<p>Data travels fast, but not instantly. A request from a phone in Sydney to a server in Virginia or Frankfurt goes a very long way, and every request makes the round trip. Loading a page is dozens of requests — styles, fonts, each image, each script. Add delay to each and it compounds into something a customer can feel.</p>
+<p>What helps:</p>
+<ul>
+<li><strong>Host closer to your customers.</strong> For Australian customers, a server in a Sydney data centre removes that distance from every request. It is why we run <a href="services/web-hosting.html">hosting in Australia</a>, and why a busier site often moves to <a href="services/vps-cloud-hosting.html">dedicated cloud resources</a> rather than a crowded shared plan.</li>
+<li><strong>Use a CDN.</strong> A content delivery network keeps copies of your files on servers around the world, including locally, so heavy items come from nearby.</li>
+</ul>
+<p>Cheap shared hosting also means sharing a machine with hundreds of other sites. When one has a busy day, yours slows down and you never learn why.</p>
+<h2>What to do next</h2>
+<p>The first three cost nothing but an afternoon.</p>
+<ol>
+<li><strong>Measure honestly.</strong> Run your homepage, contact page and best-selling product page through PageSpeed Insights on mobile. Note the LCP, INP and CLS figures as your starting point.</li>
+<li><strong>Fix the images.</strong> Find the biggest files on your slowest page, resize them to the size they actually display at, and re-export as WebP.</li>
+<li><strong>Cull the extras.</strong> Remove every plugin, widget and tag you cannot justify out loud, then test again.</li>
+<li><strong>Ask where your site is hosted.</strong> A server overseas serving only Australian customers is a fixable handicap.</li>
+<li><strong>Check the foundations.</strong> If it is still slow, the theme or build is the problem and tuning will not save it. A leaner <a href="services/basic-web-development.html">rebuild</a> often costs less than years of patching.</li>
+</ol>
+<p>Speed is not a vanity metric. It is the difference between a customer waiting and a customer leaving. If you would like someone to look at your numbers and say plainly what is causing them, <a href="contact-us.html">get in touch</a>.</p>
+        </div>
+
+        <div class="faqs">
+          <h2>Common questions</h2>
+          <details>
+            <summary>What counts as a good page speed score?</summary>
+            <p>Google looks at three Core Web Vitals: Largest Contentful Paint under 2.5 seconds, Interaction to Next Paint under 200 milliseconds, and Cumulative Layout Shift under 0.1. To pass, at least 75% of real visits to that page must be good.</p>
+          </details>
+          <details>
+            <summary>Does hosting a website in Australia make it faster for Australian visitors?</summary>
+            <p>It can help. Every request from a phone in Sydney to a server overseas travels a long physical distance and back. Hosting closer to your customers removes that delay from every request, which is most noticeable on mobile connections.</p>
+          </details>
+          <details>
+            <summary>How can you check your own website speed for free?</summary>
+            <p>Run your page through Google PageSpeed Insights. It is free, needs no login, and reports both a lab test and real-world field data from the Chrome User Experience Report. Test on the mobile tab, and test more than just your homepage.</p>
+          </details>
+        </div>
+      </div>
+    </article>
+
+    <div class="more-posts">
+      <div class="blog-wrap">
+        <h2>More from the Onva Labs blog</h2>
+        <div class="cards">
+          <div class="pcard">
+            <span class="tag">SEO</span>
+            <h3><a href="local-seo-sydney-near-me-searches.html">How to Show Up When Sydney Customers Search "Near Me"</a></h3>
+            <p>A plain-English guide to appearing in Sydney "near me" and suburb searches, with steps you can work through yourself this week.</p>
+            <div class="foot">2 September 2026 <em>&middot;</em> 5 min read</div>
+          </div>
+          <div class="pcard">
+            <span class="tag">SEO</span>
+            <h3><a href="ai-search-australia-getting-cited.html">Why Your Business Is Missing From AI Search Results</a></h3>
+            <p>Why AI answers leave your business out, what actually makes a page quotable, and the practical fixes any Australian business can make.</p>
+            <div class="foot">19 August 2026 <em>&middot;</em> 5 min read</div>
+          </div>
+          <div class="pcard">
+            <span class="tag t-auto">Automation</span>
+            <h3><a href="signs-your-business-has-outgrown-spreadsheets.html">Five Signs Your Business Has Outgrown Its Spreadsheets</a></h3>
+            <p>How to tell when spreadsheets have stopped helping your business, and how to choose the cheapest fix that genuinely solves the problem.</p>
+            <div class="foot">12 August 2026 <em>&middot;</em> 5 min read</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="blog-cta">
+      <div class="blog-wrap">
+        <h2>Want a hand with any of this?</h2>
+        <p>We are a Sydney web, software and growth studio. Tell us what you are trying to fix and we will give you a straight answer on what it takes.</p>
+        <a class="btn" href="contact-us.html">Talk to us</a>
+        <a class="btn btn-ghost" href="services/web-hosting.html">See our services</a>
+      </div>
+    </section>
+
+    <!--footer start-->
+    <div id="footer-placeholder"></div>
+    <!--footer end-->
+
+    <!-- Back to top -->
+    <a id="totop" href="#top"><i class="fa fa-angle-up"></i></a>
+
+    <!-- Floating Talk To Us -->
+    <a href="contact-us.html" class="floating-talk-btn">
+        <div class="talk-icon"><i class="ti ti-headphone"></i></div>
+        <svg viewBox="0 0 100 100" width="120" height="120">
+            <defs>
+                <path id="circlePath" d="M 50, 50 m -40, 0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0" />
+            </defs>
+            <text>
+                <textPath href="#circlePath" fill="#182333" font-size="10.5" font-weight="700" letter-spacing="1.5" textLength="251" lengthAdjust="spacing">
+                    TALK TO US • TALK TO US • TALK TO US •
+                </textPath>
+            </text>
+        </svg>
+    </a>
+
+</div>
+<!--page end-->
+
+<!-- Javascript -->
+<script src="js/jquery-3.7.1.min.js"></script>
+<script src="js/jquery-migrate-3.4.1.min.js"></script>
+<script src="js/tether.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/jquery-waypoints.js"></script>
+<script src="js/jquery-validate.js"></script>
+<script src="js/owl.carousel.js"></script>
+<script src="js/jquery.prettyPhoto.js"></script>
+<script src="js/numinate.min6959.js?ver=4.9.3"></script>
+<script src="js/lazysizes.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/components.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org","@type": "BlogPosting",
+  "headline": "Why Your Website Feels Slow on a Phone",
+  "description": "A plain-English guide to website speed in Australia — what makes a site feel slow on mobile, and the four fixes that genuinely make a difference.",
+  "url": "https://onvalabs.vercel.app/blogs/why-your-website-is-slow-on-mobile.html",
+  "mainEntityOfPage": {"@type": "WebPage","@id": "https://onvalabs.vercel.app/blogs/why-your-website-is-slow-on-mobile.html"},
+  "datePublished": "2026-08-26","dateModified": "2026-08-26","inLanguage": "en-AU",
+  "keywords": "website speed Australia, Core Web Vitals, mobile site speed, Sydney web hosting, PageSpeed Insights, image optimisation, .com.au website performance",
+  "articleSection": "Web technologies",
+  "author": {"@type": "Organization","name": "Onva Labs","url": "https://onvalabs.vercel.app"},
+  "publisher": {"@type": "Organization","name": "Onva Labs","url": "https://onvalabs.vercel.app","address": {"@type": "PostalAddress","addressLocality": "Sydney","addressRegion": "NSW","addressCountry": "AU"}}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org","@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question","name": "What counts as a good page speed score?","acceptedAnswer": {"@type": "Answer","text": "Google looks at three Core Web Vitals: Largest Contentful Paint under 2.5 seconds, Interaction to Next Paint under 200 milliseconds, and Cumulative Layout Shift under 0.1. To pass, at least 75% of real visits to that page must be good."}},
+    {"@type": "Question","name": "Does hosting a website in Australia make it faster for Australian visitors?","acceptedAnswer": {"@type": "Answer","text": "It can help. Every request from a phone in Sydney to a server overseas travels a long physical distance and back. Hosting closer to your customers removes that delay from every request, which is most noticeable on mobile connections."}},
+    {"@type": "Question","name": "How can you check your own website speed for free?","acceptedAnswer": {"@type": "Answer","text": "Run your page through Google PageSpeed Insights. It is free, needs no login, and reports both a lab test and real-world field data from the Chrome User Experience Report. Test on the mobile tab, and test more than just your homepage."}}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org","@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem","position": 1,"name": "Home","item": "https://onvalabs.vercel.app/index.html"},
+    {"@type": "ListItem","position": 2,"name": "Blog","item": "https://onvalabs.vercel.app/blogs/"},
+    {"@type": "ListItem","position": 3,"name": "Why Your Website Feels Slow on a Phone","item": "https://onvalabs.vercel.app/blogs/why-your-website-is-slow-on-mobile.html"}
+  ]
+}
+</script>
+
+</body>
+</html>

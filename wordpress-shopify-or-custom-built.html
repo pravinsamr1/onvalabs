@@ -1,0 +1,355 @@
+﻿<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>WordPress, Shopify or Custom-Built? How to Choose | Onva Labs</title>
+<meta name="description" content="An even-handed guide to WordPress vs Shopify in Australia, and when a custom build is worth it — including when the cheapest option is right.">
+<meta name="keywords" content="WordPress vs Shopify Australia, custom web development Sydney, ecommerce platform Australia, small business website Australia, .com.au website, online store Australia, choosing a website platform">
+<meta name="author" content="Onva Labs">
+<link rel="canonical" href="https://onvalabs.vercel.app/blogs/wordpress-shopify-or-custom-built.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Onva Labs">
+<meta property="og:locale" content="en_AU">
+<meta property="og:title" content="WordPress, Shopify or Custom-Built? How to Choose">
+<meta property="og:description" content="An even-handed guide to WordPress vs Shopify in Australia, and when a custom build is worth it — including when the cheapest option is right.">
+<meta property="og:url" content="https://onvalabs.vercel.app/blogs/wordpress-shopify-or-custom-built.html">
+<meta property="article:published_time" content="2026-08-05">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- favicon icon -->
+<link rel="shortcut icon" href="images/favicon.png" />
+<!-- bootstrap -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+<!-- animate -->
+<link rel="stylesheet" type="text/css" href="css/animate.css" />
+<!-- owl-carousel -->
+<link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+<!-- fontawesome -->
+<link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+<!-- themify -->
+<link rel="stylesheet" type="text/css" href="css/themify-icons.css" />
+<!-- flaticon -->
+<link rel="stylesheet" type="text/css" href="css/flaticon.css" />
+<!-- prettyphoto -->
+<link rel="stylesheet" type="text/css" href="css/prettyPhoto.css" />
+<!-- shortcodes -->
+<link rel="stylesheet" type="text/css" href="css/shortcodes.css" />
+<!-- main -->
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<!-- rs6 - revolution slider styles needed by page-title-row -->
+<link rel="stylesheet" type="text/css" href="css/rs6.css">
+<!-- process-custom -->
+<link rel="stylesheet" type="text/css" href="css/process-custom.css" />
+<!-- responsive -->
+<link rel="stylesheet" type="text/css" href="css/responsive.css" />
+
+<style>
+  body { overflow-x: hidden; }
+  :root{
+    --navy:#0b2545; --navy-2:#123a63; --accent:#1f7ae0; --accent-soft:#e8f1fb;
+    --ink:#1c2430; --muted:#5b6675; --line:#e2e7ee; --bg:#ffffff; --bg-alt:#f6f8fb;
+    --radius:14px; --maxw:1140px;
+  }
+  .blog-wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 11px;border-radius:100px;background:var(--accent-soft);color:#1a5fb0}
+  .t-web{background:#e6f4ee;color:#166b4a}
+  .t-auto{background:#f3ecfb;color:#5b3b96}
+  .post-head{background:linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 100%);color:#fff;padding:58px 0 62px}
+  .post-head *{color:inherit}
+  .post-head h1,.post-head h2,.post-head h3{color:#fff!important;font-family:inherit}
+  .post-head .inner{max-width:760px}
+  .post-head .tag{background:rgba(255,255,255,.14);color:#bcd9f7}
+  .post-head h1{font-size:clamp(28px,4vw,42px);line-height:1.18;margin:16px 0 16px;font-weight:700;letter-spacing:-.5px;color:#fff!important}
+  .post-head .dek{font-size:clamp(16px,1.9vw,18.5px);color:#c7d6e6!important;margin:0 0 22px}
+  .byline{font-size:14.5px;color:#9db6d1!important;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .byline em{font-style:normal;color:#5b7ea6}
+  article{padding:56px 0 20px}
+  .prose{max-width:760px;font-size:17.5px}
+  .prose h2{font-size:clamp(21px,2.6vw,27px);color:var(--navy);letter-spacing:-.3px;margin:44px 0 14px;line-height:1.3}
+  .prose h3{font-size:19px;color:var(--navy);margin:30px 0 10px}
+  .prose p{margin:0 0 18px}
+  .prose ul,.prose ol{margin:0 0 20px;padding-left:24px}
+  .prose li{margin-bottom:9px}
+  .prose strong{color:#131b25}
+  .prose blockquote{margin:32px 0;padding:22px 26px;background:var(--accent-soft);border-left:4px solid var(--accent);border-radius:0 10px 10px 0}
+  .prose blockquote p{margin:0;font-size:19px;font-weight:600;color:#154a8a;line-height:1.55}
+  .prose a{font-weight:500;border-bottom:1px solid rgba(31,122,224,.35)}
+  .prose a:hover{text-decoration:none;border-bottom-color:var(--accent)}
+  .faqs{max-width:760px;margin-top:52px;padding-top:44px;border-top:1px solid var(--line)}
+  .faqs h2{font-size:clamp(21px,2.6vw,27px);color:var(--navy);margin:0 0 18px}
+  details{border:1px solid var(--line);border-radius:12px;background:#fff;margin-bottom:12px}
+  details[open]{border-color:#c9d8ea}
+  summary{cursor:pointer;padding:16px 46px 16px 20px;font-weight:600;color:var(--navy);font-size:16.5px;list-style:none;position:relative}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"";position:absolute;right:20px;top:50%;width:9px;height:9px;border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:translateY(-70%) rotate(45deg);transition:transform .18s ease}
+  details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+  details p{margin:0;padding:0 20px 18px;color:var(--muted);font-size:16px}
+  .more-posts{background:var(--bg-alt);border-top:1px solid var(--line);padding:60px 0}
+  .more-posts h2{font-size:clamp(21px,2.6vw,27px);color:var(--navy)!important;margin:0 0 26px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+  .pcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+  .pcard:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(11,37,69,.10);border-color:#c9d8ea}
+  .pcard .tag{align-self:flex-start}
+  .pcard h3{margin:14px 0 8px;font-size:18px;line-height:1.35}
+  .pcard h3 a{color:var(--navy)}
+  .pcard p{margin:0 0 16px;color:var(--muted);font-size:15px}
+  .pcard .foot{margin-top:auto;font-size:13.5px;color:#8b96a4;display:flex;gap:8px;align-items:center}
+  .pcard .foot em{font-style:normal;color:#c3ccd6}
+  .blog-cta{background:var(--navy);color:#fff;text-align:center;padding:66px 0}
+  .blog-cta h2,.blog-cta h3,.blog-cta p{color:#fff!important}
+  .blog-cta h2{font-size:clamp(23px,2.9vw,31px);margin:0 0 14px;letter-spacing:-.3px;color:#fff!important}
+  .blog-cta p{color:#c7d6e6;max-width:60ch;margin:0 auto 28px;font-size:17px}
+  .btn{display:inline-block;background:var(--accent);color:#fff;font-weight:600;font-size:16px;padding:14px 30px;border-radius:8px;transition:background .18s ease}
+  .btn:hover{background:#1765c0;text-decoration:none;color:#fff}
+  .btn-ghost{background:transparent;border:1px solid #4b6c93;margin-left:10px}
+  .btn-ghost:hover{background:#14375c}
+  @media (max-width:600px){.post-head{padding:44px 0 48px}article{padding:40px 0 10px}.prose{font-size:17px}.btn-ghost{margin-left:0;margin-top:12px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<!--page start-->
+<div class="page" id="top">
+
+    <!-- preloader start -->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+    <!-- preloader end -->
+
+    <!--header start-->
+    <div id="header-placeholder"></div>
+    <!--header end-->
+
+    <!-- page-title -->
+    <div class="ttm-page-title-row ttm-textcolor-white">
+        <div class="ttm-bg-layer"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title-box text-center">
+                        <div class="page-title-heading">
+                            <h1 class="title">WordPress, Shopify or Custom-Built?</h1>
+                        </div>
+                        <div class="breadcrumb-wrapper">
+                            <span>
+                                <a title="Homepage" href="index.html" class="ttm-textcolor-white"><i class="ti ti-home"></i>&nbsp;&nbsp;Home</a>
+                            </span>
+                            <span class="ttm-bread-sep">&nbsp; : : &nbsp;</span>
+                            <span><a href="index.html#blog-section" class="ttm-textcolor-white">Blog</a></span><span class="ttm-bread-sep">&nbsp; : : &nbsp;</span><span class="ttm-textcolor-skincolor">WordPress vs Shopify</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- page-title end -->
+
+    <!-- <div class="post-head">
+      <div class="blog-wrap">
+        <div class="inner">
+          <span class="tag t-web">Web technologies</span>
+          <h1>WordPress, Shopify or Custom-Built? An Honest Way to Choose</h1>
+          <p class="dek">How to choose between WordPress, Shopify and a custom build, based on what your business actually needs rather than a sales pitch.</p>
+          <div class="byline">
+            <span>Onva Labs</span><em>&middot;</em>
+            <time datetime="2026-08-05">5 August 2026</time><em>&middot;</em>
+            <span>5 min read</span>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <article>
+      <div class="blog-wrap">
+        <div class="prose">
+<p>A woman who runs a homewares shop in Balmain has three quotes on her desk. One is for WordPress, one is for Shopify, one is for something custom-built. Each sounds sensible on its own. Together they contradict each other, and each firm has explained why the other two are a mistake.</p>
+<p>She does not have a technology problem. She has an advice problem. All three are good tools, and the right one depends on questions nobody has asked her yet: what she sells, who updates the site, and how unusual her business rules are. Here is how to work it out without a sales pitch attached.</p>
+<h2>Start with what the website has to do</h2>
+<p>Before comparing platforms, write down what the site must actually handle. Be specific and boring.</p>
+<ul>
+<li><strong>Are you selling products online?</strong> How many, and do they have sizes, colours or variable stock?</li>
+<li><strong>Are you selling services or time?</strong> Bookings, quotes and enquiry forms behave very differently from a cart.</li>
+<li><strong>Who will update it?</strong> You, on a Sunday night, or a marketer who does this for a living?</li>
+<li><strong>How often does the content change?</strong> A weekly blog and seasonal ranges need different plumbing from a five-page site that barely changes.</li>
+<li><strong>Anything unusual?</strong> Trade pricing, member logins, licence numbers, delivery zones, hire periods, minimum order quantities.</li>
+</ul>
+<p>That last question decides more than anything else. Ordinary requirements are well served by ordinary platforms. Unusual requirements are where cost lives.</p>
+<h2>WordPress: the flexible workhorse</h2>
+<p>WordPress runs an enormous share of the web, and for good reason. It handles content beautifully, a non-technical person can update it once it is set up properly, and there is a plugin for almost everything.</p>
+<p>It suits you if:</p>
+<ul>
+<li>Your site is mostly pages and articles — a clinic, a trades business, a school.</li>
+<li>You publish regularly and want to add pages yourself.</li>
+<li>You need moderate flexibility: a booking form, a members area, a small shop bolted on.</li>
+</ul>
+<p>The catch is maintenance. WordPress is a collection of parts from different makers, and parts need updating. Neglected plugins are the most common way small Australian sites get broken into or slowed down. Budget for someone to keep it patched.</p>
+<p>A five-page brochure site on WordPress is often the right answer, and a <a href="services/basic-web-development.html">straightforward website build</a> costs far less than anything custom. More moving parts — logins, calculators, booking integrations — still sit comfortably on a standard platform.</p>
+<h2>Shopify: when selling products is the whole job</h2>
+<p>If your business is essentially &ldquo;we have products, people buy them&rdquo;, Shopify removes an enormous amount of work. Payments, checkout, tax display, stock counts, discount codes and abandoned-cart emails all come as standard, and hosting and security are somebody else&rsquo;s problem.</p>
+<p>For Australian sellers, this matters more than it first appears:</p>
+<ul>
+<li><strong>Payments.</strong> Australians expect familiar options, and Afterpay, Zip and the usual cards are well trodden ground on hosted platforms.</li>
+<li><strong>Shipping.</strong> Australia Post, Sendle and Shippit integrations are common, saving you from writing postage rules for a country this large.</li>
+<li><strong>GST-inclusive display.</strong> Australian shoppers expect to see the price they will actually pay. Getting tax display right on a bespoke cart is fiddly work you may not need.</li>
+<li><strong>Consumer law.</strong> Australian Consumer Law gives customers refund and faulty-goods rights regardless of your policy, and collecting customer details brings obligations under the Privacy Act 1988. A hosted platform does not remove those, but it gives you standard places to put your policies.</li>
+</ul>
+<p>Shopify&rsquo;s limits show up when your business is not shaped like a shop: unusual pricing, service bookings, complex quoting, heavy content publishing. You can bend it, and each bend adds another monthly app fee. A store straining against those limits is the moment to consider <a href="services/ecommerce-development.html">ecommerce development</a>.</p>
+<blockquote>
+<p>The cheapest option that genuinely does the job is not a compromise. It is the correct answer, and it leaves money for the things customers actually notice.</p>
+</blockquote>
+<h2>Custom-built: when the platform becomes the bottleneck</h2>
+<p>Custom means built for your business rather than assembled from ready-made parts. It is the right call less often than agencies suggest, and more often than owners realise.</p>
+<p>Custom earns its keep when:</p>
+<ul>
+<li>Your core process cannot be expressed in an off-the-shelf platform — hire periods, trade tiers, freight by weight and zone, complicated approvals.</li>
+<li>You are paying for several add-ons that each do most of what you need.</li>
+<li>The website is really a tool your staff use daily, which points at <a href="services/custom-web-development.html">custom development</a> or internal software.</li>
+<li>You have real scale and the platform&rsquo;s rules are now costing you sales.</li>
+</ul>
+<p>Custom does not mean fragile, but it does mean you own the upkeep. No vendor releases improvements while you sleep. That is the trade: exact fit in exchange for responsibility.</p>
+<p>If none of those points describe you, a standard platform is not you settling. It is you spending sensibly.</p>
+<h2>How to decide, in about an hour</h2>
+<ol>
+<li><strong>Write the list.</strong> What the site must do, who updates it, and anything unusual about how you sell.</li>
+<li><strong>Count the odd bits.</strong> No unusual requirements points at Shopify or WordPress. Two or three points at a stretched platform. Four or more starts to justify custom.</li>
+<li><strong>Decide who maintains it.</strong> If nobody will patch a WordPress site, a hosted platform is safer. If someone will, WordPress gives more freedom.</li>
+<li><strong>Keep control of your assets.</strong> Register the .com.au yourself. auDA administers the .au namespace, and .com.au requires an Australian presence and a close, substantial connection to the name. Hold your own domain and hosting logins.</li>
+<li><strong>Choose reversibly.</strong> Products, pages and posts can be migrated later. Pick what fits the next two or three years, not forever.</li>
+</ol>
+<p>If you would like a second opinion with nothing attached, describe your business and we will say honestly which of the three we would choose — including when that answer is the cheapest one. You are welcome to <a href="contact-us.html">start a conversation</a>.</p>
+        </div>
+
+        <div class="faqs">
+          <h2>Common questions</h2>
+          <details>
+            <summary>Is WordPress or Shopify better for an Australian online store?</summary>
+            <p>Shopify suits most shops that simply sell products, because payments, tax display and shipping are handled for you. WordPress with a shopping cart suits businesses where content, services or bookings matter as much as products, and you want more control.</p>
+          </details>
+          <details>
+            <summary>When is a custom-built website actually worth it?</summary>
+            <p>When the platform itself has become the obstacle — your pricing, bookings or stock logic cannot be expressed in it, or you are paying for several add-ons that still do not fit. If a standard platform does the job, custom is an expensive detour.</p>
+          </details>
+          <details>
+            <summary>Can you move from one platform to another later?</summary>
+            <p>Yes, and plenty of businesses do. Products, pages and blog posts can usually be migrated. Keep your domain and content in your own hands, redirect old page addresses to new ones, and treat the first platform as a starting point rather than a lifelong commitment.</p>
+          </details>
+        </div>
+      </div>
+    </article>
+
+    <div class="more-posts">
+      <div class="blog-wrap">
+        <h2>More from the Onva Labs blog</h2>
+        <div class="cards">
+          <div class="pcard">
+            <span class="tag">SEO</span>
+            <h3><a href="local-seo-sydney-near-me-searches.html">How to Show Up When Sydney Customers Search "Near Me"</a></h3>
+            <p>A plain-English guide to appearing in Sydney "near me" and suburb searches, with steps you can work through yourself this week.</p>
+            <div class="foot">2 September 2026 <em>&middot;</em> 5 min read</div>
+          </div>
+          <div class="pcard">
+            <span class="tag t-web">Web technologies</span>
+            <h3><a href="why-your-website-is-slow-on-mobile.html">Why Your Website Feels Slow on a Phone</a></h3>
+            <p>Why your site feels sluggish on a phone, what is really causing it, and the four fixes that actually work.</p>
+            <div class="foot">26 August 2026 <em>&middot;</em> 5 min read</div>
+          </div>
+          <div class="pcard">
+            <span class="tag">SEO</span>
+            <h3><a href="ai-search-australia-getting-cited.html">Why Your Business Is Missing From AI Search Results</a></h3>
+            <p>Why AI answers leave your business out, what actually makes a page quotable, and the practical fixes any Australian business can make.</p>
+            <div class="foot">19 August 2026 <em>&middot;</em> 5 min read</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="blog-cta">
+      <div class="blog-wrap">
+        <h2>Want a hand with any of this?</h2>
+        <p>We are a Sydney web, software and growth studio. Tell us what you are trying to fix and we will give you a straight answer on what it takes.</p>
+        <a class="btn" href="contact-us.html">Talk to us</a>
+        <a class="btn btn-ghost" href="services/custom-web-development.html">See our services</a>
+      </div>
+    </section>
+
+    <!--footer start-->
+    <div id="footer-placeholder"></div>
+    <!--footer end-->
+
+    <!-- Back to top -->
+    <a id="totop" href="#top"><i class="fa fa-angle-up"></i></a>
+
+    <!-- Floating Talk To Us -->
+    <a href="contact-us.html" class="floating-talk-btn">
+        <div class="talk-icon"><i class="ti ti-headphone"></i></div>
+        <svg viewBox="0 0 100 100" width="120" height="120">
+            <defs>
+                <path id="circlePath" d="M 50, 50 m -40, 0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0" />
+            </defs>
+            <text>
+                <textPath href="#circlePath" fill="#182333" font-size="10.5" font-weight="700" letter-spacing="1.5" textLength="251" lengthAdjust="spacing">
+                    TALK TO US • TALK TO US • TALK TO US •
+                </textPath>
+            </text>
+        </svg>
+    </a>
+
+</div>
+<!--page end-->
+
+<!-- Javascript -->
+<script src="js/jquery-3.7.1.min.js"></script>
+<script src="js/jquery-migrate-3.4.1.min.js"></script>
+<script src="js/tether.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/jquery-waypoints.js"></script>
+<script src="js/jquery-validate.js"></script>
+<script src="js/owl.carousel.js"></script>
+<script src="js/jquery.prettyPhoto.js"></script>
+<script src="js/numinate.min6959.js?ver=4.9.3"></script>
+<script src="js/lazysizes.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/components.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org","@type": "BlogPosting",
+  "headline": "WordPress, Shopify or Custom-Built? How to Choose",
+  "description": "An even-handed guide to WordPress vs Shopify in Australia, and when a custom build is worth it — including when the cheapest option is right.",
+  "url": "https://onvalabs.vercel.app/blogs/wordpress-shopify-or-custom-built.html",
+  "mainEntityOfPage": {"@type": "WebPage","@id": "https://onvalabs.vercel.app/blogs/wordpress-shopify-or-custom-built.html"},
+  "datePublished": "2026-08-05","dateModified": "2026-08-05","inLanguage": "en-AU",
+  "keywords": "WordPress vs Shopify Australia, custom web development Sydney, ecommerce platform Australia, small business website Australia, .com.au website, online store Australia, choosing a website platform",
+  "articleSection": "Web technologies",
+  "author": {"@type": "Organization","name": "Onva Labs","url": "https://onvalabs.vercel.app"},
+  "publisher": {"@type": "Organization","name": "Onva Labs","url": "https://onvalabs.vercel.app","address": {"@type": "PostalAddress","addressLocality": "Sydney","addressRegion": "NSW","addressCountry": "AU"}}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org","@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question","name": "Is WordPress or Shopify better for an Australian online store?","acceptedAnswer": {"@type": "Answer","text": "Shopify suits most shops that simply sell products, because payments, tax display and shipping are handled for you. WordPress with a shopping cart suits businesses where content, services or bookings matter as much as products, and you want more control."}},
+    {"@type": "Question","name": "When is a custom-built website actually worth it?","acceptedAnswer": {"@type": "Answer","text": "When the platform itself has become the obstacle — your pricing, bookings or stock logic cannot be expressed in it, or you are paying for several add-ons that still do not fit. If a standard platform does the job, custom is an expensive detour."}},
+    {"@type": "Question","name": "Can you move from one platform to another later?","acceptedAnswer": {"@type": "Answer","text": "Yes, and plenty of businesses do. Products, pages and blog posts can usually be migrated. Keep your domain and content in your own hands, redirect old page addresses to new ones, and treat the first platform as a starting point rather than a lifelong commitment."}}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org","@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem","position": 1,"name": "Home","item": "https://onvalabs.vercel.app/index.html"},
+    {"@type": "ListItem","position": 2,"name": "Blog","item": "https://onvalabs.vercel.app/blogs/"},
+    {"@type": "ListItem","position": 3,"name": "WordPress, Shopify or Custom-Built? How to Choose","item": "https://onvalabs.vercel.app/blogs/wordpress-shopify-or-custom-built.html"}
+  ]
+}
+</script>
+
+</body>
+</html>

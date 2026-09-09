@@ -60,10 +60,12 @@
 
     /* Ensure sticky showcase works properly without breaking position:sticky */
     html,
-    body {
-      overflow-x: clip !important;
-    }
+body {
+    overflow-x: hidden !important;
+}
 
+    /* Only allow overflow: visible on desktop to make sticky showcase work, and keep overflow: hidden on mobile to prevent horizontal scrolling */
+@media (min-width: 1041px) {
     body,
     body .page,
     .page,
@@ -74,8 +76,21 @@
     #features,
     .wrap,
     .show {
-      overflow: visible !important;
+        overflow: visible !important;
     }
+}
+@media (max-width: 1040px) {
+    html,
+    body,
+    .page,
+    div[class="#"],
+    #main,
+    .ttm-page-title-row,
+    section,
+    .wrap {
+        overflow-x: hidden !important;
+    }
+}
 
     html {
       scroll-behavior: smooth;
@@ -729,11 +744,11 @@
 
     /* ---------- generic section ---------- */
     .sec {
-      padding: 120px 0
+      padding: 60px 0
     }
 
     .sec-sm {
-      padding: 88px 0
+      padding: 60px 0
     }
 
     .tint {
@@ -954,7 +969,7 @@
     }
 
     .show-copy {
-      padding: 14vh 0
+      padding: 1vh 0
     }
 
     .show-item {
@@ -1030,11 +1045,11 @@
     .show-media {
       position: sticky;
       top: 0;
-      min-height: 100vh;
+      min-height: 43vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 104px 0 40px
+      padding: 20px 0 40px
     }
 
     .show-stack {
@@ -1281,7 +1296,7 @@
     /* ---------- capability grid ---------- */
     .grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 22px
     }
 
@@ -1575,7 +1590,7 @@
       background: linear-gradient(140deg, #050b18, #0b1a33 55%, #0d2145);
       color: #fff;
       text-align: center;
-      padding: 110px 0;
+      padding: 60px 0;
       overflow: hidden
     }
 
@@ -1885,7 +1900,7 @@
       </section>
 
       <!-- ================= PROBLEM / OUTCOME ================= -->
-      <section class="sec tint">
+      <section class="sec" style="background-color: #f7f7f7 !important;">
         <div class="wrap">
           <div class="sec-head rv">
             <h2>Most assessment tools are a test engine <span>with an admin screen bolted on</span></h2>
@@ -2263,7 +2278,7 @@
       <section class="cta" id="demo">
         <span class="orb orb-1" style="opacity:.22"></span>
         <div class="wrap">
-          <h2 class="rv">Bring us your catalogue</h2>
+          <h2 class="rv" style="color: #ffffff;">Bring us your catalogue</h2>
           <p class="rv rv-2">We will stand up a private tenant with a sample of your instruments loaded, walk your risk
             team through the security posture, and show your commercial team what entitlement enforcement does to
             leakage.</p>
