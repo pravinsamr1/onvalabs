@@ -79,7 +79,7 @@ h3 span {
             --r-l: 26px;
             --shadow: 0 24px 60px -18px rgba(9, 24, 54, .24), 0 4px 14px -6px rgba(9, 24, 54, .12);
             --shadow-l: 0 50px 110px -30px rgba(6, 18, 44, .45), 0 12px 30px -12px rgba(6, 18, 44, .25);
-            --max: 1220px;
+            --max: 1330px;
             --ease: cubic-bezier(.22, .68, .28, 1);
         }
 
@@ -182,7 +182,13 @@ body {
         .wrap {
             max-width: var(--max);
             margin: 0 auto;
-            padding: 0 26px
+            padding: 0 15px;
+            width: 100%;
+        }
+        @media (min-width: 1200px) {
+            .wrap {
+                max-width: 1330px;
+            }
         }
 
         .narrow {
