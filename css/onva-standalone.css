@@ -1,0 +1,119 @@
+/*
+ * Content styles for the Solutions pages (services, industries, locations).
+ * The site's header, footer, page title and fonts come from main.css; these
+ * rules only style the page body and are scoped to .onva-std so they never
+ * leak into the shared header/footer or clash with Bootstrap's .card/.lead/.btn.
+ */
+.onva-std {
+  --skin: var(--theme-primary-color, #2d4a8a);
+  --skin-dk: #223a6e;
+  --dark: #1e2637;
+  --grey: #f7f9fe;
+  --line: #e4e9f2;
+  --body: #6e6e6e;
+  --head: #182333;
+  --r: 14px;
+  color: var(--body);
+  font-size: 15px;
+  line-height: 1.8;
+}
+.onva-std *, .onva-std *::before, .onva-std *::after { box-sizing: border-box; }
+.onva-std img, .onva-std svg { max-width: 100%; }
+.onva-std a { color: var(--skin); text-decoration: none; }
+.onva-std a:hover { color: var(--skin-dk); }
+.onva-std h1, .onva-std h2, .onva-std h3, .onva-std h4, .onva-std h5, .onva-std h6 { color: var(--head); font-weight: 600; margin: 0; line-height: 1.3; }
+.onva-std p { margin: 0 0 15px; }
+.onva-std .wrap { max-width: 1220px; margin-left: auto; margin-right: auto; padding: 0 20px; width: 100%; box-sizing: border-box; }
+.onva-std .ico svg { width: 100%; height: 100%; display: block; }
+.onva-std .arw { width: 15px; height: 15px; flex: none; transition: transform .18s ease; }
+
+/* sections */
+.onva-std section { padding: 80px 0; }
+.onva-std .sec-grey { background: var(--grey); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.onva-std .sec-dark { background: var(--head); color: #c3cdde; }
+.onva-std .eyebrow { display: block; color: var(--skin); font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; margin: 0 0 10px; }
+.onva-std .stitle { font-size: clamp(25px, 3.2vw, 36px); letter-spacing: -.6px; margin: 0 0 20px; }
+.onva-std .stitle span { color: var(--skin); }
+.onva-std .sec-dark .stitle, .onva-std .sec-dark .eyebrow { color: #fff; }
+.onva-std .sec-dark .stitle span { color: #8fb3e8; }
+.onva-std .center { text-align: center; }
+.onva-std .center.lead { max-width: 760px; margin-left: auto; margin-right: auto; }
+
+/* intro header across the top */
+.onva-std .intro-head { margin-bottom: 30px; max-width: 900px; }
+.onva-std .intro-head .eyebrow { margin-bottom: 8px; }
+.onva-std .intro-head .stitle { margin-bottom: 0; }
+
+/* intro split: paragraphs parallel to capability badges */
+.onva-std .split { display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: start; width: 100%; box-sizing: border-box; }
+.onva-std .split .lead { width: 100%; font-size: inherit; font-weight: inherit; }
+.onva-std .split .lead p { font-size: 16px; line-height: 1.8; margin-bottom: 18px; color: var(--body); }
+.onva-std .split .lead p:last-child { margin-bottom: 0; }
+.onva-std .caps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; width: 100%; margin: 0; box-sizing: border-box; }
+.onva-std .cap { display: flex; gap: 15px; align-items: center; background: #ffffff; border: 1px solid #e3e8f2; border-radius: 12px; padding: 16px 18px; min-height: 74px; box-shadow: 0 3px 12px rgba(24, 35, 51, 0.04); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; box-sizing: border-box; }
+.onva-std .cap:hover { transform: translateY(-2px); border-color: var(--skin); box-shadow: 0 8px 24px rgba(45, 74, 138, 0.12); }
+.onva-std .cap .ico { width: 44px; height: 44px; flex: 0 0 44px; border-radius: 10px; background: #f0f4fa; border: 1px solid #e2e8f4; color: var(--skin); padding: 10px; display: flex; align-items: center; justify-content: center; }
+.onva-std .cap .ico svg { width: 22px; height: 22px; display: block; }
+.onva-std .cap h5 { font-size: 14px; font-weight: 600; color: var(--head); margin: 0; line-height: 1.4; flex: 1; }
+
+/* cards (reset Bootstrap's .card first) */
+.onva-std .grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 26px; }
+.onva-std .card { position: static; min-width: 0; background: #fff; border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; display: flex; flex-direction: column; transition: transform .2s ease, box-shadow .2s ease; }
+.onva-std .card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(30, 38, 55, .11); }
+.onva-std .card .art { display: block; width: 100%; height: 190px; object-fit: cover; }
+.onva-std .card .cbody { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+.onva-std .card h3 { font-size: 18px; margin: 0 0 10px; letter-spacing: -.2px; }
+.onva-std .card h3 a { color: var(--head); }
+.onva-std .card h3 a:hover { color: var(--skin); }
+.onva-std .card p { font-size: 14.5px; margin: 0; }
+.onva-std .card .more { margin-top: 16px; display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14px; }
+.onva-std .card:hover .more .arw { transform: translateX(3px); }
+
+/* why boxes */
+.onva-std .why { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.onva-std .wbox { display: flex; gap: 18px; align-items: flex-start; padding: 26px; border-radius: 14px; background: rgba(255, 255, 255, .05); border: 1px solid rgba(255, 255, 255, .1); }
+.onva-std .wbox .ico { width: 40px; height: 40px; flex: none; color: #8fb3e8; }
+.onva-std .wbox p { margin: 0; color: #dbe3ef; font-size: 15.5px; line-height: 1.7; }
+
+/* process */
+.onva-std .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 24px; }
+.onva-std .step { background: #fff; border: 1px solid var(--line); border-radius: var(--r); padding: 30px 26px; position: relative; transition: transform .2s ease, box-shadow .2s ease; }
+.onva-std .step:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(30, 38, 55, .1); }
+.onva-std .step .n { font-size: 34px; font-weight: 700; color: var(--skin); opacity: .22; line-height: 1; margin-bottom: 12px; }
+.onva-std .step h3 { font-size: 17.5px; margin: 0 0 8px; }
+.onva-std .step p { font-size: 14.5px; margin: 0; }
+
+/* faq */
+.onva-std .faq { max-width: 840px; margin: 0 auto; }
+.onva-std .faq details { border: 1px solid var(--line); border-radius: 12px; background: #fff; margin-bottom: 13px; }
+.onva-std .faq details[open] { border-color: #c3d2e8; box-shadow: 0 8px 24px rgba(30, 38, 55, .06); }
+.onva-std .faq summary { cursor: pointer; list-style: none; padding: 19px 52px 19px 22px; font-weight: 600; color: var(--head); font-size: 16px; position: relative; display: block; }
+.onva-std .faq summary::-webkit-details-marker { display: none; }
+.onva-std .faq summary::after { content: ""; position: absolute; right: 22px; top: 50%; width: 9px; height: 9px; border-right: 2px solid var(--skin); border-bottom: 2px solid var(--skin); transform: translateY(-70%) rotate(45deg); transition: transform .2s ease; }
+.onva-std .faq details[open] summary::after { transform: translateY(-30%) rotate(-135deg); }
+.onva-std .faq .ans { padding: 0 22px 20px; font-size: 15px; margin: 0; }
+
+/* cta band */
+.onva-std .cta { background: var(--skin); color: #fff; padding: 56px 0; }
+.onva-std .cta .wrap { display: flex; gap: 34px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+.onva-std .cta h2 { color: #fff; font-size: clamp(22px, 2.8vw, 31px); margin: 0 0 10px; letter-spacing: -.4px; }
+.onva-std .cta p { color: rgba(255, 255, 255, .93); margin: 0; max-width: 66ch; font-size: 15.5px; }
+.onva-std .cta .txt { flex: 1 1 440px; }
+.onva-std .btn { display: inline-flex; align-items: center; gap: 10px; background: var(--skin); color: #fff; font-weight: 600; font-size: 14.5px; padding: 12px 24px; border-radius: 6px; white-space: nowrap; transition: background .18s ease; }
+.onva-std .btn:hover { background: var(--skin-dk); color: #fff; }
+.onva-std .btn:hover .arw { transform: translateX(3px); }
+.onva-std .btn-ghost { background: transparent; border: 1px solid rgba(255, 255, 255, .5); color: #fff; }
+.onva-std .btn-ghost:hover { background: rgba(255, 255, 255, .12); color: #fff; }
+
+@media (max-width: 980px) {
+  .onva-std .split { grid-template-columns: 1fr; gap: 38px; }
+  .onva-std .why { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .onva-std section { padding: 54px 0; }
+  .onva-std .caps { grid-template-columns: 1fr; }
+  .onva-std .grid3 { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .onva-std * { transition: none !important; }
+}

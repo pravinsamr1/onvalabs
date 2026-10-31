@@ -72,6 +72,9 @@
     width: 50px; height: 50px; border-radius: 12px; background: var(--accent-soft);
     display: flex; align-items: center; justify-content: center; margin-bottom: 20px; color: var(--accent); flex: none; font-size: 22px;
   }
+  .product-card .card-img { width: 100%; height: 180px; border-radius: 10px; overflow: hidden; margin-bottom: 20px; flex: none; }
+  .product-card .card-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform .35s ease; }
+  .product-card:hover .card-img img { transform: scale(1.06); }
   .product-card h3 { margin: 0 0 6px; font-size: 21px; color: var(--navy); letter-spacing: -.2px; font-weight: 700; }
   .product-card .kicker { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin: 0 0 12px; }
   .product-card p { margin: 0 0 18px; color: var(--muted); font-size: 15.5px; line-height: 1.6; }
@@ -159,7 +162,7 @@
 
           <!-- 1. Incident Management -->
           <article class="product-card">
-            <div class="icon" aria-hidden="true"><i class="fa fa-exclamation-triangle"></i></div>
+            <div class="card-img"><img src="images/cards/maint_uptime_alerts.jpg" alt="Incident Management Platform" loading="lazy"></div>
             <p class="kicker">Enterprise Platform</p>
             <h3>Incident Management Platform</h3>
             <p>Capture, triage and close out incidents in one place, with a clear record of who did what and when.</p>
@@ -177,7 +180,7 @@
 
           <!-- 2. Risk Management -->
           <article class="product-card">
-            <div class="icon" aria-hidden="true"><i class="fa fa-shield"></i></div>
+            <div class="card-img"><img src="images/cards/sec_hardening_access.jpg" alt="Risk Management Platform" loading="lazy"></div>
             <p class="kicker">Enterprise Platform</p>
             <h3>Risk Management Platform</h3>
             <p>Keep a live risk register rather than a spreadsheet nobody has opened since the last compliance audit.</p>
@@ -195,7 +198,7 @@
 
           <!-- 3. LMS -->
           <article class="product-card">
-            <div class="icon" aria-hidden="true"><i class="fa fa-graduation-cap"></i></div>
+            <div class="card-img"><img src="images/cards/ind_edu_certs.jpg" alt="Onva LMS Solution" loading="lazy"></div>
             <p class="kicker">LMS Solution</p>
             <h3>Onva LMS Solution</h3>
             <p>Deliver training, track completion and prove your people are current when auditors or regulators ask.</p>
@@ -213,7 +216,7 @@
 
           <!-- 4. Psychometric -->
           <article class="product-card">
-            <div class="icon" aria-hidden="true"><i class="fa fa-user-md"></i></div>
+            <div class="card-img"><img src="images/cards/ind_edu_marking.jpg" alt="Psychometric Analysis Platform" loading="lazy"></div>
             <p class="kicker">Analysis Platform</p>
             <h3>Psychometric Analysis Platform</h3>
             <p>Run structured assessments as part of hiring or talent development, with consistent scoring and clear reporting.</p>
@@ -231,7 +234,7 @@
 
           <!-- 5. IT Site Tracking -->
           <article class="product-card">
-            <div class="icon" aria-hidden="true"><i class="fa fa-map-marker"></i></div>
+            <div class="card-img"><img src="images/cards/portal_vendor_dashboard.jpg" alt="IT Site Tracking Platform" loading="lazy"></div>
             <p class="kicker">Tracking Platform</p>
             <h3>IT Site Tracking Platform</h3>
             <p>See what hardware and infrastructure sits at each site, who owns it and when it is next due for attention.</p>
