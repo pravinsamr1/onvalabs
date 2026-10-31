@@ -62,11 +62,15 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         const links = document.querySelectorAll('#header-placeholder a');
+        // Match on the filename portion only
+        const isCurrent = link => (link.getAttribute('href') || '').split('/').pop() === currentUrl && currentUrl !== '';
+        // If the page has its own top-level menu item (e.g. SEO & AIO Services), highlight only
+        // that one, not also the mega-menu parent that happens to list the same page
+        const hasTopLevelMatch = [...document.querySelectorAll('#header-placeholder ul.dropdown > li > a')].some(isCurrent);
+
         links.forEach(link => {
-            const href = link.getAttribute('href') || '';
-            // Match on the filename portion only
-            const hrefFile = href.split('/').pop();
-            if (hrefFile === currentUrl && currentUrl !== '') {
+            if (isCurrent(link)) {
+                if (hasTopLevelMatch && link.closest('.megamenu-content')) return;
                 const li = link.closest('li');
                 if (li) li.classList.add('active');
 

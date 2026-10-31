@@ -865,40 +865,48 @@ $(document).ready(function () {
                             <div class="col-md-7 modal-form-panel p-5">
                                 <h4 class="mb-4" style="font-weight: 700; color: #182333;">Send an Enquiry</h4>
                                 <form id="talkToUsForm">
+                                    <!-- Honeypot: hidden from people, bots that fill it are ignored -->
+                                    <div style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;" aria-hidden="true">
+                                        <label for="enqWebsite">Website</label>
+                                        <input type="text" id="enqWebsite" name="website" tabindex="-1" autocomplete="off">
+                                    </div>
                                     <div class="row">
                                         <div class="col-md-6 mb-4">
                                             <div class="form-floating">
-                                                <input type="text" class="form-control" id="enqName" placeholder="Name" required>
+                                                <input type="text" class="form-control" id="enqName" name="name" placeholder="Name" required>
                                                 <label for="enqName">Your Name</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-4">
                                             <div class="form-floating">
-                                                <input type="email" class="form-control" id="enqEmail" placeholder="Email" required>
+                                                <input type="email" class="form-control" id="enqEmail" name="email" placeholder="Email" required>
                                                 <label for="enqEmail">Email Address</label>
                                             </div>
                                         </div>
                                         <div class="col-md-12 mb-4">
                                             <div class="form-floating">
-                                                <select class="form-select" id="enqService" aria-label="Service of interest">
-                                                    <option selected>Select a Service</option>
-                                                    <option value="web">Web Development</option>
-                                                    <option value="app">Mobile App Development</option>
-                                                    <option value="seo">Digital Marketing</option>
-                                                    <option value="domain">Domain & Hosting</option>
-                                                    <option value="other">Other</option>
+                                                <select class="form-select" id="enqService" name="service" aria-label="Service of interest">
+                                                    <option value="" selected>Select a Service</option>
+                                                    <option value="Web Development">Web Development</option>
+                                                    <option value="Mobile App Development">Mobile App Development</option>
+                                                    <option value="Digital Marketing">Digital Marketing</option>
+                                                    <option value="Domain & Hosting">Domain & Hosting</option>
+                                                    <option value="Other">Other</option>
                                                 </select>
                                                 <label for="enqService">Interested In</label>
                                             </div>
                                         </div>
                                         <div class="col-md-12 mb-4">
                                             <div class="form-floating">
-                                                <textarea class="form-control" placeholder="Message" id="enqMessage" required></textarea>
+                                                <textarea class="form-control" placeholder="Message" id="enqMessage" name="message" style="height: 120px;" required></textarea>
                                                 <label for="enqMessage">Project Details</label>
                                             </div>
                                         </div>
+                                        <div class="col-md-12">
+                                            <div id="enqFormStatus" style="display: none; margin-bottom: 15px;"></div>
+                                        </div>
                                         <div class="col-md-12 mt-2">
-                                            <button type="submit" class="btn modal-submit-btn">
+                                            <button type="submit" id="enqSubmitBtn" class="btn modal-submit-btn">
                                                 Submit Request
                                             </button>
                                         </div>
@@ -919,5 +927,96 @@ $(document).ready(function () {
     $(document).on('click', '.floating-talk-btn', function (e) {
         e.preventDefault();
         $('#talkToUsModal').modal('show');
+    });
+
+    // Handle Enquiry Form Submission
+    $(document).on('submit', '#talkToUsForm', function (e) {
+        e.preventDefault();
+
+        var $form = $(this);
+        var $submitBtn = $('#enqSubmitBtn');
+        var $status = $('#enqFormStatus');
+        var originalBtnHtml = $submitBtn.html();
+
+        var name = $.trim($('#enqName').val());
+        var email = $.trim($('#enqEmail').val());
+        var service = $('#enqService').val();
+        var message = $.trim($('#enqMessage').val());
+        var website = $('#enqWebsite').val();
+
+        // Server messages are shown as text, never as HTML
+        function escapeHtml(text) {
+            return $('<div>').text(text).html();
+        }
+
+        // Pages in sub-directories (e.g. /services/) need to reach the root script
+        var enquiryUrl = (window.location.pathname.includes('/services/') || window.location.pathname.includes('/blogs/'))
+            ? '../send-enquiry.php' : 'send-enquiry.php';
+
+        if (!name || !email || !message) {
+            $status.html(
+                '<div style="background-color: #fee2e2; color: #991b1b; border: 1px solid #fecaca; padding: 12px 16px; border-radius: 8px; font-size: 14px;">' +
+                'Please fill in all required fields (Name, Email, and Project Details).' +
+                '</div>'
+            ).fadeIn();
+            return;
+        }
+
+        // Disable button and show spinner
+        $submitBtn.prop('disabled', true).html('<i class="fa fa-spinner fa-spin me-2"></i> Submitting...');
+        $status.hide().empty();
+
+        $.ajax({
+            url: enquiryUrl,
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                name: name,
+                email: email,
+                service: service,
+                message: message,
+                website: website
+            },
+            success: function (response) {
+                if (response && response.success) {
+                    $status.html(
+                        '<div style="background-color: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; padding: 12px 16px; border-radius: 8px; font-size: 14px; font-weight: 500;">' +
+                        '<i class="fa fa-check-circle me-1"></i> ' +
+                        escapeHtml(response.message || 'Thank you! Your enquiry has been sent successfully.') +
+                        '</div>'
+                    ).fadeIn();
+                    $form[0].reset();
+
+                    // Re-enable button
+                    $submitBtn.prop('disabled', false).html(originalBtnHtml);
+
+                    // Auto-close modal after 3.5 seconds
+                    setTimeout(function () {
+                        $('#talkToUsModal').modal('hide');
+                        $status.hide().empty();
+                    }, 3500);
+                } else {
+                    var errorMsg = (response && response.message) ? response.message : 'Failed to send enquiry. Please try again.';
+                    $status.html(
+                        '<div style="background-color: #fee2e2; color: #991b1b; border: 1px solid #fecaca; padding: 12px 16px; border-radius: 8px; font-size: 14px;">' +
+                        '<i class="fa fa-exclamation-circle me-1"></i> ' + escapeHtml(errorMsg) +
+                        '</div>'
+                    ).fadeIn();
+                    $submitBtn.prop('disabled', false).html(originalBtnHtml);
+                }
+            },
+            error: function (xhr) {
+                var errorMsg = 'Failed to send enquiry. Please try again later.';
+                if (xhr.responseJSON && xhr.responseJSON.message) {
+                    errorMsg = xhr.responseJSON.message;
+                }
+                $status.html(
+                    '<div style="background-color: #fee2e2; color: #991b1b; border: 1px solid #fecaca; padding: 12px 16px; border-radius: 8px; font-size: 14px;">' +
+                    '<i class="fa fa-exclamation-circle me-1"></i> ' + escapeHtml(errorMsg) +
+                    '</div>'
+                ).fadeIn();
+                $submitBtn.prop('disabled', false).html(originalBtnHtml);
+            }
+        });
     });
 });

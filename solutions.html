@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Solutions | Onva Labs - Services, Industries & Locations</title>
+<meta name="description" content="Every Onva Labs solution in one place: website, software and integration services, plus the industries and locations we build for across Sydney and Australia.">
+<meta name="author" content="Onva Labs">
+<link rel="canonical" href="https://onvalabs.vercel.app/solutions.html">
+
+<!-- favicon icon -->
+<link rel="shortcut icon" href="images/favicon.png" />
+
+<!-- bootstrap -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+<!-- animate -->
+<link rel="stylesheet" type="text/css" href="css/animate.css" />
+<!-- owl-carousel -->
+<link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+<!-- fontawesome -->
+<link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+<!-- themify -->
+<link rel="stylesheet" type="text/css" href="css/themify-icons.css" />
+<!-- flaticon -->
+<link rel="stylesheet" type="text/css" href="css/flaticon.css" />
+<!-- prettyphoto -->
+<link rel="stylesheet" type="text/css" href="css/prettyPhoto.css" />
+<!-- shortcodes -->
+<link rel="stylesheet" type="text/css" href="css/shortcodes.css" />
+<!-- main -->
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<!-- rs6 - revolution slider styles needed by page-title-row -->
+<link rel="stylesheet" type="text/css" href="css/rs6.css">
+<!-- process-custom -->
+<link rel="stylesheet" type="text/css" href="css/process-custom.css" />
+<!-- responsive -->
+<link rel="stylesheet" type="text/css" href="css/responsive.css" />
+
+<style>
+  html, body { overflow-x: clip !important; }
+  body .page, .page { overflow: visible !important; position: relative; }
+  #header-placeholder { position: relative; z-index: 9999 !important; overflow: visible !important; }
+  .ttm-stickable-header-w, .ttm-stickable-header.fixed-header { z-index: 9999 !important; }
+  :root {
+    --navy:#0b2545;
+    --navy-2:#123a63;
+    --accent:#1e45da;
+    --accent-soft:#e8f1fb;
+    --ink:#1c2430;
+    --muted:#5b6675;
+    --line:#e2e7ee;
+    --bg:#ffffff;
+    --bg-alt:#f6f8fb;
+    --radius:14px;
+    --maxw:1330px;
+  }
+
+  .services-wrap { max-width: 1330px; margin: 0 auto; padding: 0 15px; width: 100%; }
+
+  /* Filter Bar */
+  .services-filters { border-bottom: 1px solid var(--line); background: #ffffff; position: sticky; top: 0; z-index: 90; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+  .services-filters .wrap { max-width: 1330px; margin: 0 auto; padding: 16px 15px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; width: 100%; }
+  .services-filters .label { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-right: 6px; }
+  .chip {
+    border: 1px solid var(--line); background: #fff; color: var(--ink); font: inherit; font-size: 14.5px;
+    padding: 8px 18px; border-radius: 100px; cursor: pointer; transition: all .2s ease; font-weight: 500;
+  }
+  .chip:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+  .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; box-shadow: 0 4px 12px rgba(30, 69, 218, 0.25); }
+
+  .services-section { padding: 66px 0; }
+  .group + .group { padding-top: 40px; border-top: 1px solid var(--line); margin-top: 40px; }
+  .group-head { display: flex; align-items: baseline; gap: 14px; margin: 0 0 8px; flex-wrap: wrap; }
+  .group-head h2 { font-size: clamp(21px, 2.6vw, 27px); margin: 0; color: var(--navy); letter-spacing: -.3px; font-weight: 700; }
+  .group-head .count { font-size: 13px; font-weight: 700; color: var(--accent); background: var(--accent-soft); padding: 4px 12px; border-radius: 100px; }
+  .group-head .hub-link { margin-left: auto; font-size: 14.5px; font-weight: 600; color: var(--accent); display: inline-flex; align-items: center; gap: 7px; }
+  .group-head .hub-link:hover { color: #1535a8; }
+  .group-intro { margin: 0 0 32px; color: var(--muted); font-size: 16.5px; max-width: 70ch; line-height: 1.6; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-bottom: 20px; }
+  .card {
+    border: 1px solid var(--line); border-radius: var(--radius); background: #fff; padding: 28px 24px 24px;
+    display: flex; flex-direction: column; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .card:hover { transform: translateY(-5px); box-shadow: 0 16px 35px rgba(11, 37, 69, 0.10); border-color: #bcd2ee; }
+  .card .icon { display: none; }
+  .card .card-img { width: 100%; height: 160px; border-radius: 10px; overflow: hidden; margin-bottom: 18px; flex: none; }
+  .card .card-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform .35s ease; }
+  .card:hover .card-img img { transform: scale(1.06); }
+  .card h3 { margin: 0 0 10px; font-size: 19px; color: var(--navy); letter-spacing: -.2px; font-weight: 700; }
+  .card h3 a { color: inherit; text-decoration: none; }
+  .card p { margin: 0 0 20px; color: var(--muted); font-size: 15px; line-height: 1.6; }
+  .card .more { margin-top: auto; font-weight: 600; font-size: 14.5px; color: var(--accent); display: inline-flex; align-items: center; gap: 7px; transition: color 0.2s ease; }
+  .card .more svg { transition: transform .2s ease; }
+  .card:hover .more svg { transform: translateX(4px); }
+  .card[hidden] { display: none !important; }
+  .group[hidden] { display: none !important; }
+
+  /* Process Steps Band */
+  .band { background: var(--bg-alt); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 76px 0; }
+  .band .section-head { max-width: 66ch; margin: 0 0 44px; }
+  .band .band-tag {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em;
+    color: var(--accent); background: var(--accent-soft); padding: 6px 14px; border-radius: 100px;
+    margin-bottom: 14px;
+  }
+  .band .section-head h2 { font-size: clamp(23px, 2.8vw, 32px); margin: 0 0 12px; color: var(--navy); font-weight: 700; letter-spacing: -.3px; }
+  .band .section-head p { margin: 0; color: var(--muted); font-size: 17px; line-height: 1.6; }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    align-items: stretch;
+  }
+  .step {
+    position: relative;
+    background: #ffffff;
+    padding: 30px 24px 26px;
+    border-radius: 16px;
+    border: 1px solid var(--line);
+    box-shadow: 0 3px 14px rgba(11, 37, 69, 0.04);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .step::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent) 0%, #00d2ff 100%);
+    opacity: 0;
+    transition: opacity .25s ease;
+  }
+  .step:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 36px rgba(11, 37, 69, 0.10);
+    border-color: #bcd2ee;
+  }
+  .step:hover::after {
+    opacity: 1;
+  }
+  .step-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+  }
+  .step-badge {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: var(--navy);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(11, 37, 69, 0.15);
+    transition: all .25s ease;
+  }
+  .step:hover .step-badge {
+    background: var(--accent);
+    box-shadow: 0 4px 14px rgba(30, 69, 218, 0.35);
+    transform: scale(1.05);
+  }
+  .step-pill {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+  .step h3 {
+    margin: 0 0 10px;
+    font-size: 20px;
+    color: var(--navy);
+    font-weight: 700;
+    letter-spacing: -.2px;
+    line-height: 1.3;
+  }
+  .step p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.6;
+    flex-grow: 1;
+  }
+
+  /* CTA Section */
+  .services-cta { background: var(--navy); color: #fff; text-align: center; padding: 70px 0; }
+  .services-cta h2 { font-size: clamp(24px, 3vw, 32px); margin: 0 0 14px; letter-spacing: -.3px; color: #fff !important; font-weight: 700; }
+  .services-cta p { color: #c7d6e6 !important; max-width: 60ch; margin: 0 auto 28px; font-size: 17px; }
+  .btn-theme { display: inline-block; background: var(--accent); color: #fff !important; font-weight: 600; font-size: 16px; padding: 14px 32px; border-radius: 8px; transition: background .2s ease; text-decoration: none !important; }
+  .btn-theme:hover { background: #1535a8; color: #fff !important; text-decoration: none !important; }
+  .btn-theme-ghost { background: transparent; border: 1px solid #4b6c93; margin-left: 12px; color: #fff !important; }
+  .btn-theme-ghost:hover { background: #14375c; border-color: #7fb6f2; }
+
+  @media (max-width: 991px) {
+    .steps { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  }
+
+  @media (max-width: 767px) {
+    .services-filters { position: static; }
+    .services-filters .wrap { padding-top: 12px; padding-bottom: 12px; }
+    .chip { padding: 6px 14px; font-size: 13.5px; }
+    .services-section { padding: 40px 0; }
+    .grid { grid-template-columns: 1fr; }
+    .group-head .hub-link { margin-left: 0; width: 100%; }
+    .btn-theme-ghost { margin-left: 0; margin-top: 12px; display: inline-block; }
+    .band { padding: 46px 0; }
+    .steps { grid-template-columns: 1fr; gap: 16px; }
+  }
+</style>
+</head>
+
+<body>
+
+<!--page start-->
+<div class="page" id="top">
+
+    <!-- preloader start -->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+    <!-- preloader end -->
+
+    <!--header start-->
+    <div id="header-placeholder"></div>
+    <!--header end-->
+
+    <!-- page-title -->
+    <div class="ttm-page-title-row ttm-textcolor-white">
+        <div class="ttm-bg-layer"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title-box text-center">
+                        <div class="page-title-heading">
+                            <h1 class="title">Our Solutions</h1>
+                        </div>
+                        <div class="breadcrumb-wrapper">
+                            <span>
+                                <a title="Homepage" href="index.html" class="ttm-textcolor-white"><i class="ti ti-home"></i>&nbsp;&nbsp;Home</a>
+                            </span>
+                            <span class="ttm-bread-sep">&nbsp; : : &nbsp;</span>
+                            <span class="ttm-textcolor-skincolor">Solutions</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- page-title end -->
+
+
+    <!-- Main Solutions Content -->
+    <div class="services-section">
+      <div class="services-wrap">
+
+        <!-- ============ GROUP 1: DESIGN & BUILD ============ -->
+        <div class="group" data-group="design">
+          <div class="group-head">
+            <h2>Design &amp; Build</h2>
+          </div>
+          <p class="group-intro">Interfaces people actually use, rebuilt sites that keep their rankings, and campaign pages and apps built around a single clear goal.</p>
+
+          <div class="grid">
+            <article class="card" data-cat="design">
+              <div class="card-img"><img src="images/solutions/service_website_redesign.jpg" alt="Website Redesign" loading="lazy"></div>
+              <h3><a href="services/website-redesign.html">Website Redesign</a></h3>
+              <p>Slow, dated sites rebuilt for speed, mobile and conversions, with every URL mapped to protect rankings.</p>
+              <a class="more" href="services/website-redesign.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="card" data-cat="design">
+              <div class="card-img"><img src="images/solutions/service_uiux_design.jpg" alt="UI/UX Design" loading="lazy"></div>
+              <h3><a href="services/ui-ux-design.html">UI/UX Design</a></h3>
+              <p>Research, wireframes, prototypes and testing to WCAG 2.2 AA, so your software actually gets used.</p>
+              <a class="more" href="services/ui-ux-design.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="card" data-cat="design">
+              <div class="card-img"><img src="images/solutions/service_landing_page.jpg" alt="Landing Page Design" loading="lazy"></div>
+              <h3><a href="services/landing-page-design.html">Landing Page Design</a></h3>
+              <p>Single-goal campaign pages with message match, better forms, GA4 conversion tracking and A/B testing.</p>
+              <a class="more" href="services/landing-page-design.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="card" data-cat="design">
+              <div class="card-img"><img src="images/solutions/service_pwa.jpg" alt="Progressive Web Apps" loading="lazy"></div>
+              <h3><a href="services/progressive-web-apps.html">Progressive Web Apps</a></h3>
+              <p>Installable, offline-capable web apps from one codebase, with an honest view of the trade-offs.</p>
+              <a class="more" href="services/progressive-web-apps.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="card" data-cat="design">
+              <div class="card-img"><img src="images/solutions/service_mobile_app.jpg" alt="Mobile App Development" loading="lazy"></div>
+              <h3><a href="services/mobile-app-development.html">Mobile App Development</a></h3>
+              <p>Cross-platform Flutter and React Native apps, MVP builds, app store submission and ongoing maintenance.</p>
+              <a class="more" href="services/mobile-app-development.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+          </div>
+        </div>
+
+        <!-- ============ GROUP 2: SOFTWARE & INTEGRATION ============ -->
+        <div class="group" data-group="software">
+          <div class="group-head">
+            <h2>Software &amp; Integration</h2>
+          </div>
+          <p class="group-intro">Portals, CRMs, SaaS products and the APIs that join your systems together, plus a staged path off the old software holding you back.</p>
+
+          <div class="grid">
+            <article class="card" data-cat="software">
+              <div class="card-img"><img src="images/solutions/service_web_portal.jpg" alt="Web Portal Development" loading="lazy"></div>
+              <h3><a href="services/web-portal-development.html">Web Portal Development</a></h3>
+              <p>Customer, client, supplier and staff portals with logins, roles, documents and self-service dashboards.</p>
+              <a class="more" href="services/web-portal-development.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="card" data-cat="software">
+              <div class="card-img"><img src="images/solutions/service_api.jpg" alt="API Development &amp; Integration" loading="lazy"></div>
+              <h3><a href="services/api-development-integration.html">API Development &amp; Integration</a></h3>
+              <p>REST and GraphQL APIs, third-party system connections and webhooks that hold up in production.</p>
+              <a class="more" href="services/api-development-integration.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="card" data-cat="software">
+              <div class="card-img"><img src="images/solutions/service_crm.jpg" alt="CRM Development" loading="lazy"></div>
+              <h3><a href="services/crm-development.html">CRM Development</a></h3>
+              <p>Custom pipeline, quoting and reporting tools, or a proper setup of the CRM you already pay for.</p>
+              <a class="more" href="services/crm-development.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="card" data-cat="software">
+              <div class="card-img"><img src="images/solutions/service_saas.jpg" alt="SaaS Development" loading="lazy"></div>
+              <h3><a href="services/saas-development.html">SaaS Development</a></h3>
+              <p>Multi-tenant subscription products with billing, onboarding and Australian hosting, MVP first.</p>
+              <a class="more" href="services/saas-development.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="card" data-cat="software">
+              <div class="card-img"><img src="images/solutions/service_legacy.jpg" alt="Legacy Modernisation" loading="lazy"></div>
+              <h3><a href="services/legacy-modernisation.html">Legacy Modernisation</a></h3>
+              <p>Access databases, unsupported PHP and old desktop apps replaced in stages, data migration first.</p>
+              <a class="more" href="services/legacy-modernisation.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="card" data-cat="software">
+              <div class="card-img"><img src="images/solutions/service_digital_transformation.jpg" alt="Digital Transformation" loading="lazy"></div>
+              <h3><a href="services/digital-transformation.html">Digital Transformation</a></h3>
+              <p>Map how work really flows, cut software nobody uses, then automate and consolidate in stages.</p>
+              <a class="more" href="services/digital-transformation.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+          </div>
+        </div>
+
+        <!-- ============ GROUP 3: PERFORMANCE, SECURITY & SEARCH ============ -->
+        <div class="group" data-group="care">
+          <div class="group-head">
+            <h2>Performance, Security &amp; Search</h2>
+          </div>
+          <p class="group-intro">Keeping an existing site fast, patched and backed up, and structured so search engines and AI assistants can quote it.</p>
+
+          <div class="grid">
+            <article class="card" data-cat="care">
+              <div class="card-img"><img src="images/solutions/service_speed.jpg" alt="Website Speed Optimisation" loading="lazy"></div>
+              <h3><a href="services/website-speed-optimisation.html">Website Speed Optimisation</a></h3>
+              <p>Core Web Vitals measured, images, scripts, caching and hosting fixed, then measured again.</p>
+              <a class="more" href="services/website-speed-optimisation.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="card" data-cat="care">
+              <div class="card-img"><img src="images/solutions/service_security.jpg" alt="Website Security" loading="lazy"></div>
+              <h3><a href="services/website-security.html">Website Security</a></h3>
+              <p>Hardening, patching, firewalls, malware removal, backups and access control for business sites.</p>
+              <a class="more" href="services/website-security.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="card" data-cat="care">
+              <div class="card-img"><img src="images/solutions/service_maintenance.jpg" alt="Website Maintenance" loading="lazy"></div>
+              <h3><a href="services/website-maintenance.html">Website Maintenance</a></h3>
+              <p>Updates, restore-tested backups, security patching, uptime monitoring and content changes.</p>
+              <a class="more" href="services/website-maintenance.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="card" data-cat="care">
+              <div class="card-img"><img src="images/solutions/service_ai_search.jpg" alt="AI Search Optimisation" loading="lazy"></div>
+              <h3><a href="services/ai-search-optimisation.html">AI Search Optimisation</a></h3>
+              <p>Site structure that lets Google AI Overviews, ChatGPT, Perplexity and Bing find and quote you.</p>
+              <a class="more" href="services/ai-search-optimisation.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+          </div>
+        </div>
+
+        <!-- ============ GROUP 4: INDUSTRIES ============ -->
+        <div class="group" data-group="industries">
+          <div class="group-head">
+            <h2>Industries We Build For</h2>
+            <a class="hub-link" href="industries.html">View all industries <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+          <p class="group-intro">Each industry has its own must-haves, from booking and privacy for clinics to listing feeds for agencies. These pages explain what we build for each.</p>
+
+          <div class="grid">
+            <article class="card" data-cat="industries">
+              <div class="card-img"><img src="images/services/01.jpg" alt="Healthcare" loading="lazy"></div>
+              <h3><a href="healthcare-website-development.html">Healthcare</a></h3>
+              <p>Clinic websites with online booking, practitioner profiles, WCAG 2.2 AA accessibility and privacy-aware design.</p>
+              <a class="more" href="healthcare-website-development.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="card" data-cat="industries">
+              <div class="card-img"><img src="images/single-img-eight.jpg" alt="Tradies" loading="lazy"></div>
+              <h3><a href="tradie-website-development.html">Tradies</a></h3>
+              <p>Fast quote request forms, service-area pages, job galleries and a Google Business Profile that matches.</p>
+              <a class="more" href="tradie-website-development.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="card" data-cat="industries">
+              <div class="card-img"><img src="images/single-img-five.jpg" alt="Real Estate" loading="lazy"></div>
+              <h3><a href="real-estate-website-development.html">Real Estate</a></h3>
+              <p>Listing feeds, property search, agent profiles, suburb pages and appraisal request forms.</p>
+              <a class="more" href="real-estate-website-development.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="card" data-cat="industries">
+              <div class="card-img"><img src="images/services/02.jpg" alt="Law Firms" loading="lazy"></div>
+              <h3><a href="law-firm-website-development.html">Law Firms</a></h3>
+              <p>Practice-area pages, lawyer profiles, confidential enquiry forms and secure document exchange.</p>
+              <a class="more" href="law-firm-website-development.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="card" data-cat="industries">
+              <div class="card-img"><img src="images/services/05.jpg" alt="Accountants" loading="lazy"></div>
+              <h3><a href="accountant-website-development.html">Accountants</a></h3>
+              <p>Client portals, secure document upload, online booking and tax-time search visibility.</p>
+              <a class="more" href="accountant-website-development.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="card" data-cat="industries">
+              <div class="card-img"><img src="images/single-img-nine.jpg" alt="Restaurants &amp; Retail" loading="lazy"></div>
+              <h3><a href="restaurant-retail-website-development.html">Restaurants &amp; Retail</a></h3>
+              <p>Readable menus, bookings, online ordering, click-and-collect and local search for cafes and shops.</p>
+              <a class="more" href="restaurant-retail-website-development.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="card" data-cat="industries">
+              <div class="card-img"><img src="images/services/06.jpg" alt="Education &amp; LMS" loading="lazy"></div>
+              <h3><a href="education-lms-development.html">Education &amp; LMS</a></h3>
+              <p>Enrolment, assessment, certificates, expiry reminders and reporting for training providers and RTOs.</p>
+              <a class="more" href="education-lms-development.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="card" data-cat="industries">
+              <div class="card-img"><img src="images/cards/loc_b2b_services.jpg" alt="B2B &amp; Professional Services" loading="lazy"></div>
+              <h3><a href="industries.html">B2B &amp; Professional Services</a></h3>
+              <p>Lead generation, proposal pipelines, case study libraries and CRM integrations for consultancy and B2B firms.</p>
+              <a class="more" href="industries.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+          </div>
+        </div>
+
+        <!-- ============ GROUP 5: LOCATIONS ============ -->
+        <div class="group" data-group="locations">
+          <div class="group-head">
+            <h2>Where We Work</h2>
+            <a class="hub-link" href="locations.html">View all locations <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+          <p class="group-intro">Based in Sydney, working face to face across Parramatta and Western Sydney, and remotely with businesses right around Australia.</p>
+
+          <div class="grid">
+            <article class="card" data-cat="locations">
+              <div class="card-img"><img src="images/single-img-three.jpg" alt="Parramatta" loading="lazy"></div>
+              <h3><a href="web-development-parramatta.html">Parramatta</a></h3>
+              <p>Fast, searchable sites for businesses in Parramatta, Westmead, Harris Park and Merrylands.</p>
+              <a class="more" href="web-development-parramatta.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="card" data-cat="locations">
+              <div class="card-img"><img src="images/single-img-thirteen.jpg" alt="Western Sydney" loading="lazy"></div>
+              <h3><a href="web-development-western-sydney.html">Western Sydney</a></h3>
+              <p>Websites, software and apps for trades and B2B firms in Blacktown, Norwest and Castle Hill.</p>
+              <a class="more" href="web-development-western-sydney.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="card" data-cat="locations">
+              <div class="card-img"><img src="images/cards/loc_australia_wide.jpg" alt="Australia-Wide" loading="lazy"></div>
+              <h3><a href="web-development-australia.html">Australia-Wide</a></h3>
+              <p>Sydney-based, working remotely nationwide. Australian hours, Sydney hosting, no offshore handover.</p>
+              <a class="more" href="web-development-australia.html">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Process Band -->
+    <div class="band">
+      <div class="services-wrap">
+        <div class="section-head">
+          <h2>How We Work</h2>
+          <p>Every engagement runs the same four stages, so you always know what happens next and what you're approving.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-header">
+              <span class="step-badge">01</span>
+              <span class="step-pill">Stage 1</span>
+            </div>
+            <h3>Discover</h3>
+            <p>We map how the work happens today, what systems are involved and what success looks like, in plain language.</p>
+          </div>
+          <div class="step">
+            <div class="step-header">
+              <span class="step-badge">02</span>
+              <span class="step-pill">Stage 2</span>
+            </div>
+            <h3>Scope</h3>
+            <p>You get a written scope with defined deliverables and stages, so you approve one phase at a time.</p>
+          </div>
+          <div class="step">
+            <div class="step-header">
+              <span class="step-badge">03</span>
+              <span class="step-pill">Stage 3</span>
+            </div>
+            <h3>Build</h3>
+            <p>Development with testing on staging, regular check-ins and nothing going live until you've seen it.</p>
+          </div>
+          <div class="step">
+            <div class="step-header">
+              <span class="step-badge">04</span>
+              <span class="step-pill">Stage 4</span>
+            </div>
+            <h3>Support</h3>
+            <p>Handover with full ownership of code and accounts, then ongoing support from the team who built it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="services-cta">
+      <div class="services-wrap">
+        <h2>Looking for your industry or area?</h2>
+        <p>See what we build for businesses like yours, or find the team working closest to you.</p>
+        <a class="btn-theme" href="industries.html">Browse Industries</a>
+        <a class="btn-theme btn-theme-ghost" href="locations.html">Browse Locations</a>
+      </div>
+    </div>
+
+    <!--footer start-->
+    <div id="footer-placeholder"></div>
+    <!--footer end-->
+
+    <!-- Back to top -->
+    <a id="totop" href="#top"><i class="fa fa-angle-up"></i></a>
+
+</div>
+<!--page end-->
+
+<!-- Javascript -->
+<script src="js/jquery-3.7.1.min.js"></script>
+<script src="js/jquery-migrate-3.4.1.min.js"></script>
+<script src="js/tether.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/jquery-waypoints.js"></script>
+<script src="js/jquery-validate.js"></script>
+<script src="js/owl.carousel.js"></script>
+<script src="js/jquery.prettyPhoto.js"></script>
+<script src="js/numinate.min6959.js?ver=4.9.3"></script>
+<script src="js/lazysizes.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/components.js"></script>
+
+<script>
+  // Filter chips functionality
+  document.addEventListener("DOMContentLoaded", function () {
+    var chips = document.querySelectorAll('.chip');
+    var groups = document.querySelectorAll('.group[data-group]');
+
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        var filter = chip.getAttribute('data-filter');
+        chips.forEach(function (c) { c.setAttribute('aria-pressed', String(c === chip)); });
+
+        groups.forEach(function (group) {
+          if (filter === 'all' || group.getAttribute('data-group') === filter) {
+            group.removeAttribute('hidden');
+          } else {
+            group.setAttribute('hidden', 'true');
+          }
+        });
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

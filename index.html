@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -53,12 +53,384 @@
     <!-- responsive -->
     <link rel="stylesheet" type="text/css" href="css/responsive.css" />
 
+    <!-- "Why Onva Labs" panel: subtle 3D depth (home page only) -->
+    <style>
+        .why-onva-3d > .ttm-col-wrapper-bg-layer {
+            box-shadow: -20px 28px 50px rgba(10, 20, 40, 0.28);
+        }
+
+        .why-onva-3d .layer-content {
+            perspective: 1200px;
+        }
+
+        .why-onva-3d .section-title h2 {
+            text-shadow: 0 2px 0 rgba(0, 0, 0, 0.12), 0 6px 14px rgba(0, 0, 0, 0.18);
+        }
+
+        .why-onva-3d .featured-icon-box {
+            padding: 14px 16px;
+            margin: 0 -16px;
+            border-radius: 10px;
+            transform-style: preserve-3d;
+            transform: rotateX(3deg);
+            transition: transform 0.35s ease, box-shadow 0.35s ease, background-color 0.35s ease;
+        }
+
+        .why-onva-3d .featured-icon-box .featured-icon {
+            transition: transform 0.35s ease;
+        }
+
+        .why-onva-3d .featured-icon-box:hover {
+            transform: rotateX(0deg) rotateY(-4deg) translateY(-4px);
+            background-color: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.12) inset, 0 16px 30px rgba(10, 20, 40, 0.3);
+        }
+
+        .why-onva-3d .featured-icon-box:hover .featured-icon {
+            transform: translateZ(30px);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .why-onva-3d .featured-icon-box,
+            .why-onva-3d .featured-icon-box .featured-icon {
+                transition: none;
+            }
+        }
+
+        /* ===== "Why Onva Labs" photo: scratch card revealing a discount =====
+           Hidden until the script sets it up (.is-ready), so without JS the photo is unchanged. */
+        .onva-scratch {
+            display: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .onva-scratch.is-ready {
+            display: block;
+        }
+
+        .onva-scratch-offer {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* the photo is taller than the screen, so keep the offer near the top */
+            justify-content: flex-start;
+            gap: 22px;
+            /* --onva-extra = how far the photo runs on behind the blue panel */
+            padding: 70px calc(40px + var(--onva-extra, 0px)) 40px 40px;
+            /* soft lavender that matches the offer artwork's background */
+            background:
+                radial-gradient(circle at 80% 15%, rgba(131, 56, 236, 0.18), transparent 45%),
+                linear-gradient(160deg, #f7f6fe 0%, #e7eafb 100%);
+        }
+
+        /* The offer artwork (square), linked to the contact page */
+        .onva-scratch-card {
+            display: block;
+            width: min(100%, 620px);
+            aspect-ratio: 1 / 1;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 26px 50px -20px rgba(60, 40, 160, 0.45);
+        }
+
+        .onva-scratch-card img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .onva-scratch-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 13px 30px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #3a86ff, #8338ec);
+            color: #ffffff !important;
+            font-weight: 700;
+            box-shadow: 0 6px 0 #5b2bb5, 0 16px 26px -10px rgba(91, 43, 181, 0.6);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .onva-scratch-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 0 #5b2bb5, 0 20px 30px -10px rgba(91, 43, 181, 0.7);
+        }
+
+        .onva-scratch-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            cursor: crosshair;
+            touch-action: none;
+            transition: opacity 0.7s ease;
+        }
+
+        .onva-scratch.is-revealed .onva-scratch-canvas {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .onva-scratch.is-revealed .onva-scratch-card {
+            animation: onvaTicketPop 0.6s cubic-bezier(0.2, 1.4, 0.4, 1);
+        }
+
+        @keyframes onvaTicketPop {
+            0% { transform: scale(0.85); }
+            100% { transform: scale(1); }
+        }
+
+        .onva-scratch-hint {
+            position: absolute;
+            /* centre over the visible photo, not the part behind the panel */
+            left: calc((100% - var(--onva-extra, 0px)) / 2);
+            top: 36px;
+            transform: translateX(-50%);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 20px;
+            border-radius: 999px;
+            /* white pill with a flowing rainbow border */
+            border: 3px solid transparent;
+            background:
+                linear-gradient(#ffffff, #ffffff) padding-box,
+                linear-gradient(90deg, #ff4d6d, #ff9f1c, #ffd60a, #2ec4b6, #3a86ff, #8338ec, #ff4d6d) border-box;
+            background-size: 100% 100%, 300% 100%;
+            box-shadow: 0 8px 24px rgba(131, 56, 236, 0.35), 0 2px 6px rgba(255, 77, 109, 0.25);
+            font-size: 14px;
+            font-weight: 800;
+            white-space: nowrap;
+            pointer-events: none;
+            animation: onvaHintPulse 2s ease-in-out infinite, onvaHintFlow 4s linear infinite;
+            transition: opacity 0.4s ease;
+        }
+
+        .onva-scratch-hint .fa-hand-pointer-o { color: #ff4d6d; font-size: 1.15em; }
+        .onva-scratch-hint .fa-magic { color: #8338ec; font-size: 1.1em; }
+
+        .onva-scratch-hint-text {
+            background: linear-gradient(90deg, #ff4d6d, #ff9f1c, #2ec4b6, #3a86ff, #8338ec);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @keyframes onvaHintFlow {
+            from { background-position: 0 0, 0% 0; }
+            to { background-position: 0 0, 300% 0; }
+        }
+
+        .onva-scratch.is-scratching .onva-scratch-hint,
+        .onva-scratch.is-revealed .onva-scratch-hint {
+            opacity: 0;
+            animation: none;
+        }
+
+        @keyframes onvaHintPulse {
+            0%, 100% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.06); }
+        }
+
+        /* Compact card for the short photo shown on phones */
+        .onva-scratch.is-compact .onva-scratch-offer { padding: 8px; gap: 0; justify-content: center; }
+        .onva-scratch.is-compact .onva-scratch-card { width: auto; height: 100%; border-radius: 12px; }
+        .onva-scratch.is-compact .onva-scratch-btn { display: none; }
+        .onva-scratch.is-compact .onva-scratch-hint { top: 10px; padding: 5px 12px; gap: 6px; font-size: 12px; border-width: 2px; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .onva-scratch-hint,
+            .onva-scratch.is-revealed .onva-scratch-card {
+                animation: none;
+            }
+        }
+
+        /* ===== "Explore recent Projects" + portfolio carousel: reveal on scroll =====
+           .pf-anim is added by the script at the end of <body> (so content stays visible
+           without JS); .pf-in is added when the section scrolls into view. */
+        /* Heading band */
+        .pf-anim .section-title h5,
+        .pf-anim .section-title h2,
+        .pf-anim .section-title .title-desc,
+        .pf-anim .ttm-btn {
+            opacity: 0;
+            transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .pf-anim .section-title h5 { transform: translateX(-40px); }
+        .pf-anim .section-title h2 { transform: translateY(30px); transition-delay: 0.15s; }
+        .pf-anim .section-title .title-desc { transform: translateY(20px); transition-delay: 0.35s; }
+        .pf-anim .ttm-btn { transform: translateX(40px); transition-delay: 0.5s; }
+
+        .pf-anim .section-title .title-header:after {
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s;
+        }
+
+        .pf-anim.pf-in .section-title h5,
+        .pf-anim.pf-in .section-title h2,
+        .pf-anim.pf-in .section-title .title-desc,
+        .pf-anim.pf-in .ttm-btn {
+            opacity: 1;
+            transform: none;
+        }
+
+        .pf-anim.pf-in .section-title .title-header:after {
+            transform: scaleY(1);
+        }
+
+        /* Cards: staggered 3D flip-up, then a one-off light sweep */
+        /* Perspective must sit on the card's direct parent to be visible */
+        .pf-anim .ttm-box-col-wrapper {
+            perspective: 800px;
+        }
+
+        .pf-anim .featured-imagebox-portfolio {
+            opacity: 0;
+            transform-origin: 50% 100%;
+            transform: translateY(90px) rotateX(-28deg) scale(0.92);
+            transition:
+                opacity 0.9s cubic-bezier(0.2, 0.8, 0.2, 1),
+                transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1),
+                box-shadow 0.4s ease;
+            transition-delay: calc(var(--pf-i, 0) * 0.12s + 0.15s), calc(var(--pf-i, 0) * 0.12s + 0.15s), 0s;
+        }
+
+        .pf-anim.pf-in .featured-imagebox-portfolio {
+            opacity: 1;
+            transform: none;
+        }
+
+        .pf-anim .featured-imagebox-portfolio::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 50%;
+            height: 100%;
+            z-index: 3;
+            pointer-events: none;
+            background: linear-gradient(110deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+            transform: skewX(-20deg);
+        }
+
+        .pf-anim.pf-in .featured-imagebox-portfolio::after {
+            animation: pfSweep 1.1s ease-out forwards;
+            animation-delay: calc(var(--pf-i, 0) * 0.12s + 0.8s);
+        }
+
+        @keyframes pfSweep {
+            to { left: 140%; }
+        }
+
+        /* After the reveal (.pf-done): cards fan out like a cover-flow, float gently,
+           and tilt toward the pointer with a glare and parallax photo */
+        .pf-anim.pf-done .owl-item {
+            animation: pfFloat 5s ease-in-out infinite;
+            animation-delay: calc(var(--pf-i, 0) * -0.8s);
+        }
+
+        @keyframes pfFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .pf-anim.pf-done .featured-imagebox-portfolio {
+            border-radius: 14px;
+            transform:
+                rotateX(var(--pf-rx, 10deg))
+                rotateY(var(--pf-ry, var(--pf-base-ry, 0deg)))
+                translateZ(var(--pf-z, 0px))
+                scale(var(--pf-s, 0.96));
+            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transition-delay: 0s;
+        }
+
+        .pf-anim.pf-done .featured-imagebox-portfolio.pf-tracking {
+            transition: transform 0.1s ease-out;
+        }
+
+        .pf-anim.pf-done .featured-imagebox-portfolio:hover {
+            --pf-z: 60px;
+            --pf-s: 1;
+        }
+
+        /* Glare that follows the pointer */
+        .pf-anim .featured-imagebox-portfolio::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 3;
+            pointer-events: none;
+            opacity: 0;
+            background: radial-gradient(circle at var(--pf-mx, 50%) var(--pf-my, 0%),
+                    rgba(255, 255, 255, 0.5), transparent 55%);
+            transition: opacity 0.3s ease;
+        }
+
+        .pf-anim.pf-done .featured-imagebox-portfolio:hover::before {
+            opacity: 1;
+        }
+
+        /* Photo drifts inside the card against the tilt for extra depth */
+        .pf-anim .featured-imagebox-portfolio .featured-thumbnail img {
+            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .pf-anim .featured-imagebox-portfolio:hover .featured-thumbnail img {
+            transform: translate(var(--pf-px, 0px), var(--pf-py, 0px)) scale(1.14);
+        }
+
+        .pf-anim .featured-imagebox-portfolio.pf-tracking .featured-thumbnail img {
+            transition: transform 0.1s ease-out;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .pf-anim .section-title h5,
+            .pf-anim .section-title h2,
+            .pf-anim .section-title .title-desc,
+            .pf-anim .ttm-btn,
+            .pf-anim .featured-imagebox-portfolio {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+
+            .pf-anim .section-title .title-header:after {
+                transform: none;
+            }
+
+            .pf-anim .featured-imagebox-portfolio::after,
+            .pf-anim .featured-imagebox-portfolio::before {
+                display: none;
+            }
+
+            .pf-anim.pf-done .featured-imagebox-portfolio {
+                transform: none;
+            }
+
+            .pf-anim.pf-done .owl-item {
+                animation: none;
+            }
+        }
+    </style>
+
 </head>
 
 <body>
 
     <!--page start-->
-    <div class="page">
+    <div class="">
 
         <!-- preloader start -->
         <div id="preloader">
@@ -684,6 +1056,18 @@
                                 <div class="ttm-col-wrapper-bg-layer ttm-bg-layer">
                                     <div class="ttm-bg-layer-inner"></div>
                                 </div>
+                                <!-- Scratch card: the canvas repaints the photo; scratching it reveals the offer -->
+                                <div class="onva-scratch">
+                                    <div class="onva-scratch-offer">
+                                        <a class="onva-scratch-card" href="contact-us.html">
+                                            <img src="images/offer/onva20-offer.webp" width="1254" height="1254" loading="lazy"
+                                                alt="Limited time offer: get 20% off all IT services with code ONVA20">
+                                        </a>
+                                        <a class="onva-scratch-btn" href="contact-us.html">Claim your discount <i class="fa fa-arrow-right"></i></a>
+                                    </div>
+                                    <canvas class="onva-scratch-canvas" aria-hidden="true"></canvas>
+                                    <div class="onva-scratch-hint" aria-hidden="true"><i class="fa fa-hand-pointer-o"></i><span class="onva-scratch-hint-text">Click &amp; drag to scratch for a surprise</span><i class="fa fa-magic"></i></div>
+                                </div>
                             </div>
                             <!-- Responsive View image -->
                             <img data-src="images/bg-image/col-bgimage-1.jpg" class="ttm-equal-height-image lazyload"
@@ -691,7 +1075,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div
-                                class="ttm-bgcolor-skincolor ttm-bg ttm-col-bgcolor-yes z-11 position-relative ttm-right-span">
+                                class="ttm-bgcolor-skincolor ttm-bg ttm-col-bgcolor-yes z-11 position-relative ttm-right-span why-onva-3d">
                                 <div class="ttm-col-wrapper-bg-layer ttm-bg-layer">
                                     <div class="ttm-bg-layer-inner"></div>
                                 </div>
@@ -833,8 +1217,7 @@
                                         <div class="featured-title">
                                             <h5>Discover</h5>
                                         </div>
-                                        <div class="ttm-box-description">We map your goals, users and constraints â€”
-                                            then
+                                        <div class="ttm-box-description">We map your goals, users and constraints then
                                             define a scope with clear success metrics.</div>
                                     </div>
                                 </div>
@@ -879,7 +1262,7 @@
                                         <div class="featured-title">
                                             <h5>Scale</h5>
                                         </div>
-                                        <div class="ttm-box-description">Launch, measure, and optimise â€” with support,
+                                        <div class="ttm-box-description">Launch, measure, and optimise with support,
                                             monitoring and a roadmap for what comes next.</div>
                                     </div>
                                 </div>
@@ -992,7 +1375,9 @@
                                                 <div class="testimonial-avatar">
                                                     <div class="testimonial-img"><!-- testimonials-img -->
                                                         <img class="img-center lazyload"
-                                                            data-src="images/testimonial/01.jpg" alt="testimonial-img">
+                                                            src="images/testimonial/client-logo-wings.png"
+                                                            data-src="images/testimonial/client-logo-wings.png" alt="Client logo"
+                                                            style="width: 105px; height: 105px; padding: 12px; background: #fff; border-radius: 50%; object-fit: contain;">
                                                     </div>
                                                 </div>
                                                 <blockquote>"Your exceptional redesign transformed our corporate website into a highly professional platform that perfectly captures our brand identity and elevates our digital presence."</blockquote>
@@ -1015,7 +1400,9 @@
                                                 <div class="testimonial-avatar">
                                                     <div class="testimonial-img"><!-- testimonials-img -->
                                                         <img class="img-center lazyload"
-                                                            data-src="images/testimonial/01.jpg" alt="testimonial-img">
+                                                            src="images/testimonial/client-logo-wings.png"
+                                                            data-src="images/testimonial/client-logo-wings.png" alt="Client logo"
+                                                            style="width: 105px; height: 105px; padding: 12px; background: #fff; border-radius: 50%; object-fit: contain;">
                                                     </div>
                                                 </div>
                                                 <blockquote>"Your exceptional redesign transformed our corporate website into a highly professional platform that perfectly captures our brand identity and elevates our digital presence."</blockquote>
@@ -1224,7 +1611,7 @@
 
 
 
-        <!-- portfolio-text-section -->
+                        <!-- portfolio-text-section -->
         <section
             class="ttm-row bottomzero-padding-section ttm-bgcolor-skincolor ttm-bg ttm-bgimage-yes bg-img5 clearfix">
             <div class="ttm-row-wrapper-bg-layer ttm-bg-layer"></div>
@@ -1389,9 +1776,8 @@
             </div>
         </section>
         <!-- portfolio-section -->
-
         <!--footer start-->
-       <footer class="custom-footer clearfix light-footer" style="padding-top: 50px;background: linear-gradient(180deg, #eeeeee 0%, #d1defd 100%) !important;">
+       <footer class="custom-footer clearfix light-footer" style="padding-top: 50px;background: linear-gradient(180deg, #d1defd 0%, #eeeeee 100%) !important;">
             <div class="ttm-row-wrapper-bg-layer ttm-bg-layer"></div>
             <div class="container-fluid custom-footer-container">
                 <div class="row">
@@ -1450,10 +1836,12 @@
                                 <h5 class="footer-heading mt-30">Company</h5>
                                 <ul class="footer-links">
                                     <li><a href="about-onvalabs.html">About Us</a></li>
+                                    <li><a href="services.html">Services</a></li>
+                                    <li><a href="products.html">Products</a></li>
                                     <li><a href="work.html">Our Work</a></li>
                                     <li><a href="pricing.html">Pricing</a></li>
-                                    <li><a href="contact-us.html">Careers</a></li>
                                     <li><a href="contact-us.html">Contact</a></li>
+                                    <li><a href="solutions.html">Solutions</a></li>
                                 </ul>
                             </div>
                             
@@ -1621,6 +2009,219 @@
     </div>
 
     <!-- Javascript end-->
+
+    <!-- "Why Onva Labs" photo: scratch card -->
+    <script>
+        (function () {
+            var wrap = document.querySelector('.onva-scratch');
+            if (!wrap) return;
+            var col = wrap.parentElement;                         // .col-bg-img-one
+            var layer = col.querySelector('.ttm-col-wrapper-bg-layer');
+            var canvas = wrap.querySelector('.onva-scratch-canvas');
+            var ctx = canvas.getContext('2d');
+            var photo = new Image();
+            var revealed = false;
+            var last = null;
+            var moves = 0;
+            var visibleWidth = 1;
+            var BRUSH = 38;
+
+            // Cover the whole photo from the viewport's left edge (including the strip that
+            // runs on behind the blue panel) and repaint it exactly where the background shows it
+            // On phones the theme hides the background and shows a plain <img> instead,
+            // so the scratch card sits over that image there
+            var mobileImg = col.parentElement.querySelector('.ttm-equal-height-image');
+
+            function setup() {
+                if (revealed) return;
+                var colRect = col.getBoundingClientRect();
+                var imgRect = mobileImg ? mobileImg.getBoundingClientRect() : null;
+                var desktop = colRect.height > 0;
+                if (!photo.naturalWidth || (!desktop && !(imgRect && imgRect.height))) {
+                    wrap.classList.remove('is-ready');
+                    return;
+                }
+                var lr, extra = 0;
+                if (desktop) {
+                    lr = layer.getBoundingClientRect();
+                    extra = Math.max(0, lr.right - colRect.right);
+                    wrap.style.cssText = 'left:' + (-colRect.left) + 'px;right:' + (-extra) + 'px;';
+                } else {
+                    lr = imgRect;
+                    wrap.style.cssText = 'top:' + (imgRect.top - colRect.top) + 'px;left:' + (imgRect.left - colRect.left) +
+                        'px;width:' + imgRect.width + 'px;height:' + imgRect.height + 'px;bottom:auto;right:auto;';
+                }
+                wrap.style.setProperty('--onva-extra', extra + 'px');
+                wrap.classList.toggle('is-compact', !desktop);
+                wrap.classList.add('is-ready');
+
+                var box = wrap.getBoundingClientRect();
+                var dpr = window.devicePixelRatio || 1;
+                canvas.width = Math.round(box.width * dpr);
+                canvas.height = Math.round(box.height * dpr);
+                // Only the part not hidden behind the panel can be scratched
+                visibleWidth = Math.max(1, Math.round((box.width - extra) * dpr));
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+                ctx.globalCompositeOperation = 'source-over';
+
+                var s = Math.max(lr.width / photo.naturalWidth, lr.height / photo.naturalHeight);
+                var dw = photo.naturalWidth * s, dh = photo.naturalHeight * s;
+                ctx.drawImage(photo,
+                    lr.left - box.left + (lr.width - dw) / 2,
+                    lr.top - box.top + (lr.height - dh) / 2, dw, dh);
+            }
+
+            function point(e) {
+                var r = canvas.getBoundingClientRect();
+                return { x: e.clientX - r.left, y: e.clientY - r.top };
+            }
+
+            function scratch(p) {
+                ctx.globalCompositeOperation = 'destination-out';
+                ctx.lineCap = 'round';
+                ctx.lineJoin = 'round';
+                ctx.lineWidth = BRUSH * 2;
+                ctx.beginPath();
+                ctx.moveTo(last ? last.x : p.x, last ? last.y : p.y);
+                ctx.lineTo(p.x, p.y);
+                ctx.stroke();
+                last = p;
+                if (++moves % 12 === 0) checkProgress();
+            }
+
+            // Reveal everything once ~40% of the photo is scratched away
+            // (part of the tall photo is usually below the fold)
+            function checkProgress() {
+                var data = ctx.getImageData(0, 0, visibleWidth, canvas.height).data;
+                var cleared = 0, total = 0;
+                for (var i = 3; i < data.length; i += 4 * 40) {
+                    total++;
+                    if (data[i] === 0) cleared++;
+                }
+                if (cleared / total > 0.4) {
+                    revealed = true;
+                    wrap.classList.add('is-revealed');
+                }
+            }
+
+            canvas.addEventListener('pointerdown', function (e) {
+                wrap.classList.add('is-scratching');
+                last = null;
+                scratch(point(e));
+            });
+
+            // Scratch only while the mouse button (or finger/pen) is held down
+            canvas.addEventListener('pointermove', function (e) {
+                if (revealed || !(e.buttons & 1)) return;
+                wrap.classList.add('is-scratching');
+                scratch(point(e));
+            });
+
+            function endStroke() {
+                last = null;
+                if (!revealed && wrap.classList.contains('is-scratching')) checkProgress();
+            }
+            canvas.addEventListener('pointerleave', endStroke);
+            canvas.addEventListener('pointerup', endStroke);
+
+            photo.onload = setup;
+            photo.src = 'images/bg-image/col-bgimage-1.jpg';
+            window.addEventListener('load', setup);
+            var resizeTimer;
+            function queueSetup() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(setup, 200);
+            }
+            window.addEventListener('resize', queueSetup);
+            // The phone image is lazy-loaded, so re-measure once it (or the column) changes size
+            if ('ResizeObserver' in window) {
+                var ro = new ResizeObserver(queueSetup);
+                ro.observe(col);
+                if (mobileImg) ro.observe(mobileImg);
+            } else if (mobileImg) {
+                mobileImg.addEventListener('load', setup);
+            }
+        })();
+    </script>
+
+    <!-- Portfolio sections: animate in when scrolled into view -->
+    <script>
+        (function () {
+            var head = document.querySelector('.bg-img5');
+            var cards = document.querySelector('.portfolio-slide-section');
+            if (!head || !cards || !('IntersectionObserver' in window)) return;
+
+            head.classList.add('pf-anim');
+            cards.classList.add('pf-anim');
+
+            // Stagger the on-screen cards left to right, and fan them around the centre
+            // (cards left of centre turn right, cards right of centre turn left)
+            function setStagger() {
+                var items = cards.querySelectorAll('.owl-item');
+                var active = [];
+                items.forEach(function (item) {
+                    if (item.classList.contains('active')) active.push(item);
+                    else item.style.setProperty('--pf-i', 0);
+                });
+                var mid = (active.length - 1) / 2;
+                active.forEach(function (item, i) {
+                    item.style.setProperty('--pf-i', i);
+                    var box = item.querySelector('.featured-imagebox-portfolio');
+                    if (box) box.style.setProperty('--pf-base-ry', ((mid - i) * 9).toFixed(1) + 'deg');
+                });
+            }
+            setStagger();
+            // Owl may finish setting up after this runs, and re-orders on drag
+            window.addEventListener('load', setStagger);
+            if (window.jQuery) jQuery('.portfolio-slide').on('translated.owl.carousel', setStagger);
+
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        if (entry.target === cards) {
+                            setStagger();
+                            // Switch to the resting 3D state once every card has landed
+                            setTimeout(function () { cards.classList.add('pf-done'); }, 2000);
+                        }
+                        entry.target.classList.add('pf-in');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.25 });
+
+            observer.observe(head);
+            observer.observe(cards);
+
+            // Pointer tilt + glare on each card (mouse/trackpad only)
+            if (!window.matchMedia('(pointer: fine)').matches ||
+                window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+            cards.addEventListener('mousemove', function (e) {
+                if (!cards.classList.contains('pf-done')) return;
+                var box = e.target.closest('.featured-imagebox-portfolio');
+                if (!box) return;
+                var rect = box.getBoundingClientRect();
+                var x = (e.clientX - rect.left) / rect.width;   // 0..1
+                var y = (e.clientY - rect.top) / rect.height;  // 0..1
+                box.classList.add('pf-tracking');
+                box.style.setProperty('--pf-ry', ((x - 0.5) * 30).toFixed(2) + 'deg');
+                box.style.setProperty('--pf-rx', ((0.5 - y) * 24).toFixed(2) + 'deg');
+                box.style.setProperty('--pf-mx', (x * 100).toFixed(1) + '%');
+                box.style.setProperty('--pf-my', (y * 100).toFixed(1) + '%');
+                box.style.setProperty('--pf-px', ((0.5 - x) * 24).toFixed(1) + 'px');
+                box.style.setProperty('--pf-py', ((0.5 - y) * 24).toFixed(1) + 'px');
+            });
+
+            cards.addEventListener('mouseout', function (e) {
+                var box = e.target.closest('.featured-imagebox-portfolio');
+                if (!box || box.contains(e.relatedTarget)) return;
+                box.classList.remove('pf-tracking');
+                ['--pf-rx', '--pf-ry', '--pf-mx', '--pf-my', '--pf-px', '--pf-py'].forEach(function (p) {
+                    box.style.removeProperty(p);
+                });
+            });
+        })();
+    </script>
 
 </body>
 
