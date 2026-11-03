@@ -34,6 +34,7 @@
 <link rel="stylesheet" type="text/css" href="../css/responsive.css" />
 <link rel="stylesheet" type="text/css" href="../css/onva-standalone.css?v=3" />
 <style>body { overflow-x: hidden; }</style>
+    <link rel="stylesheet" type="text/css" href="../css/custom.css" />
 </head>
 <body>
 
@@ -143,13 +144,20 @@
 </section>
 </main>
 
-<section class="cta">
-  <div class="wrap">
-    <div class="txt">
-      <h2>Make your systems talk to each other.</h2>
-      <p>Tell us which two systems are being bridged by a person and a spreadsheet. We will work out what it takes to connect them properly.</p>
+<section class="cta-outer">
+  <div class="container">
+    <div class="cta-banner-section cta-top-space">
+      <div class="cta-card">
+        <div class="cta-content">
+          <h2>Make your systems talk to each other.</h2>
+          <p>Tell us which two systems are being bridged by a person and a spreadsheet. We will work out what it takes to connect them properly.</p>
+          <a class="ttm-btn ttm-btn-size-md ttm-btn-style-border ttm-btn-color-white" href="../contact-us.html">
+              <span>Start a Project</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+        </div>
+      </div>
     </div>
-    <a class="btn btn-ghost" href="../contact-us.html">Start a Project <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
 </section>
 
@@ -198,5 +206,6 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "API Development and Integration for Australian Businesses", "serviceType": "API Development and Integration for Australian Businesses", "url": "https://www.onva.com.au/services/api-development-integration.html", "description": "API development and integration in Sydney. Onva Labs designs REST and GraphQL APIs, connects third-party systems and builds webhooks that hold up.", "areaServed": {"@type": "Country", "name": "Australia"}, "provider": {"@type": "ProfessionalService", "name": "Onva Labs", "url": "https://www.onva.com.au", "email": "info@onva.com.au", "address": {"@type": "PostalAddress", "addressLocality": "Sydney", "addressRegion": "NSW", "addressCountry": "AU"}}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What if the software we use has no API?", "acceptedAnswer": {"@type": "Answer", "text": "It happens more often than vendors admit. The options are scheduled file exports, a direct database connection where that is permitted, parsing emailed reports, or supervised automation that drives the interface. Each is more fragile than a real API, and we tell you which risks you are accepting. Sometimes the honest answer is to change the platform."}}, {"@type": "Question", "name": "Should we build a REST API or a GraphQL one?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on who consumes it. REST API development suits straightforward resources, caching and partners who want something conventional. GraphQL suits apps and dashboards needing many related fields in one request that would otherwise take several. Plenty of businesses need both, for different consumers. We decide after seeing the real usage."}}, {"@type": "Question", "name": "What happens when an integration breaks?", "acceptedAnswer": {"@type": "Answer", "text": "Something always breaks eventually: a credential expires, a vendor changes a field, a server goes down mid-sync. The difference is whether you learn on the day or at month end. We build retries for temporary failures, alerts for permanent ones, and logs detailed enough to say which records did not make it."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.onva.com.au/index.html"}, {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.onva.com.au/services.html"}, {"@type": "ListItem", "position": 3, "name": "API Development & Integration", "item": "https://www.onva.com.au/services/api-development-integration.html"}]}</script>
+    <script src="../js/cta-banner.js"></script>
 </body>
 </html>

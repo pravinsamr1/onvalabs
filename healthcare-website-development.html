@@ -34,6 +34,7 @@
 <link rel="stylesheet" type="text/css" href="css/responsive.css" />
 <link rel="stylesheet" type="text/css" href="css/onva-standalone.css?v=3" />
 <style>body { overflow-x: hidden; }</style>
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
 </head>
 <body>
 
@@ -143,13 +144,20 @@
 </section>
 </main>
 
-<section class="cta">
-  <div class="wrap">
-    <div class="txt">
-      <h2>Let's talk about your practice.</h2>
-      <p>Tell us how patients find and book with you today. We will show you what a compliant, accessible site would do differently.</p>
+<section class="cta-outer">
+  <div class="container">
+    <div class="cta-banner-section cta-top-space">
+      <div class="cta-card">
+        <div class="cta-content">
+          <h2>Let's talk about your practice.</h2>
+          <p>Tell us how patients find and book with you today. We will show you what a compliant, accessible site would do differently.</p>
+          <a class="ttm-btn ttm-btn-size-md ttm-btn-style-border ttm-btn-color-white" href="contact-us.html">
+              <span>Start a Project</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+        </div>
+      </div>
     </div>
-    <a class="btn btn-ghost" href="contact-us.html">Start a Project <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
 </section>
 
@@ -198,5 +206,6 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Healthcare Website Development", "serviceType": "Healthcare Website Development", "url": "https://www.onva.com.au/healthcare-website-development.html", "description": "Healthcare website development for Australian clinics. Online booking, practitioner profiles, WCAG 2.2 AA accessibility and privacy-aware design.", "areaServed": {"@type": "Country", "name": "Australia"}, "provider": {"@type": "ProfessionalService", "name": "Onva Labs", "url": "https://www.onva.com.au", "email": "info@onva.com.au", "address": {"@type": "PostalAddress", "addressLocality": "Sydney", "addressRegion": "NSW", "addressCountry": "AU"}}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can we put patient reviews and testimonials on our website?", "acceptedAnswer": {"@type": "Answer", "text": "Not for clinical care. The AHPRA advertising guidelines restrict how registered health practitioners may advertise, and testimonials about clinical care are not permitted in advertising for regulated health services, so a practice site cannot use patient reviews as other businesses can. We build trust through practitioner credentials, clear information and accessible design instead. Onva Labs is not a law firm, so confirm your own obligations."}}, {"@type": "Question", "name": "Can you connect the booking system we already use?", "acceptedAnswer": {"@type": "Answer", "text": "Usually, yes. Most practices already run a booking or practice management system, and we integrate what you have rather than asking you to change it. Depending on the provider that may mean an embedded widget, a linked booking flow, or an API connection. We test the whole path on a phone first, because that is where most appointment requests start."}}, {"@type": "Question", "name": "How do you handle new-patient forms and health information?", "acceptedAnswer": {"@type": "Answer", "text": "Carefully, and with your obligations in view. The Privacy Act 1988 and the Australian Privacy Principles apply, health information is sensitive information attracting stronger protections, and the Notifiable Data Breaches scheme applies to organisations handling it. We design how forms collect, transmit and store data around that, and document the choices. Again, Onva Labs is not a law firm; confirm your requirements."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.onva.com.au/index.html"}, {"@type": "ListItem", "position": 2, "name": "Industries", "item": "https://www.onva.com.au/industries.html"}, {"@type": "ListItem", "position": 3, "name": "Healthcare", "item": "https://www.onva.com.au/healthcare-website-development.html"}]}</script>
+    <script src="js/cta-banner.js"></script>
 </body>
 </html>

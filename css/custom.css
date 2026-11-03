@@ -1,4 +1,15 @@
-/* Custom styles: call-to-action banner (About and Services pages) */
+/* Custom styles: call-to-action banner used across the site */
+
+/* Same width as the site container on every page */
+.cta-outer > .container {
+    width: 100%;
+    max-width: 1330px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+}
 
 .cta-banner-section p {
     text-align: center !important;
@@ -27,9 +38,9 @@
     border-radius: 28px;
     text-align: center;
     background:
-        radial-gradient(ellipse at 15% 0%, color-mix(in srgb, var(--theme-primary-color), #000 45%), transparent 55%),
-        linear-gradient(115deg, color-mix(in srgb, var(--theme-primary-color), #000 22%) 0%, var(--theme-primary-color) 50%, color-mix(in srgb, var(--theme-primary-color), #fff 18%) 100%);
-    box-shadow: 0 34px 70px -28px color-mix(in srgb, var(--theme-primary-color) 75%, transparent);
+        radial-gradient(ellipse at 15% 0%, color-mix(in srgb, var(--theme-primary-color, #2d4a8a), #000 45%), transparent 55%),
+        linear-gradient(115deg, color-mix(in srgb, var(--theme-primary-color, #2d4a8a), #000 22%) 0%, var(--theme-primary-color, #2d4a8a) 50%, color-mix(in srgb, var(--theme-primary-color, #2d4a8a), #fff 18%) 100%);
+    box-shadow: 0 34px 70px -28px color-mix(in srgb, var(--theme-primary-color, #2d4a8a) 75%, transparent);
 }
 
 /* Soft light that slowly wanders behind the content */
@@ -100,16 +111,21 @@
     border: none !important;
     border-radius: 12px;
     background: #ffffff !important;
-    color: var(--theme-primary-color) !important;
+    color: var(--theme-primary-color, #2d4a8a) !important;
+    font-size: 16px;
+    line-height: 1.2;
+    text-decoration: none !important;
+    text-transform: none;
     font-weight: 700;
     box-shadow: 0 5px 0 #b9c6e6, 0 18px 28px -10px rgba(16, 26, 56, 0.7);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.cta-banner-section .ttm-btn.ttm-btn-style-border.ttm-btn-color-white i {
+.cta-banner-section .ttm-btn.ttm-btn-style-border.ttm-btn-color-white :is(i, svg) {
     position: static;
     margin: 0;
     transform: none;
+    flex: none;
     transition: translate 0.25s ease;
 }
 
@@ -118,7 +134,7 @@
     box-shadow: 0 8px 0 #b9c6e6, 0 24px 34px -10px rgba(16, 26, 56, 0.75);
 }
 
-.cta-banner-section .ttm-btn.ttm-btn-style-border.ttm-btn-color-white:hover i {
+.cta-banner-section .ttm-btn.ttm-btn-style-border.ttm-btn-color-white:hover :is(i, svg) {
     translate: 4px 0;
 }
 
@@ -141,6 +157,9 @@
     border: 2px solid rgba(255, 255, 255, 0.75);
     border-radius: 12px;
     color: #ffffff !important;
+    font-size: 16px;
+    line-height: 1.2;
+    text-decoration: none !important;
     font-weight: 700;
     transition: background-color 0.25s ease, transform 0.25s ease;
 }
@@ -246,7 +265,7 @@
     left: 0;
     z-index: 0;
     width: 220%;
-    background: linear-gradient(115deg, color-mix(in srgb, var(--theme-primary-color), #000 22%) 0%, var(--theme-primary-color) 50%, color-mix(in srgb, var(--theme-primary-color), #fff 18%) 100%);
+    background: linear-gradient(115deg, color-mix(in srgb, var(--theme-primary-color, #2d4a8a), #000 22%) 0%, var(--theme-primary-color, #2d4a8a) 50%, color-mix(in srgb, var(--theme-primary-color, #2d4a8a), #fff 18%) 100%);
     will-change: transform;
     animation: ctaBgShift 12s ease-in-out infinite alternate;
 }
@@ -286,7 +305,7 @@
     100% { transform: scale(1.22, 1.6); opacity: 0; }
 }
 
-.cta-banner-section .ttm-btn.ttm-btn-style-border.ttm-btn-color-white i {
+.cta-banner-section .ttm-btn.ttm-btn-style-border.ttm-btn-color-white :is(i, svg) {
     animation: ctaNudge 1.6s ease-in-out infinite;
 }
 
@@ -302,7 +321,7 @@
     z-index: 1;
     overflow: hidden;
     pointer-events: none;
-    background: radial-gradient(ellipse at 15% 0%, color-mix(in srgb, var(--theme-primary-color), #000 45%), transparent 55%);
+    background: radial-gradient(ellipse at 15% 0%, color-mix(in srgb, var(--theme-primary-color, #2d4a8a), #000 45%), transparent 55%);
 }
 
 .cta-cell {
@@ -390,7 +409,7 @@
     .cta-card::before,
     .cta-col,
     .cta-banner-section :is(h2, h3),
-    .cta-banner-section .ttm-btn.ttm-btn-style-border.ttm-btn-color-white i {
+    .cta-banner-section .ttm-btn.ttm-btn-style-border.ttm-btn-color-white :is(i, svg) {
         animation: none;
     }
 

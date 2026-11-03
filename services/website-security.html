@@ -34,6 +34,7 @@
 <link rel="stylesheet" type="text/css" href="../css/responsive.css" />
 <link rel="stylesheet" type="text/css" href="../css/onva-standalone.css?v=3" />
 <style>body { overflow-x: hidden; }</style>
+    <link rel="stylesheet" type="text/css" href="../css/custom.css" />
 </head>
 <body>
 
@@ -143,13 +144,20 @@
 </section>
 </main>
 
-<section class="cta">
-  <div class="wrap">
-    <div class="txt">
-      <h2>Know where you actually stand.</h2>
-      <p>We will review your site's security, backups and access control, then tell you plainly what to fix first and what can wait.</p>
+<section class="cta-outer">
+  <div class="container">
+    <div class="cta-banner-section cta-top-space">
+      <div class="cta-card">
+        <div class="cta-content">
+          <h2>Know where you actually stand.</h2>
+          <p>We will review your site's security, backups and access control, then tell you plainly what to fix first and what can wait.</p>
+          <a class="ttm-btn ttm-btn-size-md ttm-btn-style-border ttm-btn-color-white" href="../contact-us.html">
+              <span>Start a Project</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+        </div>
+      </div>
     </div>
-    <a class="btn btn-ghost" href="../contact-us.html">Start a Project <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
 </section>
 
@@ -198,5 +206,6 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Website Security Services for Australian Businesses", "serviceType": "Website Security Services for Australian Businesses", "url": "https://www.onva.com.au/services/website-security.html", "description": "Website security services in Australia. Onva Labs handles hardening, patching, firewalls, malware removal, backups and access control for business sites.", "areaServed": {"@type": "Country", "name": "Australia"}, "provider": {"@type": "ProfessionalService", "name": "Onva Labs", "url": "https://www.onva.com.au", "email": "info@onva.com.au", "address": {"@type": "PostalAddress", "addressLocality": "Sydney", "addressRegion": "NSW", "addressCountry": "AU"}}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can you guarantee our website will not be hacked?", "acceptedAnswer": {"@type": "Answer", "text": "No. Nobody can, and we would rather say so plainly than sell you a promise we cannot keep. Software has flaws, people reuse passwords, and attackers automate. What security work does is close the openings that are actually exploited, make an intrusion harder and slower, and make sure you notice quickly."}}, {"@type": "Question", "name": "What are our obligations if customer data is exposed?", "acceptedAnswer": {"@type": "Answer", "text": "Under the Privacy Act 1988 and the Notifiable Data Breaches scheme, an eligible data breach involving personal information likely to cause serious harm must be assessed and notified. We are not lawyers and do not give legal advice. We build the logging and response steps that let you establish what happened and when."}}, {"@type": "Question", "name": "Is an SSL certificate enough on its own?", "acceptedAnswer": {"@type": "Answer", "text": "No. An SSL certificate encrypts traffic between the browser and the server, which matters, but it does nothing about an out-of-date plugin, a weak admin password, or a form that accepts anything typed into it. Encryption is one layer. Patching, access control, firewalling, scanning and tested backups are the rest."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.onva.com.au/index.html"}, {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.onva.com.au/services.html"}, {"@type": "ListItem", "position": 3, "name": "Website Security", "item": "https://www.onva.com.au/services/website-security.html"}]}</script>
+    <script src="../js/cta-banner.js"></script>
 </body>
 </html>

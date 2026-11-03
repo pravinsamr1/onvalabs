@@ -4,11 +4,14 @@
     if (!section) return;
     var card = section.querySelector('.cta-card');
     var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // Tile images sit next to js/, so resolve them from this script's own URL
+    var scriptSrc = (document.currentScript && document.currentScript.src) || 'js/cta-banner.js';
+    var tileBase = new URL('../images/cta-tiles/', scriptSrc).href;
 
     // Each column holds its images twice so the drift loops seamlessly
     function column(images, duration, reverse) {
         var tiles = images.concat(images).map(function (name) {
-            return '<img class="cta-tile" src="images/cta-tiles/' + name + '.jpg" width="116" height="116" alt="" decoding="sync">';
+            return '<img class="cta-tile" src="' + tileBase + name + '.jpg" width="116" height="116" alt="" decoding="sync">';
         }).join('');
         return '<div class="cta-col' + (reverse ? ' reverse' : '') + '" style="--dur:' + duration + 's">' + tiles + '</div>';
     }

@@ -1730,6 +1730,7 @@ body {
             background-position: top left
         }
     </style>
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
 </head>
 
 <body>
@@ -2189,19 +2190,22 @@ body {
             </section>
 
             <!-- ================= CTA BANNER ================= -->
-            <section class="cta" id="demo">
-                <span class="orb orb-1" style="opacity:.22"></span>
-                <div class="wrap">
-                    <h2 class="rv" style="color: #ffffff;">See it running against your own incident history</h2>
-                    <p class="rv rv-2">We will load a sample of your past incidents into a private instance and walk
-                        your team through the register, the lessons-learned workflow and the audit trail in forty-five
-                        minutes.</p>
-                    <div class="cta-btns rv rv-3">
-                        <a class="btn btn-p" href="contact-us.html">Book a walkthrough <span
-                                aria-hidden="true">&rarr;</span></a>
-                        <a class="btn btn-g" href="contact-us.html">Start A Project</a>
+            <section class="cta-outer">
+              <div class="container">
+                <div class="cta-banner-section cta-top-space" id="demo">
+                  <div class="cta-card">
+                    <div class="cta-content">
+                      <h2>See it running against your own incident history</h2>
+                      <p>We will load a sample of your past incidents into a private instance and walk your team through the register, the lessons-learned workflow and the audit trail in forty-five minutes.</p>
+                      <a class="ttm-btn ttm-btn-size-md ttm-btn-style-border ttm-btn-color-white" href="contact-us.html">
+                          <span>Book a walkthrough</span>
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                        </a>
+                      <a class="cta-btn-ghost" href="contact-us.html">Start A Project</a>
                     </div>
+                  </div>
                 </div>
+              </div>
             </section>
 
         </main>
@@ -2368,6 +2372,7 @@ body {
             }
         })();
     </script>
+    <script src="js/cta-banner.js"></script>
 </body>
 
 </html>

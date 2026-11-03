@@ -34,6 +34,7 @@
 <link rel="stylesheet" type="text/css" href="css/responsive.css" />
 <link rel="stylesheet" type="text/css" href="css/onva-standalone.css?v=3" />
 <style>body { overflow-x: hidden; }</style>
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
 </head>
 <body>
 
@@ -143,13 +144,20 @@
 </section>
 </main>
 
-<section class="cta">
-  <div class="wrap">
-    <div class="txt">
-      <h2>Give vendors a reason to choose your agency.</h2>
-      <p>Tell us about your listings, your feeds and your appraisal process. We will scope a site that does what the portals cannot.</p>
+<section class="cta-outer">
+  <div class="container">
+    <div class="cta-banner-section cta-top-space">
+      <div class="cta-card">
+        <div class="cta-content">
+          <h2>Give vendors a reason to choose your agency.</h2>
+          <p>Tell us about your listings, your feeds and your appraisal process. We will scope a site that does what the portals cannot.</p>
+          <a class="ttm-btn ttm-btn-size-md ttm-btn-style-border ttm-btn-color-white" href="contact-us.html">
+              <span>Start a Project</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+        </div>
+      </div>
     </div>
-    <a class="btn btn-ghost" href="contact-us.html">Start a Project <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
 </section>
 
@@ -198,5 +206,6 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Real Estate Website Development", "serviceType": "Real Estate Website Development", "url": "https://www.onva.com.au/real-estate-website-development.html", "description": "Real estate website development for Australian agencies. Listing feeds, property search, agent profiles, suburb pages and appraisal request forms.", "areaServed": {"@type": "Country", "name": "Australia"}, "provider": {"@type": "ProfessionalService", "name": "Onva Labs", "url": "https://www.onva.com.au", "email": "info@onva.com.au", "address": {"@type": "PostalAddress", "addressLocality": "Sydney", "addressRegion": "NSW", "addressCountry": "AU"}}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can our website pull listings straight from our CRM?", "acceptedAnswer": {"@type": "Answer", "text": "In most cases, yes. A property listing website lives or dies on its data, and agency systems generally expose listings through a feed or an API, so we connect to that rather than have your team enter properties twice. The work sits in mapping fields, handling images and floor plans, and deciding what happens when a feed arrives late."}}, {"@type": "Question", "name": "Why bother with our own site when the portals already have our listings?", "acceptedAnswer": {"@type": "Answer", "text": "Because the portals sell attention to every agency at once. Your site is the only place where your agents, your suburb knowledge and your recent results are the whole page rather than a logo in the corner. Most vendors check the portals first and the agency site last, immediately before deciding who to ring."}}, {"@type": "Question", "name": "How should we handle appraisal enquiries that come in overnight?", "acceptedAnswer": {"@type": "Answer", "text": "Route them by suburb and send them in a form an agent can act on from a phone: address, property type, timeframe, and how to reach the person. We also set expectations on the page about when someone will respond, because a vendor who hears nothing by lunchtime has usually contacted another agency."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.onva.com.au/index.html"}, {"@type": "ListItem", "position": 2, "name": "Industries", "item": "https://www.onva.com.au/industries.html"}, {"@type": "ListItem", "position": 3, "name": "Real Estate", "item": "https://www.onva.com.au/real-estate-website-development.html"}]}</script>
+    <script src="js/cta-banner.js"></script>
 </body>
 </html>

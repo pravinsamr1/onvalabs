@@ -34,6 +34,7 @@
 <link rel="stylesheet" type="text/css" href="../css/responsive.css" />
 <link rel="stylesheet" type="text/css" href="../css/onva-standalone.css?v=3" />
 <style>body { overflow-x: hidden; }</style>
+    <link rel="stylesheet" type="text/css" href="../css/custom.css" />
 </head>
 <body>
 
@@ -143,13 +144,20 @@
 </section>
 </main>
 
-<section class="cta">
-  <div class="wrap">
-    <div class="txt">
-      <h2>Who is looking after your site?</h2>
-      <p>If nobody can tell you when the last backup was tested, that is the answer. Get in touch and we will review what is in place today.</p>
+<section class="cta-outer">
+  <div class="container">
+    <div class="cta-banner-section cta-top-space">
+      <div class="cta-card">
+        <div class="cta-content">
+          <h2>Who is looking after your site?</h2>
+          <p>If nobody can tell you when the last backup was tested, that is the answer. Get in touch and we will review what is in place today.</p>
+          <a class="ttm-btn ttm-btn-size-md ttm-btn-style-border ttm-btn-color-white" href="../contact-us.html">
+              <span>Start a Project</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+        </div>
+      </div>
     </div>
-    <a class="btn btn-ghost" href="../contact-us.html">Start a Project <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
 </section>
 
@@ -198,5 +206,6 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Website Maintenance Services and Support Plans", "serviceType": "Website Maintenance Services and Support Plans", "url": "https://www.onva.com.au/services/website-maintenance.html", "description": "Website maintenance services across Australia. Onva Labs handles updates, restore-tested backups, security patching, uptime monitoring and content changes.", "areaServed": {"@type": "Country", "name": "Australia"}, "provider": {"@type": "ProfessionalService", "name": "Onva Labs", "url": "https://www.onva.com.au", "email": "info@onva.com.au", "address": {"@type": "PostalAddress", "addressLocality": "Sydney", "addressRegion": "NSW", "addressCountry": "AU"}}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What happens when our site goes down?", "acceptedAnswer": {"@type": "Answer", "text": "Monitoring alerts us, rather than you learning about it from an annoyed customer. We check whether the fault sits with the host, a recent change, an expired certificate or the application itself, restore from a tested backup where that is the safest route, and then write up the cause so the same failure does not return quietly."}}, {"@type": "Question", "name": "Do we need a plan if our site rarely changes?", "acceptedAnswer": {"@type": "Answer", "text": "Often yes, for the opposite reason. A site nobody touches is exactly where a plugin vulnerability sits unpatched, a certificate lapses and a form silently stops sending. Maintenance is less about change and more about noticing. If your site is genuinely static and hosted elsewhere, we will say so and suggest a smaller plan."}}, {"@type": "Question", "name": "Can you maintain a site your team did not build?", "acceptedAnswer": {"@type": "Answer", "text": "Usually. We start with an inventory: hosting, domain, certificates, the content system, plugins and who holds each login. Some sites arrive with abandoned code or a platform no longer supported by anyone, and we say that plainly rather than quoting around it. Where maintenance is not viable, we explain what a rebuild would involve instead."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.onva.com.au/index.html"}, {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.onva.com.au/services.html"}, {"@type": "ListItem", "position": 3, "name": "Website Maintenance", "item": "https://www.onva.com.au/services/website-maintenance.html"}]}</script>
+    <script src="../js/cta-banner.js"></script>
 </body>
 </html>

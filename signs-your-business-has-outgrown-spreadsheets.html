@@ -108,6 +108,7 @@
   @media (max-width:600px){.post-head{padding:44px 0 48px}article{padding:40px 0 10px}.prose{font-size:17px}.btn-ghost{margin-left:0;margin-top:12px}}
   @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
 </style>
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
 </head>
 <body>
 
@@ -250,12 +251,21 @@
       </div>
     </div>
 
-    <section class="blog-cta">
-      <div class="blog-wrap">
-        <h2>Want a hand with any of this?</h2>
-        <p>We are a Sydney web, software and growth studio. Tell us what you are trying to fix and we will give you a straight answer on what it takes.</p>
-        <a class="btn" href="contact-us.html">Talk to us</a>
-        <a class="btn btn-ghost" href="services/custom-business-software.html">See our services</a>
+    <section class="cta-outer">
+      <div class="container">
+        <div class="cta-banner-section cta-top-space">
+          <div class="cta-card">
+            <div class="cta-content">
+              <h2>Want a hand with any of this?</h2>
+              <p>We are a Sydney web, software and growth studio. Tell us what you are trying to fix and we will give you a straight answer on what it takes.</p>
+              <a class="ttm-btn ttm-btn-size-md ttm-btn-style-border ttm-btn-color-white" href="contact-us.html">
+                  <span>Talk to us</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+              <a class="cta-btn-ghost" href="services/custom-business-software.html">See our services</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -334,5 +344,6 @@
 }
 </script>
 
+    <script src="js/cta-banner.js"></script>
 </body>
 </html>

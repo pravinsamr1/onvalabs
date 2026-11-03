@@ -42,6 +42,7 @@
       overflow-x: hidden;
     }
   </style>
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
 </head>
 
 <body>
@@ -374,18 +375,20 @@
         </section>
       </main>
 
-      <section class="cta">
-        <div class="wrap">
-          <div class="txt">
-            <h2>Sydney-based, working Australia-wide.</h2>
-            <p>Wherever you are, you get an Australian team in your time zone. Tell us about the project and we will
-              tell you how we would run it.</p>
+      <section class="cta-outer">
+        <div class="container">
+          <div class="cta-banner-section cta-top-space">
+            <div class="cta-card">
+              <div class="cta-content">
+                <h2>Sydney-based, working Australia-wide.</h2>
+                <p>Wherever you are, you get an Australian team in your time zone. Tell us about the project and we will tell you how we would run it.</p>
+                <a class="ttm-btn ttm-btn-size-md ttm-btn-style-border ttm-btn-color-white" href="contact-us.html">
+                    <span>Start a Project</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                  </a>
+              </div>
+            </div>
           </div>
-          <a class="btn btn-ghost" href="contact-us.html">Start a Project <svg class="arw" viewBox="0 0 24 24"
-              fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
-              aria-hidden="true">
-              <path d="M5 12h14M13 6l6 6-6 6" />
-            </svg></a>
         </div>
       </section>
 
@@ -438,6 +441,7 @@
     type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do you have an office in Melbourne, Brisbane or Perth?", "acceptedAnswer": {"@type": "Answer", "text": "No. Onva Labs is based in Sydney and works with clients across Australia remotely. The website development Melbourne and Brisbane businesses brief us for is run by the same Sydney team, on calls and shared documents rather than site visits. We would rather state that plainly than list addresses we do not occupy."}}, {"@type": "Question", "name": "Does working remotely cause problems?", "acceptedAnswer": {"@type": "Answer", "text": "Rarely, and for practical reasons. We keep Australian business hours in Australian time zones, so a question from a Brisbane client at ten in the morning is answered that morning. Perth clients allow for the time difference and little else changes. Nothing is passed to an offshore team overnight, so context is never lost in a handover."}}, {"@type": "Question", "name": "Can you register a .com.au domain for us?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. auDA administers the .au namespace, and a .com.au domain requires an Australian presence plus a close and substantial connection between the registrant and the name itself. We check that your preferred name fits those requirements before you build a brand on it, then register and manage it alongside your hosting and email."}}]}</script>
   <script
     type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.onva.com.au/index.html"}, {"@type": "ListItem", "position": 2, "name": "Locations", "item": "https://www.onva.com.au/locations.html"}, {"@type": "ListItem", "position": 3, "name": "Australia-wide", "item": "https://www.onva.com.au/web-development-australia.html"}]}</script>
+    <script src="js/cta-banner.js"></script>
 </body>
 
 </html>
