@@ -222,6 +222,7 @@
     .steps { grid-template-columns: 1fr; gap: 16px; }
   }
 </style>
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
 </head>
 
 <body>
@@ -550,14 +551,23 @@
     </div>
 
     <!-- CTA Section -->
-    <div class="services-cta">
-      <div class="services-wrap">
-        <h2>Looking for your industry or area?</h2>
-        <p>See what we build for businesses like yours, or find the team working closest to you.</p>
-        <a class="btn-theme" href="industries.html">Browse Industries</a>
-        <a class="btn-theme btn-theme-ghost" href="locations.html">Browse Locations</a>
+    <section class="cta-outer">
+      <div class="container">
+        <div class="cta-banner-section cta-top-space">
+          <div class="cta-card">
+            <div class="cta-content">
+              <h2>Looking for your industry or area?</h2>
+              <p>See what we build for businesses like yours, or find the team working closest to you.</p>
+              <a class="ttm-btn ttm-btn-size-md ttm-btn-style-border ttm-btn-color-white" href="industries.html">
+                  <span>Browse Industries</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+              <a class="cta-btn-ghost" href="locations.html">Browse Locations</a>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
     <!--footer start-->
     <div id="footer-placeholder"></div>
@@ -607,5 +617,6 @@
   });
 </script>
 
+    <script src="js/cta-banner.js"></script>
 </body>
 </html>

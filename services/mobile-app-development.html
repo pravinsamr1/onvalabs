@@ -34,6 +34,7 @@
 <link rel="stylesheet" type="text/css" href="../css/responsive.css" />
 <link rel="stylesheet" type="text/css" href="../css/onva-standalone.css?v=3" />
 <style>body { overflow-x: hidden; }</style>
+    <link rel="stylesheet" type="text/css" href="../css/custom.css" />
 </head>
 <body>
 
@@ -143,13 +144,20 @@
 </section>
 </main>
 
-<section class="cta">
-  <div class="wrap">
-    <div class="txt">
-      <h2>Work out which platform you need.</h2>
-      <p>Tell us who your users are and what the app has to do. We will give you a straight recommendation, including when a mobile website is the better buy.</p>
+<section class="cta-outer">
+  <div class="container">
+    <div class="cta-banner-section cta-top-space">
+      <div class="cta-card">
+        <div class="cta-content">
+          <h2>Work out which platform you need.</h2>
+          <p>Tell us who your users are and what the app has to do. We will give you a straight recommendation, including when a mobile website is the better buy.</p>
+          <a class="ttm-btn ttm-btn-size-md ttm-btn-style-border ttm-btn-color-white" href="../contact-us.html">
+              <span>Start a Project</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+        </div>
+      </div>
     </div>
-    <a class="btn btn-ghost" href="../contact-us.html">Start a Project <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
 </section>
 
@@ -198,5 +206,6 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Mobile App Development", "serviceType": "Mobile App Development", "url": "https://www.onva.com.au/services/mobile-app-development.html", "description": "Cross-platform mobile app development in Sydney. Flutter, React Native, MVP builds, app store submission and ongoing maintenance for Australian businesses.", "areaServed": {"@type": "Country", "name": "Australia"}, "provider": {"@type": "ProfessionalService", "name": "Onva Labs", "url": "https://www.onva.com.au", "email": "info@onva.com.au", "address": {"@type": "PostalAddress", "addressLocality": "Sydney", "addressRegion": "NSW", "addressCountry": "AU"}}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do we actually need an app, or will a mobile website do?", "acceptedAnswer": {"@type": "Answer", "text": "Often a website will do. If people deal with you once or twice a year, an app adds an install step between them and the thing they came for. Apps earn their place through repeat use, notifications, offline work, or device hardware like the camera. We ask which of those applies to you before quoting anything."}}, {"@type": "Question", "name": "Should we build cross-platform or native?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the features. Cross-platform app development with Flutter or React Native gives you one codebase for Android and iOS, which usually costs less to build and considerably less to maintain. Native becomes the better choice when an app leans heavily on platform-specific hardware or system behaviour. We make the call against your feature list, not a preference."}}, {"@type": "Question", "name": "What happens after the app is in the stores?", "acceptedAnswer": {"@type": "Answer", "text": "Maintenance, which almost everyone underestimates. Android and iOS release new versions every year, store policies shift, and libraries need updating or the app eventually breaks. We also watch crash reports and real usage from the first release onwards. Mobile app maintenance is quoted as ongoing work from the start, never raised later as a surprise."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.onva.com.au/index.html"}, {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.onva.com.au/services.html"}, {"@type": "ListItem", "position": 3, "name": "Mobile App Development", "item": "https://www.onva.com.au/services/mobile-app-development.html"}]}</script>
+    <script src="../js/cta-banner.js"></script>
 </body>
 </html>

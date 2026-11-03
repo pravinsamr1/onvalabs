@@ -34,6 +34,7 @@
 <link rel="stylesheet" type="text/css" href="../css/responsive.css" />
 <link rel="stylesheet" type="text/css" href="../css/onva-standalone.css?v=3" />
 <style>body { overflow-x: hidden; }</style>
+    <link rel="stylesheet" type="text/css" href="../css/custom.css" />
 </head>
 <body>
 
@@ -143,13 +144,20 @@
 </section>
 </main>
 
-<section class="cta">
-  <div class="wrap">
-    <div class="txt">
-      <h2>Not sure you need an app at all?</h2>
-      <p>Describe what your users need to do. We will tell you honestly whether a progressive web app, a native build or a better mobile site is the right spend.</p>
+<section class="cta-outer">
+  <div class="container">
+    <div class="cta-banner-section cta-top-space">
+      <div class="cta-card">
+        <div class="cta-content">
+          <h2>Not sure you need an app at all?</h2>
+          <p>Describe what your users need to do. We will tell you honestly whether a progressive web app, a native build or a better mobile site is the right spend.</p>
+          <a class="ttm-btn ttm-btn-size-md ttm-btn-style-border ttm-btn-color-white" href="../contact-us.html">
+              <span>Start a Project</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+        </div>
+      </div>
     </div>
-    <a class="btn btn-ghost" href="../contact-us.html">Start a Project <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
 </section>
 
@@ -198,5 +206,6 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Progressive Web App Development for Australian Businesses", "serviceType": "Progressive Web App Development for Australian Businesses", "url": "https://www.onva.com.au/services/progressive-web-apps.html", "description": "Progressive web app development in Sydney. Onva Labs builds installable, offline-capable web apps from one codebase, and is honest about the trade-offs.", "areaServed": {"@type": "Country", "name": "Australia"}, "provider": {"@type": "ProfessionalService", "name": "Onva Labs", "url": "https://www.onva.com.au", "email": "info@onva.com.au", "address": {"@type": "PostalAddress", "addressLocality": "Sydney", "addressRegion": "NSW", "addressCountry": "AU"}}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is a progressive web app as good as a native app?", "acceptedAnswer": {"@type": "Answer", "text": "For many business tools, yes. For some things, no. A progressive web app installs from the browser, works offline and sends notifications, which covers most portals, booking tools and field apps. Native still wins for deep hardware access, background location tracking and Bluetooth devices. We work through your actual requirements before recommending either one."}}, {"@type": "Question", "name": "Do progressive web apps work properly on iPhone?", "acceptedAnswer": {"@type": "Answer", "text": "Partly. Apple supports the core of the standard in Safari, so an installable web app runs on iOS, but it supports less of it than Android does and the gaps shift between releases. Push notifications on iPhone require the user to install the app to the home screen first. We confirm what your iOS audience gets before building."}}, {"@type": "Question", "name": "Can a progressive web app be listed in the app stores?", "acceptedAnswer": {"@type": "Answer", "text": "Sometimes, using a wrapper, though store policies change and we will not promise acceptance. The more useful point is that you may not need to. People install an installable web app straight from your website, updates ship without a review queue, and nothing stands between a fix and the person waiting on it."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.onva.com.au/index.html"}, {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.onva.com.au/services.html"}, {"@type": "ListItem", "position": 3, "name": "Progressive Web Apps", "item": "https://www.onva.com.au/services/progressive-web-apps.html"}]}</script>
+    <script src="../js/cta-banner.js"></script>
 </body>
 </html>

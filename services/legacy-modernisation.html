@@ -34,6 +34,7 @@
 <link rel="stylesheet" type="text/css" href="../css/responsive.css" />
 <link rel="stylesheet" type="text/css" href="../css/onva-standalone.css?v=3" />
 <style>body { overflow-x: hidden; }</style>
+    <link rel="stylesheet" type="text/css" href="../css/custom.css" />
 </head>
 <body>
 
@@ -143,13 +144,20 @@
 </section>
 </main>
 
-<section class="cta">
-  <div class="wrap">
-    <div class="txt">
-      <h2>Replace it before it fails.</h2>
-      <p>Tell us about the system everyone is nervous about. We will document what it does and map a staged path off it without stopping the business.</p>
+<section class="cta-outer">
+  <div class="container">
+    <div class="cta-banner-section cta-top-space">
+      <div class="cta-card">
+        <div class="cta-content">
+          <h2>Replace it before it fails.</h2>
+          <p>Tell us about the system everyone is nervous about. We will document what it does and map a staged path off it without stopping the business.</p>
+          <a class="ttm-btn ttm-btn-size-md ttm-btn-style-border ttm-btn-color-white" href="../contact-us.html">
+              <span>Start a Project</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+        </div>
+      </div>
     </div>
-    <a class="btn btn-ghost" href="../contact-us.html">Start a Project <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
 </section>
 
@@ -198,5 +206,6 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Legacy Software Modernisation and System Migration", "serviceType": "Legacy Software Modernisation and System Migration", "url": "https://www.onva.com.au/services/legacy-modernisation.html", "description": "Legacy software modernisation in Australia. Onva Labs replaces Access databases, unsupported PHP and old desktop apps in stages, data migration first.", "areaServed": {"@type": "Country", "name": "Australia"}, "provider": {"@type": "ProfessionalService", "name": "Onva Labs", "url": "https://www.onva.com.au", "email": "info@onva.com.au", "address": {"@type": "PostalAddress", "addressLocality": "Sydney", "addressRegion": "NSW", "addressCountry": "AU"}}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why not rewrite the whole thing at once?", "acceptedAnswer": {"@type": "Answer", "text": "Because big-bang rewrites fail in a predictable way. The old system keeps changing while the new one is built, nobody remembers every edge case, and the launch date becomes a cliff. Staged replacement avoids that: one function moves at a time, each goes live on its own, and you can pause the programme without being left stranded between two systems."}}, {"@type": "Question", "name": "Our old system still works. Why change it?", "acceptedAnswer": {"@type": "Answer", "text": "Working is not the same as safe. The usual triggers for replacing legacy software are a person retiring, software versions that no longer receive security patches, hardware that cannot be replaced, or an inability to connect the system to anything newer. If none of those apply and the risk is understood, waiting is a legitimate decision, and we will say so."}}, {"@type": "Question", "name": "How much of the project is data migration?", "acceptedAnswer": {"@type": "Answer", "text": "Most of it, more often than people expect. Years of inconsistent entry, duplicated records, free-text fields holding three different things and rules that live in someone's memory all have to be untangled. We run test migrations repeatedly, reconcile counts and totals against the original, and only move live data once you have checked the result."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.onva.com.au/index.html"}, {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.onva.com.au/services.html"}, {"@type": "ListItem", "position": 3, "name": "Legacy Modernisation", "item": "https://www.onva.com.au/services/legacy-modernisation.html"}]}</script>
+    <script src="../js/cta-banner.js"></script>
 </body>
 </html>

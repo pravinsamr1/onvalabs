@@ -970,6 +970,8 @@ $(document).ready(function () {
             url: enquiryUrl,
             type: 'POST',
             dataType: 'json',
+            // The mail server can take ~20s to respond, so allow time before giving up
+            timeout: 75000,
             data: {
                 name: name,
                 email: email,
@@ -1005,16 +1007,64 @@ $(document).ready(function () {
                     $submitBtn.prop('disabled', false).html(originalBtnHtml);
                 }
             },
-            error: function (xhr) {
+            error: function (xhr, textStatus) {
                 var errorMsg = 'Failed to send enquiry. Please try again later.';
                 if (xhr.responseJSON && xhr.responseJSON.message) {
                     errorMsg = xhr.responseJSON.message;
+                } else if (textStatus === 'timeout') {
+                    errorMsg = 'This is taking longer than usual. Please try again in a few minutes or email us at info@onva.com.au.';
                 }
                 $status.html(
                     '<div style="background-color: #fee2e2; color: #991b1b; border: 1px solid #fecaca; padding: 12px 16px; border-radius: 8px; font-size: 14px;">' +
                     '<i class="fa fa-exclamation-circle me-1"></i> ' + escapeHtml(errorMsg) +
                     '</div>'
                 ).fadeIn();
+                $submitBtn.prop('disabled', false).html(originalBtnHtml);
+            }
+        });
+    });
+
+    // Contact page form: send in the background and show the result in the page
+    // (without this the browser would navigate to the script's raw JSON reply)
+    $(document).on('submit', '#ttm-quote-form', function (e) {
+        e.preventDefault();
+
+        var $form = $(this);
+        var $submitBtn = $form.find('button[type="submit"]');
+        var $status = $form.find('.quote-form-status');
+        var originalBtnHtml = $submitBtn.html();
+
+        function showStatus(ok, text) {
+            $status.html(
+                '<div style="background-color: ' + (ok ? '#d1fae5; color: #065f46; border: 1px solid #a7f3d0;' : '#fee2e2; color: #991b1b; border: 1px solid #fecaca;') +
+                ' padding: 12px 16px; border-radius: 8px; font-size: 14px; margin-top: 16px;">' +
+                '<i class="fa ' + (ok ? 'fa-check-circle' : 'fa-exclamation-circle') + ' me-1"></i> ' +
+                $('<div>').text(text).html() + '</div>'
+            ).fadeIn();
+        }
+
+        $submitBtn.prop('disabled', true).html('<i class="fa fa-spinner fa-spin me-2"></i> Sending...');
+        $status.hide().empty();
+
+        $.ajax({
+            url: $form.attr('action'),
+            type: 'POST',
+            dataType: 'json',
+            timeout: 75000,
+            data: $form.serialize(),
+            success: function (response) {
+                var ok = !!(response && response.success);
+                showStatus(ok, (response && response.message) || (ok ? 'Thank you! Your enquiry has been sent.' : 'Failed to send enquiry. Please try again.'));
+                if (ok) $form[0].reset();
+            },
+            error: function (xhr, textStatus) {
+                var errorMsg = (xhr.responseJSON && xhr.responseJSON.message) ||
+                    (textStatus === 'timeout'
+                        ? 'This is taking longer than usual. Please try again in a few minutes or email us at info@onva.com.au.'
+                        : 'Failed to send enquiry. Please try again later.');
+                showStatus(false, errorMsg);
+            },
+            complete: function () {
                 $submitBtn.prop('disabled', false).html(originalBtnHtml);
             }
         });

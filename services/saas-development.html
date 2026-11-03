@@ -34,6 +34,7 @@
 <link rel="stylesheet" type="text/css" href="../css/responsive.css" />
 <link rel="stylesheet" type="text/css" href="../css/onva-standalone.css?v=3" />
 <style>body { overflow-x: hidden; }</style>
+    <link rel="stylesheet" type="text/css" href="../css/custom.css" />
 </head>
 <body>
 
@@ -143,13 +144,20 @@
 </section>
 </main>
 
-<section class="cta">
-  <div class="wrap">
-    <div class="txt">
-      <h2>Turn it into a product.</h2>
-      <p>Whether you are starting from an idea or productising something you already run internally, tell us about it and we will scope a first release.</p>
+<section class="cta-outer">
+  <div class="container">
+    <div class="cta-banner-section cta-top-space">
+      <div class="cta-card">
+        <div class="cta-content">
+          <h2>Turn it into a product.</h2>
+          <p>Whether you are starting from an idea or productising something you already run internally, tell us about it and we will scope a first release.</p>
+          <a class="ttm-btn ttm-btn-size-md ttm-btn-style-border ttm-btn-color-white" href="../contact-us.html">
+              <span>Start a Project</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+        </div>
+      </div>
     </div>
-    <a class="btn btn-ghost" href="../contact-us.html">Start a Project <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
 </section>
 
@@ -198,5 +206,6 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "SaaS Application Development for Founders and Established Businesses", "serviceType": "SaaS Application Development for Founders and Established Businesses", "url": "https://www.onva.com.au/services/saas-development.html", "description": "SaaS development company in Sydney. Onva Labs builds multi-tenant subscription products with billing, onboarding and Australian hosting, MVP first.", "areaServed": {"@type": "Country", "name": "Australia"}, "provider": {"@type": "ProfessionalService", "name": "Onva Labs", "url": "https://www.onva.com.au", "email": "info@onva.com.au", "address": {"@type": "PostalAddress", "addressLocality": "Sydney", "addressRegion": "NSW", "addressCountry": "AU"}}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How small should the first version be?", "acceptedAnswer": {"@type": "Answer", "text": "Smaller than feels comfortable. The useful test is whether one real customer would pay for it as it stands, doing the single job they currently struggle with. Everything else waits. MVP development keeps the first build cheap enough that being wrong about a feature costs weeks instead of a year, which happens to most products."}}, {"@type": "Question", "name": "What is multi-tenancy and why does it matter?", "acceptedAnswer": {"@type": "Answer", "text": "Multi-tenancy means one application serves many customer organisations, each seeing only their own data. It matters because retrofitting it is painful and risky. Separating tenants from the start affects the database design, every query, permissions and backups, so it is far cheaper to decide before launch than after your fourth customer signs up."}}, {"@type": "Question", "name": "Where will our customers' data be hosted?", "acceptedAnswer": {"@type": "Answer", "text": "In Australian data centres by default, usually Sydney, which keeps latency low for local users and makes data sovereignty an easy question to answer when larger buyers run their procurement checks. If you expect overseas customers, we discuss regions early, along with the Privacy Act 1988 obligations that follow personal information offshore."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.onva.com.au/index.html"}, {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.onva.com.au/services.html"}, {"@type": "ListItem", "position": 3, "name": "SaaS Development", "item": "https://www.onva.com.au/services/saas-development.html"}]}</script>
+    <script src="../js/cta-banner.js"></script>
 </body>
 </html>

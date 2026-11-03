@@ -109,6 +109,7 @@
     .points { grid-template-columns: 1fr; }
   }
 </style>
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
 </head>
 
 <body>
@@ -287,13 +288,22 @@
     </div>
 
     <!-- CTA Section -->
-    <div class="products-cta">
-      <div class="products-wrap">
-        <h2>Want to see one of these platforms in action?</h2>
-        <p>Tell us which product you're interested in and a little about your organisation. We'll arrange a live walkthrough with the team who builds and supports it.</p>
-        <a class="btn-theme" href="contact-us.html">Book A Walkthrough</a>
+    <section class="cta-outer">
+      <div class="container">
+        <div class="cta-banner-section cta-top-space">
+          <div class="cta-card">
+            <div class="cta-content">
+              <h2>Want to see one of these platforms in action?</h2>
+              <p>Tell us which product you're interested in and a little about your organisation. We'll arrange a live walkthrough with the team who builds and supports it.</p>
+              <a class="ttm-btn ttm-btn-size-md ttm-btn-style-border ttm-btn-color-white" href="contact-us.html">
+                  <span>Book A Walkthrough</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
     <!--footer start-->
     <div id="footer-placeholder"></div>
@@ -350,5 +360,6 @@
 }
 </script>
 
+    <script src="js/cta-banner.js"></script>
 </body>
 </html>

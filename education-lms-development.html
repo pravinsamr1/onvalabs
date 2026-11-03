@@ -34,6 +34,7 @@
 <link rel="stylesheet" type="text/css" href="css/responsive.css" />
 <link rel="stylesheet" type="text/css" href="css/onva-standalone.css?v=3" />
 <style>body { overflow-x: hidden; }</style>
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
 </head>
 <body>
 
@@ -143,13 +144,20 @@
 </section>
 </main>
 
-<section class="cta">
-  <div class="wrap">
-    <div class="txt">
-      <h2>Prove your people are current.</h2>
-      <p>Tell us what you deliver and what you have to report on. We will scope a platform that handles enrolment, assessment and the evidence trail.</p>
+<section class="cta-outer">
+  <div class="container">
+    <div class="cta-banner-section cta-top-space">
+      <div class="cta-card">
+        <div class="cta-content">
+          <h2>Prove your people are current.</h2>
+          <p>Tell us what you deliver and what you have to report on. We will scope a platform that handles enrolment, assessment and the evidence trail.</p>
+          <a class="ttm-btn ttm-btn-size-md ttm-btn-style-border ttm-btn-color-white" href="contact-us.html">
+              <span>Start a Project</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+        </div>
+      </div>
     </div>
-    <a class="btn btn-ghost" href="contact-us.html">Start a Project <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
 </section>
 
@@ -198,5 +206,6 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "LMS Development and Websites for Education Providers", "serviceType": "LMS Development and Websites for Education Providers", "url": "https://www.onva.com.au/education-lms-development.html", "description": "LMS development and websites for Australian training providers, schools and RTOs. Enrolment, assessment, certificates, expiry reminders and reporting.", "areaServed": {"@type": "Country", "name": "Australia"}, "provider": {"@type": "ProfessionalService", "name": "Onva Labs", "url": "https://www.onva.com.au", "email": "info@onva.com.au", "address": {"@type": "PostalAddress", "addressLocality": "Sydney", "addressRegion": "NSW", "addressCountry": "AU"}}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What are SCORM and xAPI, and do we need them?", "acceptedAnswer": {"@type": "Answer", "text": "They are the standards that let course content and results move between systems. SCORM packages a course so it runs in any compatible platform and reports completion back. xAPI is newer and records a wider range of activity, including learning that happens outside the platform. You want them if you buy content from elsewhere, or expect to change systems one day."}}, {"@type": "Question", "name": "Can it tell us when someone's training is about to expire?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Each certificate carries an expiry date, and the platform can notify the learner, their manager and an administrator at intervals you choose before it lapses. That turns renewal from an annual spreadsheet hunt into something handled quietly in advance, which is usually the difference between a current workforce and an awkward conversation."}}, {"@type": "Question", "name": "Do you handle RTO compliance for us?", "acceptedAnswer": {"@type": "Answer", "text": "No. Onva Labs builds and configures the platform. We are not a registered training organisation and we make no claim of ASQA or TEQSA accreditation or compliance, for ourselves or on your behalf. What we do build is the records, evidence trails and exports your own compliance people ask for, so reporting is straightforward when somebody does ask."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.onva.com.au/index.html"}, {"@type": "ListItem", "position": 2, "name": "Industries", "item": "https://www.onva.com.au/industries.html"}, {"@type": "ListItem", "position": 3, "name": "Education & Training", "item": "https://www.onva.com.au/education-lms-development.html"}]}</script>
+    <script src="js/cta-banner.js"></script>
 </body>
 </html>

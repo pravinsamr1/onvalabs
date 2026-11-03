@@ -34,6 +34,7 @@
 <link rel="stylesheet" type="text/css" href="../css/responsive.css" />
 <link rel="stylesheet" type="text/css" href="../css/onva-standalone.css?v=3" />
 <style>body { overflow-x: hidden; }</style>
+    <link rel="stylesheet" type="text/css" href="../css/custom.css" />
 </head>
 <body>
 
@@ -143,13 +144,20 @@
 </section>
 </main>
 
-<section class="cta">
-  <div class="wrap">
-    <div class="txt">
-      <h2>Give your customers a login instead of a phone call.</h2>
-      <p>Tell us what people keep ringing to ask. We will map what a portal needs to show and scope the first stage.</p>
+<section class="cta-outer">
+  <div class="container">
+    <div class="cta-banner-section cta-top-space">
+      <div class="cta-card">
+        <div class="cta-content">
+          <h2>Give your customers a login instead of a phone call.</h2>
+          <p>Tell us what people keep ringing to ask. We will map what a portal needs to show and scope the first stage.</p>
+          <a class="ttm-btn ttm-btn-size-md ttm-btn-style-border ttm-btn-color-white" href="../contact-us.html">
+              <span>Start a Project</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+        </div>
+      </div>
     </div>
-    <a class="btn btn-ghost" href="../contact-us.html">Start a Project <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
 </section>
 
@@ -198,5 +206,6 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Web Portal Development for Australian Organisations", "serviceType": "Web Portal Development for Australian Organisations", "url": "https://www.onva.com.au/services/web-portal-development.html", "description": "Web portal development in Sydney. Onva Labs builds customer, client, supplier and staff portals with logins, roles, documents and self-service dashboards.", "areaServed": {"@type": "Country", "name": "Australia"}, "provider": {"@type": "ProfessionalService", "name": "Onva Labs", "url": "https://www.onva.com.au", "email": "info@onva.com.au", "address": {"@type": "PostalAddress", "addressLocality": "Sydney", "addressRegion": "NSW", "addressCountry": "AU"}}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How is a portal different from a website?", "acceptedAnswer": {"@type": "Answer", "text": "A website is public and the same for everyone. A portal sits behind a login and shows each person only their own information: their invoices, their documents, their job status. That difference changes how the whole thing is built, because now you are deciding who may see what, and proving it on every request."}}, {"@type": "Question", "name": "How do you control who sees what?", "acceptedAnswer": {"@type": "Answer", "text": "Role-based access control. Every person belongs to a role, each role is granted specific permissions, and the portal checks permission on every request rather than merely hiding a menu item. Roles are mapped and signed off during design. Personal information is handled under the Privacy Act 1988 and the Australian Privacy Principles."}}, {"@type": "Question", "name": "Can the portal use data from our existing systems?", "acceptedAnswer": {"@type": "Answer", "text": "Usually. If your accounting, job management or inventory system offers an API, the portal reads live data and nobody retypes anything. Where a platform has no API, we look at scheduled exports or a middleware layer instead. We check what is actually available before promising anyone a live connection."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.onva.com.au/index.html"}, {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.onva.com.au/services.html"}, {"@type": "ListItem", "position": 3, "name": "Web Portal Development", "item": "https://www.onva.com.au/services/web-portal-development.html"}]}</script>
+    <script src="../js/cta-banner.js"></script>
 </body>
 </html>

@@ -1,13 +1,16 @@
 <?php
 // send-enquiry.php
-// Prepared for Onvalabs - Ready for cPanel deployment
-//
-// SMTP credentials are NOT stored in this file. They are read from environment
-// variables or from a config file outside the public web root
-// (see mail-config.example.php for the format and location).
+// Receives the website enquiry forms (contact page and the "Talk to us" pop-up)
+// and emails them through authenticated SMTP with PHPMailer.
+use PHPMailer\PHPMailer\PHPMailer;
 
-// Set response headers to JSON
+require_once __DIR__ . '/vendor/autoload.php';
+
 header('Content-Type: application/json; charset=UTF-8');
+
+// The SMTP server can take ~20s just to greet us, so give the request room to finish
+@set_time_limit(90);
+ignore_user_abort(true);
 
 function respond($status, $success, $message)
 {
@@ -16,47 +19,72 @@ function respond($status, $success, $message)
     exit;
 }
 
-// Remove CR/LF and other control characters so values are safe in mail headers
-function clean_line($value, $maxLength)
+// Plain single-line text: no control characters (keeps mail headers safe), capped length
+function clean_line($value, $max)
 {
     $value = preg_replace('/[\x00-\x1F\x7F]+/u', ' ', (string) $value);
-    return mb_substr(trim($value), 0, $maxLength, 'UTF-8');
+    return mb_substr(trim($value), 0, $max, 'UTF-8');
 }
 
-// Only allow POST requests
+function esc($value)
+{
+    return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
+}
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     respond(405, false, 'Method not allowed.');
 }
 
 // ---------------------------------------------------------------------------
-// Configuration: environment variables first, then a private config file
-// one level above the web root (e.g. /home2/onvacom/onvalabs-mail-config.php)
+// SMTP settings (hard-coded at the owner's request).
+// Do not commit this file to a public repository while it contains the password.
 // ---------------------------------------------------------------------------
-$config = [];
-$configFile = dirname(__DIR__) . '/onvalabs-mail-config.php';
-if (is_readable($configFile)) {
-    $loaded = include $configFile;
-    if (is_array($loaded)) {
-        $config = $loaded;
-    }
+$smtpHost = 'mail.clarent360.com.au';
+$smtpPort = 587;
+$smtpUser = 'noreply@clarent360.com.au';
+$smtpPass = 'g@iP6L[*B~3XF*8E';
+// The shared mail server's certificate is issued to its own hostname, not mail.clarent360.com.au
+$peerName = 'l4cp.vnetindia.com';
+$fromName = 'Onva Labs Website';
+// $mailTo   = 'clarent360@gmail.com';
+$mailTo   = 'pravinsamr@gmail.com';
+
+if (!$smtpHost || !$smtpUser || !$smtpPass) {
+    error_log('Enquiry form: SMTP settings missing in send-enquiry.php.');
+    respond(500, false, 'Sorry, we could not send your enquiry right now. Please email us at info@onva.com.au.');
 }
 
-$smtpHost = getenv('ONVA_SMTP_HOST') ?: ($config['smtp_host'] ?? '');
-$smtpUser = getenv('ONVA_SMTP_USER') ?: ($config['smtp_user'] ?? '');
-$smtpPass = getenv('ONVA_SMTP_PASS') ?: ($config['smtp_pass'] ?? '');
-$smtpPort = (int) (getenv('ONVA_SMTP_PORT') ?: ($config['smtp_port'] ?? 587));
-$fromName = $config['from_name'] ?? 'Onvalabs Website';
-$to       = getenv('ONVA_MAIL_TO') ?: ($config['mail_to'] ?? 'clarent360@gmail.com');
-
-// Private writable directory for the rate-limit store (outside the web root)
+// ---------------------------------------------------------------------------
+// Rate limiting (10 successful sends per IP per hour), stored outside the web root
+// ---------------------------------------------------------------------------
 $dataDir = dirname(__DIR__) . '/onvalabs-data';
 if (!is_dir($dataDir) && !@mkdir($dataDir, 0700, true)) {
     $dataDir = sys_get_temp_dir();
 }
 $rateLimitFile = $dataDir . '/onvalabs_ip_rate_limits.json';
+$ip = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
+
+function read_limits($file)
+{
+    $limits = is_readable($file) ? json_decode((string) file_get_contents($file), true) : [];
+    if (!is_array($limits)) {
+        return [];
+    }
+    foreach ($limits as $storedIp => $data) {
+        if (!isset($data['timestamp']) || time() - $data['timestamp'] > 3600) {
+            unset($limits[$storedIp]);
+        }
+    }
+    return $limits;
+}
+
+$limits = read_limits($rateLimitFile);
+if (isset($limits[$ip]['count']) && $limits[$ip]['count'] >= 10) {
+    respond(429, false, 'Too many requests from this IP. Please try again later.');
+}
 
 // ---------------------------------------------------------------------------
-// Read form data (supports standard POST or JSON payload)
+// Form data (standard POST, or a JSON body). Kept as raw text and escaped once on output.
 // ---------------------------------------------------------------------------
 $input = $_POST;
 if (empty($input)) {
@@ -66,233 +94,155 @@ if (empty($input)) {
     }
 }
 
-// Honeypot: real visitors never see or fill the "website" field.
-// Pretend success so bots get no signal.
+// Honeypot: real visitors never fill the hidden "website" field
 if (!empty($input['website'])) {
-    echo json_encode([
-        'success' => true,
-        'message' => 'Thank you! Your enquiry has been sent successfully. We will get back to you shortly.'
-    ]);
-    exit;
+    respond(200, true, 'Thank you! Your enquiry has been sent. We will get back to you within one business day.');
 }
 
-$name    = clean_line($input['name'] ?? '', 100);
-$email   = filter_var(clean_line($input['email'] ?? '', 254), FILTER_VALIDATE_EMAIL);
-$service = clean_line($input['service'] ?? '', 100);
-$message = mb_substr(trim((string) ($input['message'] ?? '')), 0, 5000, 'UTF-8');
+$name     = clean_line($input['name'] ?? '', 100);
+$email    = filter_var(clean_line($input['email'] ?? '', 254), FILTER_VALIDATE_EMAIL);
+$services = clean_line($input['services'] ?? ($input['service'] ?? ''), 300);
+$message  = mb_substr(trim((string) ($input['message'] ?? '')), 0, 5000, 'UTF-8');
 
-// Basic validation for required fields
 if ($name === '' || !$email || $message === '') {
-    respond(400, false, 'Please fill in all required fields (Name, Email, Project Details).');
+    respond(400, false, 'Please fill in all required fields (Name, Email, Message).');
 }
 
-// ---------------------------------------------------------------------------
-// Rate limiting (max 5 attempts per IP per hour), with a file lock so
-// concurrent requests can't overwrite each other's counts
-// ---------------------------------------------------------------------------
-$ip = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
-$currentTime = time();
-$fh = @fopen($rateLimitFile, 'c+');
-if ($fh && flock($fh, LOCK_EX)) {
-    $rateLimits = json_decode(stream_get_contents($fh), true);
-    if (!is_array($rateLimits)) {
-        $rateLimits = [];
-    }
-
-    // Clean up entries older than 1 hour (3600 seconds)
-    foreach ($rateLimits as $storedIp => $data) {
-        if (!isset($data['timestamp']) || ($currentTime - $data['timestamp'] > 3600)) {
-            unset($rateLimits[$storedIp]);
-        }
-    }
-
-    $limited = isset($rateLimits[$ip]['count']) && $rateLimits[$ip]['count'] >= 5;
-    if (!$limited) {
-        if (!isset($rateLimits[$ip])) {
-            $rateLimits[$ip] = ['count' => 0, 'timestamp' => $currentTime];
-        }
-        $rateLimits[$ip]['count']++;
-        ftruncate($fh, 0);
-        rewind($fh);
-        fwrite($fh, json_encode($rateLimits));
-        fflush($fh);
-    }
-    flock($fh, LOCK_UN);
-    fclose($fh);
-
-    if ($limited) {
-        respond(429, false, 'Too many requests from this IP. Please try again later.');
-    }
-} else {
-    error_log('Enquiry form: could not open rate-limit file ' . $rateLimitFile);
-}
-
-// Friendly label for service selected
-$serviceMap = [
+// Friendly labels for the pop-up form's service dropdown values
+$serviceLabels = [
     'web'    => 'Web Development',
     'app'    => 'Mobile App Development',
     'seo'    => 'Digital Marketing',
     'domain' => 'Domain & Hosting',
-    'other'  => 'Other'
+    'other'  => 'Other',
 ];
-
-if (isset($serviceMap[$service])) {
-    $service_display = $serviceMap[$service];
-} elseif ($service !== '' && $service !== 'Select a Service') {
-    $service_display = $service;
-} else {
-    $service_display = 'Not specified';
+$serviceList = [];
+foreach (array_filter(array_map('trim', explode(',', $services))) as $srv) {
+    $serviceList[] = $serviceLabels[$srv] ?? $srv;
 }
 
-// Subject line
-$subject = "New Onvalabs Enquiry from " . $name;
+$subject = 'New Onva Labs Enquiry from ' . $name . ($topic !== '' ? ': ' . $topic : '');
 
-// HTML Email Template
-$safeName = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
-$safeEmail = htmlspecialchars($email, ENT_QUOTES, 'UTF-8');
-$safeService = htmlspecialchars($service_display, ENT_QUOTES, 'UTF-8');
-$formattedMessage = nl2br(htmlspecialchars($message, ENT_QUOTES, 'UTF-8'));
-$dateSubmitted = date('d M Y, h:i A');
+// ---------------------------------------------------------------------------
+// Email content (HTML and a matching plain-text version)
+// ---------------------------------------------------------------------------
+$rows = [
+    'Full Name'       => esc($name),
+    'Email Address'   => "<a href='mailto:" . esc($email) . "'>" . esc($email) . '</a>',
+    'Services Needed' => $serviceList
+        ? '<ul style="margin: 0; padding-left: 20px;"><li><strong>' . implode('</strong></li><li><strong>', array_map('esc', $serviceList)) . '</strong></li></ul>'
+        : '<strong>Not selected</strong>',
+];
+$rowsHtml = '';
+foreach ($rows as $label => $value) {
+    $rowsHtml .= "<tr><th>{$label}:</th><td>{$value}</td></tr>";
+}
 
-$email_content = "<!DOCTYPE html>
+$emailContent = "<!DOCTYPE html>
 <html lang=\"en\">
 <head>
     <meta charset=\"UTF-8\">
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f4f6fa; color: #374151; margin: 0; padding: 20px; }
-        .container { width: 100%; max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 10px; border: 1px solid #e5e7eb; padding: 30px; box-sizing: border-box; }
-        .logo { font-size: 24px; font-weight: 700; color: #182333; margin-bottom: 20px; text-align: center; letter-spacing: 0.5px; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f9fafb; color: #374151; margin: 0; padding: 20px; }
+        .container { width: 100%; max-width: 100%; background: #ffffff; border-radius: 8px; border: 1px solid #e5e7eb; padding: 30px; box-sizing: border-box; }
+        .logo { font-size: 24px; font-weight: bold; color: #111827; margin-bottom: 24px; text-align: center; letter-spacing: 0.5px; }
         .logo span { color: #2d4a8a; }
-        .subtitle { text-align: center; color: #6b7280; font-size: 14px; margin-top: -12px; margin-bottom: 25px; }
-        h2 { font-size: 16px; color: #182333; margin-top: 10px; margin-bottom: 12px; border-bottom: 2px solid #e5e7eb; padding-bottom: 6px; }
+        h2 { font-size: 18px; color: #111827; margin-top: 0; margin-bottom: 12px; }
         table { width: 100%; border-collapse: collapse; margin-bottom: 24px; border: 1px solid #e5e7eb; }
-        th, td { text-align: left; padding: 12px 14px; border: 1px solid #e5e7eb; font-size: 14px; }
+        th, td { text-align: left; padding: 14px; border: 1px solid #e5e7eb; }
         th { font-weight: 600; color: #4b5563; width: 35%; background-color: #f9fafb; }
         td { color: #111827; }
-        a { color: #2d4a8a; text-decoration: none; font-weight: 600; }
-        .message-box { border: 1px solid #e5e7eb; padding: 16px; border-radius: 8px; line-height: 1.6; color: #374151; background-color: #f9fafb; font-size: 14px; }
-        .footer { margin-top: 28px; font-size: 12px; color: #9ca3af; text-align: center; border-top: 1px solid #e5e7eb; padding-top: 15px; }
+        a { color: #2d4a8a; text-decoration: none; }
+        .message-box { border: 1px solid #e5e7eb; padding: 16px; border-radius: 6px; line-height: 1.6; color: #374151; background-color: #ffffff; }
+        .footer { margin-top: 30px; font-size: 12px; color: #9ca3af; text-align: center; }
     </style>
 </head>
 <body>
     <div class='container'>
-        <div class='logo'>Onva<span>labs</span></div>
-        <div class='subtitle'>New Website Enquiry - 'Let's Build Something Amazing'</div>
+        <div class='logo'>Onva<span>Labs</span> Enquiry</div>
+        <h2>Enquiry Details</h2>
+        <table>{$rowsHtml}</table>
 
-        <h2>Enquiry Information</h2>
-        <table>
-            <tr>
-                <th>Full Name:</th>
-                <td>{$safeName}</td>
-            </tr>
-            <tr>
-                <th>Email Address:</th>
-                <td><a href='mailto:{$safeEmail}'>{$safeEmail}</a></td>
-            </tr>
-            <tr>
-                <th>Interested In:</th>
-                <td><strong>{$safeService}</strong></td>
-            </tr>
-            <tr>
-                <th>Submitted On:</th>
-                <td>{$dateSubmitted}</td>
-            </tr>
-        </table>
-
-        <h2>Project Details</h2>
-        <div class='message-box'>{$formattedMessage}</div>
+        <h2>Client Message</h2>
+        <div class='message-box'>" . nl2br(esc($message)) . "</div>
 
         <div class='footer'>
-            This email was sent automatically from the Onvalabs enquiry form.<br>
-            Reply directly to this email to respond to {$safeName}.
+            This email was generated automatically from the Onva Labs website enquiry form.
+            Reply to this email to respond to " . esc($name) . ".
         </div>
     </div>
 </body>
-</html>";
+</html>
+";
 
-// Plain-text alternative
-$plainText = "New Onvalabs Enquiry\n";
-$plainText .= "====================\n";
-$plainText .= "Full Name: " . $name . "\n";
-$plainText .= "Email: " . $email . "\n";
-$plainText .= "Interested In: " . $service_display . "\n";
-$plainText .= "Submitted On: " . $dateSubmitted . "\n\n";
-$plainText .= "Project Details:\n";
-$plainText .= $message . "\n";
+$plainText = "New Onva Labs Enquiry\n=====================\n"
+    . "Full Name: {$name}\n"
+    . "Email Address: {$email}\n"
+    . 'Services Needed: ' . ($serviceList ? implode(', ', $serviceList) : 'Not selected') . "\n\n"
+    . "Client Message:\n{$message}\n";
 
-$emailSent = false;
+// ---------------------------------------------------------------------------
+// Send
+// ---------------------------------------------------------------------------
+$mail = new PHPMailer(true);
 
-// Send via authenticated SMTP when PHPMailer and credentials are available
-if ($smtpHost && $smtpUser && $smtpPass && file_exists(__DIR__ . '/vendor/autoload.php')) {
-    require_once __DIR__ . '/vendor/autoload.php';
+try {
+    $mail->isSMTP();
+    $mail->Host       = $smtpHost;
+    $mail->SMTPAuth   = true;
+    $mail->Username   = $smtpUser;
+    $mail->Password   = $smtpPass;
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port       = $smtpPort;
+    // The server's greeting takes ~15-20s (Exim reverse-DNS lookup)
+    $mail->Timeout    = 45;
 
-    if (class_exists('PHPMailer\PHPMailer\PHPMailer')) {
-        $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
-        try {
-            // cPanel SMTP / Server Settings (TLS certificate is verified)
-            $mail->isSMTP();
-            $mail->Host       = $smtpHost;
-            $mail->SMTPAuth   = true;
-            $mail->Username   = $smtpUser;
-            $mail->Password   = $smtpPass;
-            $mail->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
-            $mail->Port       = $smtpPort;
-            $mail->Timeout    = 15;
-            $mail->XMailer    = ' ';
+    // Verify the certificate, against the name it is actually issued to
+    $mail->SMTPOptions = [
+        'ssl' => [
+            'verify_peer'      => true,
+            'verify_peer_name' => true,
+            'peer_name'        => $peerName,
+        ],
+    ];
 
-            // Sender and Recipient (Must match authenticated username)
-            $mail->setFrom($smtpUser, $fromName);
-            $mail->addAddress($to);
-            $mail->addReplyTo($email, $name);
+    $mail->XMailer  = ' ';
+    $mail->Hostname = substr(strrchr($smtpUser, '@'), 1) ?: 'localhost';
 
-            // Email format
-            $mail->isHTML(true);
-            $mail->CharSet = 'UTF-8';
-            $mail->Subject = $subject;
-            $mail->Body    = $email_content;
-            $mail->AltBody = $plainText;
-
-            $mail->send();
-            $emailSent = true;
-        } catch (\Throwable $e) {
-            error_log('PHPMailer Error: ' . ($mail->ErrorInfo ?: $e->getMessage()));
-        }
+    // The From address must be the authenticated mailbox
+    $mail->setFrom($smtpUser, $fromName);
+    foreach (array_filter(array_map('trim', explode(',', $mailTo))) as $recipient) {
+        $mail->addAddress($recipient);
     }
-} else {
-    error_log('Enquiry form: SMTP not configured, falling back to mail().');
+    $mail->addReplyTo($email, $name);
+
+    $mail->isHTML(true);
+    $mail->CharSet = 'UTF-8';
+    $mail->Subject = $subject;
+    $mail->Body    = $emailContent;
+    $mail->AltBody = $plainText;
+
+    $mail->send();
+} catch (\Throwable $e) {
+    // Details go to the server error log only, never to the visitor
+    error_log('Enquiry form: send failed: ' . ($mail->ErrorInfo ?: $e->getMessage()));
+    respond(500, false, 'Sorry, we could not send your enquiry right now. Please try again in a few minutes or email us at info@onva.com.au.');
 }
 
-// Fallback: If SMTP is not configured or failed, send via native PHP mail()
-if (!$emailSent) {
-    $senderDomain = !empty($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : 'onva.com.au';
-    $senderDomain = preg_replace('/[^a-z0-9.-]/i', '', preg_replace('/^www\./', '', $senderDomain));
-    $fromEmail = 'noreply@' . $senderDomain;
-
-    $headers = [];
-    $headers[] = 'MIME-Version: 1.0';
-    $headers[] = 'Content-type: text/html; charset=UTF-8';
-    $headers[] = 'From: ' . $fromName . ' <' . $fromEmail . '>';
-    // $name and $email have had CR/LF stripped, so they can't inject headers
-    $headers[] = 'Reply-To: "' . addcslashes(mb_encode_mimeheader($name, 'UTF-8'), '"\\') . '" <' . $email . '>';
-
-    $headerStr = implode("\r\n", $headers);
-    $encodedSubject = mb_encode_mimeheader($subject, 'UTF-8');
-
-    // Try sending with return-path envelope parameter
-    $sent = @mail($to, $encodedSubject, $email_content, $headerStr, '-f' . $fromEmail);
-    if (!$sent) {
-        $sent = @mail($to, $encodedSubject, $email_content, $headerStr);
+// Count the successful send for this IP (file locked so concurrent requests don't clash)
+$fh = @fopen($rateLimitFile, 'c+');
+if ($fh && flock($fh, LOCK_EX)) {
+    $limits = read_limits($rateLimitFile);
+    if (!isset($limits[$ip])) {
+        $limits[$ip] = ['count' => 0, 'timestamp' => time()];
     }
-
-    if ($sent) {
-        $emailSent = true;
-    } else {
-        error_log('Enquiry form: mail() fallback failed.');
-    }
+    $limits[$ip]['count']++;
+    ftruncate($fh, 0);
+    rewind($fh);
+    fwrite($fh, json_encode($limits));
+    fflush($fh);
+    flock($fh, LOCK_UN);
+    fclose($fh);
 }
 
-// Handle response (server details stay in the error log, never in the reply)
-if ($emailSent) {
-    respond(200, true, 'Thank you! Your enquiry has been sent successfully. We will get back to you shortly.');
-}
-respond(500, false, 'Sorry, we could not send your enquiry right now. Please try again later or email us directly.');
+respond(200, true, 'Thank you! Your enquiry has been sent. We will get back to you within one business day.');

@@ -34,6 +34,7 @@
 <link rel="stylesheet" type="text/css" href="../css/responsive.css" />
 <link rel="stylesheet" type="text/css" href="../css/onva-standalone.css?v=3" />
 <style>body { overflow-x: hidden; }</style>
+    <link rel="stylesheet" type="text/css" href="../css/custom.css" />
 </head>
 <body>
 
@@ -143,13 +144,20 @@
 </section>
 </main>
 
-<section class="cta">
-  <div class="wrap">
-    <div class="txt">
-      <h2>Let's make it easier to use.</h2>
-      <p>Send us the screen or the flow people keep getting stuck on. We will tell you what is going wrong and what it takes to fix it.</p>
+<section class="cta-outer">
+  <div class="container">
+    <div class="cta-banner-section cta-top-space">
+      <div class="cta-card">
+        <div class="cta-content">
+          <h2>Let's make it easier to use.</h2>
+          <p>Send us the screen or the flow people keep getting stuck on. We will tell you what is going wrong and what it takes to fix it.</p>
+          <a class="ttm-btn ttm-btn-size-md ttm-btn-style-border ttm-btn-color-white" href="../contact-us.html">
+              <span>Start a Project</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+        </div>
+      </div>
     </div>
-    <a class="btn btn-ghost" href="../contact-us.html">Start a Project <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
 </section>
 
@@ -198,5 +206,6 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "UI/UX Design Services for Websites and Apps", "serviceType": "UI/UX Design Services for Websites and Apps", "url": "https://www.onva.com.au/services/ui-ux-design.html", "description": "UI/UX design services in Sydney. Onva Labs researches, wireframes, prototypes and tests interfaces to WCAG 2.2 AA, so your software actually gets used.", "areaServed": {"@type": "Country", "name": "Australia"}, "provider": {"@type": "ProfessionalService", "name": "Onva Labs", "url": "https://www.onva.com.au", "email": "info@onva.com.au", "address": {"@type": "PostalAddress", "addressLocality": "Sydney", "addressRegion": "NSW", "addressCountry": "AU"}}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is this just making our site look better?", "acceptedAnswer": {"@type": "Answer", "text": "No. Visual polish is the last part of it. Most of the work is deciding what belongs on a screen, in what order, and what happens when somebody makes a mistake. A page can be attractive and still lose customers at the third form field. We change the sequence and the wording, then test whether it helped."}}, {"@type": "Question", "name": "What does WCAG 2.2 AA mean for us?", "acceptedAnswer": {"@type": "Answer", "text": "It is the accessibility standard most Australian organisations design towards. In practice it covers readable contrast, text that resizes, every control reachable by keyboard, visible focus, and form fields with real labels. We design and check against it as part of the work. We do not claim certification, because that is assessed by an independent auditor rather than by us."}}, {"@type": "Question", "name": "How many people do you need for usability testing?", "acceptedAnswer": {"@type": "Answer", "text": "Fewer than most expect. Watching a handful of people attempt the same task usually surfaces the problems that matter, because the same stumbles repeat. We recruit people who resemble your customers, give them a task rather than a tour, and stay quiet. The value sits in where they hesitate, not in what they say afterwards."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.onva.com.au/index.html"}, {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.onva.com.au/services.html"}, {"@type": "ListItem", "position": 3, "name": "UI/UX Design", "item": "https://www.onva.com.au/services/ui-ux-design.html"}]}</script>
+    <script src="../js/cta-banner.js"></script>
 </body>
 </html>

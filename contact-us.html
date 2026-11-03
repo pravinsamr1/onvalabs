@@ -167,7 +167,12 @@
                                         <h2 class="title">Drop Us A Line</h2>
                                     </div>
                                 </div><!-- section title end -->
-                                <form id="ttm-quote-form" class="row ttm-quote-form clearfix" method="post" action="#">
+                                <form id="ttm-quote-form" class="row ttm-quote-form clearfix" method="post" action="send-enquiry.php">
+                                    <!-- Honeypot: hidden from people, bots that fill it are ignored -->
+                                    <div style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;" aria-hidden="true">
+                                        <label for="quoteWebsite">Website</label>
+                                        <input type="text" id="quoteWebsite" name="website" tabindex="-1" autocomplete="off">
+                                    </div>
                                     <div class="col-sm-6 col-md-6">
                                         <div class="form-group">
                                             <input name="name" type="text" class="form-control bg-white" placeholder="Full Name*" required="required">
@@ -185,7 +190,7 @@
                                     </div>
                                     <div class="col-sm-12 col-md-12">
                                         <div class="form-group">
-                                            <textarea name="Massage" rows="2" placeholder="Write A Massage..." required="required" class="form-control bg-white"></textarea>
+                                            <textarea name="message" rows="2" placeholder="Write A Massage..." required="required" class="form-control bg-white"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
@@ -194,6 +199,7 @@
                                                 Submit Quote
                                             </button>
                                         </div>
+                                        <div class="quote-form-status" role="status" aria-live="polite"></div>
                                     </div>
                                 </form>
                             </div>

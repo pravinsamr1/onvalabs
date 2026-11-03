@@ -60,10 +60,6 @@
             text-align: justify;
         }
 
-        .cta-banner-section p {
-            text-align: left !important;
-        }
-
         .value-card-animated {
             background: #ffffff;
             border: 1px solid #e2e8f0;
@@ -162,269 +158,10 @@
         .btn-cta-white i {
             transition: transform 0.3s ease;
         }
-
-        /* ===== CTA banner: 3D depth scene (about page only) =====
-           Layers, back to front: photo (drifts most) -> blue tint -> auto-playing light show
-           (aurora, beam, particles) -> text and button (tilt toward the pointer, button closest).
-           The light-show elements are added by the script at the end of <body>; .cta-in is set on scroll. */
-        .cta-banner-section {
-            position: relative;
-            overflow: hidden;
-            background-image: none !important;
-            perspective: 1800px;
-        }
-
-        .cta-banner-section::before {
-            content: "";
-            position: absolute;
-            inset: -40px;
-            z-index: 0;
-            pointer-events: none;
-            background: url(images/bg-image/row-bgimage-1.jpg) center / cover no-repeat;
-            transform: translate3d(var(--cta-px, 0px), var(--cta-py, 0px), 0) scale(1.05);
-            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-
-        .cta-banner-section.is-tracking::before {
-            transition: transform 0.2s ease-out;
-        }
-
-        .cta-banner-section > .ttm-bg-layer {
-            z-index: 1;
-        }
-
-        /* --- Auto-playing light show (no interaction needed) ---
-           aurora glows drifting, a light beam sweeping across every few seconds,
-           and glowing particles rising. Elements are added by the script. */
-        .cta-fx {
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-            overflow: hidden;
-            pointer-events: none;
-            transform: translate3d(calc(var(--cta-mx, 0) * -12px), calc(var(--cta-my, 0) * -8px), 0);
-            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-
-        .cta-aurora {
-            position: absolute;
-            width: 520px;
-            height: 520px;
-            border-radius: 50%;
-            filter: blur(60px);
-            mix-blend-mode: screen;
-            opacity: 0.55;
-        }
-
-        .cta-aurora.a1 {
-            left: -120px;
-            top: -260px;
-            background: radial-gradient(circle, #00d2ff 0%, transparent 65%);
-            animation: ctaAurora1 14s ease-in-out infinite alternate;
-        }
-
-        .cta-aurora.a2 {
-            right: -140px;
-            bottom: -300px;
-            background: radial-gradient(circle, #a259ff 0%, transparent 65%);
-            animation: ctaAurora2 18s ease-in-out infinite alternate;
-        }
-
-        @keyframes ctaAurora1 {
-            from { transform: translate(0, 0) scale(1); }
-            to { transform: translate(55vw, 80px) scale(1.25); }
-        }
-
-        @keyframes ctaAurora2 {
-            from { transform: translate(0, 0) scale(1.1); }
-            to { transform: translate(-50vw, -60px) scale(0.9); }
-        }
-
-        /* Diagonal light beam that sweeps across, then rests */
-        .cta-beam {
-            position: absolute;
-            top: -50%;
-            left: -30%;
-            width: 18%;
-            height: 200%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
-            transform: skewX(-24deg) translateX(0);
-            animation: ctaBeam 6s ease-in-out infinite;
-        }
-
-        @keyframes ctaBeam {
-            0% { left: -30%; }
-            35%, 100% { left: 130%; }
-        }
-
-        /* Rising particles (position, size and timing set per particle by the script) */
-        .cta-spark {
-            position: absolute;
-            bottom: -10px;
-            left: var(--x);
-            width: var(--size);
-            height: var(--size);
-            border-radius: 50%;
-            background: #ffffff;
-            box-shadow: 0 0 8px 2px rgba(140, 200, 255, 0.9);
-            opacity: 0;
-            animation: ctaSpark var(--dur) linear var(--delay) infinite;
-        }
-
-        @keyframes ctaSpark {
-            0% { transform: translate(0, 0); opacity: 0; }
-            15% { opacity: 0.9; }
-            85% { opacity: 0.6; }
-            100% { transform: translate(var(--drift), -240px); opacity: 0; }
-        }
-
-        /* --- Text and button tilt toward the pointer, in layers --- */
-        .cta-banner-section > .container {
-            z-index: 2;
-            transform-style: preserve-3d;
-            transform: rotateX(var(--cta-rx, 0deg)) rotateY(var(--cta-ry, 0deg));
-            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-
-        .cta-banner-section.is-tracking > .container {
-            transition: transform 0.15s ease-out;
-        }
-
-        .cta-banner-section .row,
-        .cta-banner-section .row > [class*="col-"] {
-            transform-style: preserve-3d;
-        }
-
-        /* Heading: a bright shimmer runs through the letters every few seconds */
-        .cta-banner-section h3 {
-            transform: translateZ(22px);
-            background: linear-gradient(110deg, #ffffff 0%, #ffffff 40%, #9fe7ff 48%, #ffffff 52%, #ffffff 100%);
-            background-size: 250% 100%;
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 6px 14px rgba(5, 12, 30, 0.45));
-            animation: ctaShimmer 4s ease-in-out infinite;
-        }
-
-        @keyframes ctaShimmer {
-            0% { background-position: 100% 0; }
-            45%, 100% { background-position: 0% 0; }
-        }
-
-        .cta-banner-section p {
-            transform: translateZ(12px);
-            text-shadow: 0 4px 12px rgba(5, 12, 30, 0.35);
-        }
-
-        /* Keycap button closest to the viewer (long selector beats the theme's !important rules) */
-        .cta-banner-section .ttm-btn.ttm-btn-style-border.ttm-btn-color-white {
-            transform: translateZ(32px);
-            border-radius: 10px;
-            box-shadow: 0 6px 0 rgba(255, 255, 255, 0.35), 0 16px 28px -8px rgba(5, 12, 30, 0.6);
-            transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease;
-        }
-
-        /* Glowing ring that pulses out from the button */
-        .cta-banner-section .ttm-btn.ttm-btn-style-border.ttm-btn-color-white::after {
-            content: "";
-            position: absolute;
-            inset: -2px;
-            border-radius: inherit;
-            border: 2px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 0 18px rgba(140, 210, 255, 0.8);
-            pointer-events: none;
-            animation: ctaPulse 2.4s ease-out infinite;
-        }
-
-        @keyframes ctaPulse {
-            0% { transform: scale(1); opacity: 0.9; }
-            100% { transform: scale(1.35, 1.7); opacity: 0; }
-        }
-
-        .cta-banner-section .ttm-btn.ttm-btn-style-border.ttm-btn-color-white:hover {
-            transform: translateZ(32px) translateY(-3px);
-            box-shadow: 0 9px 0 rgba(255, 255, 255, 0.45), 0 24px 36px -10px rgba(5, 12, 30, 0.7);
-        }
-
-        .cta-banner-section .ttm-btn.ttm-btn-style-border.ttm-btn-color-white:active {
-            transform: translateZ(32px) translateY(5px);
-            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.35), 0 6px 12px -6px rgba(5, 12, 30, 0.6);
-        }
-
-        /* --- Entrance: content rises out of the depth, light show fades in --- */
-        .cta-banner-section.cta-anim h3,
-        .cta-banner-section.cta-anim p,
-        .cta-banner-section.cta-anim .ttm-btn.ttm-btn-style-border.ttm-btn-color-white {
-            opacity: 0;
-            transition: opacity 0.8s ease, transform 1s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease;
-        }
-
-        .cta-banner-section.cta-anim h3 { transform: translateZ(-220px) translateY(30px); }
-        .cta-banner-section.cta-anim p { transform: translateZ(-220px) translateY(30px); transition-delay: 0.12s; }
-        .cta-banner-section.cta-anim .ttm-btn.ttm-btn-style-border.ttm-btn-color-white { transform: translateZ(-220px); transition-delay: 0.24s; }
-
-        .cta-banner-section.cta-anim.cta-in h3 { opacity: 1; transform: translateZ(22px); }
-        .cta-banner-section.cta-anim.cta-in p { opacity: 1; transform: translateZ(12px); }
-        .cta-banner-section.cta-anim.cta-in .ttm-btn.ttm-btn-style-border.ttm-btn-color-white { opacity: 1; transform: translateZ(32px); }
-
-        .cta-banner-section.cta-anim.cta-in .ttm-btn.ttm-btn-style-border.ttm-btn-color-white:hover {
-            transform: translateZ(32px) translateY(-3px);
-            transition-delay: 0s;
-        }
-
-        .cta-banner-section.cta-anim .cta-fx { opacity: 0; }
-        .cta-banner-section.cta-anim.cta-in .cta-fx {
-            opacity: 1;
-            transition: opacity 1.2s ease 0.3s, transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-
-        /* Text column takes all the room the button doesn't need */
-        @media (min-width: 768px) {
-            .cta-banner-section .row {
-                flex-wrap: nowrap;
-            }
-
-            .cta-banner-section .row > .col-lg-8 {
-                flex: 1 1 auto;
-                max-width: none;
-                width: auto;
-            }
-
-            .cta-banner-section .row > .col-lg-4 {
-                flex: 0 0 auto;
-                max-width: none;
-                width: auto;
-            }
-        }
-
-        @media (max-width: 767px) {
-            .cta-aurora { width: 320px; height: 320px; }
-            .cta-beam { width: 30%; }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .cta-banner-section::before,
-            .cta-banner-section > .container,
-            .cta-fx {
-                transition: none;
-            }
-
-            .cta-aurora,
-            .cta-beam,
-            .cta-spark,
-            .cta-banner-section h3,
-            .cta-banner-section .ttm-btn.ttm-btn-style-border.ttm-btn-color-white::after {
-                animation: none;
-            }
-
-            .cta-beam,
-            .cta-spark,
-            .cta-banner-section .ttm-btn.ttm-btn-style-border.ttm-btn-color-white::after {
-                display: none;
-            }
-        }
     </style>
+
+    <!-- custom styles -->
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
 </head>
 
 <body>
@@ -1008,28 +745,21 @@
             <!-- SECTION 7 END -->
 
             <!-- SECTION 9: CALL TO ACTION BANNER -->
-            <section
+            <section>
+                <div class="container">
+                    <div
                 class="first-footer ttm-bgcolor-skincolor ttm-bg ttm-bgimage-yes bg-img1 py-5 clearfix cta-banner-section">
-                <div class="ttm-row-wrapper-bg-layer ttm-bg-layer"></div>
-                <div class="container position-relative z-1">
-                    <div class="row align-items-center">
-                        <div class="col-lg-8 col-md-8 col-12 text-left">
-                            <h3 class="text-white font-weight-bold mb-2" style="font-size: 2rem; line-height: 1.3;">
-                                Let's build something together.</h3>
-                            <p class="text-white mb-0"
-                                style="opacity: 0.95; font-size: 1.05rem; text-align: left !important;">Tell us about
-                                your project and we'll come back within one business day with a clear plan.</p>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-12 text-md-right text-left mt-3 mt-md-0">
-                            <a class="ttm-btn ttm-btn-size-md ttm-btn-style-border ttm-btn-color-white"
-                                href="contact-us.html"
-                                style="display: inline-flex; align-items: center; justify-content: space-between; padding: 12px 28px; gap: 16px; white-space: nowrap;">
-                                <span>Start A Project</span>
-                                <i class="fa fa-arrow-right"
-                                    style="position: static !important; margin: 0 !important; transform: none !important;"></i>
-                            </a>
-                        </div>
+                <div class="cta-card">
+                    <div class="cta-content">
+                        <h3>Let's build something together.</h3>
+                        <p>Tell us about your project and we'll come back within one business day with a clear plan.</p>
+                        <a class="ttm-btn ttm-btn-size-md ttm-btn-style-border ttm-btn-color-white" href="contact-us.html">
+                            <span>Start A Project</span>
+                            <i class="fa fa-arrow-right"></i>
+                        </a>
                     </div>
+                </div>
+            </div>
                 </div>
             </section>
             <!-- SECTION 9 END -->
@@ -1075,71 +805,8 @@
     <script src="js/main.js"></script>
     <script src="js/components.js"></script>
 
-    <!-- CTA banner 3D scene: add the light show, reveal on scroll, parallax + tilt with the pointer -->
-    <script>
-        (function () {
-            var section = document.querySelector('.cta-banner-section');
-            if (!section) return;
-            var content = section.querySelector('.container');
-
-            // Decorative light show, inserted behind the content
-            var scene = document.createElement('div');
-            scene.className = 'cta-fx';
-            scene.setAttribute('aria-hidden', 'true');
-            var html = '<div class="cta-aurora a1"></div><div class="cta-aurora a2"></div><div class="cta-beam"></div>';
-            for (var i = 0; i < 18; i++) {
-                html += '<span class="cta-spark" style="--x:' + (Math.random() * 100).toFixed(1) + '%;' +
-                    '--size:' + (2 + Math.random() * 3).toFixed(1) + 'px;' +
-                    '--dur:' + (5 + Math.random() * 5).toFixed(1) + 's;' +
-                    '--delay:' + (-Math.random() * 10).toFixed(1) + 's;' +
-                    '--drift:' + (Math.random() * 60 - 30).toFixed(0) + 'px"></span>';
-            }
-            scene.innerHTML = html;
-            section.insertBefore(scene, content);
-
-            var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-            if ('IntersectionObserver' in window && !reduced) {
-                section.classList.add('cta-anim');
-                var io = new IntersectionObserver(function (entries) {
-                    if (entries[0].isIntersecting) {
-                        section.classList.add('cta-in');
-                        io.disconnect();
-                    }
-                }, { threshold: 0.35 });
-                io.observe(section);
-            }
-
-            if (!window.matchMedia('(pointer: fine)').matches || reduced) return;
-
-            var frame = null;
-            section.addEventListener('mousemove', function (e) {
-                if (frame) cancelAnimationFrame(frame);
-                frame = requestAnimationFrame(function () {
-                    var rect = section.getBoundingClientRect();
-                    var x = (e.clientX - rect.left) / rect.width - 0.5;  // -0.5..0.5
-                    var y = (e.clientY - rect.top) / rect.height - 0.5;
-                    section.classList.add('is-tracking');
-                    section.style.setProperty('--cta-px', (x * -50).toFixed(1) + 'px');
-                    section.style.setProperty('--cta-py', (y * -40).toFixed(1) + 'px');
-                    section.style.setProperty('--cta-mx', (x * 2).toFixed(3));
-                    section.style.setProperty('--cta-my', (y * 2).toFixed(3));
-                    content.style.setProperty('--cta-ry', (x * 6).toFixed(2) + 'deg');
-                    content.style.setProperty('--cta-rx', (y * -6).toFixed(2) + 'deg');
-                });
-            });
-
-            section.addEventListener('mouseleave', function () {
-                if (frame) cancelAnimationFrame(frame);
-                section.classList.remove('is-tracking');
-                ['--cta-px', '--cta-py', '--cta-mx', '--cta-my'].forEach(function (p) {
-                    section.style.removeProperty(p);
-                });
-                content.style.removeProperty('--cta-rx');
-                content.style.removeProperty('--cta-ry');
-            });
-        })();
-    </script>
+    <!-- CTA banner -->
+    <script src="js/cta-banner.js"></script>
 
 </body>
 
